@@ -5,7 +5,6 @@ using UnityEngine;
 public class CameraMover : MonoBehaviour {
 
     public CharacterMover target;//the target object
-    private float speedMod = 10.0f;//a speed modifier
     private Vector3 point;//the coord to the point where the camera looks at
 
     void Start() {//Set up things on the start method
