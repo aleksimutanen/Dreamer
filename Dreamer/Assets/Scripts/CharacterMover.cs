@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharacterMover : MonoBehaviour {
 
+    public Transform target;
     public Vector3 jump;
     public float jumpForce;
     public float movingSpeed;
@@ -11,9 +12,11 @@ public class CharacterMover : MonoBehaviour {
     public float inputAcceleration;
     public float groundCheckDepth;
     public float groundCheckSize;
+    public float gravity;
     public float maxFallSpeed;
     public LayerMask map;
-
+    float vert;
+    float horiz;
     Rigidbody rb;
 
     public bool onGround;
@@ -22,28 +25,34 @@ public class CharacterMover : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
     }
 
+
     private void FixedUpdate() {
-        var vert = Input.GetAxis("Vertical");
-        var horiz = Input.GetAxis("Horizontal");
-        var input = vert * Vector3.forward + horiz * Vector3.right;
-        input.Normalize();
+
+        var input = vert * transform.forward + horiz * transform.right;
+        input = Vector3.ClampMagnitude(input, 1);
+
         var flatVelocity = input * movingSpeed; // speed
         var b = rb.velocity;
         b.x = flatVelocity.x; b.z = flatVelocity.z;
 
-        //rb.AddForce(input * inputAcceleration * Time.deltaTime, ForceMode.Acceleration);
+        if(horiz > .2f || vert > .2f) {
+            rb.rotation = Quaternion.RotateTowards(rb.rotation, target.rotation, turnSpeed * Time.deltaTime);
+        } else {
 
-        if (input.magnitude > 0.2f) {
-            var newRot = Quaternion.LookRotation(input);
-            rb.MoveRotation(Quaternion.RotateTowards(rb.rotation, newRot, turnSpeed * Time.deltaTime));
-            // clamp velocity...?
         }
+                
+        //rb.AddForce(input * inputAcceleration * Time.deltaTime, ForceMode.Acceleration);
+        //if(input.magnitude > 0.2f) {
+        //    var newRot = Quaternion.LookRotation(input);
+        //    rb.MoveRotation(Quaternion.RotateTowards(rb.rotation, newRot, turnSpeed * Time.deltaTime));
+        //    // clamp velocity...?
+        //}
 
         var colliders = Physics.OverlapSphere(transform.position - Vector3.up * groundCheckDepth, groundCheckSize, map);
         onGround = colliders.Length > 0;
         if (!onGround) {
-            b += 9.81f * Vector3.down * Time.deltaTime;
-            b.y = Mathf.Max(b.y, maxFallSpeed);
+            b += gravity * Vector3.down * Time.deltaTime;
+            b.y = Mathf.Max(b.y, - maxFallSpeed);
         } else if (rb.velocity.y < 0) {
             b.y = 0f;
         }
@@ -66,6 +75,8 @@ public class CharacterMover : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space) && onGround) {
             Jump();
         }
+        vert = Input.GetAxis("Vertical");
+        horiz = Input.GetAxis("Horizontal");
     }
 
     void Jump() {
