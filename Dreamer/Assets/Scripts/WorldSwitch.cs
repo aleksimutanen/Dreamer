@@ -9,45 +9,42 @@ public class WorldSwitch : MonoBehaviour {
     public AwakeState state;
     public Light awakeLight;
     public Light nightmareLight;
-    Animator anim;
-    public AnimationClip LowToHigh;
-    public AnimationClip HighToLow;
-    bool playing;
 
+    public Camera wakeCam;
+    public Camera nmCam;
 
     void Start() {
         state = AwakeState.Wake;
-        anim = GetComponent<Animator>();
+        nmCam.gameObject.SetActive(false);
     }
 
     void Update() {
-        //var swi = Input.GetAxis("Switch");
-        //      if (swi > 0) {
 
-        //      }
         if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button1)) {
-            //SwitchWorld();
-            if (state == AwakeState.Wake) {
-                state = AwakeState.NightMare;
-                StartCoroutine(MoveLight(230f, 1.5f));
-            } else if (state == AwakeState.NightMare) {
-                state = AwakeState.Wake;
-                StartCoroutine(MoveLight(50f, 1.5f));
-            }
+            SwitchWorld();
         }
     }
 
-    //public void SwitchWorld() {
-    //    if (state == AwakeState.Wake) {
-    //        state = AwakeState.NightMare;
-    //        awakeLight.transform.rotation = Quaternion.RotateTowards(transform.rotation, new Quaternion(230, 0, 0, 0), 500000);
-    //        nightmareLight.gameObject.SetActive(true);
-    //    } else if (state == AwakeState.NightMare) {
-    //        state = AwakeState.Wake;
-    //        awakeLight.transform.rotation = Quaternion.RotateTowards(transform.rotation, new Quaternion(50, 0, 0, 0), 500);
-    //        nightmareLight.gameObject.SetActive(false);
-    //    }
-    //}
+    public void SwitchWorld() {
+        if (state == AwakeState.Wake) {
+            state = AwakeState.NightMare;
+            //awakeLight.gameObject.SetActive(false);
+            awakeLight.transform.rotation *= Quaternion.RotateTowards(transform.rotation, new Quaternion(-180, 0, 0, 0), 500);
+            nightmareLight.gameObject.SetActive(true);
+            wakeCam.gameObject.SetActive(false);
+            nmCam.gameObject.SetActive(true);
+            //StartCoroutine(MoveLight(230f, 1.5f));
+        } else if (state == AwakeState.NightMare) {
+            state = AwakeState.Wake;
+            //StartCoroutine(MoveLight(50f, 1.5f));
+            //awakeLight.gameObject.SetActive(true);
+            awakeLight.transform.rotation *= Quaternion.RotateTowards(transform.rotation, new Quaternion(-180, 0, 0, 0), 500);
+            nightmareLight.gameObject.SetActive(false);
+            nmCam.gameObject.SetActive(false);
+            wakeCam.gameObject.SetActive(true);
+        }
+        
+    }
 
     //IEnumerable MoveLight() {
     //    if (state == AwakeState.Wake) {
