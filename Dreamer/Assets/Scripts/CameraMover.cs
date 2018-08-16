@@ -15,9 +15,9 @@ public class CameraMover : MonoBehaviour {
 
     void Update() {//makes the camera rotate around "point" coords, rotating around its Y axis, 20 degrees per second times the speed modifier
 
-        var vert = Input.GetAxis("Mouse Y");
-        var horiz = Input.GetAxis("Mouse X");
-        var input = vert * Vector3.forward + horiz * Vector3.right;
+        var vert = Input.GetAxis("Mouse X");
+        var horiz = Input.GetAxis("Mouse Y");
+        var input = vert * Vector3.up + horiz * Vector3.right;
         input.Normalize();
 
         transform.RotateAround(point, input, 20 * Time.deltaTime);
