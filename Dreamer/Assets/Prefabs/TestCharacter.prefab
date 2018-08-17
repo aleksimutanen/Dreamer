@@ -134,7 +134,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1556749791757432}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36.4, y: 1.11, z: 0}
+  m_LocalPosition: {x: -240.3, y: -49.5, z: 61.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4224609547803300}
@@ -318,7 +318,7 @@ MonoBehaviour:
   turnSpeed: 200
   inputAcceleration: 0
   groundCheckDepth: -0.5
-  groundCheckSize: 0.5
+  groundCheckSize: 1
   gravity: 50
   maxFallSpeed: 100
   map:
@@ -333,7 +333,7 @@ SphereCollider:
   m_GameObject: {fileID: 1449856612623116}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 20
   m_Center: {x: 0, y: 0, z: 0}
@@ -345,7 +345,7 @@ SphereCollider:
   m_GameObject: {fileID: 1198002510090606}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
@@ -356,7 +356,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1688944069189632}
   m_Material: {fileID: 13400000, guid: 30394abf414c7074384caa0414d154b3, type: 2}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
