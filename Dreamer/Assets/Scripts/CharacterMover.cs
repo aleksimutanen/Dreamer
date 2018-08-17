@@ -35,7 +35,7 @@ public class CharacterMover : MonoBehaviour {
         var b = rb.velocity;
         b.x = flatVelocity.x; b.z = flatVelocity.z;
 
-        if(horiz > .2f || vert > .2f) {
+        if(horiz > .2f || vert > .2f||horiz < -.2f||vert < -.2f) {
             rb.rotation = Quaternion.RotateTowards(rb.rotation, target.rotation, turnSpeed * Time.deltaTime);
         } else {
 
