@@ -122,7 +122,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4267569666888406, guid: 295b79649ad1db942891831d6577c402, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 36.4
       objectReference: {fileID: 0}
     - target: {fileID: 4267569666888406, guid: 295b79649ad1db942891831d6577c402, type: 2}
       propertyPath: m_LocalPosition.y
@@ -160,16 +160,6 @@ Prefab:
     - target: {fileID: 1556749791757432, guid: 295b79649ad1db942891831d6577c402, type: 2}
       propertyPath: m_Name
       value: PlayerCharacter
-      objectReference: {fileID: 0}
-    - target: {fileID: 135813661682053164, guid: 295b79649ad1db942891831d6577c402,
-        type: 2}
-      propertyPath: m_Radius
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 135327519583891488, guid: 295b79649ad1db942891831d6577c402,
-        type: 2}
-      propertyPath: m_Radius
-      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 295b79649ad1db942891831d6577c402, type: 2}
@@ -212,6 +202,15 @@ Prefab:
     - target: {fileID: 4192283366546396, guid: 87123ff29c6416a4f80d7d1b8c6abb8b, type: 2}
       propertyPath: m_RootOrder
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1473037436449076, guid: 87123ff29c6416a4f80d7d1b8c6abb8b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23770772393637822, guid: 87123ff29c6416a4f80d7d1b8c6abb8b,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87123ff29c6416a4f80d7d1b8c6abb8b, type: 2}
@@ -268,6 +267,15 @@ Prefab:
     - target: {fileID: 1473037436449076, guid: 87123ff29c6416a4f80d7d1b8c6abb8b, type: 2}
       propertyPath: m_Name
       value: Crystal (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1473037436449076, guid: 87123ff29c6416a4f80d7d1b8c6abb8b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23770772393637822, guid: 87123ff29c6416a4f80d7d1b8c6abb8b,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87123ff29c6416a4f80d7d1b8c6abb8b, type: 2}
@@ -828,6 +836,15 @@ Prefab:
       propertyPath: m_Name
       value: Crystal (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1473037436449076, guid: 87123ff29c6416a4f80d7d1b8c6abb8b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23770772393637822, guid: 87123ff29c6416a4f80d7d1b8c6abb8b,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87123ff29c6416a4f80d7d1b8c6abb8b, type: 2}
   m_IsPrefabAsset: 0
@@ -1033,6 +1050,15 @@ Prefab:
     - target: {fileID: 1473037436449076, guid: 87123ff29c6416a4f80d7d1b8c6abb8b, type: 2}
       propertyPath: m_Name
       value: Crystal (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1473037436449076, guid: 87123ff29c6416a4f80d7d1b8c6abb8b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23770772393637822, guid: 87123ff29c6416a4f80d7d1b8c6abb8b,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87123ff29c6416a4f80d7d1b8c6abb8b, type: 2}
