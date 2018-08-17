@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33449076535770790}
   - component: {fileID: 23077697887039866}
   - component: {fileID: 65288101438472072}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Nose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4267569666888406}
   - component: {fileID: 114943303976773184}
   - component: {fileID: 54154526213216490}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: TestCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 33175370479477492}
   - component: {fileID: 23180293266767100}
   - component: {fileID: 136847608404494256}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &65288101438472072
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -229,13 +229,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   jump: {x: 0, y: 2, z: 0}
-  jumpForce: 2
-  movingSpeed: 4
-  turnSpeed: 5000
-  inputAcceleration: 300
+  jumpForce: 5
+  movingSpeed: 10
+  turnSpeed: 200
+  inputAcceleration: 0
   groundCheckDepth: -0.5
   groundCheckSize: 0.5
-  maxFallSpeed: -5
+  gravity: 10
+  maxFallSpeed: 10
   map:
     serializedVersion: 2
     m_Bits: 512
@@ -248,7 +249,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1688944069189632}
   m_Material: {fileID: 13400000, guid: 30394abf414c7074384caa0414d154b3, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
