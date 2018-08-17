@@ -6,7 +6,7 @@ public class CameraControl : MonoBehaviour {
     public Transform vertRot;
     public float camDist = 5;
 
-	void Update () {
+	void FixedUpdate () {
         transform.rotation = vertRot.rotation;
         transform.position = vertRot.position + transform.forward * -camDist;
 	}
