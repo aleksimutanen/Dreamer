@@ -161,6 +161,16 @@ Prefab:
       propertyPath: m_Name
       value: PlayerCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 135813661682053164, guid: 295b79649ad1db942891831d6577c402,
+        type: 2}
+      propertyPath: m_Radius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 135327519583891488, guid: 295b79649ad1db942891831d6577c402,
+        type: 2}
+      propertyPath: m_Radius
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 295b79649ad1db942891831d6577c402, type: 2}
   m_IsPrefabAsset: 0
@@ -907,6 +917,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 114910624038030788, guid: 4c42f083d24208246b1e66c94a7149fd,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2118923429}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c42f083d24208246b1e66c94a7149fd, type: 2}
   m_IsPrefabAsset: 0
@@ -1179,7 +1194,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 70f1ad0fd54a30d4d983f925a70f6eec, type: 2}
+  - {fileID: 2100000, guid: 03e6f000832985046b5f414b171b7737, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1225,3 +1240,8 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1641081126}
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+--- !u!4 &2118923429 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4267569666888406, guid: 295b79649ad1db942891831d6577c402,
+    type: 2}
+  m_PrefabInternal: {fileID: 33942983}
