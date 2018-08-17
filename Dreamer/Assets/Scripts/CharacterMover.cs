@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterMover : MonoBehaviour {
 
-    public Transform target;
+    public Transform horizontalRotator;
     public Vector3 jump;
     public float jumpForce;
     public float movingSpeed;
@@ -40,7 +40,7 @@ public class CharacterMover : MonoBehaviour {
 
         // If there is movement input, start to rotate camera towards players forward direction
         if(horiz > .2f || vert > .2f||horiz < -.2f||vert < -.2f) { 
-            rb.rotation = Quaternion.RotateTowards(rb.rotation, target.rotation, turnSpeed * Time.deltaTime);
+            rb.rotation = Quaternion.RotateTowards(rb.rotation, horizontalRotator.rotation, turnSpeed * Time.deltaTime);
         } 
 
         // Ground check and gravity

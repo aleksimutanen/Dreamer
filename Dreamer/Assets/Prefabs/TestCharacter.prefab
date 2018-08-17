@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724b2517ca14b6d40b7d8f315f786861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  horizontalRotator: {fileID: 0}
   jump: {x: 0, y: 2, z: 0}
   jumpForce: 5
   movingSpeed: 10
