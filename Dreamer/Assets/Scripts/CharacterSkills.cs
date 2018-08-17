@@ -7,6 +7,7 @@ public class CharacterSkills : MonoBehaviour {
     public GameObject floatPiece;
     public GameObject shield;
     CharacterMover cm;
+    bool floater;
 
     void Start() {
         cm = FindObjectOfType<CharacterMover>();
@@ -31,13 +32,20 @@ public class CharacterSkills : MonoBehaviour {
     }
 
     bool LessGravity() {
-        if (Input.GetAxis("LessGravity") > 0 && cm.onGround) {
+        //if (Input.GetAxis("LessGravity") > 0 && !cm.onGround) {
+        if (Input.GetButtonDown("Jump") && !cm.onGround) {
+            floater = true;
+        }
+        if (Input.GetButton("Jump") && !cm.onGround && floater) {
+
+            print("float");
             cm.gravity = cm.normalGravity / 2;
             floatPiece.SetActive(true);
             return true;
         } else {
             cm.gravity = cm.normalGravity;
             floatPiece.SetActive(false);
+            floater = false;
             return false;
         }
     }

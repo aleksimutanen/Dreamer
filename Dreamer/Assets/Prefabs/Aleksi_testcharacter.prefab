@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 23879941260562228}
   - component: {fileID: 65470905938037102}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 23025975734283794}
   - component: {fileID: 65214222430767336}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: FlyingCarpet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,8 +74,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4567894417099526}
   - component: {fileID: 114428663877667172}
-  - component: {fileID: 54131852179644494}
   - component: {fileID: 114594999348714460}
+  - component: {fileID: 54131852179644494}
   m_Layer: 0
   m_Name: Aleksi_testcharacter
   m_TagString: Untagged
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 23485672023452284}
   - component: {fileID: 135191539530392822}
   m_Layer: 10
-  m_Name: Sphere
+  m_Name: SleepingBuddy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 23948163439920898}
   - component: {fileID: 65084445975746840}
   m_Layer: 10
-  m_Name: Cube (1)
+  m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -560,7 +560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724b2517ca14b6d40b7d8f315f786861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  horizontalRotator: {fileID: 0}
   jump: {x: 0, y: 2, z: 0}
   jumpForce: 2.5
   movingSpeed: 10
@@ -573,7 +573,7 @@ MonoBehaviour:
   maxFallSpeed: 10
   map:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 512
   onGround: 0
 --- !u!114 &114594999348714460
 MonoBehaviour:

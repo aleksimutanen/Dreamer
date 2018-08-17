@@ -12,7 +12,7 @@ public class HorizontalRotator : MonoBehaviour {
 
 	void Update () {
         transform.position = player.position; // Move this rotator object to player position
-        yRot = Input.GetAxis("Mouse X") * horSens;
+        yRot = Input.GetAxis("CameraX") * horSens;
         transform.rotation = Quaternion.AngleAxis(yRot, Vector3.up) * transform.rotation; // Change this objects rotation same as players
 	}
 }

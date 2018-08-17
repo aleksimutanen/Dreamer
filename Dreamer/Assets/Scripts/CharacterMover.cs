@@ -13,6 +13,7 @@ public class CharacterMover : MonoBehaviour {
     public float groundCheckDepth;
     public float groundCheckSize;
     public float gravity;
+    public float normalGravity;
     public float maxFallSpeed;
     public LayerMask map;
     bool hasToJump;
@@ -22,6 +23,7 @@ public class CharacterMover : MonoBehaviour {
 
     void Start() {
         rb = GetComponent<Rigidbody>();
+        normalGravity = gravity;
     }
 
     private void FixedUpdate() {
@@ -64,7 +66,6 @@ public class CharacterMover : MonoBehaviour {
             Jump();
             hasToJump = false;
         }
-
     }
 
     // Debug sphere
@@ -75,7 +76,7 @@ public class CharacterMover : MonoBehaviour {
 
     void Update() {
         // Input reading for jump
-        if (Input.GetKeyDown(KeyCode.Space) && onGround) {
+        if (Input.GetButtonDown("Jump") /*> 0*/ && onGround) {
             hasToJump = true;
         }
 
