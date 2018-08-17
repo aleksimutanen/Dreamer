@@ -15,8 +15,7 @@ public class CharacterMover : MonoBehaviour {
     public float gravity;
     public float maxFallSpeed;
     public LayerMask map;
-    float vert;
-    float horiz;
+    bool hasToJump;
     Rigidbody rb;
 
     public bool onGround;
@@ -25,29 +24,26 @@ public class CharacterMover : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
     }
 
-
     private void FixedUpdate() {
+
+        // Input reading for movement
+        var vert = Input.GetAxis("Vertical");
+        var horiz = Input.GetAxis("Horizontal");
 
         var input = vert * transform.forward + horiz * transform.right;
         input = Vector3.ClampMagnitude(input, 1);
 
-        var flatVelocity = input * movingSpeed; // speed
+        // Speed
+        var flatVelocity = input * movingSpeed; 
         var b = rb.velocity;
         b.x = flatVelocity.x; b.z = flatVelocity.z;
 
-        if(horiz > .2f || vert > .2f||horiz < -.2f||vert < -.2f) {
+        // If there is movement input, start to rotate camera towards players forward direction
+        if(horiz > .2f || vert > .2f||horiz < -.2f||vert < -.2f) { 
             rb.rotation = Quaternion.RotateTowards(rb.rotation, target.rotation, turnSpeed * Time.deltaTime);
-        } else {
+        } 
 
-        }
-                
-        //rb.AddForce(input * inputAcceleration * Time.deltaTime, ForceMode.Acceleration);
-        //if(input.magnitude > 0.2f) {
-        //    var newRot = Quaternion.LookRotation(input);
-        //    rb.MoveRotation(Quaternion.RotateTowards(rb.rotation, newRot, turnSpeed * Time.deltaTime));
-        //    // clamp velocity...?
-        //}
-
+        // Ground check and gravity
         var colliders = Physics.OverlapSphere(transform.position - Vector3.up * groundCheckDepth, groundCheckSize, map);
         onGround = colliders.Length > 0;
         if (!onGround) {
@@ -63,22 +59,29 @@ public class CharacterMover : MonoBehaviour {
         //if (Physics.Raycast(rb.position, Vector3.down, out hit, 1f, map)) {
         //    Physics.gravity
         //}
+
+        if(hasToJump) {
+            Jump();
+            hasToJump = false;
+        }
+
     }
 
+    // Debug sphere
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position - Vector3.up * groundCheckDepth, groundCheckSize);
     }
 
     void Update() {
-
+        // Input reading for jump
         if (Input.GetKeyDown(KeyCode.Space) && onGround) {
-            Jump();
+            hasToJump = true;
         }
-        vert = Input.GetAxis("Vertical");
-        horiz = Input.GetAxis("Horizontal");
+
     }
 
+    // Player jump movement of rigidbody
     void Jump() {
         rb.AddForce(jump * jumpForce, ForceMode.Impulse);
     }
