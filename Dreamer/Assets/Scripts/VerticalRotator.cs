@@ -12,6 +12,6 @@ public class VerticalRotator : MonoBehaviour {
     void Update() {
         xRot += -Input.GetAxis("Mouse Y") * vertSens;
         xRot = Mathf.Clamp(xRot, lowerAxisClamp, upperAxisClamp);
-        transform.localRotation = Quaternion.AngleAxis(xRot, Vector3.right);
+        transform.localRotation = Quaternion.AngleAxis(xRot, Vector3.right); // 
     }
 }
