@@ -1034,6 +1034,11 @@ Prefab:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114943303976773184, guid: 295b79649ad1db942891831d6577c402,
+        type: 2}
+      propertyPath: horizontalRotator
+      value: 
+      objectReference: {fileID: 1559055981}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 295b79649ad1db942891831d6577c402, type: 2}
   m_IsPrefabAsset: 0
