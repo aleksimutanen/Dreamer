@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class VerticalRotator : MonoBehaviour {
 
-    public Transform target;
-    Quaternion maxRot;
-    public float vertSens = 5;
+    public float lowerAxisClamp; 
+    public float upperAxisClamp;
+    public float vertSens = 5; // Input sensitivity on vertical axis
     float xRot = 0;
 
     void Update() {
         xRot += -Input.GetAxis("Mouse Y") * vertSens;
-        xRot = Mathf.Clamp(xRot, 5f, 60f);
-        //transform.localRotation = Quaternion.AngleAxis(Mathf.Clamp(xRot, 10, 45), Vector3.right) * transform.localRotation;
-        transform.localRotation = Quaternion.AngleAxis(xRot, Vector3.right);
+        xRot = Mathf.Clamp(xRot, lowerAxisClamp, upperAxisClamp);
+        transform.localRotation = Quaternion.AngleAxis(xRot, Vector3.right); // 
     }
 }

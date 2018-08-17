@@ -81,7 +81,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d5fa5f59bba83c48870ea309f79ad01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  lowerAxisClamp: -25
+  upperAxisClamp: 60
   vertSens: 5
 --- !u!114 &114910624038030788
 MonoBehaviour:
@@ -94,5 +95,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d3f57b80b095445833c3f762e38200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  player: {fileID: 0}
   horSens: 5

@@ -4,18 +4,29 @@ using UnityEngine;
 using TMPro;
 
 public class GameManager : MonoBehaviour {
+
+    // Singleton related
+    public static GameManager instance;
+
     public int crystalAmount = 0;
     public TextMeshProUGUI crystalText;
 
-	// Use this for initialization
-	void Start () {
+    private void Awake() {
+        // Make a singleton instance out of (this) GameManager
+        if(instance)
+            Debug.LogError("2+ GameManagers found!");
+        instance = this;
+    }
+
+    void Start () {
 		
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    // When crystal is collected
     public void AddCrystal() {
         crystalAmount += 1;
         crystalText.text = "crystals: " + crystalAmount + "kpl"; 
