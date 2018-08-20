@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AwakeState { Wake, NightMare }
+public enum AwakeState { Dream, NightMare }
 
 public class WorldSwitch : MonoBehaviour {
 
@@ -14,19 +14,21 @@ public class WorldSwitch : MonoBehaviour {
     public Camera nmCam;
 
     void Start() {
-        state = AwakeState.Wake;
+        state = AwakeState.Dream;
         nmCam.gameObject.SetActive(false);
     }
 
     void Update() {
 
-        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button1)) {
-            SwitchWorld();
+        //if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button1)) {
+            if (Input.GetButtonDown("Switch")) {
+
+                SwitchWorld();
         }
     }
 
     public void SwitchWorld() {
-        if (state == AwakeState.Wake) {
+        if (state == AwakeState.Dream) {
             state = AwakeState.NightMare;
             //awakeLight.gameObject.SetActive(false);
             awakeLight.transform.rotation *= Quaternion.RotateTowards(transform.rotation, new Quaternion(-180, 0, 0, 0), 500);
@@ -35,7 +37,7 @@ public class WorldSwitch : MonoBehaviour {
             nmCam.gameObject.SetActive(true);
             //StartCoroutine(MoveLight(230f, 1.5f));
         } else if (state == AwakeState.NightMare) {
-            state = AwakeState.Wake;
+            state = AwakeState.Dream;
             //StartCoroutine(MoveLight(50f, 1.5f));
             //awakeLight.gameObject.SetActive(true);
             awakeLight.transform.rotation *= Quaternion.RotateTowards(transform.rotation, new Quaternion(-180, 0, 0, 0), 500);

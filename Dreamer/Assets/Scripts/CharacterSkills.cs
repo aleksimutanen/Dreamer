@@ -11,10 +11,8 @@ public class CharacterSkills : MonoBehaviour {
 
     void Start() {
         cm = FindObjectOfType<CharacterMover>();
-        //Input.GetKeyDown(KeyCode.j)
     }
 
-    // Update is called once per frame
     void Update() {
         LessGravity();
         Shield();
@@ -22,7 +20,6 @@ public class CharacterSkills : MonoBehaviour {
 
     bool Shield() {
         if (Input.GetAxis("Shield") > 0.3) {
-            print("shield");
             shield.SetActive(true);
             return true;
         } else {
@@ -32,20 +29,22 @@ public class CharacterSkills : MonoBehaviour {
     }
 
     bool LessGravity() {
-        //if (Input.GetAxis("LessGravity") > 0 && !cm.onGround) {
-        if (Input.GetButtonDown("Jump") && !cm.onGround) {
-            floater = true;
-        }
-        if (Input.GetButton("Jump") && !cm.onGround && floater) {
-
-            print("float");
+        //if (Input.GetButtonDown("Jump KB") && !cm.onGround) {
+        //    floater = true;
+        //}
+        //if (Input.GetButton("") && !cm.onGround /*&& floater*/) {
+        //    cm.gravity = cm.normalGravity / 2;
+        //    floatPiece.SetActive(true);
+        //    return true;
+        //}
+        if (Input.GetAxis("LessGravity") > 0 && !cm.onGround) {
             cm.gravity = cm.normalGravity / 2;
             floatPiece.SetActive(true);
             return true;
         } else {
             cm.gravity = cm.normalGravity;
             floatPiece.SetActive(false);
-            floater = false;
+            //floater = false;
             return false;
         }
     }
