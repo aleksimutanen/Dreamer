@@ -1039,6 +1039,25 @@ Prefab:
       propertyPath: horizontalRotator
       value: 
       objectReference: {fileID: 1559055981}
+    - target: {fileID: 1556749791757432, guid: 295b79649ad1db942891831d6577c402, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 136847608404494256, guid: 295b79649ad1db942891831d6577c402,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114943303976773184, guid: 295b79649ad1db942891831d6577c402,
+        type: 2}
+      propertyPath: groundCheckSize
+      value: 0.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 114943303976773184, guid: 295b79649ad1db942891831d6577c402,
+        type: 2}
+      propertyPath: groundCheckDepth
+      value: -0.68
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 295b79649ad1db942891831d6577c402, type: 2}
   m_IsPrefabAsset: 0
