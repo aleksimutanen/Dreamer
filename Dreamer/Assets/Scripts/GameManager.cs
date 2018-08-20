@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour {
 
     // Singleton related
     public static GameManager instance;
+    
+    float buddyPower = 0;
+    float dreamPower = 0;
 
     public int crystalAmount = 0;
     public TextMeshProUGUI crystalText;
@@ -23,7 +26,7 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	void Update () {
-		
+        
 	}
 
     // When crystal is collected
