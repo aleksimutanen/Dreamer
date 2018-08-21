@@ -6,6 +6,7 @@ public enum AwakeState { Dream, NightMare }
 
 public class WorldSwitch : MonoBehaviour {
 
+    public static WorldSwitch instance;
     public AwakeState state;
     public Light[] lights;
     public Light nightmareLight;
@@ -13,9 +14,23 @@ public class WorldSwitch : MonoBehaviour {
     public Camera dreamCam;
     public Camera nmCam;
 
+    [HideInInspector] public LayerMask map;
+    [SerializeField] LayerMask dreamSolid;
+    [SerializeField] LayerMask nightmareSolid;
+
+    CharacterMover cm;
+
+    private void Awake() {
+        if (instance)
+            Debug.LogError("2+ WorldSwitchers found!");
+        instance = this;
+    }
+
     void Start() {
+        map = dreamSolid;
         state = AwakeState.Dream;
         nmCam.gameObject.SetActive(false);
+        cm = FindObjectOfType<CharacterMover>();
     }
 
     void Update() {
@@ -29,6 +44,8 @@ public class WorldSwitch : MonoBehaviour {
     public void SwitchWorld() {
         if (state == AwakeState.Dream) {
             state = AwakeState.NightMare;
+            map = nightmareSolid;
+            cm.EnterNightmare();
             foreach(Light l in lights) {
                 l.transform.rotation *= Quaternion.RotateTowards(transform.rotation, new Quaternion(-180, 0, 0, 0), 500);
             }
@@ -37,6 +54,8 @@ public class WorldSwitch : MonoBehaviour {
             nmCam.gameObject.SetActive(true);
             //StartCoroutine(MoveLight(230f, 1.5f));
         } else if (state == AwakeState.NightMare && GameManager.instance.dreamPower >= 1) {
+            map = dreamSolid;
+            cm.EnterDream();
             GameManager.instance.ChangeDreamPower(-1f);
             state = AwakeState.Dream;
             //StartCoroutine(MoveLight(50f, 1.5f));
