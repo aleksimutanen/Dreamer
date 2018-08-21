@@ -20,12 +20,12 @@ public class GameManager : MonoBehaviour {
     public float maxBuddyPower;
     public float maxDreamPower;
 
-    float toddlerHealth;
-    float buddyPower = 0;
-    float dreamPower = 0;
+    public float toddlerHealth;
+    public float buddyPower = 0;
+    public float dreamPower = 0;
 
-    public int crystalAmount = 0;
-    public TextMeshProUGUI crystalText;
+    //public int crystalAmount = 0;
+    //public TextMeshProUGUI statusText;
 
     private void Awake() {
         // Make a singleton instance out of (this) GameManager
@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour {
         dreamPowerFill.value = dreamPower / maxDreamPower;
     }
 
+
     // When BuddyShield absorbs energy
     public void ChangeBuddyPower(float amount) {
 
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour {
         buddyPower = Mathf.Clamp(buddyPower, 0, maxBuddyPower);
         buddyPowerFill.value = buddyPower / maxBuddyPower;
     }
+
 
     // When toddler takes damage
     public void ChangeToddlerHealth(float amount) {
