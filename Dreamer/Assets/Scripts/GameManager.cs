@@ -35,21 +35,23 @@ public class GameManager : MonoBehaviour {
     }
 
     // When crystal is collected
-    public void ChangeDreamPower(int amount) {
+    public void ChangeDreamPower(float amount) {
 
         dreamPower += amount;
         dreamPower = Mathf.Clamp(dreamPower, 0, maxDreamPower);
         dreamPowerFill.value = dreamPower / maxDreamPower;
     }
 
-    public void ChangeBuddyPower(int amount) {
+    // When BuddyShield absorbs energy
+    public void ChangeBuddyPower(float amount) {
 
         buddyPower += amount;
         buddyPower = Mathf.Clamp(buddyPower, 0, maxBuddyPower);
         buddyPowerFill.value = buddyPower / maxBuddyPower;
     }
 
-    public void ChangeToddlerHealth(int amount) {
+    // When toddler takes damage
+    public void ChangeToddlerHealth(float amount) {
 
         toddlerHealth += amount;
         toddlerHealth = Mathf.Clamp(toddlerHealth, 0, maxToddlerHealth);
