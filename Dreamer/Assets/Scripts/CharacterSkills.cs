@@ -9,44 +9,72 @@ public class CharacterSkills : MonoBehaviour {
     CharacterMover cm;
     bool floater;
 
+    public bool shieldUnlocked;
+    public bool glideUnlocked;
+
     void Start() {
         cm = FindObjectOfType<CharacterMover>();
-        //Input.GetKeyDown(KeyCode.j)
     }
 
-    // Update is called once per frame
     void Update() {
-        LessGravity();
+        Glide();
         Shield();
     }
 
-    bool Shield() {
-        if (Input.GetAxis("Shield") > 0.3) {
-            print("shield");
-            shield.SetActive(true);
-            return true;
-        } else {
-            shield.SetActive(false);
-            return false;
+    //bool Shield() {
+    //    if (Input.GetAxis("Shield") > 0.3) {
+    //        shield.SetActive(true);
+    //        return true;
+    //    } else {
+    //        shield.SetActive(false);
+    //        return false;
+    //    }
+    //}
+
+    //bool LessGravity() {
+    //    //if (Input.GetButtonDown("Jump KB") && !cm.onGround) {
+    //    //    floater = true;
+    //    //}
+    //    //if (Input.GetButton("") && !cm.onGround /*&& floater*/) {
+    //    //    cm.gravity = cm.normalGravity / 2;
+    //    //    floatPiece.SetActive(true);
+    //    //    return true;
+    //    //}
+    //    if (Input.GetAxis("LessGravity") > 0 && !cm.onGround) {
+    //        cm.gravity = cm.normalGravity / 2;
+    //        floatPiece.SetActive(true);
+    //        return true;
+    //    } else {
+    //        cm.gravity = cm.normalGravity;
+    //        floatPiece.SetActive(false);
+    //        //floater = false;
+    //        return false;
+    //    }
+    //}
+
+    void Shield() {
+        if (!shieldUnlocked) return;
+        if (GameManager.instance.buddyPower > 0) {
+            if (Input.GetAxis("Shield") > 0.3) {
+                shield.SetActive(true);
+                GameManager.instance.ChangeBuddyPower(-1f * Time.deltaTime);
+            } else {
+                shield.SetActive(false);
+            }
         }
     }
 
-    bool LessGravity() {
-        //if (Input.GetAxis("LessGravity") > 0 && !cm.onGround) {
-        if (Input.GetButtonDown("Jump") && !cm.onGround) {
-            floater = true;
-        }
-        if (Input.GetButton("Jump") && !cm.onGround && floater) {
-
-            print("float");
-            cm.gravity = cm.normalGravity / 2;
-            floatPiece.SetActive(true);
-            return true;
-        } else {
-            cm.gravity = cm.normalGravity;
-            floatPiece.SetActive(false);
-            floater = false;
-            return false;
+    void Glide() {
+        if (!glideUnlocked) return;
+        if (GameManager.instance.buddyPower > 0) {
+            if (Input.GetAxis("LessGravity") > 0 && !cm.onGround) {
+                cm.gravity = cm.normalGravity / 2;
+                floatPiece.SetActive(true);
+                GameManager.instance.ChangeBuddyPower(-1f * Time.deltaTime);
+            } else {
+                cm.gravity = cm.normalGravity;
+                floatPiece.SetActive(false);
+            }
         }
     }
 }
