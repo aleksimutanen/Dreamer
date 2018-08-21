@@ -10,7 +10,7 @@ public class WorldSwitch : MonoBehaviour {
     public Light[] lights;
     public Light nightmareLight;
 
-    public Camera wakeCam;
+    public Camera dreamCam;
     public Camera nmCam;
 
     void Start() {
@@ -29,27 +29,23 @@ public class WorldSwitch : MonoBehaviour {
     public void SwitchWorld() {
         if (state == AwakeState.Dream) {
             state = AwakeState.NightMare;
-            //awakeLight.gameObject.SetActive(false);
             foreach(Light l in lights) {
                 l.transform.rotation *= Quaternion.RotateTowards(transform.rotation, new Quaternion(-180, 0, 0, 0), 500);
             }
-            //dreamLight.transform.rotation *= Quaternion.RotateTowards(transform.rotation, new Quaternion(-180, 0, 0, 0), 500);
             nightmareLight.gameObject.SetActive(true);
-            //wakeCam.gameObject.SetActive(false);
-            //nmCam.gameObject.SetActive(true);
+            dreamCam.gameObject.SetActive(false);
+            nmCam.gameObject.SetActive(true);
             //StartCoroutine(MoveLight(230f, 1.5f));
         } else if (state == AwakeState.NightMare && GameManager.instance.dreamPower >= 1) {
             GameManager.instance.ChangeDreamPower(-1f);
             state = AwakeState.Dream;
             //StartCoroutine(MoveLight(50f, 1.5f));
-            //awakeLight.gameObject.SetActive(true);
             foreach (Light l in lights) {
                 l.transform.rotation *= Quaternion.RotateTowards(transform.rotation, new Quaternion(-180, 0, 0, 0), 500);
-                //dreamLight.transform.rotation *= Quaternion.RotateTowards(transform.rotation, new Quaternion(-180, 0, 0, 0), 500);
             }
             nightmareLight.gameObject.SetActive(false);
-            //nmCam.gameObject.SetActive(false);
-            //wakeCam.gameObject.SetActive(true);
+            nmCam.gameObject.SetActive(false);
+            dreamCam.gameObject.SetActive(true);
         }
         
     }

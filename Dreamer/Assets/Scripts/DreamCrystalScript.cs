@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CrystalScript : MonoBehaviour {
+public class DreamCrystalScript : MonoBehaviour {
 
     // Crystal collection
     private void OnTriggerEnter(Collider other) {
