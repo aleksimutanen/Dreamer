@@ -51,5 +51,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a42c708d5c4cdb41855f0ef6da85f99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toddlerHealthBar: {fileID: 0}
+  toddlerHealthFill: {fileID: 0}
+  buddyPowerBar: {fileID: 0}
+  buddyPowerFill: {fileID: 0}
+  dreamPowerBar: {fileID: 0}
+  dreamPowerFill: {fileID: 0}
+  maxToddlerHealth: 100
+  maxBuddyPower: 100
+  maxDreamPower: 100
   crystalAmount: 0
   crystalText: {fileID: 0}

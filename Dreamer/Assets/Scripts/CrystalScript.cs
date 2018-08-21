@@ -6,7 +6,7 @@ public class CrystalScript : MonoBehaviour {
 
     // Crystal collection
     private void OnTriggerEnter(Collider other) {
-        GameManager.instance.AddCrystal();
+        GameManager.instance.ChangeDreamPower(1);
         gameObject.SetActive(false);
     }
 }
