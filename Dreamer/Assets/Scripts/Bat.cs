@@ -29,6 +29,26 @@ public class Bat : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+
+        for (int i = 0; i < 8; i++) {
+            RaycastHit info;
+            print(transform.position + "+ forward " + (transform.position + Vector3.forward));
+            Debug.DrawLine(transform.position, (transform.position + Vector3.forward));
+
+            print("+ up" + (transform.position + Vector3.up));
+            Debug.DrawLine(transform.position, (transform.position + Vector3.up));
+
+            Vector3 d = (Vector3.forward + Vector3.up).normalized;
+            //käännetään d-vektoria z-akselin ympäri
+            var angle = i * 45f;
+            print("angle " + angle);
+            var qq = Quaternion.AngleAxis(angle, transform.forward);
+            d = qq * d;
+            Ray r = new Ray(transform.position, d);
+            Physics.Raycast(r, out info, maxDist, obstacles);
+            print(transform.position + " " + " " + d);
+            Debug.DrawLine(transform.position, transform.position + d);
+        }
         // switch states?
         distToPlayer = Vector3.Distance(transform.position, target.position);
 
@@ -55,6 +75,7 @@ public class Bat : MonoBehaviour {
 	}
 
     void Attack() {
+
 
 
         RaycastHit hit;
@@ -88,9 +109,9 @@ public class Bat : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.layer == 10) {
-            GameManager.instance.ChangeToddlerHealth(1);
+            GameManager.instance.ChangeToddlerHealth(-1);
         }
-        
+        //TODO: lepakon osuminen kilpeen
     }
 
     private void OnDrawGizmosSelected() {
@@ -99,3 +120,5 @@ public class Bat : MonoBehaviour {
         Gizmos.DrawWireSphere(transform.position + transform.forward * hit2.distance, sphereRadius);
     }
 }
+//            Vector3 d2 = ((transform.position + Vector3.forward) + (transform.position + Vector3.right)) - transform.position;
+//Vector3 d3 = 

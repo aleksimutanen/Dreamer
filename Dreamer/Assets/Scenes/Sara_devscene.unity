@@ -1238,10 +1238,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da98a75d5f3c03147a9dd44445a1f70d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 0
   batm: 1
-  attackRadius: 10
-  sphereRadius: 1
+  attackRadius: 0
+  sphereRadius: 0
   maxDist: 2
   target: {fileID: 1550037817}
   steeringSpeed: 50
