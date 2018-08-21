@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour {
         dreamPowerFill.value = dreamPower / maxDreamPower;
     }
 
+
+    // When BuddyShield absorbs energy
     public void ChangeBuddyPower(float amount) {
 
         buddyPower += amount;
@@ -49,6 +51,8 @@ public class GameManager : MonoBehaviour {
         buddyPowerFill.value = buddyPower / maxBuddyPower;
     }
 
+
+    // When toddler takes damage
     public void ChangeToddlerHealth(float amount) {
 
         toddlerHealth += amount;
