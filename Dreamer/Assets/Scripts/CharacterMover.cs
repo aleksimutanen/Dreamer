@@ -76,7 +76,7 @@ public class CharacterMover : MonoBehaviour {
 
     void Update() {
         // Input reading for jump
-        if ((Input.GetButtonDown("Jump KB") || Input.GetButtonDown("Jump")) /*> 0*/ && onGround) {
+        if (Input.GetButtonDown("Jump") /*> 0*/ && onGround) {
             hasToJump = true;
         }
 
