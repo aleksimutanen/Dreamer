@@ -9,13 +9,11 @@ public class WorldSwitch : MonoBehaviour {
     public AwakeState state;
     public Light[] lights;
     public Light nightmareLight;
-    GameManager gm;
 
     public Camera wakeCam;
     public Camera nmCam;
 
     void Start() {
-        gm = FindObjectOfType<GameManager>();
         state = AwakeState.Dream;
         nmCam.gameObject.SetActive(false);
     }
@@ -40,8 +38,8 @@ public class WorldSwitch : MonoBehaviour {
             //wakeCam.gameObject.SetActive(false);
             //nmCam.gameObject.SetActive(true);
             //StartCoroutine(MoveLight(230f, 1.5f));
-        } else if (state == AwakeState.NightMare && gm.crystalAmount >= 1) {
-            gm.ReduceCrystal();
+        } else if (state == AwakeState.NightMare && GameManager.instance.dreamPower >= 1) {
+            GameManager.instance.ChangeDreamPower(-1f);
             state = AwakeState.Dream;
             //StartCoroutine(MoveLight(50f, 1.5f));
             //awakeLight.gameObject.SetActive(true);
