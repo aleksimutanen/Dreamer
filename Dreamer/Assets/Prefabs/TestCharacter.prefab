@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33449076535770790}
   - component: {fileID: 23077697887039866}
   - component: {fileID: 65288101438472072}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Nose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4243459410850806}
   - component: {fileID: 135813661682053164}
   - component: {fileID: 114615763778411720}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ObjectEnabler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 4803428780054550}
   - component: {fileID: 135327519583891488}
   - component: {fileID: 114710364335798792}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ObjectDisabler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 114943303976773184}
   - component: {fileID: 114241177889153204}
   - component: {fileID: 54154526213216490}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TestCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 33453844589086006}
   - component: {fileID: 23747997388267212}
   - component: {fileID: 65471051846854800}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FlyingCarpet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 33562525254288570}
   - component: {fileID: 23447550038008652}
   - component: {fileID: 65336972430684700}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 33088919699060062}
   - component: {fileID: 23992096650214926}
   - component: {fileID: 65832294684784956}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Nose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 33175370479477492}
   - component: {fileID: 23180293266767100}
   - component: {fileID: 136847608404494256}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -710,6 +710,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floatPiece: {fileID: 1618693519489100}
   shield: {fileID: 1628552855328352}
+  shieldUnlocked: 0
+  glideUnlocked: 0
 --- !u!114 &114615763778411720
 MonoBehaviour:
   m_ObjectHideFlags: 1

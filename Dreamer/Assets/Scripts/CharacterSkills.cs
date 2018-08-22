@@ -54,18 +54,20 @@ public class CharacterSkills : MonoBehaviour {
 
     void Shield() {
         if (!shieldUnlocked) return;
-        if (Input.GetAxis("Shield") > 0.3) {
-            shield.SetActive(true);
-        } else {
-            shield.SetActive(false);
-        }
+            if (Input.GetAxis("Shield") > 0.3 && GameManager.instance.buddyPower > 0) {
+                shield.SetActive(true);
+                GameManager.instance.ChangeBuddyPower(-1f * Time.deltaTime);
+            } else {
+                shield.SetActive(false);
+            }
     }
 
     void Glide() {
         if (!glideUnlocked) return;
-        if (Input.GetAxis("LessGravity") > 0 && !cm.onGround) {
+        if (Input.GetAxis("LessGravity") > 0 && !cm.onGround && GameManager.instance.buddyPower > 0) {
             cm.gravity = cm.normalGravity / 2;
             floatPiece.SetActive(true);
+            GameManager.instance.ChangeBuddyPower(-1f * Time.deltaTime);
         } else {
             cm.gravity = cm.normalGravity;
             floatPiece.SetActive(false);
