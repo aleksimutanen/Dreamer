@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CharacterMover : MonoBehaviour {
 
+    public Transform dreamCollider;
+    public Transform nightmareCollider;
+
     public Transform horizontalRotator;
     public Vector3 jump;
     public float jumpForce;
@@ -15,7 +18,7 @@ public class CharacterMover : MonoBehaviour {
     public float gravity;
     public float normalGravity;
     public float maxFallSpeed;
-    public LayerMask map;
+    
     bool hasToJump;
     Rigidbody rb;
 
@@ -46,7 +49,7 @@ public class CharacterMover : MonoBehaviour {
         } 
 
         // Ground check and gravity
-        var colliders = Physics.OverlapSphere(transform.position - Vector3.up * groundCheckDepth, groundCheckSize, map);
+        var colliders = Physics.OverlapSphere(transform.position - Vector3.up * groundCheckDepth, groundCheckSize, WorldSwitch.instance.map);
         onGround = colliders.Length > 0;
         if (!onGround) {
             b += gravity * Vector3.down * Time.deltaTime;
@@ -85,5 +88,15 @@ public class CharacterMover : MonoBehaviour {
     // Player jump movement of rigidbody
     void Jump() {
         rb.AddForce(jump * jumpForce, ForceMode.Impulse);
+    }
+
+    public void EnterDream() {
+        dreamCollider.gameObject.SetActive(true);
+        nightmareCollider.gameObject.SetActive(false);
+    }
+
+    public void EnterNightmare() {
+        nightmareCollider.gameObject.SetActive(true);
+        dreamCollider.gameObject.SetActive(false);
     }
 }
