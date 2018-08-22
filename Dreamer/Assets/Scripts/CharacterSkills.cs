@@ -17,8 +17,12 @@ public class CharacterSkills : MonoBehaviour {
     }
 
     void Update() {
-        Glide();
-        Shield();
+        if (glideUnlocked) {
+            Glide();
+        }
+        if (shieldUnlocked) {
+            Shield();
+        }
     }
 
     //bool Shield() {
@@ -52,25 +56,28 @@ public class CharacterSkills : MonoBehaviour {
     //    }
     //}
 
-    void Shield() {
-        if (!shieldUnlocked) return;
-            if (Input.GetAxis("Shield") > 0.3 && GameManager.instance.buddyPower > 0) {
-                shield.SetActive(true);
-                GameManager.instance.ChangeBuddyPower(-1f * Time.deltaTime);
-            } else {
-                shield.SetActive(false);
-            }
+    public bool Shield() {
+        if (Input.GetAxis("Shield") > 0.3 && GameManager.instance.buddyPower > 0) {
+            shield.SetActive(true);
+            GameManager.instance.ChangeBuddyPower(-1f * Time.deltaTime);
+            return true;
+        } else {
+            shield.SetActive(false);
+            return false;
+
+        }
     }
 
-    void Glide() {
-        if (!glideUnlocked) return;
+    public bool Glide() {
         if (Input.GetAxis("LessGravity") > 0 && !cm.onGround && GameManager.instance.buddyPower > 0) {
             cm.gravity = cm.normalGravity / 2;
             floatPiece.SetActive(true);
             GameManager.instance.ChangeBuddyPower(-1f * Time.deltaTime);
+            return true;
         } else {
             cm.gravity = cm.normalGravity;
             floatPiece.SetActive(false);
+            return false;
         }
     }
 }

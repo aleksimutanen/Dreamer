@@ -27,6 +27,7 @@ public class CharacterMover : MonoBehaviour {
     void Start() {
         rb = GetComponent<Rigidbody>();
         normalGravity = gravity;
+        nightmareCollider.gameObject.SetActive(false);
     }
 
     private void FixedUpdate() {
