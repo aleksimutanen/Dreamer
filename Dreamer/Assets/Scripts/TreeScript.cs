@@ -38,8 +38,8 @@ public class TreeScript : MonoBehaviour {
             } else {
                 GameManager.instance.ChangeToddlerHealth(-1f);
                 print("attacking");
+                lastAttack = Time.time;
             }
-            lastAttack = Time.time;
             //}
         }
     }

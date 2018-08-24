@@ -9,7 +9,9 @@ public class CharacterMover : MonoBehaviour {
 
     public Transform horizontalRotator;
     public Vector3 jump;
+    public Vector3 bash;
     public float jumpForce;
+    public float bashForce;
     public float movingSpeed;
     public float turnSpeed;
     public float inputAcceleration;
@@ -83,12 +85,18 @@ public class CharacterMover : MonoBehaviour {
         if (Input.GetButtonDown("Jump") /*> 0*/ && onGround) {
             hasToJump = true;
         }
-
     }
 
     // Player jump movement of rigidbody
     void Jump() {
         rb.AddForce(jump * jumpForce, ForceMode.Impulse);
+    }
+
+    public void Bash() {
+        //rb.AddForce(transform.forward * bashForce * Time.deltaTime,/*rb.position,*/ ForceMode.Impulse);
+        rb.AddForce(transform.forward * bashForce, ForceMode.Impulse);
+        //rb.position += transform.forward * 5;
+        //Vector3.MoveTowards(rb.position, bash, 50 * Time.deltaTime);
     }
 
     public void EnterDream() {
