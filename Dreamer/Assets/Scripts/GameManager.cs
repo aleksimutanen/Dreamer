@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour {
     public float toddlerHealth;
     public float buddyPower = 0;
     public float dreamPower = 0;
+    public float dreamPowMem;
 
     float lives = 3;
 
@@ -49,7 +50,7 @@ public class GameManager : MonoBehaviour {
     public void SetCheckpoint(){
         
         checkpoint = player.transform.position;
-        print(checkpoint);
+        dreamPowMem = dreamPower;
     }
 
     public void ALiveLost(){
@@ -57,7 +58,8 @@ public class GameManager : MonoBehaviour {
             lives -= 1;
             player.gameObject.SetActive(false);
             player.gameObject.transform.position = checkpoint;
-            player.gameObject.SetActive(true);
+            player.gameObject.SetActive(true);      
+            ChangeDreamPower(-(dreamPower-dreamPowMem));       
         } else {
             print("Game Over");
         }
