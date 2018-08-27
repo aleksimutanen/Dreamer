@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameManager : MonoBehaviour {
@@ -26,6 +27,12 @@ public class GameManager : MonoBehaviour {
 
     //public int crystalAmount = 0;
     //public TextMeshProUGUI statusText;
+
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            SceneManager.LoadScene(0);
+        }
+    }
 
     private void Awake() {
         // Make a singleton instance out of (this) GameManager
