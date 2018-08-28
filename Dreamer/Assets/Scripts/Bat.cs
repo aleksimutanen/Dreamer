@@ -55,10 +55,27 @@ public class Bat : MonoBehaviour {
         // TODO: other modes
 
         else if (batm == BatMode.Flying) {
-            rb.velocity = transform.forward * speed;
-            var targetPoint = transform.position + transform.right * 0.2f;
-            var targetRotation = Quaternion.LookRotation(targetPoint - transform.position, Vector3.up);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 0.5f);
+            if (RayCone(floor, maxDistToFloor, steerSpeedFloor)) {
+                vaistaa = true;
+                rb.velocity = Vector3.zero;
+            }
+
+            else if (RayCone(obstacles, maxDist, steeringSpeed)) {
+                vaistaa = true;
+                rb.velocity = transform.forward * speed;
+            }
+
+            else {
+                var targetPoint = transform.position + transform.right * 0.2f;
+                var targetRotation = Quaternion.LookRotation(targetPoint - transform.position, Vector3.up);
+                targetRotation = Quaternion.Euler(-targetRotation.eulerAngles.x, targetRotation.eulerAngles.y, -targetRotation.eulerAngles.z);
+                rb.rotation = Quaternion.RotateTowards(rb.rotation, targetRotation, Time.deltaTime * steeringSpeed);
+                //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 0.5f);
+                vaistaa = false;
+                rb.velocity = transform.forward * speed;
+            }
+
+
         }
 
     }
