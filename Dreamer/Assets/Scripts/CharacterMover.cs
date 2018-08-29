@@ -30,6 +30,7 @@ public class CharacterMover : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         normalGravity = gravity;
         nightmareCollider.gameObject.SetActive(false);
+        rb.MovePosition(GameManager.instance.gameStartPoint.position);
     }
 
     private void FixedUpdate() {

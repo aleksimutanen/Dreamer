@@ -15,7 +15,9 @@ public class GameManager : MonoBehaviour {
     public Slider buddyPowerFill;
     public Transform dreamPowerBar;
     public Slider dreamPowerFill;
-
+    public Transform gameStartPoint;
+    public Vector3 checkpoint;
+    public GameObject player;
 
     public float maxToddlerHealth;
     public float maxBuddyPower;
@@ -24,6 +26,9 @@ public class GameManager : MonoBehaviour {
     public float toddlerHealth;
     public float buddyPower = 0;
     public float dreamPower = 0;
+    public float dreamPowMem;
+
+    float lives = 3;
 
     //public int crystalAmount = 0;
     //public TextMeshProUGUI statusText;
@@ -39,6 +44,25 @@ public class GameManager : MonoBehaviour {
         if(instance)
             Debug.LogError("2+ GameManagers found!");
         instance = this;
+        checkpoint = gameStartPoint.position;
+    }
+
+    public void SetCheckpoint(){
+        
+        checkpoint = player.transform.position;
+        dreamPowMem = dreamPower;
+    }
+
+    public void ALiveLost(){
+        if(lives > 0){
+            lives -= 1;
+            player.gameObject.SetActive(false);
+            player.gameObject.transform.position = checkpoint;
+            player.gameObject.SetActive(true);      
+            ChangeDreamPower(-(dreamPower-dreamPowMem));       
+        } else {
+            print("Game Over");
+        }
     }
 
     // When crystal is collected
