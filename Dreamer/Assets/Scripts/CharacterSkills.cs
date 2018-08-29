@@ -12,6 +12,7 @@ public class CharacterSkills : MonoBehaviour {
     CharacterMover cm;
     bool floater;
     bool bashing;
+    bool charged;
 
     public bool shieldUnlocked;
     public bool glideUnlocked;
@@ -41,11 +42,6 @@ public class CharacterSkills : MonoBehaviour {
         if (shieldUnlocked) {
             Shield();
         }
-       
-    
-        //if (bashUnlocked) {
-        //    Bash();
-        //}
     }
 
     //bool LessGravity() {
@@ -98,16 +94,20 @@ public class CharacterSkills : MonoBehaviour {
         if (Input.GetButton("Bash") && Input.GetButton("Bash2") && GameManager.instance.buddyPower == 100) {
             chargeTime -= Time.deltaTime;
             print("charging");
+            if (chargeTime < 0) {
+                charged = true;
+            }
         } else {
             //chargeTime = 2f;
         }
-        if (chargeTime < 0 && !Input.GetButton("Bash") && !Input.GetButton("Bash2")) {
+        if (chargeTime < 0 && !Input.GetButton("Bash") && !Input.GetButton("Bash2") && charged) {
             //cm.Bash();
             bashCollider.SetActive(true);
             GameManager.instance.ChangeBuddyPower(-100f);
             print("bashed");
             chargeTime = 2f;
             bashing = true;
+            charged = false;
         }
     }
 }
