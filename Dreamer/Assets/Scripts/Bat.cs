@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum BatMode {Hanging, Flying, Attacking};
+public enum BatMode {Hanging, Flying, Attacking, Returning};
 //tarviiko tän olla enum?
 
 public class Bat : MonoBehaviour {
@@ -27,6 +27,10 @@ public class Bat : MonoBehaviour {
     public float maxDistToFloor = 2;
     public float steerSpeedFloor = 200f;
 
+    public GameObject explosionEffect;
+    public float blastRadius = 5f;
+    public float explosionForce = 700f;
+
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
@@ -41,10 +45,6 @@ public class Bat : MonoBehaviour {
 
         if (distToPlayer < attackRadius) {
             batm = BatMode.Attacking;
-        }
-
-        else {
-            batm = BatMode.Flying;
         }
 
         if (batm == BatMode.Attacking) {
@@ -81,6 +81,10 @@ public class Bat : MonoBehaviour {
     }
 
     void Attack() {
+
+        if (distToPlayer > attackRadius) {
+            batm = BatMode.Returning;
+        }
 
         RaycastHit hit;
 
@@ -162,15 +166,41 @@ public class Bat : MonoBehaviour {
 
     public void Explode() {
         //kun pelaaja lyö, räjähdä
+
+        Instantiate(explosionEffect, transform.position, transform.rotation);
+
+        //räjähdysanimaatio
+        //kerrotaan lähellä oleville objekteille että niidenkin pitää räjähtää
+
+        Collider[] nearbyObjects = Physics.OverlapSphere(transform.position, blastRadius);
+
+        foreach (Collider nearbyObj in nearbyObjects) {
+            Rigidbody rb = nearbyObj.GetComponent<Rigidbody>();
+            if (rb != null) {
+                rb.AddExplosionForce(explosionForce, transform.position, blastRadius);
+            }
+        }
+        //jos pelaaja lähellä, damagea pelaajaan / kilven latausta jos kilpi ylhäällä?
+
+        gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider collision) {
-        if (collision.gameObject.layer == 10) {
+        //if (collision.gameObject.layer == 10) {
+            if (collision.gameObject.name == "Shield") {
+                print("found");
+            //blocked
+
+            }
             GameManager.instance.ChangeToddlerHealth(-1);
-        }
+            batm = BatMode.Returning;
+        //}
 
         //TODO: lepakon osuminen kilpeen
     }
+
+    //kun kilvellä ammutaan
+    //Explode();
 
     private void OnDrawGizmosSelected() {
         //Gizmos.color = Color.red;
