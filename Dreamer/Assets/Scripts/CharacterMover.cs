@@ -91,6 +91,7 @@ public class CharacterMover : MonoBehaviour {
     // Player jump movement of rigidbody
     void Jump() {
         rb.AddForce(jump * jumpForce, ForceMode.Impulse);
+                Fabric.EventManager.Instance.PostEvent("Jump");
     }
 
     public void Bash() {
