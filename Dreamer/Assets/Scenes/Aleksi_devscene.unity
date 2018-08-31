@@ -38,8 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.004064391, g: 0.00022219859, b: 0.000000055964044,
-    a: 1}
+  m_IndirectSpecularColor: {r: 0.44657642, g: 0.49641156, b: 0.5748181, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -229,9 +228,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &30290557
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,9 +342,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &70388281
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,9 +456,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &72419109
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,9 +570,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1001 &86303057
 Prefab:
   m_ObjectHideFlags: 0
@@ -622,37 +609,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 16
       objectReference: {fileID: 0}
-    - target: {fileID: 114601964881264656, guid: 1f75c2355639c494888d03566439b1fd,
-        type: 2}
-      propertyPath: trigger.m_Bits
-      value: 16384
-      objectReference: {fileID: 0}
-    - target: {fileID: 136249808274145716, guid: 1f75c2355639c494888d03566439b1fd,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114289535224626394, guid: 1f75c2355639c494888d03566439b1fd,
-        type: 2}
-      propertyPath: range
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114289535224626394, guid: 1f75c2355639c494888d03566439b1fd,
-        type: 2}
-      propertyPath: inputAxisName
-      value: LaserAimX
-      objectReference: {fileID: 0}
-    - target: {fileID: 114289535224626394, guid: 1f75c2355639c494888d03566439b1fd,
-        type: 2}
-      propertyPath: sensitivity
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4816738631929992, guid: 1f75c2355639c494888d03566439b1fd, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 12.942
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114274324571297078, guid: 1f75c2355639c494888d03566439b1fd, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f75c2355639c494888d03566439b1fd, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &91723153
@@ -769,9 +726,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &113814973
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,9 +840,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &168832514
 GameObject:
   m_ObjectHideFlags: 0
@@ -1003,9 +954,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &170228856
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,9 +1068,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &220233023
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,9 +1182,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &231596990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,9 +1296,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &254908505
 GameObject:
   m_ObjectHideFlags: 0
@@ -1471,9 +1410,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &255440405 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: ac74f471fceef864ead42473ee551ad0,
@@ -1618,9 +1554,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &306410098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1735,9 +1668,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!224 &308985804 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224937036579402396, guid: 2ec306df3d73c2144a783e1d33c9da91,
@@ -1857,9 +1787,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &325477916
 GameObject:
   m_ObjectHideFlags: 0
@@ -1974,9 +1901,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &338373317
 GameObject:
   m_ObjectHideFlags: 0
@@ -2091,9 +2015,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &345696493
 GameObject:
   m_ObjectHideFlags: 0
@@ -2208,9 +2129,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &374146751
 GameObject:
   m_ObjectHideFlags: 0
@@ -2325,9 +2243,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &374267393
 GameObject:
   m_ObjectHideFlags: 0
@@ -2442,9 +2357,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &403525483
 GameObject:
   m_ObjectHideFlags: 0
@@ -2559,9 +2471,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &410668652
 GameObject:
   m_ObjectHideFlags: 0
@@ -2676,9 +2585,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &415808671
 GameObject:
   m_ObjectHideFlags: 0
@@ -2793,9 +2699,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &441693927
 GameObject:
   m_ObjectHideFlags: 0
@@ -2910,9 +2813,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &452892649
 GameObject:
   m_ObjectHideFlags: 0
@@ -3027,9 +2927,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &484957302
 GameObject:
   m_ObjectHideFlags: 0
@@ -3144,9 +3041,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &501979940
 GameObject:
   m_ObjectHideFlags: 0
@@ -3261,9 +3155,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &547057668
 GameObject:
   m_ObjectHideFlags: 0
@@ -3378,9 +3269,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &548346673
 GameObject:
   m_ObjectHideFlags: 0
@@ -3495,9 +3383,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &550637093
 GameObject:
   m_ObjectHideFlags: 0
@@ -3612,9 +3497,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &602658590
 GameObject:
   m_ObjectHideFlags: 0
@@ -3729,9 +3611,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!108 &604356002 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 108063698253282092, guid: 6f1b10735e116304d9f141500288b542,
@@ -3851,9 +3730,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &613256206
 GameObject:
   m_ObjectHideFlags: 0
@@ -3968,9 +3844,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &613789501
 GameObject:
   m_ObjectHideFlags: 0
@@ -4085,9 +3958,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &625746325
 GameObject:
   m_ObjectHideFlags: 0
@@ -4202,9 +4072,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &637819798
 GameObject:
   m_ObjectHideFlags: 0
@@ -4319,9 +4186,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!20 &651005018 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 20543854474801290, guid: cca6428b7de429645a9d6010abf2da33,
@@ -4441,9 +4305,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &665854655
 GameObject:
   m_ObjectHideFlags: 0
@@ -4558,9 +4419,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &704112506
 GameObject:
   m_ObjectHideFlags: 0
@@ -4675,9 +4533,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &710080277
 GameObject:
   m_ObjectHideFlags: 0
@@ -4792,9 +4647,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1001 &779181401
 Prefab:
   m_ObjectHideFlags: 0
@@ -4834,57 +4686,20 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 114565466593092438, guid: cca6428b7de429645a9d6010abf2da33,
-        type: 2}
-      propertyPath: vertRot
-      value: 
-      objectReference: {fileID: 1682992991}
     - target: {fileID: 114698882109982790, guid: cca6428b7de429645a9d6010abf2da33,
         type: 2}
       propertyPath: vertRot
       value: 
       objectReference: {fileID: 1682992991}
-    - target: {fileID: 4808622797157080, guid: cca6428b7de429645a9d6010abf2da33, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 155.71901
-      objectReference: {fileID: 0}
-    - target: {fileID: 1464129700898440, guid: cca6428b7de429645a9d6010abf2da33, type: 2}
-      propertyPath: m_IsActive
+    - target: {fileID: 114565466593092438, guid: cca6428b7de429645a9d6010abf2da33,
+        type: 2}
+      propertyPath: vertRot
+      value: 
+      objectReference: {fileID: 1682992991}
+    - target: {fileID: 20543854474801290, guid: cca6428b7de429645a9d6010abf2da33,
+        type: 2}
+      propertyPath: m_AllowDynamicResolution
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 20543854474801290, guid: cca6428b7de429645a9d6010abf2da33,
-        type: 2}
-      propertyPath: field of view
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 4145687530305980, guid: cca6428b7de429645a9d6010abf2da33, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 161
-      objectReference: {fileID: 0}
-    - target: {fileID: 4145687530305980, guid: cca6428b7de429645a9d6010abf2da33, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 97
-      objectReference: {fileID: 0}
-    - target: {fileID: 4145687530305980, guid: cca6428b7de429645a9d6010abf2da33, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 20543854474801290, guid: cca6428b7de429645a9d6010abf2da33,
-        type: 2}
-      propertyPath: m_OcclusionCulling
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925322672972038, guid: cca6428b7de429645a9d6010abf2da33, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925322672972038, guid: cca6428b7de429645a9d6010abf2da33, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 97
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925322672972038, guid: cca6428b7de429645a9d6010abf2da33, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 161
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cca6428b7de429645a9d6010abf2da33, type: 2}
@@ -5101,9 +4916,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &844194925
 GameObject:
   m_ObjectHideFlags: 0
@@ -5218,9 +5030,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1001 &845724441
 Prefab:
   m_ObjectHideFlags: 0
@@ -5260,6 +5069,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 95762519426937602, guid: 532f122a5a60ad94abb6213287c64682,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9df7d7704474127418bcc84b25af629a, type: 2}
     - target: {fileID: 114346156464728672, guid: 532f122a5a60ad94abb6213287c64682,
         type: 2}
       propertyPath: lights.Array.data[0]
@@ -5285,16 +5099,6 @@ Prefab:
       propertyPath: nmCam
       value: 
       objectReference: {fileID: 1015390104}
-    - target: {fileID: 95762519426937602, guid: 532f122a5a60ad94abb6213287c64682,
-        type: 2}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 9df7d7704474127418bcc84b25af629a, type: 2}
-    - target: {fileID: 114346156464728672, guid: 532f122a5a60ad94abb6213287c64682,
-        type: 2}
-      propertyPath: transitionSpeed
-      value: 119
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 532f122a5a60ad94abb6213287c64682, type: 2}
   m_IsPrefabAsset: 0
@@ -5412,9 +5216,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!114 &893541528 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114553467108138108, guid: 2ec306df3d73c2144a783e1d33c9da91,
@@ -5535,9 +5336,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &897447646 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1700655606221912, guid: 1f75c2355639c494888d03566439b1fd,
@@ -5674,9 +5472,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &948950566
 GameObject:
   m_ObjectHideFlags: 0
@@ -5791,31 +5586,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
---- !u!1 &953071500 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1700655606221912, guid: 1f75c2355639c494888d03566439b1fd,
-    type: 2}
-  m_PrefabInternal: {fileID: 86303057}
---- !u!114 &953071502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 953071500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cd0760199f5b6342b10f23c9075310e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputAxisName: LaserAimY
-  lowerAxisClamp: -25
-  upperAxisClamp: 25
-  vertSens: 0.5
-  range: 5
-  active: 0
 --- !u!1 &966600615
 GameObject:
   m_ObjectHideFlags: 0
@@ -5930,9 +5700,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &975515728
 GameObject:
   m_ObjectHideFlags: 0
@@ -6047,9 +5814,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &976835296
 GameObject:
   m_ObjectHideFlags: 0
@@ -6164,9 +5928,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &977532882
 GameObject:
   m_ObjectHideFlags: 0
@@ -6281,9 +6042,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &985782488
 GameObject:
   m_ObjectHideFlags: 0
@@ -6504,9 +6262,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1032134422
 GameObject:
   m_ObjectHideFlags: 0
@@ -6621,9 +6376,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1033577857
 GameObject:
   m_ObjectHideFlags: 0
@@ -6738,9 +6490,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1037490861
 GameObject:
   m_ObjectHideFlags: 0
@@ -6940,9 +6689,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1048468221
 GameObject:
   m_ObjectHideFlags: 0
@@ -7057,9 +6803,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1059744980
 GameObject:
   m_ObjectHideFlags: 0
@@ -7174,9 +6917,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1001 &1077819667
 Prefab:
   m_ObjectHideFlags: 0
@@ -7219,6 +6959,178 @@ Prefab:
     - target: {fileID: 1674897083571052, guid: 6f1b10735e116304d9f141500288b542, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 108063698253282092, guid: 6f1b10735e116304d9f141500288b542,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 108196402068101462, guid: 6f1b10735e116304d9f141500288b542,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 108036103999128794, guid: 6f1b10735e116304d9f141500288b542,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 108196402068101462, guid: 6f1b10735e116304d9f141500288b542,
+        type: 2}
+      propertyPath: m_DrawHalo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 108036103999128794, guid: 6f1b10735e116304d9f141500288b542,
+        type: 2}
+      propertyPath: m_DrawHalo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 108063698253282092, guid: 6f1b10735e116304d9f141500288b542,
+        type: 2}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966364052442590, guid: 6f1b10735e116304d9f141500288b542, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966364052442590, guid: 6f1b10735e116304d9f141500288b542, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966364052442590, guid: 6f1b10735e116304d9f141500288b542, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966364052442590, guid: 6f1b10735e116304d9f141500288b542, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966364052442590, guid: 6f1b10735e116304d9f141500288b542, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -32.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966364052442590, guid: 6f1b10735e116304d9f141500288b542, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 111.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966364052442590, guid: 6f1b10735e116304d9f141500288b542, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 85.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966364052442590, guid: 6f1b10735e116304d9f141500288b542, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966364052442590, guid: 6f1b10735e116304d9f141500288b542, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966364052442590, guid: 6f1b10735e116304d9f141500288b542, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 108063698253282092, guid: 6f1b10735e116304d9f141500288b542,
+        type: 2}
+      propertyPath: m_AreaSize.x
+      value: 89.92224
+      objectReference: {fileID: 0}
+    - target: {fileID: 108063698253282092, guid: 6f1b10735e116304d9f141500288b542,
+        type: 2}
+      propertyPath: m_AreaSize.y
+      value: 93.93267
+      objectReference: {fileID: 0}
+    - target: {fileID: 108063698253282092, guid: 6f1b10735e116304d9f141500288b542,
+        type: 2}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966364052442590, guid: 6f1b10735e116304d9f141500288b542, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966364052442590, guid: 6f1b10735e116304d9f141500288b542, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 108196402068101462, guid: 6f1b10735e116304d9f141500288b542,
+        type: 2}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108036103999128794, guid: 6f1b10735e116304d9f141500288b542,
+        type: 2}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108196402068101462, guid: 6f1b10735e116304d9f141500288b542,
+        type: 2}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108036103999128794, guid: 6f1b10735e116304d9f141500288b542,
+        type: 2}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4600245396534478, guid: 6f1b10735e116304d9f141500288b542, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.42261827
+      objectReference: {fileID: 0}
+    - target: {fileID: 4600245396534478, guid: 6f1b10735e116304d9f141500288b542, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4600245396534478, guid: 6f1b10735e116304d9f141500288b542, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4600245396534478, guid: 6f1b10735e116304d9f141500288b542, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.9063079
+      objectReference: {fileID: 0}
+    - target: {fileID: 4600245396534478, guid: 6f1b10735e116304d9f141500288b542, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4600245396534478, guid: 6f1b10735e116304d9f141500288b542, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4600245396534478, guid: 6f1b10735e116304d9f141500288b542, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 39.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 108036103999128794, guid: 6f1b10735e116304d9f141500288b542,
+        type: 2}
+      propertyPath: m_AreaSize.x
+      value: 56.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 108036103999128794, guid: 6f1b10735e116304d9f141500288b542,
+        type: 2}
+      propertyPath: m_AreaSize.y
+      value: 53.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 4600245396534478, guid: 6f1b10735e116304d9f141500288b542, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 121.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4600245396534478, guid: 6f1b10735e116304d9f141500288b542, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -57.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 108036103999128794, guid: 6f1b10735e116304d9f141500288b542,
+        type: 2}
+      propertyPath: m_Shadows.m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1101191929538822, guid: 6f1b10735e116304d9f141500288b542, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1322537056231728, guid: 6f1b10735e116304d9f141500288b542, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f1b10735e116304d9f141500288b542, type: 2}
@@ -7337,9 +7249,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1087089643
 GameObject:
   m_ObjectHideFlags: 0
@@ -7454,9 +7363,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!108 &1088071436 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 108196402068101462, guid: 6f1b10735e116304d9f141500288b542,
@@ -7581,9 +7487,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1199878761
 GameObject:
   m_ObjectHideFlags: 0
@@ -7698,9 +7601,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1230949327
 GameObject:
   m_ObjectHideFlags: 0
@@ -7815,9 +7715,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1320371921
 GameObject:
   m_ObjectHideFlags: 0
@@ -7932,9 +7829,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1334718203
 GameObject:
   m_ObjectHideFlags: 0
@@ -8136,9 +8030,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1362636815
 GameObject:
   m_ObjectHideFlags: 0
@@ -8253,9 +8144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1369802942
 GameObject:
   m_ObjectHideFlags: 0
@@ -8370,9 +8258,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!108 &1387346455 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 108036103999128794, guid: 6f1b10735e116304d9f141500288b542,
@@ -8492,9 +8377,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1486162637
 GameObject:
   m_ObjectHideFlags: 0
@@ -8609,9 +8491,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1489156728
 GameObject:
   m_ObjectHideFlags: 0
@@ -8811,9 +8690,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1566338338
 GameObject:
   m_ObjectHideFlags: 0
@@ -8928,9 +8804,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1578975994
 GameObject:
   m_ObjectHideFlags: 0
@@ -9045,9 +8918,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1608590795
 GameObject:
   m_ObjectHideFlags: 0
@@ -9162,9 +9032,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1621485000
 GameObject:
   m_ObjectHideFlags: 0
@@ -9364,9 +9231,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1001 &1673739808
 Prefab:
   m_ObjectHideFlags: 0
@@ -9528,9 +9392,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1680763684
 GameObject:
   m_ObjectHideFlags: 0
@@ -9645,9 +9506,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!4 &1682992991 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4258938748199582, guid: 4c42f083d24208246b1e66c94a7149fd,
@@ -9726,7 +9584,7 @@ Prefab:
       value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 114274324571297078, guid: 1f75c2355639c494888d03566439b1fd, type: 2}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 1f75c2355639c494888d03566439b1fd, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1687122787
@@ -9843,9 +9701,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1690283171
 GameObject:
   m_ObjectHideFlags: 0
@@ -9960,9 +9815,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!114 &1717338476 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114695687156720684, guid: 2ec306df3d73c2144a783e1d33c9da91,
@@ -9992,6 +9844,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   target: 0
+--- !u!64 &1726049926
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1726049921}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: cb437afbcc12c3a4b85df1d83fe78a7c, type: 3}
 --- !u!1 &1736742278
 GameObject:
   m_ObjectHideFlags: 0
@@ -10106,9 +9972,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1744809627
 GameObject:
   m_ObjectHideFlags: 0
@@ -10223,9 +10086,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1750724783
 GameObject:
   m_ObjectHideFlags: 0
@@ -10340,9 +10200,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1758971089
 GameObject:
   m_ObjectHideFlags: 0
@@ -10457,9 +10314,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1772622462
 GameObject:
   m_ObjectHideFlags: 0
@@ -10574,9 +10428,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1781489142
 GameObject:
   m_ObjectHideFlags: 0
@@ -10691,9 +10542,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1001 &1811154484
 Prefab:
   m_ObjectHideFlags: 0
@@ -10923,9 +10771,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1823813681
 GameObject:
   m_ObjectHideFlags: 0
@@ -11040,9 +10885,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1824351741
 GameObject:
   m_ObjectHideFlags: 0
@@ -11157,9 +10999,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!224 &1865727335 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224110120415551860, guid: 2ec306df3d73c2144a783e1d33c9da91,
@@ -11279,9 +11118,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1884935770
 GameObject:
   m_ObjectHideFlags: 0
@@ -11396,9 +11232,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1897108909
 GameObject:
   m_ObjectHideFlags: 0
@@ -11513,9 +11346,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1914524455 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1198506919852070, guid: ca1b843419f2207428cd9524aee6150f,
@@ -11635,9 +11465,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1001 &1924793467
 Prefab:
   m_ObjectHideFlags: 0
@@ -11691,7 +11518,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: cb437afbcc12c3a4b85df1d83fe78a7c, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb437afbcc12c3a4b85df1d83fe78a7c, type: 3}
@@ -11810,9 +11637,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &2036648138
 GameObject:
   m_ObjectHideFlags: 0
@@ -11927,9 +11751,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1001 &2038011307
 Prefab:
   m_ObjectHideFlags: 0
@@ -11939,15 +11760,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4567894417099526, guid: ca1b843419f2207428cd9524aee6150f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -197.2
+      value: -197.20009
       objectReference: {fileID: 0}
     - target: {fileID: 4567894417099526, guid: ca1b843419f2207428cd9524aee6150f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -73.2
+      value: -77.497
       objectReference: {fileID: 0}
     - target: {fileID: 4567894417099526, guid: ca1b843419f2207428cd9524aee6150f, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.00029069616
       objectReference: {fileID: 0}
     - target: {fileID: 4567894417099526, guid: ca1b843419f2207428cd9524aee6150f, type: 2}
       propertyPath: m_LocalRotation.x
@@ -11959,7 +11780,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4567894417099526, guid: ca1b843419f2207428cd9524aee6150f, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.000000007450581
       objectReference: {fileID: 0}
     - target: {fileID: 4567894417099526, guid: ca1b843419f2207428cd9524aee6150f, type: 2}
       propertyPath: m_LocalRotation.w
@@ -11974,48 +11795,25 @@ Prefab:
       propertyPath: horizontalRotator
       value: 
       objectReference: {fileID: 275992624}
-    - target: {fileID: 1198506919852070, guid: ca1b843419f2207428cd9524aee6150f, type: 2}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 23059901304545436, guid: ca1b843419f2207428cd9524aee6150f,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114594999348714460, guid: ca1b843419f2207428cd9524aee6150f,
         type: 2}
-      propertyPath: bashCollider
-      value: 
-      objectReference: {fileID: 1914524455}
+      propertyPath: shieldDuration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114594999348714460, guid: ca1b843419f2207428cd9524aee6150f,
         type: 2}
-      propertyPath: activeTime
-      value: 0.2
+      propertyPath: powerSphereRadius
+      value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 1198506919852070, guid: ca1b843419f2207428cd9524aee6150f, type: 2}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 65470905938037102, guid: ca1b843419f2207428cd9524aee6150f,
+    - target: {fileID: 114594999348714460, guid: ca1b843419f2207428cd9524aee6150f,
         type: 2}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 65470905938037102, guid: ca1b843419f2207428cd9524aee6150f,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 1.6512091
-      objectReference: {fileID: 0}
-    - target: {fileID: 65470905938037102, guid: ca1b843419f2207428cd9524aee6150f,
-        type: 2}
-      propertyPath: m_Center.x
-      value: 0.050598085
-      objectReference: {fileID: 0}
-    - target: {fileID: 65470905938037102, guid: ca1b843419f2207428cd9524aee6150f,
-        type: 2}
-      propertyPath: m_Size.z
-      value: 12.678711
-      objectReference: {fileID: 0}
-    - target: {fileID: 65470905938037102, guid: ca1b843419f2207428cd9524aee6150f,
-        type: 2}
-      propertyPath: m_Center.z
-      value: -4.633405
+      propertyPath: enemy.m_Bits
+      value: 4096
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca1b843419f2207428cd9524aee6150f, type: 2}
@@ -12134,9 +11932,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1001 &2056317393
 Prefab:
   m_ObjectHideFlags: 0
@@ -12313,9 +12108,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &2088816462
 GameObject:
   m_ObjectHideFlags: 0
@@ -12325,7 +12117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2088816463}
   m_Layer: 9
-  m_Name: GameObject
+  m_Name: TestWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12559,9 +12351,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &2105433534
 GameObject:
   m_ObjectHideFlags: 0
@@ -12676,9 +12465,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &2121178616
 GameObject:
   m_ObjectHideFlags: 0
@@ -12793,9 +12579,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &2142182561
 GameObject:
   m_ObjectHideFlags: 0
@@ -12910,6 +12693,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bash: {fileID: 1914524455}
-  breakableWall:
-    serializedVersion: 2
-    m_Bits: 0

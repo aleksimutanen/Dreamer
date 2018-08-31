@@ -40,13 +40,14 @@ GameObject:
   - component: {fileID: 33821660510061974}
   - component: {fileID: 23879941260562228}
   - component: {fileID: 65470905938037102}
-  m_Layer: 5
+  - component: {fileID: 114795105149159536}
+  m_Layer: 9
   m_Name: BashCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1259686885497578
 GameObject:
   m_ObjectHideFlags: 1
@@ -271,8 +272,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1566790346152754}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -197.2, y: -73.2, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.000000007450581, w: 1}
+  m_LocalPosition: {x: -197.20009, y: -77.497, z: 0.00029069616}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4716856688219100}
@@ -681,8 +682,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.2134881, z: 9.752354}
-  m_Center: {x: 0, y: 0.16417062, z: -4.3761764}
+  m_Size: {x: 1.6512091, y: 1.2134881, z: 12.678711}
+  m_Center: {x: 0.050598085, y: 0.16417062, z: -4.633405}
 --- !u!65 &65935845679076234
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -711,14 +712,14 @@ MonoBehaviour:
   horizontalRotator: {fileID: 0}
   jump: {x: 0, y: 2, z: 0}
   bash: {x: 0, y: 0, z: 2}
-  jumpForce: 7
+  jumpForce: 8
   bashForce: 150
   movingSpeed: 10
   turnSpeed: 200
   inputAcceleration: 0
-  groundCheckDepth: -0.29
-  groundCheckSize: 0.32
-  gravity: 20
+  groundCheckDepth: -0.11
+  groundCheckSize: 0.14
+  gravity: 30
   normalGravity: 10
   maxFallSpeed: 20
   onGround: 0
@@ -733,13 +734,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89cecb09978456f4ea45cb8c9c3c4d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeTime: 0.1
+  activeTime: 0.2
   chargeTime: 2
   floatPiece: {fileID: 1326489649066644}
   shield: {fileID: 1259686885497578}
+  bashCollider: {fileID: 1198506919852070}
   shieldUnlocked: 1
   glideUnlocked: 1
   bashUnlocked: 1
+--- !u!114 &114795105149159536
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1198506919852070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ccefb7b053499640a8d737a5651b3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bash: {fileID: 0}
 --- !u!135 &135191539530392822
 SphereCollider:
   m_ObjectHideFlags: 1

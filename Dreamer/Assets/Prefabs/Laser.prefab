@@ -134,7 +134,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4705518458757092}
-  - component: {fileID: 114274324571297078}
+  - component: {fileID: 114497467753779738}
   m_Layer: 0
   m_Name: Ver
   m_TagString: Untagged
@@ -294,14 +294,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1079807134804538}
-  m_LocalRotation: {x: -0, y: 0.5389669, z: -0, w: 0.84232694}
-  m_LocalPosition: {x: -190.69012, y: -75.48, z: 0.56000257}
+  m_LocalRotation: {x: -0, y: 0.11270387, z: -0, w: 0.9936286}
+  m_LocalPosition: {x: -197.03, y: -75.48, z: 14.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4414728318665698}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 12.942, z: 0}
 --- !u!4 &4975242740756282
 Transform:
   m_ObjectHideFlags: 1
@@ -495,20 +495,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114274324571297078
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1700655606221912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d5fa5f59bba83c48870ea309f79ad01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lowerAxisClamp: -25
-  upperAxisClamp: 25
-  vertSens: 1
 --- !u!114 &114289535224626394
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -522,9 +508,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lowerAxisClamp: -15
   upperAxisClamp: 15
-  sensitivity: 1
-  inputAxisName: CameraX
-  axis: {x: 0, y: 1, z: 0}
+  sensitivity: 0.5
+  range: 5
+  inputAxisName: LaserAimX
+  active: 0
+--- !u!114 &114497467753779738
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1700655606221912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd0760199f5b6342b10f23c9075310e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputAxisName: LaserAimY
+  lowerAxisClamp: -25
+  upperAxisClamp: 25
+  vertSens: 0.5
+  range: 5
+  active: 0
 --- !u!114 &114601964881264656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -538,7 +542,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beamStart: {fileID: 4656125345194760}
   beam: {fileID: 4619972482893136}
-  beam2: {fileID: 0}
+  trigger:
+    serializedVersion: 2
+    m_Bits: 16384
   hit: 0
 --- !u!135 &135554531651996242
 SphereCollider:

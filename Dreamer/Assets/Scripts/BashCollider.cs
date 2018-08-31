@@ -6,7 +6,7 @@ public class BashCollider : MonoBehaviour {
 
     public GameObject bash;
     bool hit;
-    float activeTime = 2f;
+    float activeTime = 5f;
     Rigidbody rb;
 
     private void Start() {
@@ -23,15 +23,10 @@ public class BashCollider : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision collision) {
-        print("hit collider");
-        //if (collision.gameObject.layer == breakableWall) {
-        //var b = collision.gameObject.GetComponent<Rigidbody>();
         if (collision.collider.gameObject == bash) {
             rb.isKinematic = false;
-            print("hit");
             hit = true;
         }
-        //}
     }
 
     //void OnTriggerEnter(Collider other) {
