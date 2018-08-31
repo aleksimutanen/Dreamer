@@ -160,6 +160,10 @@ public class Bat : MonoBehaviour {
         return false;
     }
 
+    public void Explode() {
+        //kun pelaaja lyö, räjähdä
+    }
+
     private void OnTriggerEnter(Collider collision) {
         if (collision.gameObject.layer == 10) {
             GameManager.instance.ChangeToddlerHealth(-1);
