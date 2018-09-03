@@ -22,6 +22,7 @@ public class CharacterSkills : MonoBehaviour {
     public float shieldInterval;
     public float shieldDuration;
     public float powerSphereRadius;
+    public float powerSphereDamage;
 
     public bool shieldUnlocked;
     public bool glideUnlocked;
@@ -84,6 +85,9 @@ public class CharacterSkills : MonoBehaviour {
         bool hit = powerSphere.Length > 0;
         if (Input.GetButtonDown("Action") && hit) {
             print("hit an enemy");
+            foreach(Collider enemy in powerSphere) {
+                enemy.gameObject.GetComponent<Enemy>().TakeDamage(powerSphereDamage);
+            }
             //dosomething
         }
     }

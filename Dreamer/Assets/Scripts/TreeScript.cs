@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TreeScript : MonoBehaviour {
+public class TreeScript : MonoBehaviour, Enemy {
 
+    public float health;
     public float groundCheckDepth;
     public float groundCheckSize;
 
@@ -46,5 +47,13 @@ public class TreeScript : MonoBehaviour {
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position - Vector3.up * groundCheckDepth, groundCheckSize);
+    }
+
+    public void TakeDamage(float damage) {
+        if (health <= 0) return;
+        health -= damage;
+        if (health <= 0) {
+            gameObject.SetActive(false);
+        }
     }
 }
