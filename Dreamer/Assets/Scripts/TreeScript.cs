@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TreeScript : MonoBehaviour {
+public class TreeScript : MonoBehaviour, Enemy {
 
+    public float health;
     public float groundCheckDepth;
     public float groundCheckSize;
 
@@ -28,10 +29,10 @@ public class TreeScript : MonoBehaviour {
     }
 
     public void Attack() {
-        //if (other.gameObject.name == "NightmareCollider") {
         if (Time.time > attackInterval + lastAttack) {
             var b = cs.Shield();
             if (b) {
+                GameManager.instance.ChangeBuddyPower(+5);
                 lastAttack = Time.time;
                 print("not");
                 return;
@@ -40,12 +41,19 @@ public class TreeScript : MonoBehaviour {
                 print("attacking");
                 lastAttack = Time.time;
             }
-            //}
         }
     }
 
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position - Vector3.up * groundCheckDepth, groundCheckSize);
+    }
+
+    public void TakeDamage(float damage) {
+        if (health <= 0) return;
+        health -= damage;
+        if (health <= 0) {
+            gameObject.SetActive(false);
+        }
     }
 }

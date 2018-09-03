@@ -6,21 +6,34 @@ public class CharacterSkills : MonoBehaviour {
 
     public float activeTime;
     public float chargeTime;
+
     public GameObject floatPiece;
     public GameObject shield;
     public GameObject bashCollider;
+
     CharacterMover cm;
+
     bool floater;
     bool bashing;
     bool charged;
+    bool active;
+
+    public float lastShield;
+    public float shieldInterval;
+    public float shieldDuration;
+    public float powerSphereRadius;
+    public float powerSphereDamage;
 
     public bool shieldUnlocked;
     public bool glideUnlocked;
     public bool bashUnlocked;
 
+    public LayerMask enemy;
+
     void Start() {
         cm = FindObjectOfType<CharacterMover>();
     }
+
     private void FixedUpdate() {
         if (bashUnlocked) {
             Bash();
@@ -31,8 +44,10 @@ public class CharacterSkills : MonoBehaviour {
             if (activeTime < 0) {
                 bashing = false;
                 bashCollider.SetActive(false);
+                activeTime = 0.2f;
             }
         }
+        ReleasePower();
     }
 
     void Update() {
@@ -42,6 +57,7 @@ public class CharacterSkills : MonoBehaviour {
         if (shieldUnlocked) {
             Shield();
         }
+        ChargePower();
     }
 
     //bool LessGravity() {
@@ -64,26 +80,66 @@ public class CharacterSkills : MonoBehaviour {
     //        return false;
     //    }
     //}
+    public void ReleasePower() {
+        var powerSphere = Physics.OverlapSphere(transform.position, powerSphereRadius, enemy);
+        bool hit = powerSphere.Length > 0;
+        if (Input.GetButtonDown("Action") && hit) {
+            print("hit an enemy");
+            foreach(Collider enemy in powerSphere) {
+                enemy.gameObject.GetComponent<Enemy>().TakeDamage(powerSphereDamage);
+            }
+            //dosomething
+        }
+    }
+
+    void OnDrawGizmosSelected() {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, powerSphereRadius);
+    }
+
+    public void ChargePower() {
+        if (Input.GetButton("Charge") && Input.GetButton("Charge2")) {
+            GameManager.instance.ChangeBuddyPower(20f * Time.deltaTime);
+        }
+    }
 
     public bool Shield() {
-        if (Input.GetAxis("Shield") > 0.3 && GameManager.instance.buddyPower > 0) {
-            shield.SetActive(true);
-            GameManager.instance.ChangeBuddyPower(-1f * Time.deltaTime);
-            return true;
+        if (Time.time > shieldInterval + lastShield) {
+            if (Input.GetAxis("Shield") > 0.3 && GameManager.instance.buddyPower > 0) {
+                active = true;
+            }
+            if (active) {
+                if (shieldDuration > 0) {
+                    shieldDuration -= Time.deltaTime;
+                    shield.SetActive(true);
+                    GameManager.instance.ChangeBuddyPower(-1f * Time.deltaTime);
+                    return true;
+                } else {
+                    active = false;
+                    shield.SetActive(false);
+                    shieldDuration = 1f;
+                    lastShield = Time.time;
+                    return false;
+                }
+            } else {
+                return false;
+            }
         } else {
-            shield.SetActive(false);
             return false;
-
         }
     }
 
     public bool Glide() {
-        if (Input.GetAxis("LessGravity") > 0 && !cm.onGround && GameManager.instance.buddyPower > 0) {
+        if (Input.GetButtonDown("Jump") && !cm.onGround) {
+            floater = true;
+        }
+        if (Input.GetButton("Jump") && !cm.onGround && GameManager.instance.buddyPower > 0 && floater) {
             cm.gravity = cm.normalGravity / 2;
             floatPiece.SetActive(true);
             GameManager.instance.ChangeBuddyPower(-1f * Time.deltaTime);
             return true;
         } else {
+            floater = false;
             cm.gravity = cm.normalGravity;
             floatPiece.SetActive(false);
             return false;

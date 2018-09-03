@@ -9,7 +9,7 @@ public class LaserTrigger : MonoBehaviour {
 
     void Update() {
         if (lasers.Count == laserCount) {
-            print("jee");
+            //print("jee");
         }        
     }
 
