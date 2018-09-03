@@ -4,4 +4,5 @@ using UnityEngine;
 
 public interface Enemy {
     void TakeDamage(float damage);
+    void Respawn();
 }

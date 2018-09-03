@@ -4,7 +4,7 @@ using UnityEngine;
 public enum BatMode {Hanging, Flying, Attacking, Returning};
 //tarviiko tän olla enum?
 
-public class Bat : MonoBehaviour {
+public class Bat : MonoBehaviour, Enemy {
 
     //miten ja millon lepakot pitää luoda? aktivoida?
     //pitääkö niiden olla jossain samassa folderissa? miks? miksei?
@@ -30,14 +30,15 @@ public class Bat : MonoBehaviour {
     public GameObject explosionEffect;
     public float blastRadius = 5f;
     public float explosionForce = 700f;
+    private float health = 2f;
 
     // Use this for initialization
-    void Start () {
+    void Start() {
         rb = GetComponent<Rigidbody>();
         angle = (float)Random.Range(0, 8) * 45f;
     }
 
-    void FixedUpdate () {
+    void FixedUpdate() {
 
         // switch states?
 
@@ -49,10 +50,12 @@ public class Bat : MonoBehaviour {
 
         if (batm == BatMode.Attacking) {
             Attack();
-            
+
         }
 
         // TODO: other modes
+
+        //returning: esim tietyn aikaa lennä takaisin aloituspaikkaan
 
         else if (batm == BatMode.Flying) {
             if (RayCone(floor, maxDistToFloor, steerSpeedFloor)) {
@@ -132,16 +135,16 @@ public class Bat : MonoBehaviour {
 
         for (int i = 0; i < 8; i++) {
 
-            Vector3 d = (kerroin*transform.forward + transform.up).normalized;
+            Vector3 d = (kerroin * transform.forward + transform.up).normalized;
             //käännetään d-vektoria z-akselin ympäri
             angle = i * 45f;
             var qq = Quaternion.AngleAxis(angle, transform.forward);
             d = qq * d;
             Ray r = new Ray(transform.position, d);
             Physics.Raycast(r, out info, md, lm);
-            
+
             if (info.collider != null) {
-                Debug.DrawLine(transform.position, transform.position + d*md, Color.red);
+                Debug.DrawLine(transform.position, transform.position + d * md, Color.red);
                 //ja sitten i+4 on se mihin suuntaan käännytään
                 if (angle > 3) {
                     angle = (i - 3) * 45f;
@@ -158,7 +161,7 @@ public class Bat : MonoBehaviour {
                 return true;
             }
             else {
-                Debug.DrawLine(transform.position, transform.position + d*md, Color.blue);
+                Debug.DrawLine(transform.position, transform.position + d * md, Color.blue);
             }
         }
         return false;
@@ -187,13 +190,13 @@ public class Bat : MonoBehaviour {
 
     private void OnTriggerEnter(Collider collision) {
         //if (collision.gameObject.layer == 10) {
-            if (collision.gameObject.name == "Shield") {
-                print("found");
-            //blocked
+        if (collision.gameObject.name == "Shield") {
+            print("found");
+            //blocked --> return
 
-            }
-            GameManager.instance.ChangeToddlerHealth(-1);
-            batm = BatMode.Returning;
+        }
+        GameManager.instance.ChangeToddlerHealth(-1);
+        batm = BatMode.Returning;
         //}
 
         //TODO: lepakon osuminen kilpeen
@@ -207,6 +210,21 @@ public class Bat : MonoBehaviour {
         //Debug.DrawLine(transform.position, transform.position + transform.forward * hit2.distance);
         Gizmos.DrawLine(transform.position, transform.position + transform.forward * hit2.distance);
     }
+
+    //            Vector3 d2 = ((transform.position + Vector3.forward) + (transform.position + Vector3.right)) - transform.position;
+    //Vector3 d3 = 
+
+    public void TakeDamage(float damage) {
+        if (health <= 0) return;
+        health -= damage;
+        if (health <= 0) {
+            Explode();
+            //gameObject.SetActive(false);
+        }
+ //?
+    }
+
+    public void Respawn() {
+        //jotain?
+    }
 }
-//            Vector3 d2 = ((transform.position + Vector3.forward) + (transform.position + Vector3.right)) - transform.position;
-//Vector3 d3 = 

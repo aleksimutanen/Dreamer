@@ -56,4 +56,8 @@ public class TreeScript : MonoBehaviour, Enemy {
             gameObject.SetActive(false);
         }
     }
+
+    public void Respawn() {
+        //jotain?
+    }
 }
