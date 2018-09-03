@@ -57,8 +57,13 @@ MonoBehaviour:
   buddyPowerFill: {fileID: 0}
   dreamPowerBar: {fileID: 0}
   dreamPowerFill: {fileID: 0}
+  gameStartPoint: {fileID: 0}
+  checkpoint: {x: 0, y: 0, z: 0}
+  player: {fileID: 0}
   maxToddlerHealth: 100
   maxBuddyPower: 100
   maxDreamPower: 100
-  crystalAmount: 0
-  crystalText: {fileID: 0}
+  toddlerHealth: 0
+  buddyPower: 1
+  dreamPower: 1
+  dreamPowMem: 0
