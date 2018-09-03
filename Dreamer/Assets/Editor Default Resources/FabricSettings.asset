@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09ad9ddc0e5b942a98ec392b434d39bd, type: 3}
+  m_Name: FabricSettings
+  m_EditorClassIdentifier: 
+  email: ari.punavuori@gmail.com
+  rawToken: '{"access_token":"f2d3368d23fbc563d98507e4ccc9cc44fd5bb97a44b53907b0de30b3eee2d07b","refresh_token":"5e9c110eb471eb4e35763453bf1a001d7b25b62b98d305d158b6dcc8d04989e8","token_type":"bearer","expires_in":86400}'
+  organization:
+    Name: Invaasio
+    Id: 5b87b7c5b8568e904d000333
+    ApiKey: a0722d52d5a6b1db6aa9ff833ccd1345b639ae70
+    BuildSecret: beaeb40e3789e8a68810769717724a5fbc1a8f26f600cd16c56a516612cb3f0f
+  iconUrl: 
+  dashboardUrl: 
+  initialization: 0
+  flowSequence: 0
+  conflict: 
+  kit: 
+  installedKits: []
