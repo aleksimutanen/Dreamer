@@ -88,7 +88,6 @@ public class CharacterSkills : MonoBehaviour {
             foreach(Collider enemy in powerSphere) {
                 enemy.gameObject.GetComponent<Enemy>().TakeDamage(powerSphereDamage);
             }
-            //dosomething
         }
     }
 
