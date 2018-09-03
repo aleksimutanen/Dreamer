@@ -16,19 +16,28 @@ public class TreeScript : MonoBehaviour, Enemy {
 
     public bool target;
 
+    Rigidbody rb;
+    public float steeringSpeed = 2;
+
     void Start () {
         cs = FindObjectOfType<CharacterSkills>();
+        rb = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate() {
         var colliders = Physics.OverlapSphere(transform.position - Vector3.up * groundCheckDepth, groundCheckSize, character);
         target = colliders.Length > 0;
         if (target) {
-            Attack();
+            Attack(colliders[0].transform);
         }
     }
 
-    public void Attack() {
+    public void Attack(Transform player) {
+        var dir = player.position - transform.position;
+        //var targetRot
+            rb.rotation = Quaternion.LookRotation(dir, Vector3.up);
+        //rb.rotation = Quaternion.RotateTowards(rb.rotation, targetRot, Time.deltaTime * steeringSpeed);
+
         if (Time.time > attackInterval + lastAttack) {
             var b = cs.Shield();
             if (b) {
