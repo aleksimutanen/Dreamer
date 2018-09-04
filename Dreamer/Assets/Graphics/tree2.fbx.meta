@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 02ccabccc75f80a49b7128fc15463ebd
-timeCreated: 1535988622
+guid: 8d98be9756b3c994d9a6115c151d20e8
+timeCreated: 1535988623
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -10,7 +10,10 @@ ModelImporter:
     2100000: No Name
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Cylinder001
+    4300000: Cylinder001.001
+    7400000: Cylinder001.001|Cylinder001|Take 001|BaseLayer
+    7400002: Cylinder001.001|Cylinder001|Take 001|BaseLayer.001
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -85,7 +88,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

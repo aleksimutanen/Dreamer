@@ -273,7 +273,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1566790346152754}
   m_LocalRotation: {x: 0, y: 0, z: -0.000000007450581, w: 1}
-  m_LocalPosition: {x: -197.20009, y: -77.497, z: 0.00029069616}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4716856688219100}
@@ -739,9 +739,17 @@ MonoBehaviour:
   floatPiece: {fileID: 1326489649066644}
   shield: {fileID: 1259686885497578}
   bashCollider: {fileID: 1198506919852070}
+  lastShield: 0
+  shieldInterval: 0
+  shieldDuration: 0
+  powerSphereRadius: 0
+  powerSphereDamage: 0
   shieldUnlocked: 1
   glideUnlocked: 1
   bashUnlocked: 1
+  enemy:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &114795105149159536
 MonoBehaviour:
   m_ObjectHideFlags: 1
