@@ -18,18 +18,21 @@ public class GameManager : MonoBehaviour {
     public Transform gameStartPoint;
     public Vector3 checkpoint;
     public GameObject player;
+    
 
     public float maxToddlerHealth;
     public float maxBuddyPower;
     public float maxDreamPower;
 
     public float toddlerHealth;
+    public float buddyChargeSpeed = 1;
     public float buddyPower = 0;
     public float dreamPower = 0;
     public float dreamPowMem;
-
+    
     float lives = 3;
-
+    Vector3 prevPlayerPos;
+    
     //public int crystalAmount = 0;
     //public TextMeshProUGUI statusText;
 
@@ -37,6 +40,13 @@ public class GameManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape)) {
             SceneManager.LoadScene(0);
         }
+        
+        if (prevPlayerPos == player.transform.position){
+            ChangeBuddyPower(buddyChargeSpeed * Time.deltaTime);
+        }
+
+        prevPlayerPos = player.transform.position;
+        
     }
 
     private void Awake() {
