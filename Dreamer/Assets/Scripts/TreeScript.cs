@@ -24,6 +24,9 @@ public class TreeScript : MonoBehaviour, Enemy {
     Quaternion startingRot;
     public Transform twig;
 
+    //public bool kaadettava;
+    public Transform bridgePlacement;
+
     void Start () {
         cs = FindObjectOfType<CharacterSkills>();
         rb = GetComponent<Rigidbody>();
@@ -35,13 +38,16 @@ public class TreeScript : MonoBehaviour, Enemy {
         if (target) {
             Attack(colliders[0].transform);
         }
-
+        //if (health <= 0 && kaadettava == true) {
+        //    print("päällä");
+        //    var targetRot = Quaternion.LookRotation(bridgePlacement.position - transform.parent.position, Vector3.up);
+        //    rb.rotation = Quaternion.RotateTowards(rb.rotation, targetRot, Time.deltaTime * steeringSpeed);
+        //}
     }
 
     public void Attack(Transform player) {
         treeRotator.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
         var targetRot = Quaternion.LookRotation(Vector3.up, treeRotator.forward);
-        //tämä ei tule toimimaan koska se haluaa kääntää puun forwardin kohti targetRotin forwardia...
         rb.rotation = Quaternion.RotateTowards(rb.rotation, targetRot, Time.deltaTime * steeringSpeed);
 
         TwigSwish();
@@ -76,7 +82,10 @@ public class TreeScript : MonoBehaviour, Enemy {
     public void TakeDamage(float damage) {
         if (health <= 0) return;
         health -= damage;
-        if (health <= 0) {
+        /*if (health <= 0 && kaadettava) {
+            //rb.useGravity = true;
+        } else*/ if (health <= 0) {
+            print("tree ded");
             gameObject.SetActive(false);
         }
     }
