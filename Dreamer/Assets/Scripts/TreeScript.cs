@@ -16,8 +16,13 @@ public class TreeScript : MonoBehaviour, Enemy {
 
     public bool target;
 
+    public Transform treeRotator;
+
     Rigidbody rb;
     public float steeringSpeed = 2;
+
+    Quaternion startingRot;
+    public Transform twig;
 
     void Start () {
         cs = FindObjectOfType<CharacterSkills>();
@@ -30,16 +35,20 @@ public class TreeScript : MonoBehaviour, Enemy {
         if (target) {
             Attack(colliders[0].transform);
         }
+
     }
 
     public void Attack(Transform player) {
-        var dir = player.position - transform.position;
-        //var targetRot
-            rb.rotation = Quaternion.LookRotation(dir, Vector3.up);
-        //rb.rotation = Quaternion.RotateTowards(rb.rotation, targetRot, Time.deltaTime * steeringSpeed);
+        treeRotator.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
+        var targetRot = Quaternion.LookRotation(Vector3.up, treeRotator.forward);
+        //tämä ei tule toimimaan koska se haluaa kääntää puun forwardin kohti targetRotin forwardia...
+        rb.rotation = Quaternion.RotateTowards(rb.rotation, targetRot, Time.deltaTime * steeringSpeed);
+
+        TwigSwish();
 
         if (Time.time > attackInterval + lastAttack) {
             var b = cs.Shield();
+            //TODO: jos oksa osuu
             if (b) {
                 GameManager.instance.ChangeBuddyPower(+5);
                 lastAttack = Time.time;
@@ -51,6 +60,12 @@ public class TreeScript : MonoBehaviour, Enemy {
                 lastAttack = Time.time;
             }
         }
+    }
+
+    private void TwigSwish () {
+        var maxRotation = 90f;
+        var speed = 2f;
+        twig.rotation = Quaternion.Euler(maxRotation * Mathf.Sin(Time.time * speed), 0f, 0f);
     }
 
     private void OnDrawGizmosSelected() {
