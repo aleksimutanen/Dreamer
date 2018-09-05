@@ -24,7 +24,8 @@ public class GameManager : MonoBehaviour {
     public float maxBuddyPower;
     public float maxDreamPower;
 
-    public float toddlerHealth;
+    public float toddlerChargeSpeed = 1;
+    public float toddlerHealth = 0;
     public float buddyChargeSpeed = 1;
     public float buddyPower = 0;
     public float dreamPower = 0;
@@ -41,10 +42,15 @@ public class GameManager : MonoBehaviour {
             SceneManager.LoadScene(0);
         }
         
+        // Buddypower charging while idling
         if (prevPlayerPos == player.transform.position){
             ChangeBuddyPower(buddyChargeSpeed * Time.deltaTime);
         }
-
+        
+        // TOddlerHealth charging while idling
+        if (prevPlayerPos == player.transform.position){
+            ChangeToddlerHealth(buddyChargeSpeed * Time.deltaTime);
+        }
         prevPlayerPos = player.transform.position;
         
     }

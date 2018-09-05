@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65384438414168040}
   - component: {fileID: 114961151075631920}
   - component: {fileID: 54948504900509270}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Bat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,3 +142,6 @@ MonoBehaviour:
     m_Bits: 1048576
   maxDistToFloor: 1
   steerSpeedFloor: 100
+  explosionEffect: {fileID: 0}
+  blastRadius: 5
+  explosionForce: 700

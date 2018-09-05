@@ -51,19 +51,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a42c708d5c4cdb41855f0ef6da85f99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toddlerHealthBar: {fileID: 0}
+  toddlerHealthBar: {fileID: 224937036579402396, guid: 2ec306df3d73c2144a783e1d33c9da91,
+    type: 2}
   toddlerHealthFill: {fileID: 0}
-  buddyPowerBar: {fileID: 0}
+  buddyPowerBar: {fileID: 224110120415551860, guid: 2ec306df3d73c2144a783e1d33c9da91,
+    type: 2}
   buddyPowerFill: {fileID: 0}
-  dreamPowerBar: {fileID: 0}
+  dreamPowerBar: {fileID: 224131210333642710, guid: 2ec306df3d73c2144a783e1d33c9da91,
+    type: 2}
   dreamPowerFill: {fileID: 0}
-  gameStartPoint: {fileID: 0}
+  gameStartPoint: {fileID: 4630117416572446, guid: 01d4f60b5e6134b0d81a45bb25f3f599,
+    type: 2}
   checkpoint: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
   maxToddlerHealth: 100
   maxBuddyPower: 100
   maxDreamPower: 100
+  toddlerChargeSpeed: 1
   toddlerHealth: 0
+  buddyChargeSpeed: 1
   buddyPower: 1
   dreamPower: 1
   dreamPowMem: 0

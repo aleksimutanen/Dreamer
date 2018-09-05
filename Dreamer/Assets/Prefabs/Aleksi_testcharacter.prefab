@@ -740,16 +740,16 @@ MonoBehaviour:
   shield: {fileID: 1259686885497578}
   bashCollider: {fileID: 1198506919852070}
   lastShield: 0
-  shieldInterval: 0
-  shieldDuration: 0
-  powerSphereRadius: 0
-  powerSphereDamage: 0
+  shieldInterval: 5
+  shieldDuration: 1
+  powerSphereRadius: 10
+  powerSphereDamage: 1
   shieldUnlocked: 1
   glideUnlocked: 1
   bashUnlocked: 1
   enemy:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 32768
 --- !u!114 &114795105149159536
 MonoBehaviour:
   m_ObjectHideFlags: 1

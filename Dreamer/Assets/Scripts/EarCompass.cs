@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EarCompass : MonoBehaviour {
     public GameObject[] crystals;
-    public GameObject nearestCrystal = null;
+    GameObject nearestCrystal = null;
     public float distToCrystal;
     public Transform buddy;
     float rotSpeed = 100;
