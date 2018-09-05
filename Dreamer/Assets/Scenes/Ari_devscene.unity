@@ -924,6 +924,21 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1724183830}
+    - target: {fileID: 114947095394466928, guid: 7f1943aab179c5d46ba3caf77dfb56bf,
+        type: 2}
+      propertyPath: buddyChargeSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114947095394466928, guid: 7f1943aab179c5d46ba3caf77dfb56bf,
+        type: 2}
+      propertyPath: toddlerHealth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114947095394466928, guid: 7f1943aab179c5d46ba3caf77dfb56bf,
+        type: 2}
+      propertyPath: buddyPower
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f1943aab179c5d46ba3caf77dfb56bf, type: 2}
   m_IsPrefabAsset: 0
@@ -1085,6 +1100,26 @@ Prefab:
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224413529951672342, guid: 2ec306df3d73c2144a783e1d33c9da91,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114553467108138108, guid: 2ec306df3d73c2144a783e1d33c9da91,
+        type: 2}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224746761667677692, guid: 2ec306df3d73c2144a783e1d33c9da91,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114695687156720684, guid: 2ec306df3d73c2144a783e1d33c9da91,
+        type: 2}
+      propertyPath: m_Value
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ec306df3d73c2144a783e1d33c9da91, type: 2}
