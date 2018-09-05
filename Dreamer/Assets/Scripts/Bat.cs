@@ -189,17 +189,20 @@ public class Bat : MonoBehaviour, Enemy {
     }
 
     private void OnTriggerEnter(Collider collision) {
-        //if (collision.gameObject.layer == 10) {
+
         if (collision.gameObject.name == "Shield") {
-            print("found");
+            print("blocked");
+            GameManager.instance.ChangeBuddyPower(+5);
             //blocked --> return
 
         }
-        GameManager.instance.ChangeToddlerHealth(-1);
-        batm = BatMode.Returning;
-        //}
+        else if (collision.gameObject.layer == 10 || collision.gameObject.layer == 12) {
+            print("bat hit player");
+            GameManager.instance.ChangeToddlerHealth(-1);
+        }
 
-        //TODO: lepakon osuminen kilpeen
+        batm = BatMode.Returning;
+
     }
 
     //kun kilvellä ammutaan
