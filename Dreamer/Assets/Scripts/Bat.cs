@@ -17,6 +17,7 @@ public class Bat : MonoBehaviour, Enemy {
     public float sphereRadius = 2;
     public float maxDist = 3;
     public Transform target;
+
     public float steeringSpeed = 80f;
     public float distToPlayer;
     public LayerMask obstacles;
@@ -32,6 +33,9 @@ public class Bat : MonoBehaviour, Enemy {
     public float explosionForce = 700f;
     private float health = 2f;
 
+    public bool sleeping;
+    //muuta gamemanagerissa
+
     // Use this for initialization
     void Start() {
         rb = GetComponent<Rigidbody>();
@@ -41,16 +45,17 @@ public class Bat : MonoBehaviour, Enemy {
     void FixedUpdate() {
 
         // switch states?
-
-        distToPlayer = Vector3.Distance(transform.position, target.position);
-
-        if (distToPlayer < attackRadius) {
-            batm = BatMode.Attacking;
+        if (WorldSwitch.instance.state == AwakeState.NightMare && !sleeping) {
+            distToPlayer = Vector3.Distance(transform.position, target.position);
+            if (distToPlayer < attackRadius) {
+                batm = BatMode.Attacking;
+            }
+        } else {
+            batm = BatMode.Hanging;
         }
 
         if (batm == BatMode.Attacking) {
             Attack();
-
         }
 
         // TODO: other modes

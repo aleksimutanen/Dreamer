@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TreeScript : MonoBehaviour, Enemy {
+public class TreeManager : MonoBehaviour, Enemy {
+
+    public List<GameObject> trees = new List<GameObject>();
 
     public float health;
     public float groundCheckDepth;
@@ -26,9 +28,32 @@ public class TreeScript : MonoBehaviour, Enemy {
 
     public Transform bridgePlacement;
 
-    void Start () {
+    void Start() {
         cs = FindObjectOfType<CharacterSkills>();
-        rb = GetComponent<Rigidbody>();
+    }
+
+    void Update() {
+        // haluaisin laittaa aktiiviseksi vihollispuun painajaisessa
+        // ja ei-vihollispuun unessa
+
+        if (WorldSwitch.instance.state == AwakeState.NightMare) {
+            trees[0].SetActive(true);
+            trees[1].SetActive(false);
+        } else {
+            trees[1].SetActive(true);
+            trees[0].SetActive(false);
+        }
+
+        //foreach (Transform tree in trees) {
+        //    if (WorldSwitch.instance.state == AwakeState.NightMare && tree.gameObject.layer == 15 && tree != this.gameObject) { //15 = enemy layer
+        //        print(tree);
+        //        tree.gameObject.SetActive(true);
+        //        rb = tree.GetComponent<Rigidbody>();
+        //    }
+        //    else {
+        //        tree.gameObject.SetActive(false);
+        //    }
+        //}
     }
 
     void FixedUpdate() {
@@ -54,7 +79,8 @@ public class TreeScript : MonoBehaviour, Enemy {
                 lastAttack = Time.time;
                 print("not");
                 return;
-            } else {
+            }
+            else {
                 GameManager.instance.ChangeToddlerHealth(-1f);
                 print("attacking");
                 lastAttack = Time.time;
@@ -62,7 +88,7 @@ public class TreeScript : MonoBehaviour, Enemy {
         }
     }
 
-    private void TwigSwish () {
+    private void TwigSwish() {
         var maxRotation = 90f;
         var speed = 2f;
         twig.rotation = Quaternion.Euler(maxRotation * Mathf.Sin(Time.time * speed), 0f, 0f);
