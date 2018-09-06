@@ -31,7 +31,10 @@ public class Bat : MonoBehaviour, Enemy {
     public GameObject explosionEffect;
     public float blastRadius = 5f;
     public float explosionForce = 700f;
-    private float health = 2f;
+    public float health = 2f;
+
+    public float dmgToPlayer = -5;
+    public float pwrToShield = 5;
 
     public bool sleeping;
     //muuta gamemanagerissa
@@ -197,13 +200,13 @@ public class Bat : MonoBehaviour, Enemy {
 
         if (collision.gameObject.name == "Shield") {
             print("blocked");
-            GameManager.instance.ChangeBuddyPower(+5);
+            GameManager.instance.ChangeBuddyPower(pwrToShield);
             //blocked --> return
 
         }
         else if (collision.gameObject.layer == 10 || collision.gameObject.layer == 12) {
             print("bat hit player");
-            GameManager.instance.ChangeToddlerHealth(-1);
+            GameManager.instance.ChangeToddlerHealth(dmgToPlayer);
         }
 
         batm = BatMode.Returning;

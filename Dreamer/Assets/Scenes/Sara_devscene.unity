@@ -222,15 +222,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 02ccabccc75f80a49b7128fc15463ebd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.17667
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 02ccabccc75f80a49b7128fc15463ebd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.895289
+      value: -4.7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 02ccabccc75f80a49b7128fc15463ebd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.051216
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 02ccabccc75f80a49b7128fc15463ebd, type: 3}
       propertyPath: m_LocalRotation.x
@@ -270,7 +270,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 02ccabccc75f80a49b7128fc15463ebd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 02ccabccc75f80a49b7128fc15463ebd, type: 3}
       propertyPath: m_Layer
@@ -1373,6 +1373,16 @@ Prefab:
       propertyPath: dreamSolid.m_Bits
       value: 35328
       objectReference: {fileID: 0}
+    - target: {fileID: 114346156464728672, guid: 532f122a5a60ad94abb6213287c64682,
+        type: 2}
+      propertyPath: transitionIn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114346156464728672, guid: 532f122a5a60ad94abb6213287c64682,
+        type: 2}
+      propertyPath: transitionOut
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 532f122a5a60ad94abb6213287c64682, type: 2}
   m_IsPrefabAsset: 0
@@ -1511,15 +1521,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: d07ff46539f33c949982da03a37c32bd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.17667
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d07ff46539f33c949982da03a37c32bd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.895289
+      value: -4.7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d07ff46539f33c949982da03a37c32bd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.051216
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d07ff46539f33c949982da03a37c32bd, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1559,7 +1569,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: d07ff46539f33c949982da03a37c32bd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: d07ff46539f33c949982da03a37c32bd, type: 3}
       propertyPath: m_Layer
@@ -1779,18 +1789,17 @@ MonoBehaviour:
   trees:
   - {fileID: 2101518123}
   - {fileID: 1460496550}
-  health: 0
-  groundCheckDepth: 0
-  groundCheckSize: 0
-  attackInterval: 0
+  health: 5
+  groundCheckDepth: 4.7
+  groundCheckSize: 10
+  attackInterval: 2
   character:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8192
   target: 0
-  treeRotator: {fileID: 0}
-  steeringSpeed: 2
-  twig: {fileID: 0}
-  bridgePlacement: {fileID: 0}
+  dmgToPlayer: -5
+  pwrToShield: 5
+  deathEffect: {fileID: 0}
 --- !u!4 &758527352
 Transform:
   m_ObjectHideFlags: 0
@@ -1798,7 +1807,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 758527350}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.17667, y: -2.104711, z: -4.051216}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2101518126}
@@ -3569,6 +3578,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 02ccabccc75f80a49b7128fc15463ebd,
     type: 3}
   m_PrefabInternal: {fileID: 55608361}
+--- !u!64 &1460496554
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1460496550}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 02ccabccc75f80a49b7128fc15463ebd, type: 3}
 --- !u!1 &1482856552
 GameObject:
   m_ObjectHideFlags: 0
@@ -5177,29 +5200,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: d07ff46539f33c949982da03a37c32bd,
     type: 3}
   m_PrefabInternal: {fileID: 596818233}
---- !u!114 &2101518124
-MonoBehaviour:
+--- !u!64 &2101518124
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2101518123}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d023ccd27ecb38478e0fe738832a368, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  groundCheckDepth: 0
-  groundCheckSize: 0
-  attackInterval: 0
-  character:
-    serializedVersion: 2
-    m_Bits: 0
-  target: 0
-  treeRotator: {fileID: 0}
-  steeringSpeed: 2
-  twig: {fileID: 0}
-  bridgePlacement: {fileID: 0}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: d07ff46539f33c949982da03a37c32bd, type: 3}
 --- !u!4 &2101518126 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d07ff46539f33c949982da03a37c32bd,

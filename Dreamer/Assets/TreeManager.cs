@@ -18,15 +18,19 @@ public class TreeManager : MonoBehaviour, Enemy {
 
     public bool target;
 
-    public Transform treeRotator;
-
-    Rigidbody rb;
-    public float steeringSpeed = 2;
+    // tarviiks? Rigidbody rb;
 
     Quaternion startingRot;
-    public Transform twig;
 
-    public Transform bridgePlacement;
+    public float dmgToPlayer = -5;
+    public float pwrToShield = 5;
+
+    public ParticleSystem deathEffect;
+    public bool ded;
+    public GameObject dedInDream;
+
+    bool nightmareTree;
+    bool dreamTree;
 
     void Start() {
         cs = FindObjectOfType<CharacterSkills>();
@@ -35,53 +39,47 @@ public class TreeManager : MonoBehaviour, Enemy {
     void Update() {
         // haluaisin laittaa aktiiviseksi vihollispuun painajaisessa
         // ja ei-vihollispuun unessa
+        nightmareTree = trees[0].activeSelf;
+        dreamTree = trees[1].activeSelf;
 
-        if (WorldSwitch.instance.state == AwakeState.NightMare) {
+        if (ded && WorldSwitch.instance.state == AwakeState.Dream && !dedInDream.activeSelf) {
+            dedInDream.SetActive(true);
+        }
+        else if (!ded && WorldSwitch.instance.state == AwakeState.NightMare && (dreamTree || !nightmareTree)) {
             trees[0].SetActive(true);
+            //rb = trees[0].GetComponent<Rigidbody>();
             trees[1].SetActive(false);
-        } else {
+        } else if (!ded && WorldSwitch.instance.state == AwakeState.Dream && (!dreamTree || nightmareTree)) {
             trees[1].SetActive(true);
             trees[0].SetActive(false);
-        }
-
-        //foreach (Transform tree in trees) {
-        //    if (WorldSwitch.instance.state == AwakeState.NightMare && tree.gameObject.layer == 15 && tree != this.gameObject) { //15 = enemy layer
-        //        print(tree);
-        //        tree.gameObject.SetActive(true);
-        //        rb = tree.GetComponent<Rigidbody>();
-        //    }
-        //    else {
-        //        tree.gameObject.SetActive(false);
-        //    }
-        //}
+        }      
     }
 
     void FixedUpdate() {
-        var colliders = Physics.OverlapSphere(transform.position - Vector3.up * groundCheckDepth, groundCheckSize, character);
-        target = colliders.Length > 0;
-        if (target) {
-            Attack(colliders[0].transform);
+        if (!ded) {
+            var colliders = Physics.OverlapSphere(transform.position - Vector3.up * groundCheckDepth, groundCheckSize, character);
+            target = colliders.Length > 0;
+            if (target) {
+                Attack(colliders[0].transform);
+            }
         }
     }
 
     public void Attack(Transform player) {
-        treeRotator.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
-        var targetRot = Quaternion.LookRotation(Vector3.up, treeRotator.forward);
-        rb.rotation = Quaternion.RotateTowards(rb.rotation, targetRot, Time.deltaTime * steeringSpeed);
 
-        TwigSwish();
+        TwigSwish(); //tarviiks?
 
         if (Time.time > attackInterval + lastAttack) {
             var b = cs.Shield();
             //TODO: jos oksa osuu
             if (b) {
-                GameManager.instance.ChangeBuddyPower(+5);
+                GameManager.instance.ChangeBuddyPower(pwrToShield);
                 lastAttack = Time.time;
                 print("not");
                 return;
             }
             else {
-                GameManager.instance.ChangeToddlerHealth(-1f);
+                GameManager.instance.ChangeToddlerHealth(dmgToPlayer);
                 print("attacking");
                 lastAttack = Time.time;
             }
@@ -89,9 +87,10 @@ public class TreeManager : MonoBehaviour, Enemy {
     }
 
     private void TwigSwish() {
-        var maxRotation = 90f;
-        var speed = 2f;
-        twig.rotation = Quaternion.Euler(maxRotation * Mathf.Sin(Time.time * speed), 0f, 0f);
+        //ANIMATE twig ? anything else?
+        //var maxRotation = 90f;
+        //var speed = 2f;
+        //twig.rotation = Quaternion.Euler(maxRotation * Mathf.Sin(Time.time * speed), 0f, 0f);
     }
 
     private void OnDrawGizmosSelected() {
@@ -105,7 +104,9 @@ public class TreeManager : MonoBehaviour, Enemy {
         if (health <= 0) {
             print("tree ded");
             //TODO: death animation yms
-            gameObject.SetActive(false);
+            deathEffect.Play();
+            ded = true;
+            trees[0].SetActive(false);
         }
     }
 
