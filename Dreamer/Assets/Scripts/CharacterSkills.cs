@@ -10,6 +10,8 @@ public class CharacterSkills : MonoBehaviour {
     public GameObject floatPiece;
     public GameObject shield;
     public GameObject bashCollider;
+    public GameObject ammo;
+    public GameObject ammoFolder;
 
     CharacterMover cm;
 
@@ -23,8 +25,14 @@ public class CharacterSkills : MonoBehaviour {
     public float shieldDuration;
     public float powerSphereRadius;
     public float powerSphereDamage;
+    public float firingInterval;
+    float lastShot;
 
     public LayerMask enemy;
+
+    Vector3 fireOffset = new Vector3(0, 2, 0);
+
+    public ParticleSystem ps;
 
     void Start() {
         cm = FindObjectOfType<CharacterMover>();
@@ -54,6 +62,7 @@ public class CharacterSkills : MonoBehaviour {
             Shield();
         }
         ChargePower();
+        Fire();
     }
 
     //bool LessGravity() {
@@ -76,6 +85,17 @@ public class CharacterSkills : MonoBehaviour {
     //        return false;
     //    }
     //}
+
+    public void Fire() {
+        if (Input.GetButtonDown("Bash")) {
+            if (Time.time > firingInterval + lastShot) {
+                GameObject go = Instantiate(ammo, transform.position + fireOffset, transform.rotation);
+                go.transform.parent = ammoFolder.transform;
+                lastShot = Time.time;
+            }
+        }
+    }
+
     public void ReleasePower() {
 
         var powerSphere = Physics.OverlapSphere(transform.position, powerSphereRadius, enemy);
@@ -97,8 +117,17 @@ public class CharacterSkills : MonoBehaviour {
     }
 
     public void ChargePower() {
-        if (Input.GetButton("Charge") && Input.GetButton("Charge2")) {
+        var em = ps.emission;
+        if (Input.GetButton("Charge") /*&& Input.GetButton("Charge2"*/) {
             GameManager.instance.ChangeBuddyPower(20f * Time.deltaTime);
+            //ps.emission.rateOverTime = 10;
+            //ps.gameObject.SetActive(true);
+            em.enabled = true;
+            //ps.Play();
+        } else {
+            em.enabled = false;
+            //ps.gameObject.SetActive(false);
+            //ps.Stop();
         }
     }
 

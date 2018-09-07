@@ -203,16 +203,19 @@ public class Bat : MonoBehaviour, Enemy {
             GameManager.instance.ChangeBuddyPower(pwrToShield);
             //blocked --> return
 
-        }
-        else if (collision.gameObject.layer == 10 || collision.gameObject.layer == 12) {
+        } else if (collision.gameObject.name == "Ammo(Clone)") {
+            collision.GetComponent<EnergyAmmo>().DealDamage(this);
+            print("ammo hit");
+        } else if (collision.gameObject.layer == 10 || collision.gameObject.layer == 12) {
             print("bat hit player");
             GameManager.instance.ChangeToddlerHealth(dmgToPlayer);
         }
-
         batm = BatMode.Returning;
-
     }
 
+    public void KickBack(Vector3 dir, float force) {
+        rb.AddForce(dir * force, ForceMode.Impulse);
+    }
     //kun kilvellä ammutaan
     //Explode();
 
