@@ -24,10 +24,6 @@ public class CharacterSkills : MonoBehaviour {
     public float powerSphereRadius;
     public float powerSphereDamage;
 
-    public bool shieldUnlocked;
-    public bool glideUnlocked;
-    public bool bashUnlocked;
-
     public LayerMask enemy;
 
     void Start() {
@@ -35,7 +31,7 @@ public class CharacterSkills : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        if (bashUnlocked) {
+        if (GameManager.instance.bashEnabled) {
             Bash();
         }
         if (bashing) {
@@ -51,10 +47,10 @@ public class CharacterSkills : MonoBehaviour {
     }
 
     void Update() {
-        if (glideUnlocked) {
+        if (GameManager.instance.glideEnabled) {
             Glide();
         }
-        if (shieldUnlocked) {
+        if (GameManager.instance.shieldEnabled) {
             Shield();
         }
         ChargePower();
