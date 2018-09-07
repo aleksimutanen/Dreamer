@@ -34,34 +34,43 @@ public class CharacterMover : MonoBehaviour {
     }
 
     private void FixedUpdate() {
+        if (GameManager.instance.walkEnabled)
+        {
+            // Input reading for movement
+            var vert = Input.GetAxis("Vertical");
+            var horiz = Input.GetAxis("Horizontal");
 
-        // Input reading for movement
-        var vert = Input.GetAxis("Vertical");
-        var horiz = Input.GetAxis("Horizontal");
+            var input = vert * transform.forward + horiz * transform.right;
+            input = Vector3.ClampMagnitude(input, 1);
 
-        var input = vert * transform.forward + horiz * transform.right;
-        input = Vector3.ClampMagnitude(input, 1);
+            // Speed
+            var flatVelocity = input * movingSpeed;
+            var b = rb.velocity;
+            b.x = flatVelocity.x; b.z = flatVelocity.z;
 
-        // Speed
-        var flatVelocity = input * movingSpeed; 
-        var b = rb.velocity;
-        b.x = flatVelocity.x; b.z = flatVelocity.z;
 
-        // If there is movement input, start to rotate camera towards players forward direction
-        if(horiz > .2f || vert > .2f||horiz < -.2f||vert < -.2f) { 
-            rb.rotation = Quaternion.RotateTowards(rb.rotation, horizontalRotator.rotation, turnSpeed * Time.deltaTime);
-        } 
 
-        // Ground check and gravity
-        var colliders = Physics.OverlapSphere(transform.position - Vector3.up * groundCheckDepth, groundCheckSize, WorldSwitch.instance.map);
-        onGround = colliders.Length > 0;
-        if (!onGround) {
-            b += gravity * Vector3.down * Time.deltaTime;
-            b.y = Mathf.Max(b.y, - maxFallSpeed);
-        } else if (rb.velocity.y < 0) {
-            b.y = 0f;
+            // If there is movement input, start to rotate camera towards players forward direction
+            if (horiz > .2f || vert > .2f || horiz < -.2f || vert < -.2f)
+            {
+                rb.rotation = Quaternion.RotateTowards(rb.rotation, horizontalRotator.rotation, turnSpeed * Time.deltaTime);
+            }
+
+
+            // Ground check and gravity
+            var colliders = Physics.OverlapSphere(transform.position - Vector3.up * groundCheckDepth, groundCheckSize, WorldSwitch.instance.map);
+            onGround = colliders.Length > 0;
+            if (!onGround)
+            {
+                b += gravity * Vector3.down * Time.deltaTime;
+                b.y = Mathf.Max(b.y, -maxFallSpeed);
+            }
+            else if (rb.velocity.y < 0)
+            {
+                b.y = 0f;
+            }
+            rb.velocity = b;
         }
-        rb.velocity = b;
 
         //RaycastHit hit;
         //Ray ray;
@@ -83,15 +92,17 @@ public class CharacterMover : MonoBehaviour {
 
     void Update() {
         // Input reading for jump
-        if (Input.GetButtonDown("Jump") /*> 0*/ && onGround) {
-            hasToJump = true;
+        if(GameManager.instance.jumpEnabled){
+            if (Input.GetButtonDown("Jump") && onGround) {
+                hasToJump = true;
+            }
         }
     }
 
     // Player jump movement of rigidbody
     void Jump() {
         rb.AddForce(jump * jumpForce, ForceMode.Impulse);
-        Fabric.EventManager.Instance.PostEvent("Jump");
+        //Fabric.EventManager.Instance.PostEvent("Jump");
     }
 
     public void Bash() {

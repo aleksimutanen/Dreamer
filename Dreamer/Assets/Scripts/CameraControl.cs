@@ -7,7 +7,10 @@ public class CameraControl : MonoBehaviour {
     public float camDist = 5;
 
 	void FixedUpdate () {
-        transform.rotation = vertRot.rotation;
-        transform.position = vertRot.position + transform.forward * -camDist;
+        if(GameManager.instance.lookEnabled){
+            transform.rotation = vertRot.rotation;
+            transform.position = vertRot.position + transform.forward * -camDist;
+        }
+
 	}
 }

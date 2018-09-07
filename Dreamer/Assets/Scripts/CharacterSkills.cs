@@ -28,10 +28,6 @@ public class CharacterSkills : MonoBehaviour {
     public float firingInterval;
     float lastShot;
 
-    public bool shieldUnlocked;
-    public bool glideUnlocked;
-    public bool bashUnlocked;
-
     public LayerMask enemy;
 
     Vector3 fireOffset = new Vector3(0, 2, 0);
@@ -43,7 +39,7 @@ public class CharacterSkills : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        if (bashUnlocked) {
+        if (GameManager.instance.bashEnabled) {
             Bash();
         }
         if (bashing) {
@@ -59,10 +55,10 @@ public class CharacterSkills : MonoBehaviour {
     }
 
     void Update() {
-        if (glideUnlocked) {
+        if (GameManager.instance.glideEnabled) {
             Glide();
         }
-        if (shieldUnlocked) {
+        if (GameManager.instance.shieldEnabled) {
             Shield();
         }
         ChargePower();
@@ -91,28 +87,34 @@ public class CharacterSkills : MonoBehaviour {
     //}
 
     public void Fire() {
-        if (Input.GetButtonDown("Bash")) {
-            if (Time.time > firingInterval + lastShot) {
-                GameObject go = Instantiate(ammo, transform.position + fireOffset, transform.rotation);
-                go.transform.parent = ammoFolder.transform;
-                lastShot = Time.time;
+        if(GameManager.instance.firingEnabled){
+            if (Input.GetButtonDown("Bash")) {
+                if (Time.time > firingInterval + lastShot) {
+                    GameObject go = Instantiate(ammo, transform.position + fireOffset, transform.rotation);
+                    go.transform.parent = ammoFolder.transform;
+                    lastShot = Time.time;
+                }
             }
-        }
+        }     
     }
 
     public void ReleasePower() {
-
-        var powerSphere = Physics.OverlapSphere(transform.position, powerSphereRadius, enemy);
-        bool hit = powerSphere.Length > 0;
-        if (Input.GetButtonDown("Action")) {
-            print("action button pressed");
-        }
-        if (Input.GetButtonDown("Action") && hit) {
-            print("hit an enemy");
-            foreach(Collider enemy in powerSphere) {
-                enemy.gameObject.GetComponentInParent<Enemy>().TakeDamage(powerSphereDamage);
+        if(GameManager.instance.powerBallEnabled){
+            var powerSphere = Physics.OverlapSphere(transform.position, powerSphereRadius, enemy);
+            bool hit = powerSphere.Length > 0;
+            
+            if (Input.GetButtonDown("Action")) {
+                print("action button pressed");
             }
+            if (Input.GetButtonDown("Action") && hit) {
+                print("hit an enemy");
+                foreach(Collider enemy in powerSphere) {
+                    enemy.gameObject.GetComponentInParent<Enemy>().TakeDamage(powerSphereDamage);
+                }
+            }
+        
         }
+
     }
 
     void OnDrawGizmosSelected() {
