@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class LaserTrigger : MonoBehaviour {
 
+    public Transform target;
     public List<Laser> lasers = new List<Laser>();
     public int laserCount;
 
     void Update() {
         if (lasers.Count == laserCount) {
             //print("jee");
-        }        
+        }
+        transform.LookAt(target, Vector3.up);
     }
 
     public void AddLaserToList(Laser lzr) {

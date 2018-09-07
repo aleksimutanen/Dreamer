@@ -193,13 +193,20 @@ public class Bat : MonoBehaviour, Enemy {
         if (collision.gameObject.name == "Shield") {
             print("found");
             //blocked --> return
-
+            GameManager.instance.ChangeToddlerHealth(-1);
+            batm = BatMode.Returning;
+        } else if (collision.gameObject.name == "Ammo(Clone)") {
+            collision.GetComponent<EnergyAmmo>().DealDamage(this);
+            print("ammo hit");
         }
-        GameManager.instance.ChangeToddlerHealth(-1);
-        batm = BatMode.Returning;
+        
         //}
 
         //TODO: lepakon osuminen kilpeen
+    }
+
+    public void KickBack(Vector3 dir, float force) {
+        rb.AddForce(dir * force, ForceMode.Impulse);
     }
 
     //kun kilvellä ammutaan
