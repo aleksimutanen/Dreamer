@@ -17,6 +17,7 @@ public class Bat : MonoBehaviour, Enemy {
     public float sphereRadius = 2;
     public float maxDist = 3;
     public Transform target;
+
     public float steeringSpeed = 80f;
     public float distToPlayer;
     public LayerMask obstacles;
@@ -30,7 +31,13 @@ public class Bat : MonoBehaviour, Enemy {
     public GameObject explosionEffect;
     public float blastRadius = 5f;
     public float explosionForce = 700f;
-    private float health = 2f;
+    public float health = 2f;
+
+    public float dmgToPlayer = -5;
+    public float pwrToShield = 5;
+
+    public bool sleeping;
+    //muuta gamemanagerissa
 
     // Use this for initialization
     void Start() {
@@ -41,16 +48,17 @@ public class Bat : MonoBehaviour, Enemy {
     void FixedUpdate() {
 
         // switch states?
-
-        distToPlayer = Vector3.Distance(transform.position, target.position);
-
-        if (distToPlayer < attackRadius) {
-            batm = BatMode.Attacking;
+        if (WorldSwitch.instance.state == AwakeState.NightMare && !sleeping) {
+            distToPlayer = Vector3.Distance(transform.position, target.position);
+            if (distToPlayer < attackRadius) {
+                batm = BatMode.Attacking;
+            }
+        } else {
+            batm = BatMode.Hanging;
         }
 
         if (batm == BatMode.Attacking) {
             Attack();
-
         }
 
         // TODO: other modes
@@ -189,24 +197,20 @@ public class Bat : MonoBehaviour, Enemy {
     }
 
     private void OnTriggerEnter(Collider collision) {
-        //if (collision.gameObject.layer == 10) {
+
         if (collision.gameObject.name == "Shield") {
-            print("found");
+            print("blocked");
+            GameManager.instance.ChangeBuddyPower(pwrToShield);
             //blocked --> return
-            GameManager.instance.ChangeToddlerHealth(-1);
-            batm = BatMode.Returning;
-        } else if (collision.gameObject.name == "Ammo(Clone)") {
-            collision.GetComponent<EnergyAmmo>().DealDamage(this);
-            print("ammo hit");
+
         }
-        
-        //}
+        else if (collision.gameObject.layer == 10 || collision.gameObject.layer == 12) {
+            print("bat hit player");
+            GameManager.instance.ChangeToddlerHealth(dmgToPlayer);
+        }
 
-        //TODO: lepakon osuminen kilpeen
-    }
+        batm = BatMode.Returning;
 
-    public void KickBack(Vector3 dir, float force) {
-        rb.AddForce(dir * force, ForceMode.Impulse);
     }
 
     //kun kilvellä ammutaan

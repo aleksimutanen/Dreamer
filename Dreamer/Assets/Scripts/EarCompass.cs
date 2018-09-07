@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EarCompass : MonoBehaviour {
     public GameObject[] crystals;
-    public GameObject nearestCrystal;
+    GameObject nearestCrystal = null;
     public float distToCrystal;
     public Transform buddy;
     float rotSpeed = 100;
@@ -32,14 +32,19 @@ public class EarCompass : MonoBehaviour {
         }
         nearestCrystal = crystalCandidate;
         transform.position = buddy.position;
-        Vector3 fwd = nearestCrystal.transform.position - transform.position;
-        Debug.DrawLine(transform.position, transform.position + fwd * 3);
-        var right = Vector3.Cross(Vector3.up, fwd);
-        Debug.DrawLine(transform.position, transform.position + right * 3);
-        var up = Vector3.Cross(fwd, right);
-        Debug.DrawLine(transform.position, transform.position + up * 3);
+        if (nearestCrystal != null)
+        {
+            Vector3 fwd = nearestCrystal.transform.position - transform.position;
+            Debug.DrawLine(transform.position, transform.position + fwd * 3);
+            var right = Vector3.Cross(Vector3.up, fwd);
+            Debug.DrawLine(transform.position, transform.position + right * 3);
+            var up = Vector3.Cross(fwd, right);
+            Debug.DrawLine(transform.position, transform.position + up * 3);
 
-        Quaternion rotationGoal = Quaternion.LookRotation(fwd, up);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationGoal, rotSpeed * Time.deltaTime);
+
+
+            Quaternion rotationGoal = Quaternion.LookRotation(fwd, up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationGoal, rotSpeed * Time.deltaTime);
+        }
     }
 }

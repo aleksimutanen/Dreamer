@@ -101,12 +101,16 @@ public class CharacterSkills : MonoBehaviour {
     }
 
     public void ReleasePower() {
+
         var powerSphere = Physics.OverlapSphere(transform.position, powerSphereRadius, enemy);
         bool hit = powerSphere.Length > 0;
+        if (Input.GetButtonDown("Action")) {
+            print("action button pressed");
+        }
         if (Input.GetButtonDown("Action") && hit) {
             print("hit an enemy");
             foreach(Collider enemy in powerSphere) {
-                enemy.gameObject.GetComponent<Enemy>().TakeDamage(powerSphereDamage);
+                enemy.gameObject.GetComponentInParent<Enemy>().TakeDamage(powerSphereDamage);
             }
         }
     }

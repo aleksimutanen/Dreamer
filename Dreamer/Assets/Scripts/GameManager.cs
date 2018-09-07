@@ -5,8 +5,11 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class GameManager : MonoBehaviour {
 
+
+public class GameManager : MonoBehaviour {
+    public ScriptableText test;
+       
     // Singleton related
     public static GameManager instance;
     public Transform toddlerHealthBar;
@@ -18,25 +21,70 @@ public class GameManager : MonoBehaviour {
     public Transform gameStartPoint;
     public Vector3 checkpoint;
     public GameObject player;
+    public TextMeshProUGUI statusText;
+    float statusTextTimer = 0;
+    bool statusTextEmpty = true;
+    int tutorialIndex = 0;  
+    
+    List<string> tutorialTexts = new List<string>();
 
     public float maxToddlerHealth;
     public float maxBuddyPower;
     public float maxDreamPower;
 
-    public float toddlerHealth;
+    public float toddlerChargeSpeed = 1;
+    public float toddlerHealth = 0;
+    public float buddyChargeSpeed = 1;
     public float buddyPower = 0;
     public float dreamPower = 0;
     public float dreamPowMem;
-
+    
     float lives = 3;
+    Vector3 prevPlayerPos;
 
     //public int crystalAmount = 0;
     //public TextMeshProUGUI statusText;
 
+    List<ScriptableText> textDialogQueue;
+    
+    public void PlayTextDialog(ScriptableText st) {
+        textDialogQueue.Add(st);   
+    }
+    
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
             SceneManager.LoadScene(0);
         }
+        
+        // Buddypower charging while idling
+        if (prevPlayerPos == player.transform.position){
+            ChangeBuddyPower(buddyChargeSpeed * Time.deltaTime);
+        }
+        
+        // ToddlerHealth charging while idling
+        if (prevPlayerPos == player.transform.position){
+            ChangeToddlerHealth(buddyChargeSpeed * Time.deltaTime);
+        }
+        
+        prevPlayerPos = player.transform.position;
+        
+        statusTextTimer -= Time.deltaTime;
+        
+        if (tutorialIndex == 1 && statusTextTimer < 0 && statusTextEmpty){
+            ChangeStatusText(tutorialTexts[tutorialIndex], 5);
+            tutorialIndex++;
+            statusTextEmpty = false;
+        }
+        
+        
+        if (statusTextTimer < 0){
+            ChangeStatusText("",5);
+            statusTextEmpty = true;
+        }
+
+        
+        
+        
     }
 
     private void Awake() {
@@ -45,6 +93,13 @@ public class GameManager : MonoBehaviour {
             Debug.LogError("2+ GameManagers found!");
         instance = this;
         checkpoint = gameStartPoint.position;
+        tutorialTexts.Add("Welcome to your dream, I'm Mother and I will guide you through your journey!");
+        tutorialTexts.Add("You can look around by moving your mouse or controller tatti. Now look around you");
+        tutorialTexts.Add("Well done! You can also move here =) Use your wasd or the other tatti to move");
+        tutorialTexts.Add("You did really good. Now go along little one!");
+
+        ChangeStatusText(tutorialTexts[tutorialIndex], 5);
+        tutorialIndex++;
     }
 
     public void SetCheckpoint(){
@@ -89,5 +144,12 @@ public class GameManager : MonoBehaviour {
         toddlerHealth += amount;
         toddlerHealth = Mathf.Clamp(toddlerHealth, 0, maxToddlerHealth);
         toddlerHealthFill.value = toddlerHealth / maxToddlerHealth;
+    }
+    
+    // Status text
+    public void ChangeStatusText(string text, float timer){
+        statusText.text = text;
+        statusTextTimer = timer;
+        statusTextEmpty = false;
     }
 }
