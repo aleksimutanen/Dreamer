@@ -22,11 +22,11 @@ public class GameManager : MonoBehaviour {
     public Vector3 checkpoint;
     public GameObject player;
     public TextMeshProUGUI statusText;
-    float statusTextTimer = 0;
-    bool statusTextEmpty = true;
-    int tutorialIndex = 0;  
+    public float statusTextTimer = 0;
+    public bool statusTextEmpty = true;
+    public int tutorialIndex = 0;  
     
-    List<string> tutorialTexts = new List<string>();
+    public List<string> tutorialTexts = new List<string>();
 
     public float maxToddlerHealth;
     public float maxBuddyPower;
@@ -81,14 +81,27 @@ public class GameManager : MonoBehaviour {
         statusTextTimer -= Time.deltaTime;
         
         if (tutorialIndex == 1 && statusTextTimer < 0 && statusTextEmpty){
-            ChangeStatusText(tutorialTexts[tutorialIndex], 5);
+            ChangeStatusText(tutorialTexts[tutorialIndex], 3);
+            tutorialIndex++;
+            statusTextEmpty = false;
+            lookEnabled = true;
+        }
+        
+        if (tutorialIndex == 2 && statusTextTimer < 0 && statusTextEmpty){
+            ChangeStatusText(tutorialTexts[tutorialIndex],3);
+            tutorialIndex++;
+            statusTextEmpty = false;
+            walkEnabled = true;
+        }
+        
+        if (tutorialIndex == 4 && statusTextTimer < 0 && statusTextEmpty){
+            ChangeStatusText(tutorialTexts[tutorialIndex],3);
             tutorialIndex++;
             statusTextEmpty = false;
         }
         
-        
         if (statusTextTimer < 0){
-            ChangeStatusText("",5);
+            ChangeStatusText("",1);
             statusTextEmpty = true;
         }
 
@@ -106,7 +119,8 @@ public class GameManager : MonoBehaviour {
         tutorialTexts.Add("Welcome to your dream, I'm Mother and I will guide you through your journey!");
         tutorialTexts.Add("You can look around by moving your mouse or controller tatti. Now look around you");
         tutorialTexts.Add("Well done! You can also move here =) Use your wasd or the other tatti to move");
-        tutorialTexts.Add("You did really good. Now go along little one!");
+        tutorialTexts.Add("Press space or joystick button x to jump over obstacles");
+        tutorialTexts.Add("You did really good. Now move along little one!");
 
         ChangeStatusText(tutorialTexts[tutorialIndex], 5);
         tutorialIndex++;
