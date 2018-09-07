@@ -11,7 +11,7 @@ public class EarCompass : MonoBehaviour {
 
     private void Awake() {
         crystals = GameObject.FindGameObjectsWithTag("Crystal");
-        print(crystals);
+        //print(crystals);
     }
 
     void Update () {
