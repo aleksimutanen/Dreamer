@@ -39,6 +39,16 @@ public class GameManager : MonoBehaviour {
     public float dreamPower = 0;
     public float dreamPowMem;
     
+    public bool lookEnabled = false;
+    public bool walkEnabled = false;
+    public bool jumpEnabled = false;
+    public bool switchEnabled = false;
+    public bool bashEnabled = false;
+    public bool glideEnabled = false;
+    public bool shieldEnabled = false;
+    public bool firingEnabled = false;
+    public bool powerBallEnabled = false;
+    
     float lives = 3;
     Vector3 prevPlayerPos;
 
