@@ -8,8 +8,10 @@ ModelImporter:
     2100000: No Name
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Cylinder.002
-    7400000: Take 001
+    4300000: Cylinder.000
+    7400000: Cylinder.000|Cylinder.000|Take 001|BaseLayer
+    7400002: Cylinder.000|Cylinder.002|Take 001|BaseLayer
+    7400004: Cylinder.000|Cylinder.002|Take 001|BaseLayer.001
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -62,7 +64,7 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.0254
+    previousCalculatedGlobalScale: 0.01
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
