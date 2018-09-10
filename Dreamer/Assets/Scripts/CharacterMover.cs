@@ -17,6 +17,10 @@ public class CharacterMover : MonoBehaviour {
     public float inputAcceleration;
     public float groundCheckDepth;
     public float groundCheckSize;
+
+    public float groundCheckDepth2;
+    public float groundCheckSize2;
+
     public float gravity;
     public float normalGravity;
     public float maxFallSpeed;
@@ -25,6 +29,7 @@ public class CharacterMover : MonoBehaviour {
     Rigidbody rb;
 
     public bool onGround;
+    public bool canJump;
 
     void Start() {
         rb = GetComponent<Rigidbody>();
@@ -58,15 +63,14 @@ public class CharacterMover : MonoBehaviour {
 
 
             // Ground check and gravity
+            var furtherSphere = Physics.OverlapSphere(transform.position - Vector3.up * groundCheckDepth2, groundCheckSize2, WorldSwitch.instance.map);
             var colliders = Physics.OverlapSphere(transform.position - Vector3.up * groundCheckDepth, groundCheckSize, WorldSwitch.instance.map);
+            canJump = furtherSphere.Length > 0;
             onGround = colliders.Length > 0;
-            if (!onGround)
-            {
+            if ((!onGround && canJump) || (!onGround && !canJump)) {
                 b += gravity * Vector3.down * Time.deltaTime;
                 b.y = Mathf.Max(b.y, -maxFallSpeed);
-            }
-            else if (rb.velocity.y < 0)
-            {
+            } else if (rb.velocity.y < 0) {
                 b.y = 0f;
             }
             rb.velocity = b;
@@ -78,7 +82,7 @@ public class CharacterMover : MonoBehaviour {
         //    Physics.gravity
         //}
 
-        if(hasToJump) {
+        if (hasToJump) {
             Jump();
             hasToJump = false;
         }
@@ -88,12 +92,13 @@ public class CharacterMover : MonoBehaviour {
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position - Vector3.up * groundCheckDepth, groundCheckSize);
+        Gizmos.DrawWireSphere(transform.position - Vector3.up * groundCheckDepth2, groundCheckSize2);
     }
 
     void Update() {
         // Input reading for jump
         if(GameManager.instance.jumpEnabled){
-            if (Input.GetButtonDown("Jump") && onGround) {
+            if (Input.GetButtonDown("Jump") && canJump) {
                 hasToJump = true;
             }
         }

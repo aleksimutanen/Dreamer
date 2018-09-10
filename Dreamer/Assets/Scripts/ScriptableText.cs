@@ -6,6 +6,10 @@ using System.Collections.Generic;
 public struct TimedText {
     public string text;
     public float timeToDisplay;
+    public TimedText(string text, float timeToDisplay) {
+        this.text = text;
+        this.timeToDisplay = timeToDisplay;
+    }
 }
 
 [CreateAssetMenu(fileName = "ScriptableText", menuName = "ScriptableText", order = 1)]
