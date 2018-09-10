@@ -1,16 +1,14 @@
 fileFormatVersion: 2
-guid: 23f820a992f86234799c987a3fd4143e
-timeCreated: 1535961032
-licenseType: Free
+guid: 5c5a01ea53e43fe469ae10df367da866
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
     2100000: No Name
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Cylinder.002
+    4300000: Plane.000
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -30,6 +28,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -61,6 +60,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
