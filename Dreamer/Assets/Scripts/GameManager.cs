@@ -81,21 +81,21 @@ public class GameManager : MonoBehaviour {
         statusTextTimer -= Time.deltaTime;
         
         if (tutorialIndex == 1 && statusTextTimer < 0 && statusTextEmpty){
-            ChangeStatusText(tutorialTexts[tutorialIndex], 3);
+            ChangeStatusText(tutorialTexts[tutorialIndex], 1);
             tutorialIndex++;
             statusTextEmpty = false;
             lookEnabled = true;
         }
         
         if (tutorialIndex == 2 && statusTextTimer < 0 && statusTextEmpty){
-            ChangeStatusText(tutorialTexts[tutorialIndex],3);
+            ChangeStatusText(tutorialTexts[tutorialIndex],1);
             tutorialIndex++;
             statusTextEmpty = false;
             walkEnabled = true;
         }
         
         if (tutorialIndex == 4 && statusTextTimer < 0 && statusTextEmpty){
-            ChangeStatusText(tutorialTexts[tutorialIndex],3);
+            ChangeStatusText(tutorialTexts[tutorialIndex],1);
             tutorialIndex++;
             statusTextEmpty = false;
         }
@@ -114,17 +114,16 @@ public class GameManager : MonoBehaviour {
         // Make a singleton instance out of (this) GameManager
         if(instance)
             Debug.LogError("2+ GameManagers found!");
-        instance = this;
-        checkpoint = gameStartPoint.position;
-        tutorialTexts.Add("Welcome to your dream, I'm Mother and I will guide you through your journey!");
-        tutorialTexts.Add("You can look around by moving your mouse or controller tatti. Now look around you");
-        tutorialTexts.Add("Well done! You can also move here =) Use your wasd or the other tatti to move");
-        tutorialTexts.Add("Press space or joystick button x to jump over obstacles");
-        tutorialTexts.Add("You did really good. Now move along little one!");
-
-        ChangeStatusText(tutorialTexts[tutorialIndex], 5);
-        tutorialIndex++;
-    }
+            instance = this;
+            checkpoint = gameStartPoint.position;
+            tutorialTexts.Add("Welcome to your dream, I'm Mother and I will guide you through your journey!");
+            tutorialTexts.Add("You can look around by moving your mouse or controller tatti. Now look around you");
+            tutorialTexts.Add("Well done! You can also move here =) Use your wasd or the other tatti to move");
+            tutorialTexts.Add("Press space or joystick button x to jump over obstacles");
+            tutorialTexts.Add("You did really good. Now move along little one!");   
+            ChangeStatusText(tutorialTexts[tutorialIndex], 1);
+            tutorialIndex++;
+        }
 
     public void SetCheckpoint(){
         

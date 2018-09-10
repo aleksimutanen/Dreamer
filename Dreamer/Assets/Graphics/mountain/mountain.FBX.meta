@@ -1,16 +1,18 @@
 fileFormatVersion: 2
-guid: 23f820a992f86234799c987a3fd4143e
-timeCreated: 1535961032
-licenseType: Free
+guid: 7ed70c736ef86ea40873420a0a0b04a3
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
     2100000: No Name
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Cylinder.002
+    4300000: Cylinder.000
+    7400000: Cylinder.000|Cylinder.000|Take 001|BaseLayer
+    7400002: Cylinder.000|Cylinder.002|Take 001|BaseLayer
+    7400004: Cylinder.000|Cylinder.002|Take 001|BaseLayer.001
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -30,6 +32,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -61,6 +64,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -85,7 +90,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
