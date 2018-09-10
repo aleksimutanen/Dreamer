@@ -14,7 +14,6 @@ public class JumpTriggerScript : MonoBehaviour {
                 GameManager.instance.ChangeStatusText(GameManager.instance.tutorialTexts[GameManager.instance.tutorialIndex], 5);
                 GameManager.instance.tutorialIndex++;
                 GameManager.instance.statusTextEmpty = false;
-                GameManager.instance.jumpEnabled = true;
                 gameObject.SetActive(false);
             }
         }
