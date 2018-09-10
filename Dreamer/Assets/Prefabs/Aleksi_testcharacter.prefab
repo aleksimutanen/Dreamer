@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 136744245147829260}
   m_Layer: 10
   m_Name: DreamCollider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 136053187626173238}
   m_Layer: 13
   m_Name: NightmareCollider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -303,7 +303,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1566790346152754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 11, z: 90.6}
+  m_LocalPosition: {x: -42.57, y: 20.67, z: 357.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4716856688219100}
@@ -745,15 +745,18 @@ MonoBehaviour:
   bash: {x: 0, y: 0, z: 2}
   jumpForce: 8
   bashForce: 150
-  movingSpeed: 10
+  movingSpeed: 15
   turnSpeed: 200
   inputAcceleration: 0
-  groundCheckDepth: -0.11
-  groundCheckSize: 0.14
+  groundCheckDepth: -0.35
+  groundCheckSize: 0.5
+  groundCheckDepth2: 0.2
+  groundCheckSize2: 0.3
   gravity: 30
   normalGravity: 10
   maxFallSpeed: 20
   onGround: 0
+  canJump: 0
 --- !u!114 &114594999348714460
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -778,9 +781,6 @@ MonoBehaviour:
   powerSphereRadius: 10
   powerSphereDamage: 1
   firingInterval: 1
-  shieldUnlocked: 1
-  glideUnlocked: 1
-  bashUnlocked: 1
   enemy:
     serializedVersion: 2
     m_Bits: 32768

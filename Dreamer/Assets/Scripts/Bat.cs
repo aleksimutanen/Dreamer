@@ -18,7 +18,6 @@ public class Bat : MonoBehaviour, Enemy {
     public float sphereRadius = 2;
     public float maxDist = 3;
 
-
     public float steeringSpeed = 80f;
 
     public Transform playerTransform;
@@ -47,6 +46,7 @@ public class Bat : MonoBehaviour, Enemy {
     //muuta gamemanagerissa
     
     void Start() {
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         countdown = explosionDelay;
         rb = GetComponent<Rigidbody>();
         angle = (float)Random.Range(0, 8) * 45f;
@@ -203,6 +203,8 @@ public class Bat : MonoBehaviour, Enemy {
         foreach (Collider nearbyObj in nearbyObjects) {
             Rigidbody rb = nearbyObj.GetComponent<Rigidbody>();
             if (rb != null) {
+                nearbyObj.transform.SetParent(null);
+                rb.constraints = RigidbodyConstraints.None;
                 rb.AddExplosionForce(explosionForce, transform.position, blastRadius);
                 Instantiate(explosionEffect, nearbyObj.transform.position, nearbyObj.transform.rotation);
                 //nearbyObj.gameObject.SetActive(false); 
