@@ -10,13 +10,17 @@ public class WorldSwitch : MonoBehaviour {
 
     public float fadeSpeed;
     public float transitionSpeed;
+
     public static WorldSwitch instance;
+
     public AwakeState state;
+
     public Light[] lights;
     public Light nightmareLight;
 
-    public Camera dreamCam;
+    public Camera drCam;
     public Camera nmCam;
+    public Camera[] cameras;
 
     public RawImage faderImage;
 
@@ -45,59 +49,66 @@ public class WorldSwitch : MonoBehaviour {
     }
 
     void Update() {
-        TimedText xd = new TimedText("ykä on paras", 5f);
+        //TimedText xd = new TimedText("ykä on paras", 5f);
         
-        if (Input.GetButtonDown("Switch") /*&& !transitionIn*/) {
+        if (Input.GetButtonDown("Switch") && !transitionIn && !transitionOut) {
             transitionOut = true;
         }
         if (state == AwakeState.Dream) {
-
-            //SwitchWorld(dreamCam, nmCam, lightOn, cm.EnterNightmare, nightmareSolid, AwakeState.NightMare);
-            if (transitionOut) {
-                Switch(fadeSpeed, 1f, cm.EnterNightmare, nightmareSolid, AwakeState.NightMare);
+            if (transitionOut || transitionIn) {
+                Switch(fadeSpeed, 1f, 25f, drCam, nmCam, cm.EnterNightmare, nightmareSolid, AwakeState.NightMare);
             }
         }
         if (state == AwakeState.NightMare) {
-            //SwitchWorld(nmCam, dreamCam, lightOff, cm.EnterDream, dreamSolid, AwakeState.Dream);
-            if (transitionOut) {
-                Switch(fadeSpeed, 0f, cm.EnterDream, dreamSolid, AwakeState.Dream);
+            if (transitionOut || transitionIn) {
+                Switch(fadeSpeed, 0f, 20f, nmCam, drCam, cm.EnterDream, dreamSolid, AwakeState.Dream);
             }
         }
     }
 
-    public void Switch(float fadeSpeed, float target, UnityAction afterTransition, LayerMask newSolid, AwakeState newState) {
+    public void Switch(float fadeSpeed, float target, float transitionSpeed, Camera currentCam, Camera newCam, UnityAction afterTransition, LayerMask newSolid, AwakeState newState) {
         var c = faderImage.color;
         var a = c.a;
         if (target < a)
             fadeSpeed *= -1;
         if (transitionOut) {
+            GameManager.instance.walkEnabled = false;
             a += fadeSpeed * Time.deltaTime;
             c.a = Mathf.Clamp01(a);
             faderImage.color = c;
+            foreach (Camera cam in cameras) {
+                cam.fieldOfView += Time.deltaTime * transitionSpeed;
+            }
+            //currentCam.fieldOfView += 20f * Time.deltaTime;
+            //newCam.fieldOfView += 25f * Time.deltaTime;
         }
         if (a < 0 || a > 1) {
-            print("ihamitövaa");
             transitionOut = false;
+            transitionIn = true;
             state = newState;
             map = newSolid;
             afterTransition();
         }
-        //if (fadeSpeed > 0) {
-        //    if (c.a > target) {
-        //        transitionOut = false;
-        //        state = newState;
-        //        map = newSolid;
-        //        afterTransition();
-        //    }
-        //} else if (fadeSpeed < 0) {
-        //    if (c.a < target) {
-        //        transitionOut = false;
-        //        state = newState;
-        //        map = newSolid;
-        //        afterTransition();
+        if (transitionIn) {
+            foreach (Camera cam in cameras) {
+                cam.fieldOfView -= Time.deltaTime * transitionSpeed * 2;
+                //if (state == AwakeState.NightMare) {
+                if (cam.fieldOfView < 60) { 
+                    transitionIn = false;
+                    GameManager.instance.walkEnabled = true;
 
-        //    }
-        //}
+                    //    if (cam.fieldOfView < 40) {
+                    //        transitionIn = false;
+                    //        GameManager.instance.walkEnabled = true;
+                    //    }
+                    //} else if (state == AwakeState.Dream) {
+                    //    if (cam.fieldOfView < 60) {
+                    //        transitionIn = false;
+                    //        GameManager.instance.walkEnabled = true;
+                    //    }
+                }
+            }
+        }
     }
 
     //void SwitchWorld(Camera currentCamera, Camera newCamera, bool light, UnityAction afterTransition, LayerMask newSolid, AwakeState newState) {

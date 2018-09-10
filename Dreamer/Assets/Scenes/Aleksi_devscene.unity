@@ -4388,15 +4388,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4927436013156276, guid: 6505da2c745f4b646b6ff8d438e68863, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 109.130005
+      value: 91.4
       objectReference: {fileID: 0}
     - target: {fileID: 4927436013156276, guid: 6505da2c745f4b646b6ff8d438e68863, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -114.4145
+      value: -131.4
       objectReference: {fileID: 0}
     - target: {fileID: 4927436013156276, guid: 6505da2c745f4b646b6ff8d438e68863, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 214.11
+      value: 234
       objectReference: {fileID: 0}
     - target: {fileID: 4927436013156276, guid: 6505da2c745f4b646b6ff8d438e68863, type: 2}
       propertyPath: m_LocalRotation.x
@@ -4437,6 +4437,16 @@ Prefab:
         type: 2}
       propertyPath: m_Color.a
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20293035270695866, guid: 6505da2c745f4b646b6ff8d438e68863,
+        type: 2}
+      propertyPath: field of view
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 114725098947648774, guid: 6505da2c745f4b646b6ff8d438e68863,
+        type: 2}
+      propertyPath: camDist
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6505da2c745f4b646b6ff8d438e68863, type: 2}
@@ -4953,6 +4963,10 @@ MonoBehaviour:
   checkpoint: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
   statusText: {fileID: 0}
+  statusTextTimer: 0
+  statusTextEmpty: 1
+  tutorialIndex: 0
+  tutorialTexts: []
   maxToddlerHealth: 100
   maxBuddyPower: 100
   maxDreamPower: 100
@@ -5278,6 +5292,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114346156464728672, guid: 532f122a5a60ad94abb6213287c64682,
+        type: 2}
+      propertyPath: cameras.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4503282125748502, guid: 532f122a5a60ad94abb6213287c64682, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5353,8 +5372,28 @@ Prefab:
     - target: {fileID: 114346156464728672, guid: 532f122a5a60ad94abb6213287c64682,
         type: 2}
       propertyPath: fadeSpeed
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 114346156464728672, guid: 532f122a5a60ad94abb6213287c64682,
+        type: 2}
+      propertyPath: cameras.Array.data[0]
+      value: 
+      objectReference: {fileID: 1015390104}
+    - target: {fileID: 114346156464728672, guid: 532f122a5a60ad94abb6213287c64682,
+        type: 2}
+      propertyPath: cameras.Array.data[1]
+      value: 
+      objectReference: {fileID: 651005018}
+    - target: {fileID: 114346156464728672, guid: 532f122a5a60ad94abb6213287c64682,
+        type: 2}
+      propertyPath: transitionSpeed
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 114346156464728672, guid: 532f122a5a60ad94abb6213287c64682,
+        type: 2}
+      propertyPath: drCam
+      value: 
+      objectReference: {fileID: 651005018}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 532f122a5a60ad94abb6213287c64682, type: 2}
   m_IsPrefabAsset: 0
@@ -8255,6 +8294,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a8cacd487f7330947864759b9019ad0a, type: 2}
+    - target: {fileID: 1601256156630892, guid: 1b7720a6465c08e4197761db881f13df, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b7720a6465c08e4197761db881f13df, type: 2}
   m_IsPrefabAsset: 0
