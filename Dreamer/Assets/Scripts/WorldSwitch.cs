@@ -43,23 +43,40 @@ public class WorldSwitch : MonoBehaviour {
         map = dreamSolid;
         state = AwakeState.Dream;
         cm = FindObjectOfType<CharacterMover>();
+        Fabric.EventManager.Instance.PostEvent("DreamMusic", Fabric.EventAction.PlaySound);
+        Fabric.EventManager.Instance.PostEvent("NightmareMusic", Fabric.EventAction.PlaySound);
+        Fabric.EventManager.Instance.PostEvent("NightmareMusic", Fabric.EventAction.PauseSound);
+
+
     }
 
     void Update() {
-        //TimedText xd = new TimedText("ykä on paras", 5f);
-        
+        TimedText xd = new TimedText("ykä on paras", 5f);
+
         if (Input.GetButtonDown("Switch") && !transitionIn && !transitionOut) {
+
             transitionOut = true;
+            if(state == AwakeState.Dream) {
+                Fabric.EventManager.Instance.PostEvent("DreamMusic", Fabric.EventAction.PauseSound);
+                Fabric.EventManager.Instance.PostEvent("NightmareMusic", Fabric.EventAction.UnpauseSound);
+            } else {
+                Fabric.EventManager.Instance.PostEvent("DreamMusic", Fabric.EventAction.UnpauseSound);
+                Fabric.EventManager.Instance.PostEvent("NightmareMusic", Fabric.EventAction.PauseSound);
+            }
         }
         if (state == AwakeState.Dream) {
             if (transitionOut || transitionIn) {
                 Switch(fadeSpeed, 1f, transitionSpeed, drCam, nmCam, cm.EnterNightmare, nightmareSolid, AwakeState.NightMare);
             }
+            //Fabric.EventManager.Instance.PostEvent("Jump");
+
+
         }
         if (state == AwakeState.NightMare) {
             if (transitionOut || transitionIn) {
                 Switch(fadeSpeed, 0f, transitionSpeed, nmCam, drCam, cm.EnterDream, dreamSolid, AwakeState.Dream);
             }
+
         }
     }
 
