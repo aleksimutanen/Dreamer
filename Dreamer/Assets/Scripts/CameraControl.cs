@@ -17,26 +17,16 @@ public class CameraControl : MonoBehaviour {
                 transform.position = vertRot.position + transform.forward * -camDist;
                 camDist = normalCamDist;
             } else if (WorldSwitch.instance.transitionOut) {
-                //if (WorldSwitch.instance.state == AwakeState.Dream) {
-                //    print("faster transition");
-                //    transform.rotation = vertRot.rotation;
-                //    transform.position = vertRot.position + transform.forward * -camDist;
-                //    camDist += Time.deltaTime * 1.60f * 1.5f;
-                //} else if (WorldSwitch.instance.state == AwakeState.NightMare) {
-                //    transform.rotation = vertRot.rotation;
-                //    transform.position = vertRot.position + transform.forward * -camDist;
-                //    camDist += Time.deltaTime * 1.60f;
-                //}
-                transform.rotation = vertRot.rotation;
-                transform.position = vertRot.position + transform.forward * -camDist;
-                camDist -= Time.deltaTime * 1.55f;
+                if (WorldSwitch.instance.state == AwakeState.Dream) {
+                    transform.rotation = vertRot.rotation;
+                    transform.position = vertRot.position + transform.forward * -camDist;
+                    camDist -= Time.deltaTime * 1.55f;
+                } else if (WorldSwitch.instance.state == AwakeState.NightMare) {
+                    transform.rotation = vertRot.rotation;
+                    transform.position = vertRot.position + transform.forward * -camDist;
+                    camDist -= Time.deltaTime * 1.45f;
+                }
             } else if (WorldSwitch.instance.transitionIn) {
-                //if (WorldSwitch.instance.state == AwakeState.NightMare) {
-                //    print("faster transition");
-                //    transform.rotation = vertRot.rotation;
-                //    transform.position = vertRot.position + transform.forward * -camDist;
-                //    camDist += Time.deltaTime * 1.60f * 2 * 1.5f;
-                //} else if (WorldSwitch.instance.state == AwakeState.Dream) {
                 transform.rotation = vertRot.rotation;
                 transform.position = vertRot.position + transform.forward * -camDist;
                 camDist += Time.deltaTime * 1.55f * 2;

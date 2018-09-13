@@ -30,8 +30,6 @@ public class WorldSwitch : MonoBehaviour {
 
     CharacterMover cm;
 
-    bool lightOn = true;
-    bool lightOff = false;
     public bool transitionOut;
     public bool transitionIn;
 
@@ -44,7 +42,6 @@ public class WorldSwitch : MonoBehaviour {
     void Start() {
         map = dreamSolid;
         state = AwakeState.Dream;
-        //nmCam.gameObject.SetActive(false);
         cm = FindObjectOfType<CharacterMover>();
         Fabric.EventManager.Instance.PostEvent("DreamMusic", Fabric.EventAction.PlaySound);
         Fabric.EventManager.Instance.PostEvent("NightmareMusic", Fabric.EventAction.PlaySound);
@@ -69,7 +66,7 @@ public class WorldSwitch : MonoBehaviour {
         }
         if (state == AwakeState.Dream) {
             if (transitionOut || transitionIn) {
-                Switch(fadeSpeed, 1f, 25f, drCam, nmCam, cm.EnterNightmare, nightmareSolid, AwakeState.NightMare);
+                Switch(fadeSpeed, 1f, transitionSpeed, drCam, nmCam, cm.EnterNightmare, nightmareSolid, AwakeState.NightMare);
             }
             //Fabric.EventManager.Instance.PostEvent("Jump");
 
@@ -77,13 +74,15 @@ public class WorldSwitch : MonoBehaviour {
         }
         if (state == AwakeState.NightMare) {
             if (transitionOut || transitionIn) {
-                Switch(fadeSpeed, 0f, 20f, nmCam, drCam, cm.EnterDream, dreamSolid, AwakeState.Dream);
+                Switch(fadeSpeed, 0f, transitionSpeed, nmCam, drCam, cm.EnterDream, dreamSolid, AwakeState.Dream);
             }
 
         }
     }
 
-    public void Switch(float fadeSpeed, float target, float transitionSpeed, Camera currentCam, Camera newCam, UnityAction afterTransition, LayerMask newSolid, AwakeState newState) {
+    public void Switch(float fadeSpeed, float target, float fadingSpeed,
+        Camera currentCam, Camera newCam, UnityAction afterTransition, LayerMask newSolid, AwakeState newState) {
+
         var c = faderImage.color;
         var a = c.a;
         if (target < a)
@@ -93,11 +92,11 @@ public class WorldSwitch : MonoBehaviour {
             a += fadeSpeed * Time.deltaTime;
             c.a = Mathf.Clamp01(a);
             faderImage.color = c;
-            foreach (Camera cam in cameras) {
-                cam.fieldOfView += Time.deltaTime * transitionSpeed;
-            }
-            //currentCam.fieldOfView += 20f * Time.deltaTime;
-            //newCam.fieldOfView += 25f * Time.deltaTime;
+            //foreach (Camera cam in cameras) {
+            //    cam.fieldOfView += Time.deltaTime * transitionSpeed;
+            //}
+            currentCam.fieldOfView += fadingSpeed * Time.deltaTime;
+            newCam.fieldOfView += fadingSpeed * Time.deltaTime;
         }
         if (a < 0 || a > 1) {
             transitionOut = false;
@@ -107,24 +106,18 @@ public class WorldSwitch : MonoBehaviour {
             afterTransition();
         }
         if (transitionIn) {
-            foreach (Camera cam in cameras) {
-                cam.fieldOfView -= Time.deltaTime * transitionSpeed * 2;
-                //if (state == AwakeState.NightMare) {
-                if (cam.fieldOfView < 60) { 
-                    transitionIn = false;
-                    GameManager.instance.walkEnabled = true;
-
-                    //    if (cam.fieldOfView < 40) {
-                    //        transitionIn = false;
-                    //        GameManager.instance.walkEnabled = true;
-                    //    }
-                    //} else if (state == AwakeState.Dream) {
-                    //    if (cam.fieldOfView < 60) {
-                    //        transitionIn = false;
-                    //        GameManager.instance.walkEnabled = true;
-                    //    }
-                }
+            //foreach (Camera cam in cameras) {
+            //    cam.fieldOfView -= Time.deltaTime * transitionSpeed * 2;
+            currentCam.fieldOfView -= fadingSpeed * 2 * Time.deltaTime;
+            newCam.fieldOfView -= fadingSpeed * 2 * Time.deltaTime;
+            if ((state == AwakeState.NightMare && newCam.fieldOfView < 45) || (state == AwakeState.Dream && newCam.fieldOfView < 60)) {
+                transitionIn = false;
+                GameManager.instance.walkEnabled = true;
             }
+            //else if (state == AwakeState.Dream && newCam.fieldOfView < 60) {
+            //    transitionIn = false;
+            //    GameManager.instance.walkEnabled = true;
+            //}
         }
     }
 

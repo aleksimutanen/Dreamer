@@ -70,14 +70,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb76d070b16f7f46a3f3e9ab8aee514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionSpeed: 500
+  fadeSpeed: 0.2
+  transitionSpeed: 20
   state: 0
   lights:
   - {fileID: 0}
   - {fileID: 0}
   nightmareLight: {fileID: 0}
-  dreamCam: {fileID: 0}
+  drCam: {fileID: 0}
   nmCam: {fileID: 0}
+  cameras:
+  - {fileID: 0}
+  - {fileID: 0}
+  faderImage: {fileID: 0}
   map:
     serializedVersion: 2
     m_Bits: 0
