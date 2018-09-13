@@ -88,15 +88,15 @@ public class WorldSwitch : MonoBehaviour {
         if (target < a)
             fadeSpeed *= -1;
         if (transitionOut) {
-            GameManager.instance.walkEnabled = false;
+            //GameManager.instance.walkEnabled = false;
             a += fadeSpeed * Time.deltaTime;
             c.a = Mathf.Clamp01(a);
             faderImage.color = c;
-            //foreach (Camera cam in cameras) {
-            //    cam.fieldOfView += Time.deltaTime * transitionSpeed;
-            //}
-            currentCam.fieldOfView += fadingSpeed * Time.deltaTime;
-            newCam.fieldOfView += fadingSpeed * Time.deltaTime;
+            foreach (Camera cam in cameras) {
+                cam.fieldOfView += fadingSpeed * Time.deltaTime;
+            }
+            //currentCam.fieldOfView += fadingSpeed * Time.deltaTime;
+            //newCam.fieldOfView += fadingSpeed * Time.deltaTime;
         }
         if (a < 0 || a > 1) {
             transitionOut = false;
@@ -106,18 +106,15 @@ public class WorldSwitch : MonoBehaviour {
             afterTransition();
         }
         if (transitionIn) {
-            //foreach (Camera cam in cameras) {
-            //    cam.fieldOfView -= Time.deltaTime * transitionSpeed * 2;
-            currentCam.fieldOfView -= fadingSpeed * 2 * Time.deltaTime;
-            newCam.fieldOfView -= fadingSpeed * 2 * Time.deltaTime;
+            foreach (Camera cam in cameras) {
+                cam.fieldOfView -= Time.deltaTime * transitionSpeed * 2;
+            }
+            //currentCam.fieldOfView -= fadingSpeed * 2 * Time.deltaTime;
+            //newCam.fieldOfView -= fadingSpeed * 2 * Time.deltaTime;
             if ((state == AwakeState.NightMare && newCam.fieldOfView < 45) || (state == AwakeState.Dream && newCam.fieldOfView < 60)) {
                 transitionIn = false;
-                GameManager.instance.walkEnabled = true;
+                //GameManager.instance.walkEnabled = true;
             }
-            //else if (state == AwakeState.Dream && newCam.fieldOfView < 60) {
-            //    transitionIn = false;
-            //    GameManager.instance.walkEnabled = true;
-            //}
         }
     }
 
