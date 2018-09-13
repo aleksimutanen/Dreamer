@@ -54,15 +54,10 @@ public class WorldSwitch : MonoBehaviour {
     }
 
     void Update() {
-<<<<<<< HEAD
         TimedText xd = new TimedText("ykä on paras", 5f);
 
-        if(Input.GetButtonDown("Switch") /*&& !transitionIn*/) {
-=======
-        //TimedText xd = new TimedText("ykä on paras", 5f);
-        
         if (Input.GetButtonDown("Switch") && !transitionIn && !transitionOut) {
->>>>>>> c000d422f7a8d614b34a77a0e306a02fea709430
+
             transitionOut = true;
             if(state == AwakeState.Dream) {
                 Fabric.EventManager.Instance.PostEvent("DreamMusic", Fabric.EventAction.PauseSound);
