@@ -42,5 +42,7 @@ public class CameraControl : MonoBehaviour {
                 camDist += Time.deltaTime * 1.55f * 2;
             }
         }
-    }
+
+
+	}
 }
