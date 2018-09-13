@@ -64,9 +64,9 @@ public class CharacterMover : MonoBehaviour {
 
             // Ground check and gravity
             var furtherSphere = Physics.OverlapSphere(transform.position - Vector3.up * groundCheckDepth2, groundCheckSize2, WorldSwitch.instance.map);
-            var colliders = Physics.OverlapSphere(transform.position - Vector3.up * groundCheckDepth, groundCheckSize, WorldSwitch.instance.map);
+            var closerSphere = Physics.OverlapSphere(transform.position - Vector3.up * groundCheckDepth, groundCheckSize, WorldSwitch.instance.map);
             canJump = furtherSphere.Length > 0;
-            onGround = colliders.Length > 0;
+            onGround = closerSphere.Length > 0;
             if ((!onGround && canJump) || (!onGround && !canJump)) {
                 b += gravity * Vector3.down * Time.deltaTime;
                 b.y = Mathf.Max(b.y, -maxFallSpeed);
@@ -107,7 +107,7 @@ public class CharacterMover : MonoBehaviour {
     // Player jump movement of rigidbody
     void Jump() {
         rb.AddForce(jump * jumpForce, ForceMode.Impulse);
-        Fabric.EventManager.Instance.PostEvent("Jump");
+        //Fabric.EventManager.Instance.PostEvent("Jump");
     }
 
     public void Bash() {
