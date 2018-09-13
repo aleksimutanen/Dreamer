@@ -88,7 +88,7 @@ public class WorldSwitch : MonoBehaviour {
         if (target < a)
             fadeSpeed *= -1;
         if (transitionOut) {
-            GameManager.instance.walkEnabled = false;
+            //GameManager.instance.walkEnabled = false;
             a += fadeSpeed * Time.deltaTime;
             c.a = Mathf.Clamp01(a);
             faderImage.color = c;
@@ -112,7 +112,7 @@ public class WorldSwitch : MonoBehaviour {
             newCam.fieldOfView -= fadingSpeed * 2 * Time.deltaTime;
             if ((state == AwakeState.NightMare && newCam.fieldOfView < 45) || (state == AwakeState.Dream && newCam.fieldOfView < 60)) {
                 transitionIn = false;
-                GameManager.instance.walkEnabled = true;
+                //GameManager.instance.walkEnabled = true;
             }
             //else if (state == AwakeState.Dream && newCam.fieldOfView < 60) {
             //    transitionIn = false;

@@ -15,7 +15,6 @@ public class Bat : MonoBehaviour, Enemy {
     public BatMode batm;
     public float attackRadius = 10;
     RaycastHit hit2;
-    public float sphereRadius = 2;
     public float maxDist = 3;
 
     public float steeringSpeed = 80f;
@@ -203,11 +202,12 @@ public class Bat : MonoBehaviour, Enemy {
         foreach (Collider nearbyObj in nearbyObjects) {
             Rigidbody rb = nearbyObj.GetComponent<Rigidbody>();
             if (rb != null) {
-                nearbyObj.transform.SetParent(null);
-                rb.constraints = RigidbodyConstraints.None;
-                rb.AddExplosionForce(explosionForce, transform.position, blastRadius);
+                //rb.AddExplosionForce(explosionForce, transform.position, blastRadius);
                 Instantiate(explosionEffect, nearbyObj.transform.position, nearbyObj.transform.rotation);
-                //nearbyObj.gameObject.SetActive(false); 
+                var expl = nearbyObj.GetComponent<Explodable>();
+                if (expl != null) {
+                    expl.SetExplosion();
+                }
                 //millon tän voi tehdä? tai tän vois tehä sillee et niillä objekteilla on oma scripti mikä odottaa ja sitten setactivefalse
             }
         }

@@ -236,6 +236,11 @@ Prefab:
       propertyPath: faderImage
       value: 
       objectReference: {fileID: 615890343}
+    - target: {fileID: 114346156464728672, guid: 532f122a5a60ad94abb6213287c64682,
+        type: 2}
+      propertyPath: drCam
+      value: 
+      objectReference: {fileID: 530549653}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 532f122a5a60ad94abb6213287c64682, type: 2}
   m_IsPrefabAsset: 0
@@ -622,7 +627,7 @@ MeshCollider:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1875928417771272, guid: 7f893d539e40611408a276577171a8d9,
     type: 2}
-  m_PrefabInternal: {fileID: 647197885}
+  m_PrefabInternal: {fileID: 2144705203}
 --- !u!1 &420030715
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,6 +849,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87123ff29c6416a4f80d7d1b8c6abb8b, type: 2}
   m_IsPrefabAsset: 0
+--- !u!20 &530549653 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 20250237514850666, guid: 6505da2c745f4b646b6ff8d438e68863,
+    type: 2}
+  m_PrefabInternal: {fileID: 538105606}
 --- !u!1001 &538105606
 Prefab:
   m_ObjectHideFlags: 0
@@ -1108,52 +1118,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 294df6bb66d054f49867d78e6ebc7be7, type: 3}
---- !u!1001 &647197885
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4020061887494950, guid: 7f893d539e40611408a276577171a8d9, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -155
-      objectReference: {fileID: 0}
-    - target: {fileID: 4020061887494950, guid: 7f893d539e40611408a276577171a8d9, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4020061887494950, guid: 7f893d539e40611408a276577171a8d9, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 279
-      objectReference: {fileID: 0}
-    - target: {fileID: 4020061887494950, guid: 7f893d539e40611408a276577171a8d9, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4020061887494950, guid: 7f893d539e40611408a276577171a8d9, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4020061887494950, guid: 7f893d539e40611408a276577171a8d9, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4020061887494950, guid: 7f893d539e40611408a276577171a8d9, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4020061887494950, guid: 7f893d539e40611408a276577171a8d9, type: 2}
-      propertyPath: m_RootOrder
-      value: 23
-      objectReference: {fileID: 0}
-    - target: {fileID: 1358460517680924, guid: 7f893d539e40611408a276577171a8d9, type: 2}
-      propertyPath: m_Name
-      value: mountain
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7f893d539e40611408a276577171a8d9, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &656504680
 GameObject:
   m_ObjectHideFlags: 0
@@ -8103,3 +8067,54 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: d0742928733a9584e87476a54c20766d, type: 3}
+--- !u!1001 &2144705203
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4020061887494950, guid: 7f893d539e40611408a276577171a8d9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -155
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020061887494950, guid: 7f893d539e40611408a276577171a8d9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020061887494950, guid: 7f893d539e40611408a276577171a8d9, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 279
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020061887494950, guid: 7f893d539e40611408a276577171a8d9, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020061887494950, guid: 7f893d539e40611408a276577171a8d9, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020061887494950, guid: 7f893d539e40611408a276577171a8d9, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020061887494950, guid: 7f893d539e40611408a276577171a8d9, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020061887494950, guid: 7f893d539e40611408a276577171a8d9, type: 2}
+      propertyPath: m_RootOrder
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 114929977982580532, guid: 7f893d539e40611408a276577171a8d9,
+        type: 2}
+      propertyPath: explosionEffect
+      value: 
+      objectReference: {fileID: 2010138856}
+    - target: {fileID: 1358460517680924, guid: 7f893d539e40611408a276577171a8d9, type: 2}
+      propertyPath: m_Name
+      value: mountain
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7f893d539e40611408a276577171a8d9, type: 2}
+  m_IsPrefabAsset: 0
