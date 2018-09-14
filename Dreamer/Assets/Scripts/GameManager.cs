@@ -20,7 +20,10 @@ public class GameManager : MonoBehaviour {
     public Slider dreamPowerFill;
     public Transform gameStartPoint;
     public Vector3 checkpoint;
+    public Quaternion checkRotation;
     public GameObject player;
+    public GameObject vertRot;
+    public GameObject horRot;
     public TextMeshProUGUI statusText;
     public float statusTextTimer = 0;
     public bool statusTextEmpty = true;
@@ -132,6 +135,7 @@ public class GameManager : MonoBehaviour {
     public void SetCheckpoint(){
         
         checkpoint = player.transform.position;
+        checkRotation = player.transform.rotation;
         dreamPowMem = dreamPower;
     }
 
@@ -141,7 +145,10 @@ public class GameManager : MonoBehaviour {
             print("Life lost");
             player.gameObject.SetActive(false);
             player.gameObject.transform.position = checkpoint;
-            player.gameObject.SetActive(true);      
+            player.gameObject.transform.rotation = checkRotation;
+            player.gameObject.SetActive(true);
+            vertRot.GetComponent<VerticalRotator>().ResetRotation();
+            horRot.GetComponent<HorizontalRotator>().ResetRotation();
             ChangeDreamPower(-(dreamPower-dreamPowMem));       
         } else {
             print("Game Over");

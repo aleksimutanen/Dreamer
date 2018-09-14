@@ -14,4 +14,8 @@ public class VerticalRotator : MonoBehaviour {
         xRot = Mathf.Clamp(xRot, lowerAxisClamp, upperAxisClamp);
         transform.localRotation = Quaternion.AngleAxis(xRot, Vector3.right); // 
     }
+
+    public void ResetRotation(){
+        xRot = 10;
+    }
 }
