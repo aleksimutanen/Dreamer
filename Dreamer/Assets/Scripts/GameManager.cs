@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour {
     public bool firingEnabled = false;
     public bool powerBallEnabled = false;
     
-    float lives = 3;
+    public float lives = 3;
     Vector3 prevPlayerPos;
 
     //public int crystalAmount = 0;
@@ -137,7 +137,8 @@ public class GameManager : MonoBehaviour {
 
     public void ALiveLost(){
         if(lives > 0){
-            lives -= 1;
+            lives --;
+            print("Life lost");
             player.gameObject.SetActive(false);
             player.gameObject.transform.position = checkpoint;
             player.gameObject.SetActive(true);      
