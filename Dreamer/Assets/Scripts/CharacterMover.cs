@@ -63,11 +63,11 @@ public class CharacterMover : MonoBehaviour {
 
 
             // Ground check and gravity
-            var furtherSphere = Physics.OverlapSphere(transform.position - Vector3.up * groundCheckDepth2, groundCheckSize2, WorldSwitch.instance.map);
+            //var furtherSphere = Physics.OverlapSphere(transform.position - Vector3.up * groundCheckDepth2, groundCheckSize2, WorldSwitch.instance.map);
             var closerSphere = Physics.OverlapSphere(transform.position - Vector3.up * groundCheckDepth, groundCheckSize, WorldSwitch.instance.map);
-            canJump = furtherSphere.Length > 0;
+            //canJump = furtherSphere.Length > 0;
             onGround = closerSphere.Length > 0;
-            if ((!onGround && canJump) || (!onGround && !canJump)) {
+            if (/*(*/!onGround /*&& canJump) || (!onGround && !canJump)*/) {
                 b += gravity * Vector3.down * Time.deltaTime;
                 b.y = Mathf.Max(b.y, -maxFallSpeed);
             } else if (rb.velocity.y < 0) {
@@ -98,7 +98,7 @@ public class CharacterMover : MonoBehaviour {
     void Update() {
         // Input reading for jump
         if(GameManager.instance.jumpEnabled){
-            if (Input.GetButtonDown("Jump") && canJump) {
+            if (Input.GetButtonDown("Jump") && /*canJump*/ onGround) {
                 hasToJump = true;
             }
         }

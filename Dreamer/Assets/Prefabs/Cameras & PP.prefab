@@ -223,8 +223,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1781227793398270}
-  m_LocalRotation: {x: 0.03244779, y: 0.9605329, z: -0.24532232, w: 0.12704575}
-  m_LocalPosition: {x: 170.29997, y: 198.6, z: -19}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4423126077319682}
@@ -232,29 +232,29 @@ Transform:
   - {fileID: 224064968262989988}
   m_Father: {fileID: 4927436013156276}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 28.654001, y: 164.93102, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4507106452174626
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1229189330708936}
-  m_LocalRotation: {x: 0.032447785, y: 0.96053296, z: -0.24532233, w: 0.12704574}
-  m_LocalPosition: {x: 170.3, y: 198.6, z: -19}
+  m_LocalRotation: {x: 0, y: 0.9913649, z: 0, w: 0.13113199}
+  m_LocalPosition: {x: 0, y: 0, z: -19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4288112046583524}
   m_Father: {fileID: 4927436013156276}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 28.654001, y: 164.93102, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 164.93, z: 0}
 --- !u!4 &4927436013156276
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1859414531916588}
-  m_LocalRotation: {x: -0, y: 0.9776342, z: -0, w: 0.21031253}
-  m_LocalPosition: {x: 109.130005, y: -114.4145, z: 214.11}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4246646390381892}
@@ -262,7 +262,7 @@ Transform:
   - {fileID: 4492870587623218}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 155.71901, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &20250237514850666
 Camera:
   m_ObjectHideFlags: 1
@@ -405,7 +405,7 @@ AudioListener:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1229189330708936}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!81 &81651183156816936
 AudioListener:
   m_ObjectHideFlags: 1
