@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour {
     public float lives = 3;
     Vector3 prevPlayerPos;
 
+    public Bat sleepingBat;
+
     //public int crystalAmount = 0;
     //public TextMeshProUGUI statusText;
 
@@ -115,6 +117,7 @@ public class GameManager : MonoBehaviour {
     }
 
     private void Awake() {
+        sleepingBat.sleeping = true;
         // Make a singleton instance out of (this) GameManager
         if(instance)
             Debug.LogError("2+ GameManagers found!");

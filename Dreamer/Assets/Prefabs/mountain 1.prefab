@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 23248085600774478}
   - component: {fileID: 64982715046521298}
   - component: {fileID: 54613211728921328}
-  m_Layer: 16
+  m_Layer: 9
   m_Name: cave1_stone2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 23104212953015684}
   - component: {fileID: 64449337502223030}
   - component: {fileID: 54645998583812254}
-  m_Layer: 16
+  m_Layer: 9
   m_Name: cave1_stone3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1177325066884706
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
@@ -240,9 +240,10 @@ GameObject:
   - component: {fileID: 33406066957538774}
   - component: {fileID: 23288370708270686}
   - component: {fileID: 64849468456485576}
+  - component: {fileID: 114691220912698152}
   m_Layer: 9
   m_Name: rockslide_stone1
-  m_TagString: Untagged
+  m_TagString: Cavestone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -321,7 +322,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1288351024707886
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
@@ -411,7 +412,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1337810712807698
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
@@ -466,7 +467,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1383566391765154
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
@@ -495,9 +496,9 @@ GameObject:
   - component: {fileID: 64457671910836400}
   - component: {fileID: 54447267129884648}
   - component: {fileID: 114929977982580532}
-  m_Layer: 16
+  m_Layer: 9
   m_Name: cave1_stone1
-  m_TagString: Untagged
+  m_TagString: Cavestone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -730,7 +731,7 @@ GameObject:
   - component: {fileID: 23263587566557282}
   - component: {fileID: 64121379185102682}
   - component: {fileID: 54471381029474694}
-  m_Layer: 16
+  m_Layer: 9
   m_Name: cave1_stone4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -739,7 +740,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1558964807136540
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
@@ -821,7 +822,7 @@ GameObject:
   - component: {fileID: 23186074453205144}
   - component: {fileID: 64886964356796034}
   - component: {fileID: 54607501853114896}
-  m_Layer: 16
+  m_Layer: 9
   m_Name: cave1_stone5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1208,7 +1209,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1871129508976678
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
@@ -1522,13 +1523,7 @@ Transform:
   - {fileID: 4535425520060458}
   - {fileID: 4798240893005734}
   - {fileID: 4920979248423336}
-  - {fileID: 4487377582810500}
-  - {fileID: 4930413696549050}
   - {fileID: 4866470833623256}
-  - {fileID: 4075466517976684}
-  - {fileID: 4555778098801956}
-  - {fileID: 4511139874037158}
-  - {fileID: 4432005225169852}
   - {fileID: 4832893787673132}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1582,8 +1577,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4020061887494950}
-  m_RootOrder: 68
+  m_Father: {fileID: 4866470833623256}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4085361269511244
 Transform:
@@ -1956,11 +1951,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1871129508976678}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.00019199986, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4020061887494950}
-  m_RootOrder: 71
+  m_Father: {fileID: 4866470833623256}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4444074413879084
 Transform:
@@ -2011,8 +2006,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4020061887494950}
-  m_RootOrder: 65
+  m_Father: {fileID: 4866470833623256}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4496107699276522
 Transform:
@@ -2047,11 +2042,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1337810712807698}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.0005559998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4020061887494950}
-  m_RootOrder: 70
+  m_Father: {fileID: 4866470833623256}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4513527299900222
 Transform:
@@ -2102,8 +2097,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4020061887494950}
-  m_RootOrder: 69
+  m_Father: {fileID: 4866470833623256}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4574245728606730
 Transform:
@@ -2276,7 +2271,7 @@ Transform:
   m_LocalScale: {x: 0.00010000012, y: 0.0005000004, z: 0.00010000008}
   m_Children: []
   m_Father: {fileID: 4020061887494950}
-  m_RootOrder: 72
+  m_RootOrder: 66
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4835194028686730
 Transform:
@@ -2339,9 +2334,15 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4930413696549050}
+  - {fileID: 4075466517976684}
+  - {fileID: 4555778098801956}
+  - {fileID: 4511139874037158}
+  - {fileID: 4432005225169852}
+  - {fileID: 4487377582810500}
   m_Father: {fileID: 4020061887494950}
-  m_RootOrder: 67
+  m_RootOrder: 65
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4877577408952078
 Transform:
@@ -2457,8 +2458,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4020061887494950}
-  m_RootOrder: 66
+  m_Father: {fileID: 4866470833623256}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4936673282887804
 Transform:
@@ -6938,6 +6939,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 510ec6de7f9834bd69eb827cf3151c0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114691220912698152
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1177325066884706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430db384e5f387b42bf64b7d4e85b68b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explodable: 0
+  explosionEffect: {fileID: 1736788278980720, guid: 424a76849a4bf1f4bb261bd29aedd2a6,
+    type: 2}
+  countdown: 0
 --- !u!114 &114929977982580532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6950,5 +6966,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodable: 0
-  explosionEffect: {fileID: 0}
+  explosionEffect: {fileID: 1736788278980720, guid: 424a76849a4bf1f4bb261bd29aedd2a6,
+    type: 2}
   countdown: 0

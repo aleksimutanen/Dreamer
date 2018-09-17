@@ -6,7 +6,7 @@ public class Explodable : MonoBehaviour {
 
     public bool explodable;
     public GameObject explosionEffect;
-    public float countdown;
+    public float countdown = 0.5f;
     Transform[] stones;
 
     private void Start() {
@@ -22,9 +22,8 @@ public class Explodable : MonoBehaviour {
 
     public void SetExplosion () {
         explodable = true;
-        countdown = 1f;
         foreach (Transform stone in stones) {
-            stone.SetParent(null);
+            //stone.SetParent(null);
             //var rb = stone.GetComponent<Rigidbody>();
             //rb.constraints = RigidbodyConstraints.None;
             //rb.velocity = rb.velocity.normalized;
@@ -36,7 +35,7 @@ public class Explodable : MonoBehaviour {
         explodable = false;
         //räjähdysanimaatio
         foreach (Transform stone in stones) {
-            Instantiate(explosionEffect, stone.position, stone.rotation);
+            Instantiate(explosionEffect, stone.GetComponent<Renderer>().bounds.center, stone.rotation);
             stone.gameObject.SetActive(false);
         }
 
