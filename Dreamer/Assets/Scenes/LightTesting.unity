@@ -526,6 +526,11 @@ Prefab:
       propertyPath: m_Name
       value: mountain
       objectReference: {fileID: 0}
+    - target: {fileID: 23777898325424746, guid: 7f893d539e40611408a276577171a8d9,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2597d3a09157ffd4dbb2bb186b57e6b9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f893d539e40611408a276577171a8d9, type: 2}
   m_IsPrefabAsset: 0
