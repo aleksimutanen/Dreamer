@@ -6,25 +6,23 @@ public enum BatMode {Hanging, Flying, Attacking, Returning};
 
 public class Bat : MonoBehaviour, Enemy {
 
-    //miten ja millon lepakot pitää luoda? aktivoida?
-    //pitääkö niiden olla jossain samassa folderissa? miks? miksei?
-
     Rigidbody rb;
     Vector3 startPos;
     public float speed;
-    public BatMode batm;
+    public float steeringSpeed = 80f;
+    public BatMode batMode;
+    public bool sleeping;
+
     public float attackRadius = 10;
     RaycastHit hit2;
-    public float maxDist = 3;
-
-    public float steeringSpeed = 80f;
-
     public Transform playerTransform;
     Vector3 target;
     public float distToPlayer;
+
     public LayerMask obstacles;
+    public float maxDist = 3;
     public bool vaistaa;
-    public float angle;
+    float angle;
 
     public LayerMask floor;
     public float maxDistToFloor = 2;
@@ -33,15 +31,13 @@ public class Bat : MonoBehaviour, Enemy {
     public float explosionDelay = 1f;
     float countdown;
     public GameObject explosionEffect;
-    public float blastRadius = 5f;
-    public float explosionForce = 700f;
+    public float blastRadius = 15f;
     public float health = 2f;
     public bool hasExploded;
 
     public float dmgToPlayer = -5;
     public float pwrToShield = 5;
 
-    public bool sleeping;
     //muuta gamemanagerissa
     
     void Start() {
@@ -67,39 +63,26 @@ public class Bat : MonoBehaviour, Enemy {
         if (WorldSwitch.instance.state == AwakeState.NightMare && !sleeping) {
             distToPlayer = Vector3.Distance(transform.position, playerTransform.position);
             if (distToPlayer < attackRadius) {
-                batm = BatMode.Attacking;
+                batMode = BatMode.Attacking;
             }
         } else {
-            batm = BatMode.Hanging;
+            batMode = BatMode.Hanging;
         }
 
-        if (batm != BatMode.Hanging) {
-            if (batm == BatMode.Attacking) {
+        if (batMode != BatMode.Hanging) {
+            if (batMode == BatMode.Attacking) {
                 target = playerTransform.position;
-            } else if (batm == BatMode.Returning) {
+            } else if (batMode == BatMode.Returning) {
                 target = startPos;
             }
             Fly();
         }
-        
     }
-
-    //void Fly() {
-    //    if (RayCone(floor, maxDistToFloor, steerSpeedFloor)) {
-    //        vaistaa = true;
-    //        rb.velocity = Vector3.zero;
-    //    }
-
-    //    else if (RayCone(obstacles, maxDist, steeringSpeed)) {
-    //        vaistaa = true;
-    //        rb.velocity = transform.forward * speed;
-    //    }
-    //}
 
     void Fly() {
 
-        if (batm == BatMode.Attacking && distToPlayer > attackRadius) {
-            batm = BatMode.Returning;
+        if (batMode == BatMode.Attacking && distToPlayer > attackRadius) {
+            batMode = BatMode.Returning;
         }
 
         RaycastHit hit;
@@ -123,7 +106,7 @@ public class Bat : MonoBehaviour, Enemy {
             vaistaa = true;
         }
 
-        else if (batm == BatMode.Flying) {
+        else if (batMode == BatMode.Flying) {
             var targetPoint = transform.position + transform.right * 0.2f;
             var targetRotation = Quaternion.LookRotation(targetPoint - transform.position, Vector3.up);
             targetRotation = Quaternion.Euler(-targetRotation.eulerAngles.x, targetRotation.eulerAngles.y, -targetRotation.eulerAngles.z);
@@ -193,22 +176,19 @@ public class Bat : MonoBehaviour, Enemy {
     public void Explode() {
         //kun pelaaja lyö, räjähdä
         hasExploded = true;
-        //räjähdysanimaatio
+        //räjähdysefekti
         Instantiate(explosionEffect, transform.position, transform.rotation);
         //kerrotaan lähellä oleville objekteille että niidenkin pitää räjähtää
-
         Collider[] nearbyObjects = Physics.OverlapSphere(transform.position, blastRadius);
 
         foreach (Collider nearbyObj in nearbyObjects) {
-            Rigidbody rb = nearbyObj.GetComponent<Rigidbody>();
-            if (rb != null) {
-                //rb.AddExplosionForce(explosionForce, transform.position, blastRadius);
+            print(nearbyObj.tag);
+            if (nearbyObj.tag == "Cavestone") {
                 Instantiate(explosionEffect, nearbyObj.transform.position, nearbyObj.transform.rotation);
                 var expl = nearbyObj.GetComponent<Explodable>();
                 if (expl != null) {
                     expl.SetExplosion();
                 }
-                //millon tän voi tehdä? tai tän vois tehä sillee et niillä objekteilla on oma scripti mikä odottaa ja sitten setactivefalse
             }
         }
         //jos pelaaja lähellä, damagea pelaajaan / kilven latausta jos kilpi ylhäällä?
@@ -230,7 +210,7 @@ public class Bat : MonoBehaviour, Enemy {
             print("bat hit player");
             GameManager.instance.ChangeToddlerHealth(dmgToPlayer);
         }
-        batm = BatMode.Returning;
+        batMode = BatMode.Returning;
     }
 
     public void KickBack(Vector3 dir, float force) {
@@ -242,10 +222,8 @@ public class Bat : MonoBehaviour, Enemy {
         //Gizmos.color = Color.red;
         //Debug.DrawLine(transform.position, transform.position + transform.forward * hit2.distance);
         Gizmos.DrawLine(transform.position, transform.position + transform.forward * hit2.distance);
+        Gizmos.DrawSphere(transform.position, blastRadius);
     }
-
-    //            Vector3 d2 = ((transform.position + Vector3.forward) + (transform.position + Vector3.right)) - transform.position;
-    //Vector3 d3 = 
 
     public void TakeDamage(float damage) {
         if (health <= 0) return;
