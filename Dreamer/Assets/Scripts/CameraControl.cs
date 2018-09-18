@@ -9,14 +9,15 @@ public class CameraControl : MonoBehaviour {
     public float minDist;
     public float maxDist;
     public float distance;
-
+    LayerMask layerMask;
 
     float normalCamDist;
 
 
 
     void Start() {
-        normalCamDist = camDist;    
+        normalCamDist = camDist;
+        layerMask = LayerMask.NameToLayer("Map");
     }
 
     void FixedUpdate() {
@@ -25,13 +26,14 @@ public class CameraControl : MonoBehaviour {
 
         RaycastHit hit;
 
-        if(Physics.Raycast(vertRot.transform.position, -vertRot.forward, out hit)) {
+        if(Physics.Raycast(vertRot.transform.position, -vertRot.forward, out hit, layerMask)) {
             camDist = Mathf.Clamp(hit.distance, minDist, maxDist);
+            print(hit.collider);
         } else {
             camDist = maxDist;
         }
 
-        Debug.DrawLine(vertRot.transform.position, -vertRot.forward * maxDist, Color.yellow, 0.1f);
+        Debug.DrawLine(vertRot.transform.position, hit.point, Color.yellow, 0.1f);
 
 
         if (GameManager.instance.lookEnabled) {
