@@ -59,12 +59,6 @@ public class GameManager : MonoBehaviour {
     public Bat sleepingBat;
 
     public List<Transform> doors = new List<Transform>(6);
-    //public Transform door1;
-    //public Transform door1EndPos;
-    //public Transform door2;
-    //public Transform door2EndPos;
-    //public Transform door3;
-    //public Transform door3EndPos;
     int nextDoor = 0;
     float doorOpen = 10;
     bool openDoor;
@@ -129,8 +123,7 @@ public class GameManager : MonoBehaviour {
         if (openDoor) { 
             print("door open");
             MoveDoor(doors[nextDoor], doors[nextDoor+1]);
-            nextDoor += 2;
-            doorOpen += 10;
+
         }
 
     }
@@ -212,11 +205,14 @@ public class GameManager : MonoBehaviour {
 
     void MoveDoor (Transform door, Transform doorEndPos) {
         print(door.GetComponent<Renderer>().bounds.center.z);
-        if (door.GetComponent<Renderer>().bounds.center.z >= doorEndPos.position.z) {
+        print(doorEndPos.position.z + " endpos");
+        if (door.GetComponent<Renderer>().bounds.center.z <= doorEndPos.position.z) {
             openDoor = false;
             print("door stopped");
+            nextDoor += 2;
+            doorOpen += 10;
             return;
         }
-        door.Translate(-door.forward * Time.deltaTime);
+        door.Translate(-door.forward * Time.deltaTime *2);
     }
 }
