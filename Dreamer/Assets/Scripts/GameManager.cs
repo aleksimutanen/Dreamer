@@ -58,6 +58,11 @@ public class GameManager : MonoBehaviour {
 
     public Bat sleepingBat;
 
+    public List<Transform> doors = new List<Transform>(6);
+    int nextDoor = 0;
+    float doorOpen = 10;
+    bool openDoor;
+
     //public int crystalAmount = 0;
     //public TextMeshProUGUI statusText;
 
@@ -111,9 +116,16 @@ public class GameManager : MonoBehaviour {
             statusTextEmpty = true;
         }
 
-        
-        
-        
+        if (dreamPower == doorOpen) {
+            openDoor = true;
+        }
+
+        if (openDoor) { 
+            print("door open");
+            MoveDoor(doors[nextDoor], doors[nextDoor+1]);
+
+        }
+
     }
 
     private void Awake() {
@@ -189,5 +201,18 @@ public class GameManager : MonoBehaviour {
         statusText.text = text;
         statusTextTimer = timer;
         statusTextEmpty = false;
+    }
+
+    void MoveDoor (Transform door, Transform doorEndPos) {
+        print(door.GetComponent<Renderer>().bounds.center.z);
+        print(doorEndPos.position.z + " endpos");
+        if (door.GetComponent<Renderer>().bounds.center.z <= doorEndPos.position.z) {
+            openDoor = false;
+            print("door stopped");
+            nextDoor += 2;
+            doorOpen += 10;
+            return;
+        }
+        door.Translate(-door.forward * Time.deltaTime *2);
     }
 }
