@@ -82,8 +82,8 @@ MonoBehaviour:
   buddyPower: 1
   dreamPower: 1
   dreamPowMem: 0
-  lookEnabled: 0
-  walkEnabled: 0
+  lookEnabled: 1
+  walkEnabled: 1
   jumpEnabled: 0
   switchEnabled: 1
   bashEnabled: 0
@@ -92,3 +92,4 @@ MonoBehaviour:
   firingEnabled: 0
   powerBallEnabled: 0
   lives: 3
+  sleepingBat: {fileID: 0}
