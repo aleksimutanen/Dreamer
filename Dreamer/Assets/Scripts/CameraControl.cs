@@ -27,13 +27,15 @@ public class CameraControl : MonoBehaviour {
         RaycastHit hit;
 
         if(Physics.Raycast(vertRot.transform.position, -vertRot.forward, out hit, layerMask)) {
+            print(-vertRot.forward);
             camDist = Mathf.Clamp(hit.distance, minDist, maxDist);
+            Debug.DrawLine(vertRot.transform.position, hit.point, Color.green, 0.1f);
             print(hit.collider);
         } else {
             camDist = maxDist;
         }
 
-        Debug.DrawLine(vertRot.transform.position, hit.point, Color.yellow, 0.1f);
+       
 
 
         if (GameManager.instance.lookEnabled) {
