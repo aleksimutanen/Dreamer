@@ -15,4 +15,7 @@ public class HorizontalRotator : MonoBehaviour {
         yRot = Input.GetAxis("CameraX") * horSens;
         transform.rotation = Quaternion.AngleAxis(yRot, Vector3.up) * transform.rotation; // Change this objects rotation same as players
 	}
+    public void ResetRotation(){
+        transform.rotation = player.transform.rotation;
+    }
 }

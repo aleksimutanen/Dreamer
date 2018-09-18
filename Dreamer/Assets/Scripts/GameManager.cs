@@ -20,11 +20,15 @@ public class GameManager : MonoBehaviour {
     public Slider dreamPowerFill;
     public Transform gameStartPoint;
     public Vector3 checkpoint;
+    public Quaternion checkRotation;
     public GameObject player;
+    public GameObject vertRot;
+    public GameObject horRot;
     public TextMeshProUGUI statusText;
     public float statusTextTimer = 0;
     public bool statusTextEmpty = true;
-    public int tutorialIndex = 0;  
+    public int tutorialIndex = 0;
+    public bool tutorialComplete = false;
     
     public List<string> tutorialTexts = new List<string>();
 
@@ -49,8 +53,10 @@ public class GameManager : MonoBehaviour {
     public bool firingEnabled = false;
     public bool powerBallEnabled = false;
     
-    float lives = 3;
+    public float lives = 3;
     Vector3 prevPlayerPos;
+
+    public Bat sleepingBat;
 
     //public int crystalAmount = 0;
     //public TextMeshProUGUI statusText;
@@ -79,24 +85,24 @@ public class GameManager : MonoBehaviour {
         prevPlayerPos = player.transform.position;
         
         statusTextTimer -= Time.deltaTime;
-        
+        // look enabled
         if (tutorialIndex == 1 && statusTextTimer < 0 && statusTextEmpty){
-            ChangeStatusText(tutorialTexts[tutorialIndex], 1);
+            ChangeStatusText(tutorialTexts[tutorialIndex], 5);
             tutorialIndex++;
             statusTextEmpty = false;
             lookEnabled = true;
         }
-        
+        // walk enabled
         if (tutorialIndex == 2 && statusTextTimer < 0 && statusTextEmpty){
-            ChangeStatusText(tutorialTexts[tutorialIndex],1);
+            ChangeStatusText(tutorialTexts[tutorialIndex],5);
             tutorialIndex++;
             statusTextEmpty = false;
             walkEnabled = true;
         }
-        
-        if (tutorialIndex == 4 && statusTextTimer < 0 && statusTextEmpty){
-            ChangeStatusText(tutorialTexts[tutorialIndex],1);
-            tutorialIndex++;
+        // feeling
+        if (tutorialIndex == tutorialTexts.Count && statusTextTimer < 0 && statusTextEmpty && !tutorialComplete){
+            ChangeStatusText(tutorialTexts[tutorialIndex],5);
+            tutorialComplete = true;
             statusTextEmpty = false;
         }
         
@@ -111,6 +117,7 @@ public class GameManager : MonoBehaviour {
     }
 
     private void Awake() {
+        sleepingBat.sleeping = true;
         // Make a singleton instance out of (this) GameManager
         if(instance)
             Debug.LogError("2+ GameManagers found!");
@@ -120,7 +127,10 @@ public class GameManager : MonoBehaviour {
             tutorialTexts.Add("You can look around by moving your mouse or controller tatti. Now look around you");
             tutorialTexts.Add("Well done! You can also move here =) Use your wasd or the other tatti to move");
             tutorialTexts.Add("Press space or joystick button x to jump over obstacles");
-            tutorialTexts.Add("You did really good. Now move along little one!");   
+            tutorialTexts.Add("When you see crystals like this you should pick them up!");
+            tutorialTexts.Add("Sometimes when you feel you are in a bad spot, try switching to nightmare by pressing the 'e'" + " button.");
+            tutorialTexts.Add("Your bunny can help you find some crystals!");
+            tutorialTexts.Add("You did really good. Now move along little one!");
             ChangeStatusText(tutorialTexts[tutorialIndex], 1);
             tutorialIndex++;
         }
@@ -128,15 +138,20 @@ public class GameManager : MonoBehaviour {
     public void SetCheckpoint(){
         
         checkpoint = player.transform.position;
+        checkRotation = player.transform.rotation;
         dreamPowMem = dreamPower;
     }
 
     public void ALiveLost(){
         if(lives > 0){
-            lives -= 1;
+            lives --;
+            print("Life lost");
             player.gameObject.SetActive(false);
             player.gameObject.transform.position = checkpoint;
-            player.gameObject.SetActive(true);      
+            player.gameObject.transform.rotation = checkRotation;
+            player.gameObject.SetActive(true);
+            vertRot.GetComponent<VerticalRotator>().ResetRotation();
+            horRot.GetComponent<HorizontalRotator>().ResetRotation();
             ChangeDreamPower(-(dreamPower-dreamPowMem));       
         } else {
             print("Game Over");

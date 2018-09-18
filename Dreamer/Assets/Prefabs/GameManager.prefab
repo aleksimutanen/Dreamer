@@ -63,11 +63,15 @@ MonoBehaviour:
   dreamPowerFill: {fileID: 0}
   gameStartPoint: {fileID: 0}
   checkpoint: {x: 0, y: 0, z: 0}
+  checkRotation: {x: 0, y: 0, z: 0, w: 0}
   player: {fileID: 0}
+  vertRot: {fileID: 0}
+  horRot: {fileID: 0}
   statusText: {fileID: 0}
   statusTextTimer: 0
   statusTextEmpty: 1
   tutorialIndex: 0
+  tutorialComplete: 0
   tutorialTexts: []
   maxToddlerHealth: 100
   maxBuddyPower: 100
@@ -81,9 +85,10 @@ MonoBehaviour:
   lookEnabled: 0
   walkEnabled: 0
   jumpEnabled: 0
-  switchEnabled: 0
+  switchEnabled: 1
   bashEnabled: 0
   glideEnabled: 0
   shieldEnabled: 0
   firingEnabled: 0
   powerBallEnabled: 0
+  lives: 3
