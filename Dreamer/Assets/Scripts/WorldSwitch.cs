@@ -22,7 +22,8 @@ public class WorldSwitch : MonoBehaviour {
     public Camera nmCam;
     public Camera[] cameras;
 
-    public RawImage faderImage;
+    public RawImage nmFaderImage;
+    public RawImage drFaderImage;
 
     [HideInInspector] public LayerMask map;
     [SerializeField] LayerMask dreamSolid;
@@ -40,14 +41,15 @@ public class WorldSwitch : MonoBehaviour {
     }
 
     void Start() {
+        //nmFaderImage.gameObject.SetActive(false);
         map = dreamSolid;
         state = AwakeState.Dream;
         cm = FindObjectOfType<CharacterMover>();
-        Fabric.EventManager.Instance.PostEvent("DreamMusic", Fabric.EventAction.PlaySound);
-        Fabric.EventManager.Instance.PostEvent("NightmareMusic", Fabric.EventAction.PlaySound);
-        Fabric.EventManager.Instance.PostEvent("NightmareMusic", Fabric.EventAction.PauseSound);
+        nmCam.gameObject.SetActive(false);
 
-
+        //Fabric.EventManager.Instance.PostEvent("DreamMusic", Fabric.EventAction.PlaySound);
+        //Fabric.EventManager.Instance.PostEvent("NightmareMusic", Fabric.EventAction.PlaySound);
+        //Fabric.EventManager.Instance.PostEvent("NightmareMusic", Fabric.EventAction.PauseSound);
     }
 
     void Update() {
@@ -57,51 +59,50 @@ public class WorldSwitch : MonoBehaviour {
 
             transitionOut = true;
             if(state == AwakeState.Dream) {
-                Fabric.EventManager.Instance.PostEvent("DreamMusic", Fabric.EventAction.PauseSound);
-                Fabric.EventManager.Instance.PostEvent("NightmareMusic", Fabric.EventAction.UnpauseSound);
+                //Fabric.EventManager.Instance.PostEvent("DreamMusic", Fabric.EventAction.PauseSound);
+                //Fabric.EventManager.Instance.PostEvent("NightmareMusic", Fabric.EventAction.UnpauseSound);
             } else {
-                Fabric.EventManager.Instance.PostEvent("DreamMusic", Fabric.EventAction.UnpauseSound);
-                Fabric.EventManager.Instance.PostEvent("NightmareMusic", Fabric.EventAction.PauseSound);
+                //Fabric.EventManager.Instance.PostEvent("DreamMusic", Fabric.EventAction.UnpauseSound);
+                //Fabric.EventManager.Instance.PostEvent("NightmareMusic", Fabric.EventAction.PauseSound);
             }
         }
         if (state == AwakeState.Dream) {
             if (transitionOut || transitionIn) {
-                Switch(fadeSpeed, 1f, transitionSpeed, drCam, nmCam, cm.EnterNightmare, nightmareSolid, AwakeState.NightMare);
+                Switch(fadeSpeed, /*1f,*/ transitionSpeed, drFaderImage, nmFaderImage, drCam, nmCam, cm.EnterNightmare, nightmareSolid, AwakeState.NightMare);
             }
             //Fabric.EventManager.Instance.PostEvent("Jump");
-
-
         }
         if (state == AwakeState.NightMare) {
             if (transitionOut || transitionIn) {
-                Switch(fadeSpeed, 0f, transitionSpeed, nmCam, drCam, cm.EnterDream, dreamSolid, AwakeState.Dream);
+                Switch(fadeSpeed, /*0f,*/ transitionSpeed, nmFaderImage, drFaderImage, nmCam, drCam, cm.EnterDream, dreamSolid, AwakeState.Dream);
             }
-
         }
     }
 
-    public void Switch(float fadeSpeed, float target, float fadingSpeed,
-        Camera currentCam, Camera newCam, UnityAction afterTransition, LayerMask newSolid, AwakeState newState) {
+    public void Switch(float fadeSpeed, /*float target,*/ float fadingSpeed, RawImage currentImage, RawImage newImage, Camera currentCam, 
+                       Camera newCam, UnityAction afterTransition, LayerMask newSolid, AwakeState newState) {
 
-        var c = faderImage.color;
+        newCam.gameObject.SetActive(true);
+        var b = newImage.color;
+        var d = b.a;
+        var c = currentImage.color;
         var a = c.a;
-        if (target < a)
-            fadeSpeed *= -1;
+        //if (target < a)
+        //    fadeSpeed *= -1;
         if (transitionOut) {
-            //GameManager.instance.walkEnabled = false;
-            a += fadeSpeed * Time.deltaTime;
+            a -= fadeSpeed * Time.deltaTime;
+            d += fadeSpeed * Time.deltaTime;
             c.a = Mathf.Clamp01(a);
-            faderImage.color = c;
+            b.a = Mathf.Clamp01(d);
+            currentImage.color = c;
+            newImage.color = b;
             foreach (Camera cam in cameras) {
                 cam.fieldOfView += fadingSpeed * Time.deltaTime;
             }
-            //currentCam.fieldOfView += fadingSpeed * Time.deltaTime;
-            //newCam.fieldOfView += fadingSpeed * Time.deltaTime;
         }
-        if (a < 0 || a > 1) {
+        if (a < 0 || a > 1){
             transitionOut = false;
             transitionIn = true;
-            state = newState;
             map = newSolid;
             afterTransition();
         }
@@ -109,11 +110,11 @@ public class WorldSwitch : MonoBehaviour {
             foreach (Camera cam in cameras) {
                 cam.fieldOfView -= Time.deltaTime * transitionSpeed * 2;
             }
-            //currentCam.fieldOfView -= fadingSpeed * 2 * Time.deltaTime;
-            //newCam.fieldOfView -= fadingSpeed * 2 * Time.deltaTime;
-            if ((state == AwakeState.NightMare && newCam.fieldOfView < 45) || (state == AwakeState.Dream && newCam.fieldOfView < 60)) {
+            if ((state == AwakeState.NightMare && newCam.fieldOfView < 60) || (state == AwakeState.Dream && newCam.fieldOfView < 45)) {
                 transitionIn = false;
-                //GameManager.instance.walkEnabled = true;
+                currentCam.gameObject.SetActive(false);
+                state = newState;
+                print(currentCam.gameObject.name);
             }
         }
     }
