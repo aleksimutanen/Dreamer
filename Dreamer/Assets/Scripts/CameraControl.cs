@@ -43,16 +43,16 @@ public class CameraControl : MonoBehaviour {
                 if (WorldSwitch.instance.state == AwakeState.Dream) {
                     transform.rotation = vertRot.rotation;
                     transform.position = vertRot.position + transform.forward * -camDist;
-                    camDist -= Time.deltaTime * 1.55f;
+                    camDist -= Time.deltaTime * 1.715f * 2.5f/*1.55f * 2.5f*/;
                 } else if (WorldSwitch.instance.state == AwakeState.NightMare) {
                     transform.rotation = vertRot.rotation;
                     transform.position = vertRot.position + transform.forward * -camDist;
-                    camDist -= Time.deltaTime * 1.45f;
+                    camDist -= Time.deltaTime * 1.595f * 2.5f/*1.45f * 2.5f*/;
                 }
             } else if (WorldSwitch.instance.transitionIn) {
                 transform.rotation = vertRot.rotation;
                 transform.position = vertRot.position + transform.forward * -camDist;
-                camDist += Time.deltaTime * 1.55f * 2;
+                camDist += Time.deltaTime * /*1.55f*/1.705f * 2.5f * 2;
             }
         }
 
