@@ -116,7 +116,7 @@ public class Bat : MonoBehaviour, Enemy {
             rb.velocity = transform.forward * speed;
         }
 
-        else if {
+        else {
             vaistaa = false;
             // steer towards target
             var dir = target - transform.position;
