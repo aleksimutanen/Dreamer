@@ -39,8 +39,9 @@ public class Bat : MonoBehaviour, Enemy {
     public float dmgToPlayer = -5;
     public float pwrToShield = 5;
 
+    float i;
     //muuta gamemanagerissa
-    
+
     void Start() {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         countdown = explosionDelay;
@@ -48,6 +49,9 @@ public class Bat : MonoBehaviour, Enemy {
         angle = (float)Random.Range(0, 8) * 45f;
         startPos = transform.position;
         target = playerTransform.position;
+        //20 % chance of an unblockable attack
+        i = Random.Range(0f, 1f);
+        print(i);
     }
 
     void Update() {
@@ -65,8 +69,8 @@ public class Bat : MonoBehaviour, Enemy {
             distToPlayer = Vector3.Distance(transform.position, playerTransform.position);
             if (distToPlayer < attackRadius) {
                 batMode = BatMode.Attacking;
-                //20 % chance of an unblockable attack
-                if (Random.Range(0, 1) < 0.2f) {
+
+                if (i < 0.2f) {
                     //animaatio/muu indikaatio että on tulossa unblockable
                     Instantiate(explosionEffect, transform.position, transform.rotation); //placeholder
                     blockable = false;
@@ -92,6 +96,8 @@ public class Bat : MonoBehaviour, Enemy {
 
         if (batMode == BatMode.Attacking && distToPlayer > attackRadius) {
             batMode = BatMode.Returning;
+            i = Random.Range(0f, 1f);
+            print(i);
         }
 
         RaycastHit hit;

@@ -7,11 +7,12 @@ public class HorizontalRotator : MonoBehaviour {
     // Rotator script for camera control
 
     public Transform player;
+    float cameraHeight = 2.5f;
     float yRot;
     public float horSens = 5; // Input sensitivity on the horzontal axis
 
 	void Update () {
-        transform.position = new Vector3 (player.position.x, player.position.y + 2, player.position.z); // Move this rotator object to player position
+        transform.position = new Vector3 (player.position.x, player.position.y + cameraHeight, player.position.z); // Move this rotator object to player position
         yRot = Input.GetAxis("CameraX") * horSens;
         transform.rotation = Quaternion.AngleAxis(yRot, Vector3.up) * transform.rotation; // Change this objects rotation same as players
 	}
