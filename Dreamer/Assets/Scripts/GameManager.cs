@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour {
     public bool statusTextEmpty = true;
     public int tutorialIndex = 0;
     public bool tutorialComplete = false;
-    
+
     public List<string> tutorialTexts = new List<string>();
 
     public float maxToddlerHealth;
@@ -147,12 +147,13 @@ public class GameManager : MonoBehaviour {
             tutorialIndex++;
         }
 
-    public void SetCheckpoint(){
-        
+    public void SetCheckpoint(){    
         checkpoint = player.transform.position;
-        checkRotation = player.transform.rotation;
         dreamPowMem = dreamPower;
+        checkRotation = player.transform.rotation;
     }
+
+
 
     public void ALiveLost(){
         if(lives > 0){
