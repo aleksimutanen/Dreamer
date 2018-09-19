@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum BatMode {Hanging, Flying, Attacking, Returning};
+public enum BatMode {Hanging, Flying, Attacking, Returning, Animated};
 //tarviiko tän olla enum?
 
 public class Bat : MonoBehaviour, Enemy {
@@ -13,6 +13,7 @@ public class Bat : MonoBehaviour, Enemy {
     public BatMode batMode;
     public bool sleeping;
 
+    public bool blockable = true;
     public float attackRadius = 10;
     RaycastHit hit2;
     public Transform playerTransform;
@@ -64,12 +65,20 @@ public class Bat : MonoBehaviour, Enemy {
             distToPlayer = Vector3.Distance(transform.position, playerTransform.position);
             if (distToPlayer < attackRadius) {
                 batMode = BatMode.Attacking;
+                //20 % chance of an unblockable attack
+                if (Random.Range(0, 1) < 0.2f) {
+                    //animaatio/muu indikaatio että on tulossa unblockable
+                    Instantiate(explosionEffect, transform.position, transform.rotation); //placeholder
+                    blockable = false;
+                } else {
+                    blockable = true;
+                }
             }
         } else {
             batMode = BatMode.Hanging;
         }
 
-        if (batMode != BatMode.Hanging) {
+        if (batMode != BatMode.Hanging && batMode != BatMode.Animated) {
             if (batMode == BatMode.Attacking) {
                 target = playerTransform.position;
             } else if (batMode == BatMode.Returning) {
@@ -198,11 +207,11 @@ public class Bat : MonoBehaviour, Enemy {
 
     private void OnTriggerEnter(Collider collision) {
 
-        if (collision.gameObject.name == "Shield") {
+        if (collision.gameObject.name == "Shield" && blockable) {
             print("blocked");
             GameManager.instance.ChangeBuddyPower(pwrToShield);
             //blocked --> return
-
+            batMode = BatMode.Returning;
         } else if (collision.gameObject.name == "Ammo(Clone)") {
             collision.GetComponent<EnergyAmmo>().DealDamage(this);
             print("ammo hit");
@@ -215,6 +224,8 @@ public class Bat : MonoBehaviour, Enemy {
 
     public void KickBack(Vector3 dir, float force) {
         rb.AddForce(dir * force, ForceMode.Impulse);
+        //vaihda lepakon liikkumismode 
+        batMode = BatMode.Animated;
     }
     //kun kilvellä ammutaan
 
@@ -222,7 +233,7 @@ public class Bat : MonoBehaviour, Enemy {
         //Gizmos.color = Color.red;
         //Debug.DrawLine(transform.position, transform.position + transform.forward * hit2.distance);
         Gizmos.DrawLine(transform.position, transform.position + transform.forward * hit2.distance);
-        Gizmos.DrawSphere(transform.position, blastRadius);
+        //Gizmos.DrawSphere(transform.position, blastRadius);
     }
 
     public void TakeDamage(float damage) {

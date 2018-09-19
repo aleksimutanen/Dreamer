@@ -35,7 +35,9 @@ public class Explodable : MonoBehaviour {
         explodable = false;
         //räjähdysanimaatio
         foreach (Transform stone in stones) {
-            Instantiate(explosionEffect, stone.GetComponent<Renderer>().bounds.center, stone.rotation);
+            if (stone.tag == "Cavestone") {
+                Instantiate(explosionEffect, stone.GetComponent<Renderer>().bounds.center, stone.rotation);
+            }
             stone.gameObject.SetActive(false);
         }
 

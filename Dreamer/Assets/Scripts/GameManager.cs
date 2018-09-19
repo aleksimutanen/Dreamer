@@ -158,16 +158,24 @@ public class GameManager : MonoBehaviour {
         if(lives > 0){
             lives --;
             print("Life lost");
-            player.gameObject.SetActive(false);
-            player.gameObject.transform.position = checkpoint;
-            player.gameObject.transform.rotation = checkRotation;
-            player.gameObject.SetActive(true);
-            vertRot.GetComponent<VerticalRotator>().ResetRotation();
-            horRot.GetComponent<HorizontalRotator>().ResetRotation();
+            TeleportToCheckPoint(false);
             ChangeDreamPower(-(dreamPower-dreamPowMem));       
         } else {
             print("Game Over");
         }
+    }
+
+    public void TeleportToCheckPoint(bool teleport) {
+        player.SetActive(false);
+        player.transform.position = checkpoint;
+        if(teleport) {
+            player.transform.rotation = Quaternion.Euler(checkRotation.eulerAngles.x, checkRotation.eulerAngles.y + 180, checkRotation.eulerAngles.z);
+        } else {
+            player.transform.rotation = checkRotation;
+        }
+        player.SetActive(true);
+        vertRot.GetComponent<VerticalRotator>().ResetRotation();
+        horRot.GetComponent<HorizontalRotator>().ResetRotation();
     }
 
     // When crystal is collected
