@@ -13,6 +13,7 @@ public class Bat : MonoBehaviour, Enemy {
     public BatMode batMode;
     public bool sleeping;
 
+    public bool blockable = true;
     public float attackRadius = 10;
     RaycastHit hit2;
     public Transform playerTransform;
@@ -64,6 +65,14 @@ public class Bat : MonoBehaviour, Enemy {
             distToPlayer = Vector3.Distance(transform.position, playerTransform.position);
             if (distToPlayer < attackRadius) {
                 batMode = BatMode.Attacking;
+                //20 % chance of an unblockable attack
+                if (Random.Range(0, 1) < 0.2f) {
+                    //animaatio/muu indikaatio että on tulossa unblockable
+                    Instantiate(explosionEffect, transform.position, transform.rotation); //placeholder
+                    blockable = false;
+                } else {
+                    blockable = true;
+                }
             }
         } else {
             batMode = BatMode.Hanging;
@@ -198,7 +207,7 @@ public class Bat : MonoBehaviour, Enemy {
 
     private void OnTriggerEnter(Collider collision) {
 
-        if (collision.gameObject.name == "Shield") {
+        if (collision.gameObject.name == "Shield" && blockable) {
             print("blocked");
             GameManager.instance.ChangeBuddyPower(pwrToShield);
             //blocked --> return
