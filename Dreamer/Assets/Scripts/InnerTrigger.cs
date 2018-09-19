@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class InnerTrigger : MonoBehaviour {
 
-    public GameObject wall;
-    public GameObject tunnel;
-    private void OnTriggerEnter(Collider other)
-    {
-        wall.gameObject.SetActive(false);
-        tunnel.gameObject.SetActive(true);
+    public GameObject mountain;
+    public GameObject cave;
+    private void OnTriggerEnter(Collider other){
+        mountain.gameObject.SetActive(false);
+        cave.gameObject.SetActive(true);
     }
 }

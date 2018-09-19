@@ -8,30 +8,33 @@ public class CameraControl : MonoBehaviour {
 
     public float minDist;
     public float maxDist;
-    public float distance;
-
+    float castSize = .4f;
+    LayerMask layerMask;
 
     float normalCamDist;
 
 
 
     void Start() {
-        normalCamDist = camDist;    
+        normalCamDist = camDist;
+        layerMask = 1 << LayerMask.NameToLayer("Map");
     }
 
     void FixedUpdate() {
 
-        Vector3 desiredCameraPos = vertRot.transform.position -vertRot.forward * maxDist;
+        //Vector3 desiredCameraPos = vertRot.transform.position -vertRot.forward * maxDist;
 
         RaycastHit hit;
 
-        if(Physics.Raycast(vertRot.transform.position, -vertRot.forward, out hit)) {
+        if(Physics.SphereCast(vertRot.transform.position, castSize, -vertRot.forward, out hit, Mathf.Infinity, layerMask)) {
             camDist = Mathf.Clamp(hit.distance, minDist, maxDist);
+
+            //print(hit.collider);
         } else {
             camDist = maxDist;
         }
 
-        Debug.DrawLine(vertRot.transform.position, -vertRot.forward * maxDist, Color.yellow, 0.1f);
+        Debug.DrawLine(vertRot.transform.position, hit.point, Color.green, 0.1f);
 
 
         if (GameManager.instance.lookEnabled) {
