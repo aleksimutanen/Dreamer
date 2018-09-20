@@ -8,7 +8,7 @@ public class CameraControl : MonoBehaviour {
 
     public float minDist;
     public float maxDist;
-    float castSize = .4f;
+    float castSize = .2f;
     LayerMask layerMask;
 
     float normalCamDist;
@@ -27,7 +27,7 @@ public class CameraControl : MonoBehaviour {
         RaycastHit hit;
 
         if(Physics.SphereCast(vertRot.transform.position, castSize, -vertRot.forward, out hit, Mathf.Infinity, layerMask)) {
-            camDist = Mathf.Clamp(hit.distance, minDist, maxDist);
+            camDist = Mathf.Clamp(hit.distance - 1, minDist, maxDist);
 
             //print(hit.collider);
         } else {
