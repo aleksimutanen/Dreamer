@@ -22,12 +22,6 @@ public class TreeManager : MonoBehaviour, Enemy {
 
     public LayerMask character;
 
-    public bool target;
-
-    // tarviiks? Rigidbody rb;
-
-    Quaternion startingRot;
-
     public float dmgToPlayer = -5;
     public float pwrToShield = 5;
 
@@ -38,13 +32,11 @@ public class TreeManager : MonoBehaviour, Enemy {
     bool nightmareTree;
     bool dreamTree;
 
-
-
     void Start() {
         cs = FindObjectOfType<CharacterSkills>();
     }
 
-    /*void Update() {
+    void Update() {
         // haluaisin laittaa aktiiviseksi vihollispuun painajaisessa
         // ja ei-vihollispuun unessa
         nightmareTree = trees[0].activeSelf;
@@ -61,7 +53,7 @@ public class TreeManager : MonoBehaviour, Enemy {
             trees[1].SetActive(true);
             trees[0].SetActive(false);
         }      
-    }*/
+    }
 
     void FixedUpdate() {
         if (!ded) {
