@@ -219,7 +219,10 @@ public class Bat : MonoBehaviour, Enemy {
             //blocked --> return
             batMode = BatMode.Returning;
         } else if (collision.gameObject.name == "Ammo(Clone)") {
-            collision.GetComponent<EnergyAmmo>().DealDamage(this);
+            var ammo = collision.GetComponent<EnergyAmmo>();
+            TakeDamage(ammo.ammoDamage);
+            KickBack(ammo.dir, ammo.pushForce);
+            ammo.gameObject.SetActive(false);
             print("ammo hit");
         } else if (collision.gameObject.layer == 10 || collision.gameObject.layer == 12) {
             print("bat hit player");
