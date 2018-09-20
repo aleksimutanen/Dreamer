@@ -69,12 +69,14 @@ public class WorldSwitch : MonoBehaviour {
         if (state == AwakeState.Dream) {
             if (transitionOut || transitionIn) {
                 Switch(fadeSpeed, /*1f,*/ transitionSpeed, drFaderImage, nmFaderImage, drCam, nmCam, cm.EnterNightmare, nightmareSolid, AwakeState.NightMare);
+                //GameManager.instance.jumpEnabled = false;
             }
             //Fabric.EventManager.Instance.PostEvent("Jump");
         }
         if (state == AwakeState.NightMare) {
             if (transitionOut || transitionIn) {
                 Switch(fadeSpeed, /*0f,*/ transitionSpeed, nmFaderImage, drFaderImage, nmCam, drCam, cm.EnterDream, dreamSolid, AwakeState.Dream);
+                //GameManager.instance.jumpEnabled = true;
             }
         }
     }

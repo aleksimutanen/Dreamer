@@ -13,7 +13,7 @@ public class EnergyAmmo : MonoBehaviour {
 
     public LayerMask enemy;
 
-    Vector3 dir;
+    public Vector3 dir;
 
 
 	void Start () {
@@ -29,11 +29,11 @@ public class EnergyAmmo : MonoBehaviour {
         }
 	}
 
-    public void DealDamage(Bat bat) {
-        bat.GetComponent<Enemy>().TakeDamage(ammoDamage);
-        bat.KickBack(dir, pushForce);
-        gameObject.SetActive(false);
-    }
+    //public void DealDamage(Bat bat) {
+    //    bat.GetComponent<Enemy>().TakeDamage(ammoDamage);
+    //    bat.KickBack(dir, pushForce);
+    //    gameObject.SetActive(false);
+    //}
     //private void OnCollisionEnter(Collision collision) {
     //    if (collision.gameObject.layer == enemy) {
     //        print("ammo hit");
