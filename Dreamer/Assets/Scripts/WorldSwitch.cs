@@ -104,7 +104,6 @@ public class WorldSwitch : MonoBehaviour {
             print(blendTime);
             RenderSettings.skybox.Lerp(currentSbMaterial, newSbMaterial, blendTime);
             RenderSettings.ambientLight = Color.Lerp(currentAmbientColor, newAmbientColor, blendTime);
-            //DynamicGI.UpdateEnvironment();
             a -= fadeSpeed * Time.deltaTime;
             d += fadeSpeed * Time.deltaTime;
             c.a = Mathf.Clamp01(a);
@@ -116,7 +115,6 @@ public class WorldSwitch : MonoBehaviour {
             }
         }
         if (a < 0 || a > 1) {
-            //RenderSettings.skybox = currentSbMaterial;
             DynamicGI.UpdateEnvironment();
             blendTime = 0f;
             transitionOut = false;
