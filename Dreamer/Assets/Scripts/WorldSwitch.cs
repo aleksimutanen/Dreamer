@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
 
 public enum AwakeState { Dream, NightMare }
 
@@ -34,6 +35,11 @@ public class WorldSwitch : MonoBehaviour {
     public bool transitionOut;
     public bool transitionIn;
 
+    public Material dreamSbMaterial;
+    public Material nightmareSbMaterial;
+
+    float blendTime;
+
     private void Awake() {
         if (instance)
             Debug.LogError("2+ WorldSwitchers found!");
@@ -42,6 +48,7 @@ public class WorldSwitch : MonoBehaviour {
 
     void Start() {
         //nmFaderImage.gameObject.SetActive(false);
+        RenderSettings.skybox.Lerp(dreamSbMaterial, nightmareSbMaterial, 0);
         map = dreamSolid;
         state = AwakeState.Dream;
         cm = FindObjectOfType<CharacterMover>();
@@ -53,8 +60,7 @@ public class WorldSwitch : MonoBehaviour {
     }
 
     void Update() {
-        TimedText xd = new TimedText("ykä on paras", 5f);
-
+        //TimedText xd = new TimedText("ykä on paras", 5f);
         if (Input.GetButtonDown("Switch") && !transitionIn && !transitionOut) {
 
             transitionOut = true;
@@ -68,22 +74,21 @@ public class WorldSwitch : MonoBehaviour {
         }
         if (state == AwakeState.Dream) {
             if (transitionOut || transitionIn) {
-                Switch(fadeSpeed, /*1f,*/ transitionSpeed, drFaderImage, nmFaderImage, drCam, nmCam, cm.EnterNightmare, nightmareSolid, AwakeState.NightMare);
-                //GameManager.instance.jumpEnabled = false;
+                Switch(fadeSpeed, /*1f,*/ transitionSpeed, drFaderImage, nmFaderImage, drCam, nmCam, 
+                    cm.EnterNightmare, nightmareSolid, AwakeState.NightMare, dreamSbMaterial, nightmareSbMaterial);
             }
             //Fabric.EventManager.Instance.PostEvent("Jump");
         }
         if (state == AwakeState.NightMare) {
             if (transitionOut || transitionIn) {
-                Switch(fadeSpeed, /*0f,*/ transitionSpeed, nmFaderImage, drFaderImage, nmCam, drCam, cm.EnterDream, dreamSolid, AwakeState.Dream);
-                //GameManager.instance.jumpEnabled = true;
+                Switch(fadeSpeed, /*0f,*/ transitionSpeed, nmFaderImage, drFaderImage, nmCam, drCam, 
+                    cm.EnterDream, dreamSolid, AwakeState.Dream, nightmareSbMaterial, dreamSbMaterial);
             }
         }
     }
 
     public void Switch(float fadeSpeed, /*float target,*/ float fadingSpeed, RawImage currentImage, RawImage newImage, Camera currentCam, 
-                       Camera newCam, UnityAction afterTransition, LayerMask newSolid, AwakeState newState) {
-
+                       Camera newCam, UnityAction afterTransition, LayerMask newSolid, AwakeState newState, Material currentSbMaterial, Material newSbMaterial) {
         newCam.gameObject.SetActive(true);
         var b = newImage.color;
         var d = b.a;
@@ -92,6 +97,10 @@ public class WorldSwitch : MonoBehaviour {
         //if (target < a)
         //    fadeSpeed *= -1;
         if (transitionOut) {
+            blendTime += fadeSpeed * Time.deltaTime;
+            print(blendTime);
+            RenderSettings.skybox.Lerp(currentSbMaterial, newSbMaterial, blendTime);
+            DynamicGI.UpdateEnvironment();
             a -= fadeSpeed * Time.deltaTime;
             d += fadeSpeed * Time.deltaTime;
             c.a = Mathf.Clamp01(a);
@@ -102,7 +111,9 @@ public class WorldSwitch : MonoBehaviour {
                 cam.fieldOfView += fadingSpeed * Time.deltaTime;
             }
         }
-        if (a < 0 || a > 1){
+        if (a < 0 || a > 1) {
+            //RenderSettings.skybox = currentSbMaterial;
+            blendTime = 0f;
             transitionOut = false;
             transitionIn = true;
             map = newSolid;
