@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: e391f00234292cc4f935308c11cf0e54, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 2039a0ad0a9d05549928b70362f54902, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -4143,6 +4143,10 @@ Prefab:
       propertyPath: m_Name
       value: Bat (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1591165419621104, guid: 9e6332166da85ff4bbb54641fc9481e0, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e6332166da85ff4bbb54641fc9481e0, type: 2}
   m_IsPrefabAsset: 0
@@ -7939,6 +7943,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114346156464728672, guid: 532f122a5a60ad94abb6213287c64682,
+        type: 2}
+      propertyPath: dreamAmbientColor.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4503282125748502, guid: 532f122a5a60ad94abb6213287c64682, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8051,6 +8060,41 @@ Prefab:
       propertyPath: nightmareSbMaterial
       value: 
       objectReference: {fileID: 2100000, guid: e16ae399b71ae2e43a374671b246ef25, type: 2}
+    - target: {fileID: 114346156464728672, guid: 532f122a5a60ad94abb6213287c64682,
+        type: 2}
+      propertyPath: dreamAmbientColor.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114346156464728672, guid: 532f122a5a60ad94abb6213287c64682,
+        type: 2}
+      propertyPath: dreamAmbientColor.r
+      value: 0.4627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 114346156464728672, guid: 532f122a5a60ad94abb6213287c64682,
+        type: 2}
+      propertyPath: dreamAmbientColor.g
+      value: 0.29411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 114346156464728672, guid: 532f122a5a60ad94abb6213287c64682,
+        type: 2}
+      propertyPath: dreamAmbientColor.b
+      value: 0.29411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 114346156464728672, guid: 532f122a5a60ad94abb6213287c64682,
+        type: 2}
+      propertyPath: nightmareAmbientColor.r
+      value: 0.09803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 114346156464728672, guid: 532f122a5a60ad94abb6213287c64682,
+        type: 2}
+      propertyPath: nightmareAmbientColor.g
+      value: 0.07450981
+      objectReference: {fileID: 0}
+    - target: {fileID: 114346156464728672, guid: 532f122a5a60ad94abb6213287c64682,
+        type: 2}
+      propertyPath: nightmareAmbientColor.b
+      value: 0.14901961
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 532f122a5a60ad94abb6213287c64682, type: 2}
   m_IsPrefabAsset: 0
@@ -11436,7 +11480,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1697985139866300, guid: 6f1b10735e116304d9f141500288b542, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 108196402068101462, guid: 6f1b10735e116304d9f141500288b542,
         type: 2}
@@ -13415,6 +13459,10 @@ Prefab:
       propertyPath: m_Name
       value: Bat (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1591165419621104, guid: 9e6332166da85ff4bbb54641fc9481e0, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e6332166da85ff4bbb54641fc9481e0, type: 2}
   m_IsPrefabAsset: 0
@@ -14429,6 +14477,10 @@ Prefab:
     - target: {fileID: 1591165419621104, guid: 9e6332166da85ff4bbb54641fc9481e0, type: 2}
       propertyPath: m_Name
       value: Bat (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1591165419621104, guid: 9e6332166da85ff4bbb54641fc9481e0, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e6332166da85ff4bbb54641fc9481e0, type: 2}
@@ -16271,6 +16323,10 @@ Prefab:
         type: 2}
       propertyPath: am
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1591165419621104, guid: 9e6332166da85ff4bbb54641fc9481e0, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e6332166da85ff4bbb54641fc9481e0, type: 2}
@@ -19984,6 +20040,10 @@ Prefab:
       propertyPath: m_Name
       value: Bat (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1591165419621104, guid: 9e6332166da85ff4bbb54641fc9481e0, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e6332166da85ff4bbb54641fc9481e0, type: 2}
   m_IsPrefabAsset: 0
@@ -20320,93 +20380,45 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114594999348714460, guid: ca1b843419f2207428cd9524aee6150f,
-        type: 2}
-      propertyPath: ammoFolder
-      value: 
-      objectReference: {fileID: 986901909}
-    - target: {fileID: 114428663877667172, guid: ca1b843419f2207428cd9524aee6150f,
-        type: 2}
-      propertyPath: horizontalRotator
-      value: 
-      objectReference: {fileID: 275992624}
     - target: {fileID: 198768284816478590, guid: ca1b843419f2207428cd9524aee6150f,
         type: 2}
       propertyPath: LightsModule.light
       value: 
       objectReference: {fileID: 321747327}
-    - target: {fileID: 114594999348714460, guid: ca1b843419f2207428cd9524aee6150f,
+    - target: {fileID: 114428663877667172, guid: ca1b843419f2207428cd9524aee6150f,
         type: 2}
-      propertyPath: ammo
+      propertyPath: horizontalRotator
       value: 
-      objectReference: {fileID: 1608223641451052, guid: 7d678f4e70f8f934fbe1fda182fbfa18,
-        type: 2}
-    - target: {fileID: 114428663877667172, guid: ca1b843419f2207428cd9524aee6150f,
-        type: 2}
-      propertyPath: groundCheckDepth2
-      value: 0.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 114428663877667172, guid: ca1b843419f2207428cd9524aee6150f,
-        type: 2}
-      propertyPath: groundCheckSize2
-      value: 0.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 1008215632338846, guid: ca1b843419f2207428cd9524aee6150f, type: 2}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745108229488662, guid: ca1b843419f2207428cd9524aee6150f, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1697977185578950, guid: ca1b843419f2207428cd9524aee6150f, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 65084445975746840, guid: ca1b843419f2207428cd9524aee6150f,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 135191539530392822, guid: ca1b843419f2207428cd9524aee6150f,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 54131852179644494, guid: ca1b843419f2207428cd9524aee6150f,
-        type: 2}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 54131852179644494, guid: ca1b843419f2207428cd9524aee6150f,
-        type: 2}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1167858814260392, guid: ca1b843419f2207428cd9524aee6150f, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 136514174196396440, guid: ca1b843419f2207428cd9524aee6150f,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1259686885497578, guid: ca1b843419f2207428cd9524aee6150f, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1326489649066644, guid: ca1b843419f2207428cd9524aee6150f, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 275992624}
     - target: {fileID: 114594999348714460, guid: ca1b843419f2207428cd9524aee6150f,
         type: 2}
-      propertyPath: powerSpherePushForce
-      value: 500
+      propertyPath: ammoFolder
+      value: 
+      objectReference: {fileID: 986901909}
+    - target: {fileID: 1071231362872634, guid: ca1b843419f2207428cd9524aee6150f, type: 2}
+      propertyPath: m_Name
+      value: NightmareLight
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 65214222430767336, guid: ca1b843419f2207428cd9524aee6150f, type: 2}
+    - target: {fileID: 1982904210859712, guid: ca1b843419f2207428cd9524aee6150f, type: 2}
+      propertyPath: m_Name
+      value: DreamLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 108394500441048304, guid: ca1b843419f2207428cd9524aee6150f,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.5856288
+      objectReference: {fileID: 0}
+    - target: {fileID: 108394500441048304, guid: ca1b843419f2207428cd9524aee6150f,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.40690637
+      objectReference: {fileID: 0}
+    - target: {fileID: 108394500441048304, guid: ca1b843419f2207428cd9524aee6150f,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.6792453
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca1b843419f2207428cd9524aee6150f, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &2056263914
