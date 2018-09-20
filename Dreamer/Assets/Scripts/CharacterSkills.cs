@@ -62,9 +62,7 @@ public class CharacterSkills : MonoBehaviour {
             Glide();
         }
         if (GameManager.instance.shieldEnabled) {
-            if (Input.GetAxis("Shield") > 0.3 && GameManager.instance.buddyPower > 0) {
                 Shield();
-            }
         }
         ChargePower();
         if (Input.GetButtonDown("Bash")) {
@@ -141,7 +139,9 @@ public class CharacterSkills : MonoBehaviour {
 
     public bool Shield() {
         if (Time.time > shieldInterval + lastShield) {
-            active = true;
+            if(Input.GetAxis("Shield") > 0.3 && GameManager.instance.buddyPower > 0) {
+                active = true;
+            }
             if (active) {
                 if (shieldDuration > 0) {
                     shieldDuration -= Time.deltaTime;
