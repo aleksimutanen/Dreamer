@@ -56,37 +56,36 @@ public class TreeManager : MonoBehaviour, Enemy {
     }
 
     void FixedUpdate() {
-        if (!ded) {
 
-            if(Time.time > attackInterval + lastAttack){
-                //var colliders = Physics.OverlapSphere(transform.position - Vector3.up * attackTriggerHeight, attackTriggerSize, character);
-                boxLocation1 = transform.position + transform.right * attackTriggerSize.x * 2 + transform.forward * forwardShift;
-                boxLocation2 = transform.position + transform.forward * middleShift * forwardShift;
-                boxLocation3 = transform.position - transform.right * attackTriggerSize.x * 2 + transform.forward * forwardShift;
-                var colliders1 = Physics.OverlapBox(boxLocation1, attackTriggerSize, Quaternion.identity, character);
-                var colliders2 = Physics.OverlapBox(boxLocation2, attackTriggerSize, Quaternion.identity, character);
-                var colliders3 = Physics.OverlapBox(boxLocation3, attackTriggerSize, Quaternion.identity, character);
+        if(!ded && Time.time > attackInterval + lastAttack){
+            //var colliders = Physics.OverlapSphere(transform.position - Vector3.up * attackTriggerHeight, attackTriggerSize, character);
+            boxLocation1 = transform.position + transform.right * attackTriggerSize.x * 2 + transform.forward * forwardShift;
+            boxLocation2 = transform.position + transform.forward * middleShift * forwardShift;
+            boxLocation3 = transform.position - transform.right * attackTriggerSize.x * 2 + transform.forward * forwardShift;
+            var colliders1 = Physics.OverlapBox(boxLocation1, attackTriggerSize, Quaternion.identity, character);
+            var colliders2 = Physics.OverlapBox(boxLocation2, attackTriggerSize, Quaternion.identity, character);
+            var colliders3 = Physics.OverlapBox(boxLocation3, attackTriggerSize, Quaternion.identity, character);
 
-                if(colliders1.Length > 0) {
-                    anim.Play("AttackMiddle1");
-                    Attack();
-                }
-                if(colliders2.Length > 0) {
-
-                    if (Random.value < .5f)
-                        anim.Play("AttackMiddle1");
-                    else
-                        anim.Play("AttackMiddle2");
-                    Attack();
-                }
-                if(colliders3.Length > 0) {
-                    anim.Play("AttackMiddle2");
-                    Attack();
-                }
-
+            if(colliders1.Length > 0) {
+                anim.Play("AttackMiddle1");
+                Attack();
             }
+            if(colliders2.Length > 0) {
+
+                if (Random.value < .5f)
+                    anim.Play("AttackMiddle1");
+                else
+                    anim.Play("AttackMiddle2");
+                Attack();
+            }
+            if(colliders3.Length > 0) {
+                anim.Play("AttackMiddle2");
+                Attack();
+            }
+
         }
     }
+    
 
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.red;
