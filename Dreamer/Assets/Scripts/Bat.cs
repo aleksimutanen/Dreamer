@@ -51,7 +51,6 @@ public class Bat : MonoBehaviour, Enemy {
         target = playerTransform.position;
         //20 % chance of an unblockable attack
         i = Random.Range(0f, 1f);
-        print(i);
     }
 
     void Update() {
