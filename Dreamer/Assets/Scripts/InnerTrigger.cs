@@ -9,5 +9,6 @@ public class InnerTrigger : MonoBehaviour {
     private void OnTriggerEnter(Collider other){
         mountain.gameObject.SetActive(false);
         cave.gameObject.SetActive(true);
+        GameManager.instance.switchEnabled = false;
     }
 }

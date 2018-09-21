@@ -782,7 +782,7 @@ GameObject:
   - component: {fileID: 64546627993478252}
   - component: {fileID: 65172671663146936}
   - component: {fileID: 114581723906957282}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: placeforportal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1094,7 +1094,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1382334701539082
 GameObject:
   m_ObjectHideFlags: 1
@@ -1107,7 +1107,7 @@ GameObject:
   - component: {fileID: 23658870761789276}
   - component: {fileID: 64353355214464208}
   m_Layer: 9
-  m_Name: destroyabledoor (1)
+  m_Name: destroyabledoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1340,6 +1340,8 @@ GameObject:
   - component: {fileID: 33976695557389424}
   - component: {fileID: 23404733566680690}
   - component: {fileID: 64001175806200770}
+  - component: {fileID: 65719325623909330}
+  - component: {fileID: 114900858911710522}
   m_Layer: 9
   m_Name: placeforportal
   m_TagString: Untagged
@@ -2735,7 +2737,9 @@ GameObject:
   - component: {fileID: 33501235671008190}
   - component: {fileID: 23413286536351668}
   - component: {fileID: 64751158037555512}
-  m_Layer: 9
+  - component: {fileID: 65339503475395666}
+  - component: {fileID: 114851153197066370}
+  m_Layer: 0
   m_Name: placeforportal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14532,6 +14536,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0010670045, y: 0.00096535427, z: 0.00091362424}
   m_Center: {x: -0.004593302, y: 0.0065883123, z: 0.003389243}
+--- !u!65 &65339503475395666
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1895301523151876}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0005061151, y: 0.000483636, z: 0.00050657056}
+  m_Center: {x: -0.0019672622, y: 0.03002807, z: 0.014064325}
 --- !u!65 &65508216675442504
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14604,6 +14620,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1112.0851, y: 1, z: 924.2422}
   m_Center: {x: -56.042366, y: 0.0000801341, z: 248.96797}
+--- !u!65 &65719325623909330
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1433006121924138}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.00060889975, y: 0.0005933183, z: 0.0005439824}
+  m_Center: {x: 0.0033757386, y: 0.02022242, z: 0.0095871175}
 --- !u!65 &65997678394131124
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -14827,6 +14855,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mountain: {fileID: 1369887340591012}
   cave: {fileID: 1396067603401658}
+--- !u!114 &114851153197066370
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1895301523151876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 529ec290c80be1842ae2927e40460c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114900858911710522
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1433006121924138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 529ec290c80be1842ae2927e40460c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114980441742643842
 MonoBehaviour:
   m_ObjectHideFlags: 1
