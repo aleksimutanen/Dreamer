@@ -76,15 +76,19 @@ public class TreeManager : MonoBehaviour, Enemy {
                 var colliders3 = Physics.OverlapBox(boxLocation3, attackTriggerSize, Quaternion.identity, character);
 
                 if(colliders1.Length > 0) {
-                    anim.Play("Attack");
+                    anim.Play("AttackMiddle1");
                     Attack();
                 }
                 if(colliders2.Length > 0) {
-                    anim.Play("Attack");
+
+                    if (Random.value < .5f)
+                        anim.Play("AttackMiddle1");
+                    else
+                        anim.Play("AttackMiddle2");
                     Attack();
                 }
                 if(colliders3.Length > 0) {
-                    anim.Play("Attack");
+                    anim.Play("AttackMiddle2");
                     Attack();
                 }
             }
