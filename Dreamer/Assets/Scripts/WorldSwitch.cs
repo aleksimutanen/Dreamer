@@ -40,6 +40,11 @@ public class WorldSwitch : MonoBehaviour {
     public Color dreamAmbientColor;
     public Color nightmareAmbientColor;
 
+    Color c;
+    Color b;
+    float d;
+    float a;
+
     float blendTime;
 
     private void Awake() {
@@ -49,7 +54,6 @@ public class WorldSwitch : MonoBehaviour {
     }
 
     void Start() {
-        //nmFaderImage.gameObject.SetActive(false);
         RenderSettings.skybox.Lerp(dreamSbMaterial, nightmareSbMaterial, 0);
         RenderSettings.ambientLight = dreamAmbientColor;
         map = dreamSolid;
@@ -65,7 +69,6 @@ public class WorldSwitch : MonoBehaviour {
     void Update() {
         //TimedText xd = new TimedText("ykä on paras", 5f);
         if (Input.GetButtonDown("Switch") && !transitionIn && !transitionOut) {
-
             transitionOut = true;
             if(state == AwakeState.Dream) {
                 //Fabric.EventManager.Instance.PostEvent("DreamMusic", Fabric.EventAction.PauseSound);
@@ -77,28 +80,33 @@ public class WorldSwitch : MonoBehaviour {
         }
         if (state == AwakeState.Dream) {
             if (transitionOut || transitionIn) {
-                Switch(fadeSpeed, /*1f,*/ transitionSpeed, drFaderImage, nmFaderImage, drCam, nmCam, 
+                Switch(fadeSpeed, transitionSpeed, drFaderImage, nmFaderImage, drCam, nmCam, 
                 cm.EnterNightmare, nightmareSolid, AwakeState.NightMare, dreamSbMaterial, nightmareSbMaterial, dreamAmbientColor, nightmareAmbientColor);
             }
             //Fabric.EventManager.Instance.PostEvent("Jump");
         }
         if (state == AwakeState.NightMare) {
             if (transitionOut || transitionIn) {
-                Switch(fadeSpeed, /*0f,*/ transitionSpeed, nmFaderImage, drFaderImage, nmCam, drCam, 
+                Switch(fadeSpeed, transitionSpeed, nmFaderImage, drFaderImage, nmCam, drCam, 
                 cm.EnterDream, dreamSolid, AwakeState.Dream, nightmareSbMaterial, dreamSbMaterial, nightmareAmbientColor, dreamAmbientColor);
             }
         }
     }
 
-    public void Switch(float fadeSpeed, /*float target,*/ float fadingSpeed, RawImage currentImage, RawImage newImage, Camera currentCam, Camera newCam,
+    public void Switch(float fadeSpeed, float fadingSpeed, RawImage currentImage, RawImage newImage, Camera currentCam, Camera newCam,
     UnityAction afterTransition, LayerMask newSolid, AwakeState newState, Material currentSbMaterial, Material newSbMaterial, Color currentAmbientColor, Color newAmbientColor) {
-        newCam.gameObject.SetActive(true);
-        var b = newImage.color;
-        var d = b.a;
-        var c = currentImage.color;
-        var a = c.a;
-        //if (target < a)
-        //    fadeSpeed *= -1;
+
+        if (b != newImage.color || c != currentImage.color) {
+            newCam.gameObject.SetActive(true);
+            //var b = newImage.color;
+            //var d = b.a;
+            //var c = currentImage.color;
+            //var a = c.a;
+            b = newImage.color;
+            d = b.a;
+            c = currentImage.color;
+            a = c.a;
+        }
         if (transitionOut) {
             blendTime += fadeSpeed * Time.deltaTime;
             print(blendTime);
