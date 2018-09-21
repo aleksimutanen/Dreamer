@@ -577,7 +577,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4984988192370426, guid: a9f02720d184cce459253e61277298da, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 35.4
+      value: 34.04
       objectReference: {fileID: 0}
     - target: {fileID: 4984988192370426, guid: a9f02720d184cce459253e61277298da, type: 2}
       propertyPath: m_LocalPosition.z
@@ -607,6 +607,15 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -414.97
       objectReference: {fileID: 0}
+    - target: {fileID: 1883794155457008, guid: a9f02720d184cce459253e61277298da, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114323845082367408, guid: a9f02720d184cce459253e61277298da,
+        type: 2}
+      propertyPath: dedInDream
+      value: 
+      objectReference: {fileID: 784066853}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9f02720d184cce459253e61277298da, type: 2}
   m_IsPrefabAsset: 0
@@ -986,7 +995,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1910723172734662, guid: 153cbb5fc997dbc40aacd92d7d4b8997, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 153cbb5fc997dbc40aacd92d7d4b8997, type: 2}
@@ -1019,6 +1028,11 @@ Transform:
 --- !u!4 &784066852 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4059607079534920, guid: 153cbb5fc997dbc40aacd92d7d4b8997,
+    type: 2}
+  m_PrefabInternal: {fileID: 784066846}
+--- !u!1 &784066853 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1910723172734662, guid: 153cbb5fc997dbc40aacd92d7d4b8997,
     type: 2}
   m_PrefabInternal: {fileID: 784066846}
 --- !u!4 &822943706 stripped
