@@ -42,14 +42,14 @@ public class TreeManager : MonoBehaviour, Enemy {
         nightmareTree = trees[0].activeSelf;
         dreamTree = trees[1].activeSelf;
 
-        if (ded && WorldSwitch.instance.state == AwakeState.Dream && !dedInDream.activeSelf) {
+        if (ded && WorldSwitch.instance.state == AwakeState.Dream/* && !dedInDream.activeSelf*/) {
             dedInDream.SetActive(true);
         }
-        else if (!ded && WorldSwitch.instance.state == AwakeState.NightMare && (dreamTree || !nightmareTree)) {
+        else if (!ded && WorldSwitch.instance.state == AwakeState.NightMare /*&& (dreamTree || !nightmareTree)*/) {
             trees[0].SetActive(true);
             //rb = trees[0].GetComponent<Rigidbody>();
             trees[1].SetActive(false);
-        } else if (!ded && WorldSwitch.instance.state == AwakeState.Dream && (!dreamTree || nightmareTree)) {
+        } else if (!ded && WorldSwitch.instance.state == AwakeState.Dream /*&& (!dreamTree || nightmareTree)*/) {
             trees[1].SetActive(true);
             trees[0].SetActive(false);
         }      
