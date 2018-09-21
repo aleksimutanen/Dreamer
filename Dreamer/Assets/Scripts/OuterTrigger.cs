@@ -9,6 +9,7 @@ public class OuterTrigger : MonoBehaviour {
     {
         mountain.gameObject.SetActive(true);
         cave.gameObject.SetActive(false);
+        GameManager.instance.switchEnabled = true;
         if (other.gameObject.tag == "Player")
             GameManager.instance.SetCheckpoint();
     }

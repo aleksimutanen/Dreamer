@@ -181,7 +181,7 @@ public class CharacterSkills : MonoBehaviour {
     }
 
     public void Bash() {
-        if (Input.GetButton("Bash") && Input.GetButton("Bash2") && GameManager.instance.buddyPower == 100) {
+        if (Input.GetButton("Bash")) {
             chargeTime -= Time.deltaTime;
             print("charging");
             if (chargeTime < 0) {
