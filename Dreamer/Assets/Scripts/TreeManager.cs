@@ -22,12 +22,6 @@ public class TreeManager : MonoBehaviour, Enemy {
 
     public LayerMask character;
 
-    public bool target;
-
-    // tarviiks? Rigidbody rb;
-
-    Quaternion startingRot;
-
     public float dmgToPlayer = -5;
     public float pwrToShield = 5;
 
@@ -38,13 +32,11 @@ public class TreeManager : MonoBehaviour, Enemy {
     bool nightmareTree;
     bool dreamTree;
 
-
-
     void Start() {
         cs = FindObjectOfType<CharacterSkills>();
     }
 
-    /*void Update() {
+    void Update() {
         // haluaisin laittaa aktiiviseksi vihollispuun painajaisessa
         // ja ei-vihollispuun unessa
         nightmareTree = trees[0].activeSelf;
@@ -61,7 +53,7 @@ public class TreeManager : MonoBehaviour, Enemy {
             trees[1].SetActive(true);
             trees[0].SetActive(false);
         }      
-    }*/
+    }
 
     void FixedUpdate() {
         if (!ded) {
@@ -91,8 +83,8 @@ public class TreeManager : MonoBehaviour, Enemy {
                     anim.Play("AttackMiddle2");
                     Attack();
                 }
-            }
 
+            }
         }
     }
 
@@ -109,9 +101,9 @@ public class TreeManager : MonoBehaviour, Enemy {
 
         if (Time.time > attackInterval + lastAttack) {
 
-            var b = cs.Shield();
+            var shieldActive = cs.Shield();
             //TODO: jos oksa osuu
-            if (b) {
+            if (shieldActive) {
                 GameManager.instance.ChangeBuddyPower(pwrToShield);
                 lastAttack = Time.time;
                 print("not");
@@ -125,9 +117,22 @@ public class TreeManager : MonoBehaviour, Enemy {
         }
     }
 
+    public void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.name == "Ammo(Clone)") {
+            var ammo = collision.gameObject.GetComponent<EnergyAmmo>();
+            TakeDamage(ammo.ammoDamage);
+            ammo.gameObject.SetActive(false);
+            print("ammo hit tree");
+        }
+        //else if (collision.gameObject.layer == 10 || collision.gameObject.layer == 12) {
+        //    print("bat hit player");
+        //    GameManager.instance.ChangeToddlerHealth(dmgToPlayer);
+        //}
+    }
 
     public void TakeDamage(float damage) {
         if (health <= 0) return;
+
         health -= damage;
         if (health <= 0) {
             print("tree ded");

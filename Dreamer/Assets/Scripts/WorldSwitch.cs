@@ -16,7 +16,7 @@ public class WorldSwitch : MonoBehaviour {
 
     public AwakeState state;
 
-    public Light[] lights;
+    public Light dreamLight;
     public Light nightmareLight;
 
     public Camera drCam;
@@ -37,6 +37,8 @@ public class WorldSwitch : MonoBehaviour {
 
     public Material dreamSbMaterial;
     public Material nightmareSbMaterial;
+    public Color dreamAmbientColor;
+    public Color nightmareAmbientColor;
 
     float blendTime;
 
@@ -49,6 +51,7 @@ public class WorldSwitch : MonoBehaviour {
     void Start() {
         //nmFaderImage.gameObject.SetActive(false);
         RenderSettings.skybox.Lerp(dreamSbMaterial, nightmareSbMaterial, 0);
+        RenderSettings.ambientLight = dreamAmbientColor;
         map = dreamSolid;
         state = AwakeState.Dream;
         cm = FindObjectOfType<CharacterMover>();
@@ -75,20 +78,20 @@ public class WorldSwitch : MonoBehaviour {
         if (state == AwakeState.Dream) {
             if (transitionOut || transitionIn) {
                 Switch(fadeSpeed, /*1f,*/ transitionSpeed, drFaderImage, nmFaderImage, drCam, nmCam, 
-                    cm.EnterNightmare, nightmareSolid, AwakeState.NightMare, dreamSbMaterial, nightmareSbMaterial);
+                cm.EnterNightmare, nightmareSolid, AwakeState.NightMare, dreamSbMaterial, nightmareSbMaterial, dreamAmbientColor, nightmareAmbientColor);
             }
             //Fabric.EventManager.Instance.PostEvent("Jump");
         }
         if (state == AwakeState.NightMare) {
             if (transitionOut || transitionIn) {
                 Switch(fadeSpeed, /*0f,*/ transitionSpeed, nmFaderImage, drFaderImage, nmCam, drCam, 
-                    cm.EnterDream, dreamSolid, AwakeState.Dream, nightmareSbMaterial, dreamSbMaterial);
+                cm.EnterDream, dreamSolid, AwakeState.Dream, nightmareSbMaterial, dreamSbMaterial, nightmareAmbientColor, dreamAmbientColor);
             }
         }
     }
 
-    public void Switch(float fadeSpeed, /*float target,*/ float fadingSpeed, RawImage currentImage, RawImage newImage, Camera currentCam, 
-                       Camera newCam, UnityAction afterTransition, LayerMask newSolid, AwakeState newState, Material currentSbMaterial, Material newSbMaterial) {
+    public void Switch(float fadeSpeed, /*float target,*/ float fadingSpeed, RawImage currentImage, RawImage newImage, Camera currentCam, Camera newCam,
+    UnityAction afterTransition, LayerMask newSolid, AwakeState newState, Material currentSbMaterial, Material newSbMaterial, Color currentAmbientColor, Color newAmbientColor) {
         newCam.gameObject.SetActive(true);
         var b = newImage.color;
         var d = b.a;
@@ -100,7 +103,7 @@ public class WorldSwitch : MonoBehaviour {
             blendTime += fadeSpeed * Time.deltaTime;
             print(blendTime);
             RenderSettings.skybox.Lerp(currentSbMaterial, newSbMaterial, blendTime);
-            DynamicGI.UpdateEnvironment();
+            RenderSettings.ambientLight = Color.Lerp(currentAmbientColor, newAmbientColor, blendTime);
             a -= fadeSpeed * Time.deltaTime;
             d += fadeSpeed * Time.deltaTime;
             c.a = Mathf.Clamp01(a);
@@ -112,7 +115,7 @@ public class WorldSwitch : MonoBehaviour {
             }
         }
         if (a < 0 || a > 1) {
-            //RenderSettings.skybox = currentSbMaterial;
+            DynamicGI.UpdateEnvironment();
             blendTime = 0f;
             transitionOut = false;
             transitionIn = true;
