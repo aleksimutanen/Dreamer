@@ -66,7 +66,7 @@ public class Bat : MonoBehaviour, Enemy {
         // switch states?
         if (WorldSwitch.instance.state == AwakeState.NightMare && !sleeping) {
             distToPlayer = Vector3.Distance(transform.position, playerTransform.position);
-            if (distToPlayer < attackRadius) {
+            if (distToPlayer < attackRadius && batMode != BatMode.Returning) {
                 batMode = BatMode.Attacking;
 
                 if (i < 0.2f) {
@@ -226,8 +226,8 @@ public class Bat : MonoBehaviour, Enemy {
         } else if (collision.gameObject.layer == 10 || collision.gameObject.layer == 12) {
             print("bat hit player");
             GameManager.instance.ChangeToddlerHealth(dmgToPlayer);
+            batMode = BatMode.Returning;
         }
-        batMode = BatMode.Returning;
     }
 
     public void KickBack(Vector3 dir, float force) {

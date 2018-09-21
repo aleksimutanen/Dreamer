@@ -56,7 +56,8 @@ public class TreeManager : MonoBehaviour, Enemy {
     }
 
     void FixedUpdate() {
-        if (!ded && WorldSwitch.instance.state == AwakeState.NightMare && Time.time > attackInterval + lastAttack) {
+
+        if(!ded && Time.time > attackInterval + lastAttack){
             //var colliders = Physics.OverlapSphere(transform.position - Vector3.up * attackTriggerHeight, attackTriggerSize, character);
             boxLocation1 = transform.position + transform.right * attackTriggerSize.x * 2 + transform.forward * forwardShift;
             boxLocation2 = transform.position + transform.forward * middleShift * forwardShift;
@@ -66,19 +67,25 @@ public class TreeManager : MonoBehaviour, Enemy {
             var colliders3 = Physics.OverlapBox(boxLocation3, attackTriggerSize, Quaternion.identity, character);
 
             if(colliders1.Length > 0) {
-                anim.Play("Attack");
+                anim.Play("AttackMiddle1");
                 Attack();
             }
             if(colliders2.Length > 0) {
-                anim.Play("Attack");
+
+                if (Random.value < .5f)
+                    anim.Play("AttackMiddle1");
+                else
+                    anim.Play("AttackMiddle2");
                 Attack();
             }
             if(colliders3.Length > 0) {
-                anim.Play("Attack");
+                anim.Play("AttackMiddle2");
                 Attack();
             }
+
         }
     }
+    
 
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.red;
