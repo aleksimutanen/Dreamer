@@ -113,4 +113,5 @@ MonoBehaviour:
   pushForce: 50
   enemy:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 36864
+  dir: {x: 0, y: 0, z: 0}

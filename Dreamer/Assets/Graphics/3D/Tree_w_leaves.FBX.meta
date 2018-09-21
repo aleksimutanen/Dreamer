@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 344a776e39b3184468cdafe0e430627a
+guid: 7c1b64f3eaf4fed49a0bfae6e66e77f8
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -84,7 +84,12 @@ ModelImporter:
     100156: Plane078
     100158: Plane079
     100160: Plane080
-    100162: //RootNode
+    100162: Plane081
+    100164: Plane082
+    100166: Plane083
+    100168: Plane084
+    100170: Plane085
+    100172: //RootNode
     400000: Cylinder001
     400002: Plane001
     400004: Plane002
@@ -166,7 +171,12 @@ ModelImporter:
     400156: Plane078
     400158: Plane079
     400160: Plane080
-    400162: //RootNode
+    400162: Plane081
+    400164: Plane082
+    400166: Plane083
+    400168: Plane084
+    400170: Plane085
+    400172: //RootNode
     2100000: 05 - Default
     2100002: No Name
     2300000: Cylinder001
@@ -250,6 +260,11 @@ ModelImporter:
     2300156: Plane078
     2300158: Plane079
     2300160: Plane080
+    2300162: Plane081
+    2300164: Plane082
+    2300166: Plane083
+    2300168: Plane084
+    2300170: Plane085
     3300000: Cylinder001
     3300002: Plane001
     3300004: Plane002
@@ -331,6 +346,11 @@ ModelImporter:
     3300156: Plane078
     3300158: Plane079
     3300160: Plane080
+    3300162: Plane081
+    3300164: Plane082
+    3300166: Plane083
+    3300168: Plane084
+    3300170: Plane085
     4300000: Cylinder001
     4300002: Plane001
     4300004: Plane002
@@ -412,17 +432,22 @@ ModelImporter:
     4300156: Plane078
     4300158: Plane079
     4300160: Plane080
+    4300162: Plane081
+    4300164: Plane082
+    4300166: Plane083
+    4300168: Plane084
+    4300170: Plane085
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: 05 - Default
-    second: {fileID: 2100000, guid: 70f1ad0fd54a30d4d983f925a70f6eec, type: 2}
+    second: {fileID: 2100000, guid: 2597d3a09157ffd4dbb2bb186b57e6b9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: No Name
-    second: {fileID: 2100000, guid: b8edbc6c8a9e8674282cdcf628644708, type: 2}
+    second: {fileID: 2100000, guid: 3baf6853f6beb5d4ba2402197ce3b2f9, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
