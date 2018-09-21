@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cfaafc358d0923543b1de3e86144f24a
+guid: 97c6808b7f93a4646a0d8538f2279176
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -14,7 +14,20 @@ ModelImporter:
     100016: Plane008
     100018: Plane009
     100020: Plane010
-    100022: //RootNode
+    100022: Plane011
+    100024: Plane012
+    100026: Plane013
+    100028: Plane014
+    100030: Plane015
+    100032: Plane016
+    100034: Plane017
+    100036: Plane018
+    100038: Plane019
+    100040: Plane020
+    100042: Plane021
+    100044: Plane022
+    100046: Plane023
+    100048: //RootNode
     400000: Cylinder001
     400002: Plane001
     400004: Plane002
@@ -26,8 +39,22 @@ ModelImporter:
     400016: Plane008
     400018: Plane009
     400020: Plane010
-    400022: //RootNode
-    2100000: No Name
+    400022: Plane011
+    400024: Plane012
+    400026: Plane013
+    400028: Plane014
+    400030: Plane015
+    400032: Plane016
+    400034: Plane017
+    400036: Plane018
+    400038: Plane019
+    400040: Plane020
+    400042: Plane021
+    400044: Plane022
+    400046: Plane023
+    400048: //RootNode
+    2100000: 05 - Default
+    2100002: No Name
     2300000: Cylinder001
     2300002: Plane001
     2300004: Plane002
@@ -39,6 +66,19 @@ ModelImporter:
     2300016: Plane008
     2300018: Plane009
     2300020: Plane010
+    2300022: Plane011
+    2300024: Plane012
+    2300026: Plane013
+    2300028: Plane014
+    2300030: Plane015
+    2300032: Plane016
+    2300034: Plane017
+    2300036: Plane018
+    2300038: Plane019
+    2300040: Plane020
+    2300042: Plane021
+    2300044: Plane022
+    2300046: Plane023
     3300000: Cylinder001
     3300002: Plane001
     3300004: Plane002
@@ -50,6 +90,19 @@ ModelImporter:
     3300016: Plane008
     3300018: Plane009
     3300020: Plane010
+    3300022: Plane011
+    3300024: Plane012
+    3300026: Plane013
+    3300028: Plane014
+    3300030: Plane015
+    3300032: Plane016
+    3300034: Plane017
+    3300036: Plane018
+    3300038: Plane019
+    3300040: Plane020
+    3300042: Plane021
+    3300044: Plane022
+    3300046: Plane023
     4300000: Cylinder001
     4300002: Plane001
     4300004: Plane002
@@ -61,7 +114,30 @@ ModelImporter:
     4300016: Plane008
     4300018: Plane009
     4300020: Plane010
-  externalObjects: {}
+    4300022: Plane011
+    4300024: Plane012
+    4300026: Plane013
+    4300028: Plane014
+    4300030: Plane015
+    4300032: Plane016
+    4300034: Plane017
+    4300036: Plane018
+    4300038: Plane019
+    4300040: Plane020
+    4300042: Plane021
+    4300044: Plane022
+    4300046: Plane023
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 05 - Default
+    second: {fileID: 2100000, guid: 16fb42b0d63844343a75347067958ef7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: b8edbc6c8a9e8674282cdcf628644708, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -92,7 +168,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 10
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
