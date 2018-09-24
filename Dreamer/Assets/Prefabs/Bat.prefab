@@ -128,6 +128,8 @@ MonoBehaviour:
   steeringSpeed: 90
   batMode: 0
   sleeping: 0
+  returnTime: 0
+  returnTimeValue: 5
   blockable: 1
   attackRadius: 20
   playerTransform: {fileID: 4567894417099526, guid: ca1b843419f2207428cd9524aee6150f,

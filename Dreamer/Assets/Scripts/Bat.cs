@@ -12,6 +12,8 @@ public class Bat : MonoBehaviour, Enemy {
     public float steeringSpeed = 80f;
     public BatMode batMode;
     public bool sleeping;
+    public float returnTime;
+    public float returnTimeValue;
 
     public bool blockable = true;
     public float attackRadius = 10;
@@ -51,6 +53,7 @@ public class Bat : MonoBehaviour, Enemy {
         target = playerTransform.position;
         //20 % chance of an unblockable attack
         i = Random.Range(0f, 1f);
+        returnTime = returnTimeValue;
     }
 
     void Update() {
@@ -66,12 +69,13 @@ public class Bat : MonoBehaviour, Enemy {
         // switch states?
         if (WorldSwitch.instance.state == AwakeState.Nightmare && !sleeping) {
             distToPlayer = Vector3.Distance(transform.position, playerTransform.position);
-            if (distToPlayer < attackRadius && batMode != BatMode.Returning) {
+            if (distToPlayer < attackRadius && (batMode != BatMode.Returning || returnTime <= 0)) {
                 batMode = BatMode.Attacking;
 
                 if (i < 0.2f) {
                     //animaatio/muu indikaatio että on tulossa unblockable
-                    Instantiate(explosionEffect, transform.position, transform.rotation); //placeholder
+                    var newExplosion = Instantiate(explosionEffect, transform.position, transform.rotation); //placeholder
+                    Destroy(newExplosion, 2);
                     blockable = false;
                 } else {
                     blockable = true;
@@ -79,6 +83,7 @@ public class Bat : MonoBehaviour, Enemy {
             }
         } else if (rb.position != startPos) {
             batMode = BatMode.Returning;
+            returnTime = returnTimeValue;
         } else { 
             batMode = BatMode.Hanging;
         }
@@ -89,6 +94,7 @@ public class Bat : MonoBehaviour, Enemy {
             }
             else if (batMode == BatMode.Returning) {
                 target = startPos;
+
             }
             Fly();
         }
@@ -98,6 +104,7 @@ public class Bat : MonoBehaviour, Enemy {
 
         if (batMode == BatMode.Attacking && distToPlayer > attackRadius) {
             batMode = BatMode.Returning;
+            returnTime = returnTimeValue;
             i = Random.Range(0f, 1f);
             print(i);
         }
@@ -139,6 +146,7 @@ public class Bat : MonoBehaviour, Enemy {
             var dir = target - transform.position;
             var targetRot = Quaternion.LookRotation(dir, Vector3.up);
             rb.rotation = Quaternion.RotateTowards(rb.rotation, targetRot, Time.deltaTime * steeringSpeed);
+            returnTime -= Time.deltaTime;
         }
 
         rb.velocity = transform.forward * speed;
