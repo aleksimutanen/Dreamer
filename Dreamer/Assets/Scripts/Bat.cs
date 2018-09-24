@@ -77,14 +77,17 @@ public class Bat : MonoBehaviour, Enemy {
                     blockable = true;
                 }
             }
-        } else {
+        } else if (rb.position != startPos) {
+            batMode = BatMode.Returning;
+        } else { 
             batMode = BatMode.Hanging;
         }
 
         if (batMode != BatMode.Hanging && batMode != BatMode.Animated) {
             if (batMode == BatMode.Attacking) {
                 target = playerTransform.position;
-            } else if (batMode == BatMode.Returning) {
+            }
+            else if (batMode == BatMode.Returning) {
                 target = startPos;
             }
             Fly();
