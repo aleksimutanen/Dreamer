@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class CharacterSkills : MonoBehaviour {
 
-    public float activeTime;
-    public float chargeTime;
-
     public GameObject floatPiece;
     public GameObject shield;
     public GameObject powerSphereBall;
@@ -21,6 +18,9 @@ public class CharacterSkills : MonoBehaviour {
     bool charged;
     bool active;
     bool powerSphereActive;
+
+    public float activeTime;
+    public float chargeTime;
 
     public float lastShield;
     public float shieldInterval;
@@ -80,7 +80,7 @@ public class CharacterSkills : MonoBehaviour {
         }
         ChargePower();
         if (Time.time > firingInterval + lastShot) {
-            if (Input.GetButtonDown("Bash")) {
+            if (Input.GetButtonDown("Fire")) {
                 Fire();
             }
         } else {
@@ -219,7 +219,7 @@ public class CharacterSkills : MonoBehaviour {
         } else {
             //chargeTime = 2f;
         }
-        if (chargeTime < 0 && !Input.GetButton("Bash") && !Input.GetButton("Bash2") && charged) {
+        if (chargeTime < 0 && !Input.GetButton("Bash") && charged) {
             bashCollider.SetActive(true);
             GameManager.instance.ChangeBuddyPower(-100f);
             print("bashed");

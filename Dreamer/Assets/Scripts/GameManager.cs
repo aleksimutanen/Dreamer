@@ -203,6 +203,9 @@ public class GameManager : MonoBehaviour {
         toddlerHealth += amount;
         toddlerHealth = Mathf.Clamp(toddlerHealth, 0, maxToddlerHealth);
         toddlerHealthFill.value = toddlerHealth / maxToddlerHealth;
+        if (toddlerHealth <= 0) {
+            //die or something
+        }
     }
     
     // Status text

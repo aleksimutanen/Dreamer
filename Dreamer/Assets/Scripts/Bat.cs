@@ -64,7 +64,7 @@ public class Bat : MonoBehaviour, Enemy {
     void FixedUpdate() {
 
         // switch states?
-        if (WorldSwitch.instance.state == AwakeState.NightMare && !sleeping) {
+        if (WorldSwitch.instance.state == AwakeState.Nightmare && !sleeping) {
             distToPlayer = Vector3.Distance(transform.position, playerTransform.position);
             if (distToPlayer < attackRadius && batMode != BatMode.Returning) {
                 batMode = BatMode.Attacking;
