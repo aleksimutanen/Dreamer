@@ -47,7 +47,7 @@ public class CameraControl : MonoBehaviour {
                     transform.rotation = vertRot.rotation;
                     transform.position = vertRot.position + transform.forward * -camDist;
                     camDist -= Time.deltaTime * 1.715f * 2.5f/*1.55f * 2.5f*/;
-                } else if (WorldSwitch.instance.state == AwakeState.NightMare) {
+                } else if (WorldSwitch.instance.state == AwakeState.Nightmare) {
                     transform.rotation = vertRot.rotation;
                     transform.position = vertRot.position + transform.forward * -camDist;
                     camDist -= Time.deltaTime * 1.595f * 2.5f/*1.45f * 2.5f*/;

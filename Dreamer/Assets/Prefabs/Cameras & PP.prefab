@@ -81,7 +81,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1292744111378068
 GameObject:
   m_ObjectHideFlags: 1
@@ -322,7 +322,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1859414531916588}
   m_LocalRotation: {x: -0, y: 0.9776342, z: -0, w: 0.21031253}
-  m_LocalPosition: {x: 109.130005, y: -114.4145, z: 214.11}
+  m_LocalPosition: {x: 91.4, y: -131.4, z: 234}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4492870587623218}
@@ -359,7 +359,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 77623
+    m_Bits: 6291456
   m_RenderingPath: 1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -400,7 +400,7 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 112439
-  m_RenderingPath: -1
+  m_RenderingPath: 1
   m_TargetTexture: {fileID: 8400000, guid: f9e21a8294db14e46a360847c4b1b147, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
@@ -541,8 +541,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vertRot: {fileID: 0}
   camDist: 10
-  minDist: 1
-  maxDist: 20
+  minDist: 5
+  maxDist: 10
 --- !u!114 &114120832720220542
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -825,8 +825,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vertRot: {fileID: 0}
   camDist: 10
-  minDist: 1
-  maxDist: 20
+  minDist: 5
+  maxDist: 10
 --- !u!114 &114782287261684666
 MonoBehaviour:
   m_ObjectHideFlags: 1
