@@ -133,6 +133,7 @@ public class CharacterSkills : MonoBehaviour {
             var powerSphere = Physics.OverlapSphere(transform.position, powerSphereRadius, enemy);
             bool hit = powerSphere.Length > 0;
             if (Input.GetButtonDown("Action") && hit) {
+                print(powerSphere[0]);
                 powerSphereActive = true;
                 sphereEmitter.enabled = true;
                 print("hit an enemy");

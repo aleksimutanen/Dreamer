@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23395163564044804}
   - component: {fileID: 65821245789674562}
   - component: {fileID: 114674190086572494}
-  m_Layer: 13
+  m_Layer: 12
   m_Name: Ammo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,10 +108,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d07401fe26adb6a418752def7dbd41d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0.2
   ammoDamage: 1
-  ammoSpeed: 50
+  ammoSpeed: 40
   pushForce: 50
   enemy:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 32768
   dir: {x: 0, y: 0, z: 0}
