@@ -5,8 +5,8 @@ using UnityEngine;
 public class TreeManager : MonoBehaviour, Enemy {
 
     public List<GameObject> trees = new List<GameObject>();
-
-    public float health;
+    
+    float lastAttack;
     public float attackTriggerHeight;
     public Vector3 attackTriggerSize;
     public Animator anim;
@@ -17,14 +17,13 @@ public class TreeManager : MonoBehaviour, Enemy {
     Vector3 boxLocation2;
     Vector3 boxLocation3;
 
-    float lastAttack;
     CharacterSkills cs;
-
     public LayerMask character;
-
     public float dmgToPlayer = -5;
     public float pwrToShield = 5;
 
+    public float health;
+    public bool playerCanHit;
     public ParticleSystem deathEffect;
     public bool ded;
     public GameObject dedInDream;
@@ -70,7 +69,7 @@ public class TreeManager : MonoBehaviour, Enemy {
                 anim.Play("AttackMiddle1");
                 Attack();
             }
-            if(colliders2.Length > 0) {
+            else if(colliders2.Length > 0) {
 
                 if (Random.value < .5f)
                     anim.Play("AttackMiddle1");
@@ -78,9 +77,11 @@ public class TreeManager : MonoBehaviour, Enemy {
                     anim.Play("AttackMiddle2");
                 Attack();
             }
-            if(colliders3.Length > 0) {
+            else if(colliders3.Length > 0) {
                 anim.Play("AttackMiddle2");
                 Attack();
+            } else {
+                playerCanHit = false;
             }
 
         }
@@ -97,6 +98,7 @@ public class TreeManager : MonoBehaviour, Enemy {
     }
 
     public void Attack() {
+        playerCanHit = true;
 
         if (Time.time > attackInterval + lastAttack) {
 
@@ -131,8 +133,8 @@ public class TreeManager : MonoBehaviour, Enemy {
 
     public void TakeDamage(float damage) {
         if (health <= 0) return;
-
-        health -= damage;
+        if (playerCanHit)
+            health -= damage;
         if (health <= 0) {
             print("tree ded");
             //TODO: death animation yms
