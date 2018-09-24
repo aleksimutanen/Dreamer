@@ -13,7 +13,8 @@ public class AreaLoader : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.layer == 10) {
             print("moi");
-            SetChildrenActive(true);
+            //SetChildrenActive(true);
+            //tag? layer won't work
         }
     }
 

@@ -51,7 +51,6 @@ public class Bat : MonoBehaviour, Enemy {
         target = playerTransform.position;
         //20 % chance of an unblockable attack
         i = Random.Range(0f, 1f);
-        print(i);
     }
 
     void Update() {
@@ -67,7 +66,7 @@ public class Bat : MonoBehaviour, Enemy {
         // switch states?
         if (WorldSwitch.instance.state == AwakeState.NightMare && !sleeping) {
             distToPlayer = Vector3.Distance(transform.position, playerTransform.position);
-            if (distToPlayer < attackRadius) {
+            if (distToPlayer < attackRadius && batMode != BatMode.Returning) {
                 batMode = BatMode.Attacking;
 
                 if (i < 0.2f) {
@@ -219,13 +218,16 @@ public class Bat : MonoBehaviour, Enemy {
             //blocked --> return
             batMode = BatMode.Returning;
         } else if (collision.gameObject.name == "Ammo(Clone)") {
-            collision.GetComponent<EnergyAmmo>().DealDamage(this);
+            var ammo = collision.GetComponent<EnergyAmmo>();
+            TakeDamage(ammo.ammoDamage);
+            KickBack(ammo.dir, ammo.pushForce);
+            ammo.gameObject.SetActive(false);
             print("ammo hit");
         } else if (collision.gameObject.layer == 10 || collision.gameObject.layer == 12) {
             print("bat hit player");
             GameManager.instance.ChangeToddlerHealth(dmgToPlayer);
+            batMode = BatMode.Returning;
         }
-        batMode = BatMode.Returning;
     }
 
     public void KickBack(Vector3 dir, float force) {

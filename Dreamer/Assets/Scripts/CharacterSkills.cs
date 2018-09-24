@@ -9,6 +9,7 @@ public class CharacterSkills : MonoBehaviour {
 
     public GameObject floatPiece;
     public GameObject shield;
+    public GameObject powerSphereBall;
     public GameObject bashCollider;
     public GameObject ammo;
     public GameObject ammoFolder;
@@ -19,6 +20,7 @@ public class CharacterSkills : MonoBehaviour {
     bool bashing;
     bool charged;
     bool active;
+    bool powerSphereActive;
 
     public float lastShield;
     public float shieldInterval;
@@ -27,6 +29,7 @@ public class CharacterSkills : MonoBehaviour {
     public float powerSphereRadius;
     public float powerSpherePushForce;
     public float powerSphereDamage;
+    float powerSphereActiveTimer = 0.5f;
 
     public float firingInterval;
     float lastShot;
@@ -35,10 +38,21 @@ public class CharacterSkills : MonoBehaviour {
 
     Vector3 fireOffset = new Vector3(0, 2, 0);
 
-    public ParticleSystem ps;
+    public ParticleSystem charge;
+    ParticleSystem.EmissionModule chargeEmitter;
+
+    public ParticleSystem fire;
+    ParticleSystem.EmissionModule fireEmitter;
+
+    public ParticleSystem powerSphere;
+    ParticleSystem.EmissionModule sphereEmitter;
 
     void Start() {
         cm = FindObjectOfType<CharacterMover>();
+        sphereEmitter = powerSphere.emission;
+        chargeEmitter = charge.emission;
+        fireEmitter = fire.emission;
+        fireEmitter.enabled = false;
     }
 
     private void FixedUpdate() {
@@ -62,13 +76,25 @@ public class CharacterSkills : MonoBehaviour {
             Glide();
         }
         if (GameManager.instance.shieldEnabled) {
-            if (Input.GetAxis("Shield") > 0.3 && GameManager.instance.buddyPower > 0) {
                 Shield();
-            }
         }
         ChargePower();
-        if (Input.GetButtonDown("Bash")) {
-            Fire();
+        if (Time.time > firingInterval + lastShot) {
+            if (Input.GetButtonDown("Bash")) {
+                Fire();
+            }
+        } else {
+            fireEmitter.enabled = false;
+        }
+        if (powerSphereActive && powerSphereActiveTimer > 0) {
+            powerSphereActiveTimer -= Time.deltaTime;
+            powerSphereBall.transform.localScale += new Vector3(100,100,100) * Time.deltaTime;
+            powerSphereBall.SetActive(true);
+        } else {
+            powerSphereActiveTimer = 0.2f;
+            powerSphereActive = false;
+            powerSphereBall.transform.localScale = new Vector3(1, 1, 1);
+            powerSphereBall.SetActive(false);
         }
     }
 
@@ -95,11 +121,10 @@ public class CharacterSkills : MonoBehaviour {
 
     public void Fire() {
         if (GameManager.instance.firingEnabled) {
-            if (Time.time > firingInterval + lastShot) {
-                GameObject go = Instantiate(ammo, transform.position + fireOffset, transform.rotation);
-                go.transform.parent = ammoFolder.transform;
-                lastShot = Time.time;
-            }
+            GameObject go = Instantiate(ammo, transform.position + fireOffset, transform.rotation);
+            go.transform.parent = ammoFolder.transform;
+            lastShot = Time.time;
+            fireEmitter.enabled = true;
         }
     }
 
@@ -108,6 +133,8 @@ public class CharacterSkills : MonoBehaviour {
             var powerSphere = Physics.OverlapSphere(transform.position, powerSphereRadius, enemy);
             bool hit = powerSphere.Length > 0;
             if (Input.GetButtonDown("Action") && hit) {
+                powerSphereActive = true;
+                sphereEmitter.enabled = true;
                 print("hit an enemy");
                 foreach (Collider enemy in powerSphere) {
                     enemy.gameObject.GetComponentInParent<Enemy>().TakeDamage(powerSphereDamage);
@@ -115,6 +142,12 @@ public class CharacterSkills : MonoBehaviour {
                         enemy.GetComponent<Bat>().KickBack(-enemy.transform.forward, powerSpherePushForce);
                     }
                 }
+            } else if (Input.GetButtonDown("Action") && !hit) {
+                powerSphereActive = true;
+                sphereEmitter.enabled = true;
+            } else {
+                sphereEmitter.enabled = false;
+                powerSphereBall.SetActive(false);
             }
         }
     }
@@ -125,23 +158,19 @@ public class CharacterSkills : MonoBehaviour {
     }
 
     public void ChargePower() {
-        var em = ps.emission;
-        if (Input.GetButton("Charge") /*&& Input.GetButton("Charge2"*/) {
+        if (Input.GetButton("Charge")) {
             GameManager.instance.ChangeBuddyPower(20f * Time.deltaTime);
-            //ps.emission.rateOverTime = 10;
-            //ps.gameObject.SetActive(true);
-            em.enabled = true;
-            //ps.Play();
+            chargeEmitter.enabled = true;
         } else {
-            em.enabled = false;
-            //ps.gameObject.SetActive(false);
-            //ps.Stop();
+            chargeEmitter.enabled = false;
         }
     }
 
     public bool Shield() {
         if (Time.time > shieldInterval + lastShield) {
-            active = true;
+            if(Input.GetAxis("Shield") > 0.3 && GameManager.instance.buddyPower > 0) {
+                active = true;
+            }
             if (active) {
                 if (shieldDuration > 0) {
                     shieldDuration -= Time.deltaTime;
@@ -181,7 +210,7 @@ public class CharacterSkills : MonoBehaviour {
     }
 
     public void Bash() {
-        if (Input.GetButton("Bash") && Input.GetButton("Bash2") && GameManager.instance.buddyPower == 100) {
+        if (Input.GetButton("Bash")) {
             chargeTime -= Time.deltaTime;
             print("charging");
             if (chargeTime < 0) {

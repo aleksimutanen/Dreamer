@@ -58,7 +58,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 16fb42b0d63844343a75347067958ef7, type: 2}
+  - {fileID: 2100000, guid: 97e7b045e9731ae4b8423d4f611120eb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -114,3 +114,4 @@ MonoBehaviour:
   enemy:
     serializedVersion: 2
     m_Bits: 4096
+  dir: {x: 0, y: 0, z: 0}
