@@ -6,7 +6,7 @@ public class EnergyAmmo : MonoBehaviour {
 
     CharacterMover cm;
 
-    float timer = 1f;
+    public float timer = 1f;
     public float ammoDamage;
     public float ammoSpeed;
     public float pushForce;

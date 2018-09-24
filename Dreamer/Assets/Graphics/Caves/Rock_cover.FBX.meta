@@ -3865,7 +3865,12 @@ ModelImporter:
     4301532: Object334
     4301534: Object335
     4301536: Object336
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #25'
+    second: {fileID: 2100000, guid: 1be75b09c28e95240b7cd1712af4d9f4, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
