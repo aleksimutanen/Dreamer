@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.Rendering;
 
-public enum AwakeState { Dream, NightMare }
+public enum AwakeState { Dream, Nightmare }
 
 public class WorldSwitch : MonoBehaviour {
 
@@ -81,11 +81,11 @@ public class WorldSwitch : MonoBehaviour {
         if (state == AwakeState.Dream) {
             if (transitionOut || transitionIn) {
                 Switch(fadeSpeed, transitionSpeed, drFaderImage, nmFaderImage, drCam, nmCam, 
-                cm.EnterNightmare, nightmareSolid, AwakeState.NightMare, dreamSbMaterial, nightmareSbMaterial, dreamAmbientColor, nightmareAmbientColor);
+                cm.EnterNightmare, nightmareSolid, AwakeState.Nightmare, dreamSbMaterial, nightmareSbMaterial, dreamAmbientColor, nightmareAmbientColor);
             }
             //Fabric.EventManager.Instance.PostEvent("Jump");
         }
-        if (state == AwakeState.NightMare) {
+        if (state == AwakeState.Nightmare) {
             if (transitionOut || transitionIn) {
                 Switch(fadeSpeed, transitionSpeed, nmFaderImage, drFaderImage, nmCam, drCam, 
                 cm.EnterDream, dreamSolid, AwakeState.Dream, nightmareSbMaterial, dreamSbMaterial, nightmareAmbientColor, dreamAmbientColor);
@@ -134,7 +134,7 @@ public class WorldSwitch : MonoBehaviour {
             foreach (Camera cam in cameras) {
                 cam.fieldOfView -= Time.deltaTime * transitionSpeed * 2;
             }
-            if ((state == AwakeState.NightMare && newCam.fieldOfView < 60) || (state == AwakeState.Dream && newCam.fieldOfView < 45)) {
+            if ((state == AwakeState.Nightmare && newCam.fieldOfView < 60) || (state == AwakeState.Dream && newCam.fieldOfView < 45)) {
                 transitionIn = false;
                 currentCam.gameObject.SetActive(false);
                 state = newState;

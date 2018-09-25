@@ -28,27 +28,30 @@ public class TreeManager : MonoBehaviour, Enemy {
     public bool ded;
     public GameObject dedInDream;
 
-    bool nightmareTree;
-    bool dreamTree;
+    bool transitionOut;
+    bool transitionIn;
 
     void Start() {
         cs = FindObjectOfType<CharacterSkills>();
+
     }
 
     void Update() {
         // haluaisin laittaa aktiiviseksi vihollispuun painajaisessa
         // ja ei-vihollispuun unessa
-        nightmareTree = trees[0].activeSelf;
-        dreamTree = trees[1].activeSelf;
+        transitionOut = WorldSwitch.instance.transitionOut;
+        transitionIn = WorldSwitch.instance.transitionIn;
 
-        if (ded && WorldSwitch.instance.state == AwakeState.Dream/* && !dedInDream.activeSelf*/) {
+        if (ded && WorldSwitch.instance.state == AwakeState.Dream  /* && !dedInDream.activeSelf*/) {
             dedInDream.SetActive(true);
         }
-        else if (!ded && WorldSwitch.instance.state == AwakeState.NightMare /*&& (dreamTree || !nightmareTree)*/) {
+        else if (!ded && WorldSwitch.instance.state == AwakeState.Dream && transitionIn /*&& !transitionOut/*&& (dreamTree || !nightmareTree)*/) {
+            print(WorldSwitch.instance.state + " " + WorldSwitch.instance.transitionOut + " " + trees[0]);
             trees[0].SetActive(true);
             //rb = trees[0].GetComponent<Rigidbody>();
             trees[1].SetActive(false);
-        } else if (!ded && WorldSwitch.instance.state == AwakeState.Dream /*&& (!dreamTree || nightmareTree)*/) {
+        } else if (!ded && WorldSwitch.instance.state == AwakeState.Nightmare && transitionIn /*&& !transitionOut /*&& (!dreamTree || nightmareTree)*/) {
+            print(WorldSwitch.instance.state + " " + WorldSwitch.instance.transitionOut + " " + trees[1]);
             trees[1].SetActive(true);
             trees[0].SetActive(false);
         }      
