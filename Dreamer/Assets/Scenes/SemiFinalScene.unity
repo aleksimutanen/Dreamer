@@ -602,15 +602,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4630117416572446, guid: 01d4f60b5e6134b0d81a45bb25f3f599, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -225.4
+      value: -168
       objectReference: {fileID: 0}
     - target: {fileID: 4630117416572446, guid: 01d4f60b5e6134b0d81a45bb25f3f599, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 122.3
+      value: 196
       objectReference: {fileID: 0}
     - target: {fileID: 4630117416572446, guid: 01d4f60b5e6134b0d81a45bb25f3f599, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 238.7
+      value: 656
       objectReference: {fileID: 0}
     - target: {fileID: 4630117416572446, guid: 01d4f60b5e6134b0d81a45bb25f3f599, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1014,6 +1014,32 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1369887340591012, guid: 153cbb5fc997dbc40aacd92d7d4b8997, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329416557399630, guid: 153cbb5fc997dbc40aacd92d7d4b8997, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940525593819332, guid: 153cbb5fc997dbc40aacd92d7d4b8997, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940525593819332, guid: 153cbb5fc997dbc40aacd92d7d4b8997, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.00035
+      objectReference: {fileID: 0}
+    - target: {fileID: 64217067787546570, guid: 153cbb5fc997dbc40aacd92d7d4b8997,
+        type: 2}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 64217067787546570, guid: 153cbb5fc997dbc40aacd92d7d4b8997,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 153cbb5fc997dbc40aacd92d7d4b8997, type: 2}
   m_IsPrefabAsset: 0
@@ -1353,6 +1379,22 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31bec2b5743b0484e903de2b198ec5a2, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &949174014 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1495866021134974, guid: 153cbb5fc997dbc40aacd92d7d4b8997,
+    type: 2}
+  m_PrefabInternal: {fileID: 784066846}
+--- !u!114 &949174016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 949174014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09d9bf00000814563935e2f16088a895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1017457183
 Prefab:
   m_ObjectHideFlags: 0
@@ -1866,7 +1908,6 @@ MonoBehaviour:
   trees:
   - {fileID: 817454089}
   - {fileID: 1357156503}
-  health: 1
   attackTriggerHeight: 2
   attackTriggerSize: {x: 3, y: 4.15, z: 4.44}
   anim: {fileID: 817454090}
@@ -1878,6 +1919,8 @@ MonoBehaviour:
     m_Bits: 1024
   dmgToPlayer: -5
   pwrToShield: 5
+  health: 1
+  playerCanHit: 0
   deathEffect: {fileID: 1868547406}
   ded: 0
   dedInDream: {fileID: 0}
@@ -2020,7 +2063,6 @@ MonoBehaviour:
   trees:
   - {fileID: 1779351651}
   - {fileID: 1357156503}
-  health: 5
   attackTriggerHeight: 0
   attackTriggerSize: {x: 0, y: 0, z: 0}
   anim: {fileID: 0}
@@ -2032,6 +2074,8 @@ MonoBehaviour:
     m_Bits: 8192
   dmgToPlayer: -5
   pwrToShield: 5
+  health: 5
+  playerCanHit: 0
   deathEffect: {fileID: 1868547406}
   ded: 0
   dedInDream: {fileID: 515593364}
