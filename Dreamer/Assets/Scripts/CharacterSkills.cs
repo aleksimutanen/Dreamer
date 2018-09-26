@@ -16,7 +16,7 @@ public class CharacterSkills : MonoBehaviour {
     bool floater;
     bool bashing;
     bool charged;
-    bool active;
+    bool shieldActive;
     bool powerSphereActive;
 
     public float activeTime;
@@ -25,6 +25,7 @@ public class CharacterSkills : MonoBehaviour {
     public float lastShield;
     public float shieldInterval;
     public float shieldDuration;
+    public float maxShieldDuration;
 
     public float powerSphereRadius;
     public float powerSpherePushForce;
@@ -47,13 +48,19 @@ public class CharacterSkills : MonoBehaviour {
     public ParticleSystem powerSphere;
     ParticleSystem.EmissionModule sphereEmitter;
 
+    public ParticleSystem bounce;
+    ParticleSystem.EmissionModule bounceEmitter;
+
     void Start() {
         cm = FindObjectOfType<CharacterMover>();
         sphereEmitter = powerSphere.emission;
         sphereEmitter.enabled = false;
         chargeEmitter = charge.emission;
+        chargeEmitter.enabled = false;
         fireEmitter = fire.emission;
         fireEmitter.enabled = false;
+        bounceEmitter = bounce.emission;
+        bounceEmitter.enabled = false;
     }
 
     private void FixedUpdate() {
@@ -77,7 +84,7 @@ public class CharacterSkills : MonoBehaviour {
             Glide();
         }
         if (GameManager.instance.shieldEnabled) {
-                Shield();
+            Shield();
         }
         ChargePower();
         if (Time.time > firingInterval + lastShot) {
@@ -167,33 +174,52 @@ public class CharacterSkills : MonoBehaviour {
         }
     }
 
+    //public bool Shield() {
+    //    if (Time.time > shieldInterval + lastShield) {
+    //        if (Input.GetAxis("Shield") > 0.3 && GameManager.instance.buddyPower > 0) {
+    //            shieldActive = true;
+    //        }
+    //        if (shieldActive) {
+    //            if (shieldDuration > 0) {
+    //                shieldDuration -= Time.deltaTime;
+    //                shield.SetActive(true);
+    //                GameManager.instance.ChangeBuddyPower(-1f * Time.deltaTime);
+    //                return true;
+    //            } else {
+    //                shieldActive = false;
+    //                shield.SetActive(false);
+    //                shieldDuration = 1f;
+    //                lastShield = Time.time;
+    //                return false;
+    //            }
+    //        } else {
+    //            return false;
+    //        }
+    //    } else {
+    //        return false;
+    //    }
+    //}
+
     public bool Shield() {
-        if (Time.time > shieldInterval + lastShield) {
-            if (Input.GetAxis("Shield") > 0.3 && GameManager.instance.buddyPower > 0) {
-                active = true;
-            }
-            if (active) {
-                if (shieldDuration > 0) {
-                    shieldDuration -= Time.deltaTime;
-                    shield.SetActive(true);
-                    GameManager.instance.ChangeBuddyPower(-1f * Time.deltaTime);
-                    return true;
-                } else {
-                    active = false;
-                    shield.SetActive(false);
-                    shieldDuration = 1f;
-                    lastShield = Time.time;
-                    return false;
-                }
-            } else {
-                return false;
-            }
+        if (Input.GetAxis("Shield") > 0.1 && GameManager.instance.buddyPower > 0 && shieldDuration > 0 && shieldActive) {
+            shieldDuration -= Time.deltaTime;
+            shield.SetActive(true);
+            GameManager.instance.ChangeBuddyPower(-1f * Time.deltaTime);
+            return true;
         } else {
+            bounceEmitter.enabled = false;
+            shield.SetActive(false);
+            if (shieldDuration < maxShieldDuration) {
+                shieldDuration += Time.deltaTime;
+                shieldActive = false;
+            } else {
+                shieldActive = true;
+            }
             return false;
         }
     }
 
-    public bool Glide() {
+        public bool Glide() {
         if (Input.GetButtonDown("Jump") && !cm.onGround) {
             floater = true;
         }
