@@ -134,7 +134,6 @@ public class CharacterSkills : MonoBehaviour {
             var powerSphere = Physics.OverlapSphere(transform.position, powerSphereRadius, enemy);
             bool hit = powerSphere.Length > 0;
             if (Input.GetButtonDown("Action") && hit) {
-                print(powerSphere[0]);
                 powerSphereActive = true;
                 sphereEmitter.enabled = true;
                 print("hit an enemy");
@@ -170,7 +169,7 @@ public class CharacterSkills : MonoBehaviour {
 
     public bool Shield() {
         if (Time.time > shieldInterval + lastShield) {
-            if(Input.GetAxis("Shield") > 0.3 && GameManager.instance.buddyPower > 0) {
+            if (Input.GetAxis("Shield") > 0.3 && GameManager.instance.buddyPower > 0) {
                 active = true;
             }
             if (active) {

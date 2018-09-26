@@ -98,10 +98,6 @@ public class WorldSwitch : MonoBehaviour {
 
         if (b != newImage.color || c != currentImage.color) {
             newCam.gameObject.SetActive(true);
-            //var b = newImage.color;
-            //var d = b.a;
-            //var c = currentImage.color;
-            //var a = c.a;
             b = newImage.color;
             d = b.a;
             c = currentImage.color;
@@ -109,7 +105,6 @@ public class WorldSwitch : MonoBehaviour {
         }
         if (transitionOut) {
             blendTime += fadeSpeed * Time.deltaTime;
-            print(blendTime);
             RenderSettings.skybox.Lerp(currentSbMaterial, newSbMaterial, blendTime);
             RenderSettings.ambientLight = Color.Lerp(currentAmbientColor, newAmbientColor, blendTime);
             a -= fadeSpeed * Time.deltaTime;
