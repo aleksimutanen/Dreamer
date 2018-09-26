@@ -69,8 +69,6 @@ MonoBehaviour:
   horRot: {fileID: 0}
   statusText: {fileID: 0}
   statusTextTimer: 0
-  statusTextEmpty: 1
-  tutorialIndex: 0
   tutorialComplete: 0
   tutorialTexts: []
   maxToddlerHealth: 100
@@ -80,17 +78,24 @@ MonoBehaviour:
   toddlerHealth: 0
   buddyChargeSpeed: 1
   buddyPower: 1
-  dreamPower: 1
+  dreamPower: 0
   dreamPowMem: 0
-  lookEnabled: 0
-  walkEnabled: 0
-  jumpEnabled: 0
-  switchEnabled: 1
+  lookEnabled: 1
+  walkEnabled: 1
+  jumpEnabled: 1
+  switchEnabled: 0
   bashEnabled: 0
   glideEnabled: 0
   shieldEnabled: 0
   firingEnabled: 0
   powerBallEnabled: 0
+  reflectionEnabled: 0
   lives: 3
   sleepingBat: {fileID: 0}
-  doors: []
+  doors:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

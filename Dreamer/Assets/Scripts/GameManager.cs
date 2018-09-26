@@ -26,8 +26,6 @@ public class GameManager : MonoBehaviour {
     public GameObject horRot;
     public TextMeshProUGUI statusText;
     public float statusTextTimer = 0;
-    public bool statusTextEmpty = true;
-    public int tutorialIndex = 0;
     public bool tutorialComplete = false;
 
     public List<string> tutorialTexts = new List<string>();
@@ -52,6 +50,7 @@ public class GameManager : MonoBehaviour {
     public bool shieldEnabled = false;
     public bool firingEnabled = false;
     public bool powerBallEnabled = false;
+    public bool reflectionEnabled = false;
     
     public float lives = 3;
     Vector3 prevPlayerPos;
@@ -90,30 +89,9 @@ public class GameManager : MonoBehaviour {
         prevPlayerPos = player.transform.position;
         
         statusTextTimer -= Time.deltaTime;
-        // look enabled
-        if (tutorialIndex == 1 && statusTextTimer < 0 && statusTextEmpty){
-            ChangeStatusText(tutorialTexts[tutorialIndex], 5);
-            tutorialIndex++;
-            statusTextEmpty = false;
-            lookEnabled = true;
-        }
-        // walk enabled
-        if (tutorialIndex == 2 && statusTextTimer < 0 && statusTextEmpty){
-            ChangeStatusText(tutorialTexts[tutorialIndex],5);
-            tutorialIndex++;
-            statusTextEmpty = false;
-            walkEnabled = true;
-        }
-        // feeling
-        if (tutorialIndex == tutorialTexts.Count && statusTextTimer < 0 && statusTextEmpty && !tutorialComplete){
-            ChangeStatusText(tutorialTexts[tutorialIndex],5);
-            tutorialComplete = true;
-            statusTextEmpty = false;
-        }
         
         if (statusTextTimer < 0){
             ChangeStatusText("",1);
-            statusTextEmpty = true;
         }
 
         if (dreamPower == doorOpen) {
@@ -123,7 +101,6 @@ public class GameManager : MonoBehaviour {
         if (openDoor) { 
             print("door open");
             MoveDoor(doors[nextDoor], doors[nextDoor+1]);
-
         }
 
     }
@@ -134,7 +111,9 @@ public class GameManager : MonoBehaviour {
         if(instance)
             Debug.LogError("2+ GameManagers found!");
             instance = this;
+
             checkpoint = gameStartPoint.position;
+
             tutorialTexts.Add("Welcome to your dream, I'm Mother and I will guide you through your journey!");
             tutorialTexts.Add("You can look around by moving your mouse or controller tatti. Now look around you");
             tutorialTexts.Add("Well done! You can also move here =) Use your wasd or the other tatti to move");
@@ -142,9 +121,10 @@ public class GameManager : MonoBehaviour {
             tutorialTexts.Add("When you see crystals like this you should pick them up!");
             tutorialTexts.Add("Sometimes when you feel you are in a bad spot, try switching to nightmare by pressing the 'e'" + " button.");
             tutorialTexts.Add("Your bunny can help you find some crystals!");
-            tutorialTexts.Add("You did really good. Now move along little one!");
-            ChangeStatusText(tutorialTexts[tutorialIndex], 1);
-            tutorialIndex++;
+            tutorialTexts.Add("Bashing Skillz, try it out by pressing 'b' for a while!");
+            tutorialTexts.Add("Gliiidddeeerrr Skillllz!");
+            tutorialTexts.Add("Time to reflect some things!");
+            ChangeStatusText(tutorialTexts[0], 1);
         }
 
     public void SetCheckpoint(){    
@@ -212,7 +192,6 @@ public class GameManager : MonoBehaviour {
     public void ChangeStatusText(string text, float timer){
         statusText.text = text;
         statusTextTimer = timer;
-        statusTextEmpty = false;
     }
 
     void MoveDoor (Transform door, Transform doorEndPos) {
