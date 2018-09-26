@@ -124,6 +124,8 @@ public class GameManager : MonoBehaviour {
             tutorialTexts.Add("Bashing Skillz, try it out by pressing 'b' for a while!");
             tutorialTexts.Add("Gliiidddeeerrr Skillllz!");
             tutorialTexts.Add("Time to reflect some things!");
+            tutorialTexts.Add("Thou shall not pass, Go find some more crystals");
+
             ChangeStatusText(tutorialTexts[0], 1);
         }
 

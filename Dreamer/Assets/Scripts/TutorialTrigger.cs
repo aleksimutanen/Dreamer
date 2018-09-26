@@ -10,25 +10,25 @@ public class TutorialTrigger : MonoBehaviour {
 
             if(gameObject.name == "TutorialJumpTrigger") {
                 GameManager.instance.ChangeStatusText(GameManager.instance.tutorialTexts[3], 5); 
-                gameObject.SetActive(false);
                 GameManager.instance.jumpEnabled = true;
                 GameManager.instance.SetCheckpoint();
+                gameObject.SetActive(false);
             }
             if(gameObject.name == "TutorialCrystalTrigger") {
                 GameManager.instance.ChangeStatusText(GameManager.instance.tutorialTexts[4], 5);
-                gameObject.SetActive(false);
                 GameManager.instance.switchEnabled = true;
                 GameManager.instance.SetCheckpoint();
+                gameObject.SetActive(false);
             }
             if(gameObject.name == "TutorialSwitchTrigger") {
                 GameManager.instance.ChangeStatusText(GameManager.instance.tutorialTexts[5], 5);
-                gameObject.SetActive(false);
                 GameManager.instance.SetCheckpoint();
+                gameObject.SetActive(false);
             }
             if(gameObject.name == "TutorialCrystalTrigger2") {
                 GameManager.instance.ChangeStatusText(GameManager.instance.tutorialTexts[6], 5);
-                gameObject.SetActive(false);
                 GameManager.instance.SetCheckpoint();
+                gameObject.SetActive(false);
             }
             if(gameObject.name == "BashEnabler") {
                 GameManager.instance.ChangeStatusText(GameManager.instance.tutorialTexts[7], 5);
@@ -41,6 +41,10 @@ public class TutorialTrigger : MonoBehaviour {
             if(gameObject.name == "ReflectionEnabler") {
                 GameManager.instance.ChangeStatusText(GameManager.instance.tutorialTexts[9], 5);
                 GameManager.instance.reflectionEnabled = true;
+            }
+            if(gameObject.name == "TutorialDoorCrystalInfo" && GameManager.instance.dreamPower<10) {
+                GameManager.instance.ChangeStatusText(GameManager.instance.tutorialTexts[10], 5);
+                GameManager.instance.SetCheckpoint();
             }
         }
     }
