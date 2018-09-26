@@ -11,13 +11,16 @@ public class Shooter : MonoBehaviour {
     }
 
     private void OnTriggerStay(Collider other){
-        print("Tähtäimessä");
+        //print("Tähtäimessä");
         if(fireBall.gameObject.activeSelf == false && firingInterval < 0){
+            //print("in interval");
             if (other.gameObject.tag == "Player"){
-                fireBall.GetComponent<FireBall>().lifeTime = 2;
+                //print("fired");
+                var b = fireBall.GetComponent<FireBall>();
+                b.lifeTime = 2;
                 fireBall.SetActive(true);
                 fireBall.transform.position = gameObject.transform.position;
-                fireBall.GetComponent<FireBall>().targetDir = other.transform.position - fireBall.transform.position;
+                b.targetDir = other.transform.position - fireBall.transform.position;
                 firingInterval = 1;
             }
         }
