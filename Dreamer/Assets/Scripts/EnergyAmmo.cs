@@ -6,15 +6,12 @@ public class EnergyAmmo : MonoBehaviour {
 
     CharacterMover cm;
 
-    public float timer = 1f;
+    public float timer;
     public float ammoDamage;
     public float ammoSpeed;
     public float pushForce;
 
-    public LayerMask enemy;
-
     public Vector3 dir;
-
 
 	void Start () {
         cm = FindObjectOfType<CharacterMover>();
@@ -29,15 +26,4 @@ public class EnergyAmmo : MonoBehaviour {
         }
 	}
 
-    //public void DealDamage(Bat bat) {
-    //    bat.GetComponent<Enemy>().TakeDamage(ammoDamage);
-    //    bat.KickBack(dir, pushForce);
-    //    gameObject.SetActive(false);
-    //}
-    //private void OnCollisionEnter(Collision collision) {
-    //    if (collision.gameObject.layer == enemy) {
-    //        print("ammo hit");
-    //        collision.gameObject.GetComponent<Enemy>().TakeDamage(ammoDamage);
-    //    }
-    //}
 }

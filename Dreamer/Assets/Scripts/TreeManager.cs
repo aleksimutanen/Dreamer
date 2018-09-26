@@ -126,6 +126,7 @@ public class TreeManager : MonoBehaviour, Enemy {
             var ammo = collision.gameObject.GetComponent<EnergyAmmo>();
             TakeDamage(ammo.ammoDamage);
             ammo.gameObject.SetActive(false);
+            Instantiate(deathEffect, transform.position, transform.rotation); //tai esim että puu välähtää punaisena?
             print("ammo hit tree");
         }
         //else if (collision.gameObject.layer == 10 || collision.gameObject.layer == 12) {
@@ -140,8 +141,7 @@ public class TreeManager : MonoBehaviour, Enemy {
             health -= damage;
         if (health <= 0) {
             print("tree ded");
-            //TODO: death animation yms
-            deathEffect.Play();
+            Instantiate(deathEffect, transform.position, transform.rotation);
             ded = true;
             trees[0].SetActive(false);
         }
