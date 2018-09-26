@@ -50,6 +50,7 @@ public class CharacterSkills : MonoBehaviour {
     void Start() {
         cm = FindObjectOfType<CharacterMover>();
         sphereEmitter = powerSphere.emission;
+        sphereEmitter.enabled = false;
         chargeEmitter = charge.emission;
         fireEmitter = fire.emission;
         fireEmitter.enabled = false;
