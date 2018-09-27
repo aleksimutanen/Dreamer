@@ -112,8 +112,7 @@ public class TreeManager : MonoBehaviour, Enemy {
                 lastAttack = Time.time;
                 print("not");
                 return;
-            }
-            else {
+            } else {
                 GameManager.instance.ChangeToddlerHealth(dmgToPlayer);
                 print("attacking");
                 lastAttack = Time.time;

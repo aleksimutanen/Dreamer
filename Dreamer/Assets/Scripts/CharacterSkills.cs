@@ -22,8 +22,6 @@ public class CharacterSkills : MonoBehaviour {
     public float activeTime;
     public float chargeTime;
 
-    public float lastShield;
-    public float shieldInterval;
     public float shieldDuration;
     public float maxShieldDuration;
 
@@ -219,7 +217,7 @@ public class CharacterSkills : MonoBehaviour {
         }
     }
 
-        public bool Glide() {
+    public bool Glide() {
         if (Input.GetButtonDown("Jump") && !cm.onGround) {
             floater = true;
         }
@@ -238,21 +236,21 @@ public class CharacterSkills : MonoBehaviour {
 
     public void Bash() {
         if (Input.GetButton("Bash")) {
-            chargeTime -= Time.deltaTime;
-            print("charging");
-            if (chargeTime < 0) {
-                charged = true;
-            }
-        } else {
-            //chargeTime = 2f;
-        }
-        if (chargeTime < 0 && !Input.GetButton("Bash") && charged) {
+        //    chargeTime -= Time.deltaTime;
+        //    print("charging");
+        //    if (chargeTime < 0) {
+        //        charged = true;
+        //    }
+        //} else {
+        //    //chargeTime = 2f;
+        //}
+        //if (chargeTime < 0 && !Input.GetButton("Bash") && charged) {
             bashCollider.SetActive(true);
             GameManager.instance.ChangeBuddyPower(-100f);
             print("bashed");
-            chargeTime = 2f;
+            //chargeTime = 2f;
             bashing = true;
-            charged = false;
+            //charged = false;
         }
     }
 }
