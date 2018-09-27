@@ -29,16 +29,4 @@ public class EnergyAmmo : MonoBehaviour {
             gameObject.SetActive(false);
         }
 	}
-
-    //public void DealDamage(Bat bat) {
-    //    bat.GetComponent<Enemy>().TakeDamage(ammoDamage);
-    //    bat.KickBack(dir, pushForce);
-    //    gameObject.SetActive(false);
-    //}
-    //private void OnCollisionEnter(Collision collision) {
-    //    if (collision.gameObject.layer == enemy) {
-    //        print("ammo hit");
-    //        collision.gameObject.GetComponent<Enemy>().TakeDamage(ammoDamage);
-    //    }
-    //}
 }
