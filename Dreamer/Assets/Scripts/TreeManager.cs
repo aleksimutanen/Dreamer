@@ -105,7 +105,7 @@ public class TreeManager : MonoBehaviour, Enemy {
 
         if (Time.time > attackInterval + lastAttack) {
             //TODO: jos oksa osuu
-            if (cs.shield) {
+            if (cs.shieldActive) {
                 GameManager.instance.ChangeBuddyPower(pwrToShield);
                 lastAttack = Time.time;
                 cs.HitShield();

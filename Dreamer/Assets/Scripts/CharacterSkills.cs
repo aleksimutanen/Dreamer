@@ -21,9 +21,8 @@ public class CharacterSkills : MonoBehaviour {
 
     public float activeTime;
     public float chargeTime;
-
-    public float lastShield;
-    public float shieldInterval;
+    
+    public bool shieldActive;
     public float shieldDuration;
     public float maxShieldDuration;
 
@@ -184,11 +183,12 @@ public class CharacterSkills : MonoBehaviour {
         if(Input.GetButton("Shield") && shieldDuration > 0 && GameManager.instance.toddlerMoving == false && shieldHit == false) {
             shieldDuration -= Time.deltaTime;
             shield.SetActive(true);
+            shieldActive = true;
             return true;
         } else {
             bounceEmitter.enabled = false;
             shield.SetActive(false);
-
+            shieldActive = false;
             return false;
         }
     }
