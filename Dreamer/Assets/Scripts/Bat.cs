@@ -252,7 +252,7 @@ public class Bat : MonoBehaviour, Enemy {
         //Gizmos.color = Color.red;
         //Debug.DrawLine(transform.position, transform.position + transform.forward * hit2.distance);
         Gizmos.DrawLine(transform.position, transform.position + transform.forward * hit2.distance);
-        //Gizmos.DrawSphere(transform.position, blastRadius);
+        Gizmos.DrawWireSphere(transform.position, blastRadius);
     }
 
     public void TakeDamage(float damage) {
