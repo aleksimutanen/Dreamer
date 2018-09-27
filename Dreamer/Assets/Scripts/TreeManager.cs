@@ -111,8 +111,7 @@ public class TreeManager : MonoBehaviour, Enemy {
                 cs.HitShield();
                 print("not");
                 return;
-            }
-            else {
+            } else {
                 GameManager.instance.ChangeToddlerHealth(dmgToPlayer);
                 print("attacking");
                 lastAttack = Time.time;

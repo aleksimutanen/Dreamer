@@ -9,9 +9,12 @@ public class EnergyAmmo : MonoBehaviour {
     public float timer;
     public float ammoDamage;
     public float ammoSpeed;
-    public float pushForce;
+    public float ammoGrowingSpeed;
+
+    public LayerMask enemy;
 
     public Vector3 dir;
+    public Vector3 scale;
 
 	void Start () {
         cm = FindObjectOfType<CharacterMover>();
@@ -20,10 +23,10 @@ public class EnergyAmmo : MonoBehaviour {
 	
 	void Update () {
         transform.position += dir * Time.deltaTime * ammoSpeed;
+        transform.localScale += scale * Time.deltaTime * ammoGrowingSpeed;
         timer -= Time.deltaTime;
         if (timer < 0) {
             gameObject.SetActive(false);
         }
 	}
-
 }

@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4112636128276906}
   - component: {fileID: 33394271089969592}
   - component: {fileID: 23395163564044804}
-  - component: {fileID: 65821245789674562}
   - component: {fileID: 114674190086572494}
+  - component: {fileID: 58244842373913784}
   m_Layer: 13
   m_Name: Ammo
   m_TagString: Untagged
@@ -38,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1608223641451052}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 1.39, z: 1.3099976}
-  m_LocalScale: {x: 2.7816591, y: 6.245858, z: 0.26703998}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -84,19 +84,22 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1608223641451052}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65821245789674562
-BoxCollider:
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!58 &58244842373913784
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1608223641451052}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.5
 --- !u!114 &114674190086572494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,8 +114,9 @@ MonoBehaviour:
   timer: 0.2
   ammoDamage: 1
   ammoSpeed: 40
-  pushForce: 50
+  ammoGrowingSpeed: 30
   enemy:
     serializedVersion: 2
     m_Bits: 32768
   dir: {x: 0, y: 0, z: 0}
+  scale: {x: 2.5, y: 2.5, z: 0}

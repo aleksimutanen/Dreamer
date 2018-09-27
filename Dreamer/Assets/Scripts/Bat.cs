@@ -231,7 +231,7 @@ public class Bat : MonoBehaviour, Enemy {
         } else if (collision.gameObject.name == "Ammo(Clone)") {
             var ammo = collision.GetComponent<EnergyAmmo>();
             TakeDamage(ammo.ammoDamage);
-            KickBack(ammo.dir, ammo.pushForce);
+            //KickBack(ammo.dir, ammo.pushForce);
             ammo.gameObject.SetActive(false);
             print("ammo hit");
         } else if (collision.gameObject.layer == 10 || collision.gameObject.layer == 12) {
