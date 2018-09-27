@@ -20,7 +20,7 @@ public class TreeManager : MonoBehaviour, Enemy {
     CharacterSkills cs;
     public LayerMask character;
     public float dmgToPlayer = -5;
-    public float pwrToShield = 5;
+    public float pwrToShield = 20;
 
     public float health;
     public bool playerCanHit;
@@ -104,12 +104,11 @@ public class TreeManager : MonoBehaviour, Enemy {
         playerCanHit = true;
 
         if (Time.time > attackInterval + lastAttack) {
-
-            var shieldActive = cs.Shield();
             //TODO: jos oksa osuu
-            if (shieldActive) {
+            if (cs.shield) {
                 GameManager.instance.ChangeBuddyPower(pwrToShield);
                 lastAttack = Time.time;
+                cs.HitShield();
                 print("not");
                 return;
             }
