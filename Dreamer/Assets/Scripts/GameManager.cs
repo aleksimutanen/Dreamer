@@ -40,7 +40,8 @@ public class GameManager : MonoBehaviour {
     public float buddyPower = 0;
     public float dreamPower = 0;
     public float dreamPowMem;
-    
+
+    public bool toddlerMoving = false;
     public bool lookEnabled = false;
     public bool walkEnabled = false;
     public bool jumpEnabled = false;
@@ -53,7 +54,7 @@ public class GameManager : MonoBehaviour {
     public bool reflectionEnabled = false;
     
     public float lives = 3;
-    Vector3 prevPlayerPos;
+    public Vector3 prevPlayerPos;
 
     public Bat sleepingBat;
 
@@ -77,9 +78,9 @@ public class GameManager : MonoBehaviour {
         }
         
         // Buddypower charging while idling
-        if (prevPlayerPos == player.transform.position){
+        /*if (prevPlayerPos == player.transform.position){
             ChangeBuddyPower(buddyChargeSpeed * Time.deltaTime);
-        }
+        }*/
         
         // ToddlerHealth charging while idling
         if (prevPlayerPos == player.transform.position){
@@ -124,6 +125,8 @@ public class GameManager : MonoBehaviour {
             tutorialTexts.Add("Bashing Skillz, try it out by pressing 'b' for a while!");
             tutorialTexts.Add("Gliiidddeeerrr Skillllz!");
             tutorialTexts.Add("Time to reflect some things!");
+            tutorialTexts.Add("Thou shall not pass, Go find some more crystals");
+
             ChangeStatusText(tutorialTexts[0], 1);
         }
 

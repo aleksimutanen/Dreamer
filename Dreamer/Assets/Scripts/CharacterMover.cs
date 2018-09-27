@@ -58,7 +58,10 @@ public class CharacterMover : MonoBehaviour {
             // If there is movement input, start to rotate camera towards players forward direction
             if (horiz > .2f || vert > .2f || horiz < -.2f || vert < -.2f)
             {
+                GameManager.instance.toddlerMoving = true;
                 rb.rotation = Quaternion.RotateTowards(rb.rotation, horizontalRotator.rotation, turnSpeed * Time.deltaTime);
+            } else{
+                GameManager.instance.toddlerMoving = false;
             }
 
 
@@ -97,7 +100,7 @@ public class CharacterMover : MonoBehaviour {
 
     void Update() {
         // Input reading for jump
-        if(GameManager.instance.jumpEnabled){
+        if(GameManager.instance.jumpEnabled && WorldSwitch.instance.state == AwakeState.Dream){
             if (Input.GetButtonDown("Jump") && /*canJump*/ onGround) {
                 hasToJump = true;
             }

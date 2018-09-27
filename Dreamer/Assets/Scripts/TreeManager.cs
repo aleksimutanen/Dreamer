@@ -20,7 +20,7 @@ public class TreeManager : MonoBehaviour, Enemy {
     CharacterSkills cs;
     public LayerMask character;
     public float dmgToPlayer = -5;
-    public float pwrToShield = 5;
+    public float pwrToShield = 20;
 
     public float health;
     public bool playerCanHit;
@@ -104,12 +104,11 @@ public class TreeManager : MonoBehaviour, Enemy {
         playerCanHit = true;
 
         if (Time.time > attackInterval + lastAttack) {
-
-            var shieldActive = cs.Shield();
             //TODO: jos oksa osuu
-            if (shieldActive) {
+            if (cs.shieldActive) {
                 GameManager.instance.ChangeBuddyPower(pwrToShield);
                 lastAttack = Time.time;
+                cs.HitShield();
                 print("not");
                 return;
             } else {
@@ -125,6 +124,7 @@ public class TreeManager : MonoBehaviour, Enemy {
             var ammo = collision.gameObject.GetComponent<EnergyAmmo>();
             TakeDamage(ammo.ammoDamage);
             ammo.gameObject.SetActive(false);
+            Instantiate(deathEffect, transform.position, transform.rotation); //tai esim että puu välähtää punaisena?
             print("ammo hit tree");
         }
         //else if (collision.gameObject.layer == 10 || collision.gameObject.layer == 12) {
@@ -139,8 +139,7 @@ public class TreeManager : MonoBehaviour, Enemy {
             health -= damage;
         if (health <= 0) {
             print("tree ded");
-            //TODO: death animation yms
-            deathEffect.Play();
+            Instantiate(deathEffect, transform.position, transform.rotation);
             ded = true;
             trees[0].SetActive(false);
         }

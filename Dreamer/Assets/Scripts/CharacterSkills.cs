@@ -16,12 +16,13 @@ public class CharacterSkills : MonoBehaviour {
     bool floater;
     bool bashing;
     bool charged;
-    bool shieldActive;
+    public bool shieldHit;
     bool powerSphereActive;
 
     public float activeTime;
     public float chargeTime;
-
+    
+    public bool shieldActive;
     public float shieldDuration;
     public float maxShieldDuration;
 
@@ -102,6 +103,11 @@ public class CharacterSkills : MonoBehaviour {
             powerSphereBall.transform.localScale = new Vector3(1, 1, 1);
             powerSphereBall.SetActive(false);
         }
+
+        if(Input.GetButtonDown("Shield")){
+            shieldHit = false;
+            shieldDuration = 2;
+        }
     }
 
     //bool LessGravity() {
@@ -172,49 +178,24 @@ public class CharacterSkills : MonoBehaviour {
         }
     }
 
-    //public bool Shield() {
-    //    if (Time.time > shieldInterval + lastShield) {
-    //        if (Input.GetAxis("Shield") > 0.3 && GameManager.instance.buddyPower > 0) {
-    //            shieldActive = true;
-    //        }
-    //        if (shieldActive) {
-    //            if (shieldDuration > 0) {
-    //                shieldDuration -= Time.deltaTime;
-    //                shield.SetActive(true);
-    //                GameManager.instance.ChangeBuddyPower(-1f * Time.deltaTime);
-    //                return true;
-    //            } else {
-    //                shieldActive = false;
-    //                shield.SetActive(false);
-    //                shieldDuration = 1f;
-    //                lastShield = Time.time;
-    //                return false;
-    //            }
-    //        } else {
-    //            return false;
-    //        }
-    //    } else {
-    //        return false;
-    //    }
-    //}
 
     public bool Shield() {
-        if (Input.GetAxis("Shield") > 0.1 && GameManager.instance.buddyPower > 0 && shieldDuration > 0 && shieldActive) {
+        if(Input.GetButton("Shield") && shieldDuration > 0 && GameManager.instance.toddlerMoving == false && shieldHit == false) {
             shieldDuration -= Time.deltaTime;
             shield.SetActive(true);
-            GameManager.instance.ChangeBuddyPower(-1f * Time.deltaTime);
+            shieldActive = true;
             return true;
         } else {
             bounceEmitter.enabled = false;
             shield.SetActive(false);
-            if (shieldDuration < maxShieldDuration) {
-                shieldDuration += Time.deltaTime;
-                shieldActive = false;
-            } else {
-                shieldActive = true;
-            }
+            shieldActive = false;
             return false;
         }
+    }
+
+    public void HitShield(){
+        shieldHit = true;
+
     }
 
     public bool Glide() {
@@ -236,21 +217,21 @@ public class CharacterSkills : MonoBehaviour {
 
     public void Bash() {
         if (Input.GetButton("Bash")) {
-        //    chargeTime -= Time.deltaTime;
-        //    print("charging");
-        //    if (chargeTime < 0) {
-        //        charged = true;
-        //    }
-        //} else {
-        //    //chargeTime = 2f;
-        //}
-        //if (chargeTime < 0 && !Input.GetButton("Bash") && charged) {
+            chargeTime -= Time.deltaTime;
+            print("charging");
+            if (chargeTime < 0) {
+                charged = true;
+            }
+        } else {
+            //chargeTime = 2f;
+        }
+        if (chargeTime < 0 && !Input.GetButton("Bash") && charged) {
             bashCollider.SetActive(true);
             GameManager.instance.ChangeBuddyPower(-100f);
             print("bashed");
-            //chargeTime = 2f;
+            chargeTime = 2f;
             bashing = true;
-            //charged = false;
+            charged = false;
         }
     }
 }
