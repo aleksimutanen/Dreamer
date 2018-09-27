@@ -217,23 +217,24 @@ public class CharacterSkills : MonoBehaviour {
 
     public void Bash() {
         if (Input.GetButton("Bash")) {
-            chargeTime -= Time.deltaTime;
+            /*chargeTime -= Time.deltaTime;
             print("charging");
             if (chargeTime < 0) {
                 charged = true;
             }
         } else {
             //chargeTime = 2f;
-        }
-        if (chargeTime < 0 && !Input.GetButton("Bash") && charged) {
+        }*/
+        /*if (chargeTime < 0 && !Input.GetButton("Bash") && charged) {*/
             bashCollider.SetActive(true);
             GameManager.instance.ChangeBuddyPower(-100f);
             print("bashed");
-            chargeTime = 2f;
+            /*chargeTime = 2f;*/
             bashing = true;
-            charged = false;
+            /*charged = false;*/
         }
     }
 }
+    
 
 
