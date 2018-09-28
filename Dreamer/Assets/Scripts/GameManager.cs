@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour {
     float maxBuddyPower = 100;
     float maxDreamPower = 100;
 
-    float toddlerChargeSpeed = 1;
+    //float toddlerChargeSpeed = 1;
     float toddlerHealth = 100;
     float buddyChargeSpeed = 1;
     float buddyPower = 0;

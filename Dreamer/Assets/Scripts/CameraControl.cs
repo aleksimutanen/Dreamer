@@ -12,12 +12,12 @@ public class CameraControl : MonoBehaviour {
     LayerMask dreamMask;
     LayerMask nightmareMask;
 
-    float normalCamDist;
+    //float normalCamDist;
 
 
 
     void Start() {
-        normalCamDist = camDist;
+        //normalCamDist = camDist;
         dreamMask = 1 << LayerMask.NameToLayer("Map");
         nightmareMask = (1 << LayerMask.NameToLayer("Map"))|(1 << LayerMask.NameToLayer("NightmareLayer"));
     }
