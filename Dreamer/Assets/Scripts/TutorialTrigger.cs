@@ -42,14 +42,11 @@ public class TutorialTrigger : MonoBehaviour {
                 GameManager.instance.ChangeStatusText(GameManager.instance.tutorialTexts[9], 5);
                 GameManager.instance.reflectionEnabled = true;
             }
-            if(gameObject.name == "TutorialDoorCrystalInfo" && GameManager.instance.dreamPower<10) {
+            if(gameObject.name == "TutorialDoorCrystalInfo" && GameManager.instance.crystalAmount<10) {
                 GameManager.instance.ChangeStatusText(GameManager.instance.tutorialTexts[10], 5);
                 GameManager.instance.SetCheckpoint();
                 GameManager.instance.sleepingBat.sleeping = false;
             }
         }
     }
-
-
-
 }

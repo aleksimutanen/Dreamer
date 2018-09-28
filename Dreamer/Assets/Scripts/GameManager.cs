@@ -30,17 +30,6 @@ public class GameManager : MonoBehaviour {
 
     public List<string> tutorialTexts = new List<string>();
 
-    public float maxToddlerHealth;
-    public float maxBuddyPower;
-    public float maxDreamPower;
-
-    public float toddlerChargeSpeed = 1;
-    public float toddlerHealth = 0;
-    public float buddyChargeSpeed = 1;
-    public float buddyPower = 0;
-    public float dreamPower = 0;
-    public float dreamPowMem;
-
     public bool toddlerMoving = false;
     public bool lookEnabled = false;
     public bool walkEnabled = false;
@@ -59,6 +48,18 @@ public class GameManager : MonoBehaviour {
     public Bat sleepingBat;
 
     public List<Transform> doors = new List<Transform>(6);
+
+    float maxToddlerHealth = 100;
+    float maxBuddyPower = 100;
+    float maxDreamPower = 100;
+
+    float toddlerChargeSpeed = 1;
+    float toddlerHealth = 100;
+    float buddyChargeSpeed = 1;
+    float buddyPower = 0;
+    public float crystalAmount = 0;
+    float dreamPowMem;
+
     int nextDoor = 0;
     float doorOpen = 10;
     bool openDoor;
@@ -95,7 +96,7 @@ public class GameManager : MonoBehaviour {
             ChangeStatusText("",1);
         }
 
-        if (dreamPower == doorOpen) {
+        if (crystalAmount == doorOpen) {
             openDoor = true;
         }
 
@@ -126,13 +127,14 @@ public class GameManager : MonoBehaviour {
             tutorialTexts.Add("Gliiidddeeerrr Skillllz!");
             tutorialTexts.Add("Time to reflect some things!");
             tutorialTexts.Add("Go find some more crystals, Your bunny can help you");
+            tutorialTexts.Add("You Ded!");
 
             ChangeStatusText(tutorialTexts[0], 3);
         }
 
     public void SetCheckpoint(){    
         checkpoint = player.transform.position;
-        dreamPowMem = dreamPower;
+        //dreamPowMem = dreamPower;
         checkRotation = player.transform.rotation;
     }
 
@@ -140,8 +142,11 @@ public class GameManager : MonoBehaviour {
         if(lives > 0){
             lives --;
             print("Life lost");
+            buddyPower = 0;
+            toddlerHealth = 100;
             TeleportToCheckPoint(false);
-            ChangeDreamPower(-(dreamPower-dreamPowMem));       
+            ChangeStatusText(tutorialTexts[11], 3);
+            //ChangeDreamPower(-(dreamPower-dreamPowMem));       
         } else {
             print("Game Over");
         }
@@ -163,9 +168,9 @@ public class GameManager : MonoBehaviour {
     // When crystal is collected
     public void ChangeDreamPower(float amount) {
 
-        dreamPower += amount;
-        dreamPower = Mathf.Clamp(dreamPower, 0, maxDreamPower);
-        dreamPowerFill.value = dreamPower / maxDreamPower;
+        crystalAmount += amount;
+        crystalAmount = Mathf.Clamp(crystalAmount, 0, maxDreamPower);
+        dreamPowerFill.value = crystalAmount / maxDreamPower;
     }
 
 
@@ -185,7 +190,7 @@ public class GameManager : MonoBehaviour {
         toddlerHealth = Mathf.Clamp(toddlerHealth, 0, maxToddlerHealth);
         toddlerHealthFill.value = toddlerHealth / maxToddlerHealth;
         if (toddlerHealth <= 0) {
-            //die or something
+            ALiveLost();
         }
     }
     

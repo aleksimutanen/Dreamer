@@ -20,8 +20,8 @@ public class TreeManager : MonoBehaviour, Enemy {
 
     CharacterSkills cs;
     public LayerMask character;
-    public float dmgToPlayer = -5;
-    public float pwrToShield = 5;
+    float dmgToPlayer = -20;
+    float pwrToShield = 50;
 
     public float health;
     public bool playerCanHit;

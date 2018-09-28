@@ -137,6 +137,7 @@ public class CharacterSkills : MonoBehaviour {
             go.transform.parent = ammoFolder.transform;
             lastShot = Time.time;
             fireEmitter.enabled = true;
+            GameManager.instance.ChangeBuddyPower(-100);
         }
     }
 
@@ -202,7 +203,7 @@ public class CharacterSkills : MonoBehaviour {
         if (Input.GetButtonDown("Jump") && !cm.onGround) {
             floater = true;
         }
-        if (Input.GetButton("Jump") && !cm.onGround && GameManager.instance.buddyPower > 0 && floater) {
+        if (Input.GetButton("Jump") && !cm.onGround && floater) {
             cm.gravity = cm.normalGravity / 2;
             floatPiece.SetActive(true);
             GameManager.instance.ChangeBuddyPower(-1f * Time.deltaTime);
