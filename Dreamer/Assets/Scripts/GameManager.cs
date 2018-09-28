@@ -121,13 +121,13 @@ public class GameManager : MonoBehaviour {
             tutorialTexts.Add("Press space or joystick button x to jump over obstacles");
             tutorialTexts.Add("When you see crystals like this you should pick them up!");
             tutorialTexts.Add("Sometimes when you feel you are in a bad spot, try switching to nightmare by pressing the 'e'" + " button.");
-            tutorialTexts.Add("Your bunny can help you find some crystals!");
+            tutorialTexts.Add("You are now ready for your adventure, go on little one!");
             tutorialTexts.Add("Bashing Skillz, try it out by pressing 'b' for a while!");
             tutorialTexts.Add("Gliiidddeeerrr Skillllz!");
             tutorialTexts.Add("Time to reflect some things!");
-            tutorialTexts.Add("Thou shall not pass, Go find some more crystals");
+            tutorialTexts.Add("Go find some more crystals, Your bunny can help you");
 
-            ChangeStatusText(tutorialTexts[0], 1);
+            ChangeStatusText(tutorialTexts[0], 3);
         }
 
     public void SetCheckpoint(){    
@@ -147,10 +147,10 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void TeleportToCheckPoint(bool teleport) {
+    public void TeleportToCheckPoint(bool flipDir) {
         player.SetActive(false);
         player.transform.position = checkpoint;
-        if(teleport) {
+        if(flipDir) {
             player.transform.rotation = Quaternion.Euler(checkRotation.eulerAngles.x, checkRotation.eulerAngles.y + 180, checkRotation.eulerAngles.z);
         } else {
             player.transform.rotation = checkRotation;
