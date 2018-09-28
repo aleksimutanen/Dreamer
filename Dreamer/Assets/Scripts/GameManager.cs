@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour {
     //float toddlerChargeSpeed = 1;
     float toddlerHealth = 100;
     float buddyChargeSpeed = 1;
-    float buddyPower = 0;
+    public float buddyPower = 0;
     public float crystalAmount = 0;
     float dreamPowMem;
 

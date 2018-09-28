@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1591165419621104}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -78.95, y: 88.28, z: 336.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -145,11 +145,12 @@ MonoBehaviour:
     m_Bits: 1048576
   maxDistToFloor: 1
   steerSpeedFloor: 100
-  explosionDelay: 1
+  explosionDelay: 0
   explosionEffect: {fileID: 1736788278980720, guid: 424a76849a4bf1f4bb261bd29aedd2a6,
     type: 2}
-  blastRadius: 5
-  healthValue: 5
+  blastRadius: 18
+  health: 0
+  healthValue: 1
   hasExploded: 0
   dmgToPlayer: -5
   pwrToShield: 5
