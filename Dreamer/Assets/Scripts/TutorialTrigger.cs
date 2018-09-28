@@ -28,6 +28,7 @@ public class TutorialTrigger : MonoBehaviour {
             if(gameObject.name == "TutorialCrystalTrigger2") {
                 GameManager.instance.ChangeStatusText(GameManager.instance.tutorialTexts[6], 5);
                 GameManager.instance.SetCheckpoint();
+                GameManager.instance.sleepingBat.sleeping = false;
                 gameObject.SetActive(false);
             }
             if(gameObject.name == "BashEnabler") {

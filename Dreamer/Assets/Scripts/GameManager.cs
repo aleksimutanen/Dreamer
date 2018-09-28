@@ -136,8 +136,6 @@ public class GameManager : MonoBehaviour {
         checkRotation = player.transform.rotation;
     }
 
-
-
     public void ALiveLost(){
         if(lives > 0){
             lives --;
