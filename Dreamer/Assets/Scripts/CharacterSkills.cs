@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class CharacterSkills : MonoBehaviour {
 
-    public GameObject floatPiece;
+    CharacterMover cm;
+
+    public GameObject glider;
     public GameObject shield;
     public GameObject powerSphereBall;
     public GameObject bashCollider;
     public GameObject ammo;
     public GameObject ammoFolder;
 
-    CharacterMover cm;
+    public float glideTimer;
+    public float maxGlideTimer;
 
     bool floater;
     bool bashing;
@@ -20,7 +23,6 @@ public class CharacterSkills : MonoBehaviour {
     bool powerSphereActive;
 
     public float activeTime;
-    public float chargeTime;
     
     public bool shieldActive;
     public float shieldDuration;
@@ -29,6 +31,8 @@ public class CharacterSkills : MonoBehaviour {
     public float powerSphereRadius;
     public float powerSpherePushForce;
     public float powerSphereDamage;
+    public float powerSphereInterval;
+    float lastPowerSphere;
     float powerSphereActiveTimer = 0.5f;
 
     public float firingInterval;
@@ -87,7 +91,7 @@ public class CharacterSkills : MonoBehaviour {
         }
         ChargePower();
         if (Time.time > firingInterval + lastShot) {
-            if (Input.GetButtonDown("Fire")) {
+            if (Input.GetAxis("Fire") > 0.1f) {
                 Fire();
             }
         } else {
@@ -144,19 +148,23 @@ public class CharacterSkills : MonoBehaviour {
         if (GameManager.instance.powerBallEnabled) {
             var powerSphere = Physics.OverlapSphere(transform.position, powerSphereRadius, enemy);
             bool hit = powerSphere.Length > 0;
-            if (Input.GetButtonDown("Action") && hit) {
-                powerSphereActive = true;
-                sphereEmitter.enabled = true;
-                print("hit an enemy");
-                foreach (Collider enemy in powerSphere) {
-                    enemy.gameObject.GetComponentInParent<Enemy>().TakeDamage(powerSphereDamage);
-                    if (enemy.gameObject.GetComponent<Bat>() != null) {
-                        enemy.GetComponent<Bat>().KickBack(-enemy.transform.forward, powerSpherePushForce);
+            if (Time.time > powerSphereInterval + lastPowerSphere) {
+                if (Input.GetAxisRaw("PowerSphere") > 0.1f && hit) {
+                    powerSphereActive = true;
+                    sphereEmitter.enabled = true;
+                    print("hit an enemy");
+                    lastPowerSphere = Time.time;
+                    foreach (Collider enemy in powerSphere) {
+                        enemy.gameObject.GetComponentInParent<Enemy>().TakeDamage(powerSphereDamage);
+                        if (enemy.gameObject.GetComponent<Bat>() != null) {
+                            enemy.GetComponent<Bat>().KickBack(-enemy.transform.forward, powerSpherePushForce);
+                        }
                     }
+                } else if (Input.GetAxis("PowerSphere") > 0.1f && !hit) {
+                    powerSphereActive = true;
+                    sphereEmitter.enabled = true;
+                    lastPowerSphere = Time.time;
                 }
-            } else if (Input.GetButtonDown("Action") && !hit) {
-                powerSphereActive = true;
-                sphereEmitter.enabled = true;
             } else {
                 sphereEmitter.enabled = false;
                 powerSphereBall.SetActive(false);
@@ -202,36 +210,25 @@ public class CharacterSkills : MonoBehaviour {
         if (Input.GetButtonDown("Jump") && !cm.onGround) {
             floater = true;
         }
-        if (Input.GetButton("Jump") && !cm.onGround && GameManager.instance.buddyPower > 0 && floater) {
+        if (Input.GetButton("Jump") && !cm.onGround && floater && glideTimer > 0) {
+            glideTimer -= Time.deltaTime;
             cm.gravity = cm.normalGravity / 2;
-            floatPiece.SetActive(true);
-            GameManager.instance.ChangeBuddyPower(-1f * Time.deltaTime);
+            glider.SetActive(true);
             return true;
         } else {
             floater = false;
             cm.gravity = cm.normalGravity;
-            floatPiece.SetActive(false);
+            glider.SetActive(false);
             return false;
         }
     }
 
     public void Bash() {
         if (Input.GetButton("Bash")) {
-            chargeTime -= Time.deltaTime;
-            print("charging");
-            if (chargeTime < 0) {
-                charged = true;
-            }
-        } else {
-            //chargeTime = 2f;
-        }
-        if (chargeTime < 0 && !Input.GetButton("Bash") && charged) {
             bashCollider.SetActive(true);
             GameManager.instance.ChangeBuddyPower(-100f);
             print("bashed");
-            chargeTime = 2f;
             bashing = true;
-            charged = false;
         }
     }
 }
