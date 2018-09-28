@@ -31,11 +31,11 @@ public class Bat : MonoBehaviour, Enemy {
     public float maxDistToFloor = 2;
     public float steerSpeedFloor = 200f;
 
-    public float explosionDelay = 1f;
-    float countdown;
+    //public float explosionDelay = 1f;
+    //float countdown;
     public GameObject explosionEffect;
     public float blastRadius = 15f;
-    float health;
+    public float health;
     public float healthValue;
     public bool hasExploded;
 
@@ -43,13 +43,13 @@ public class Bat : MonoBehaviour, Enemy {
     public float pwrToShield = 5;
 
     float i;
-    private float timeSinceDeath;
+    public float timeSinceDeath;
 
     //muuta gamemanagerissa
 
     void Start() {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        countdown = explosionDelay;
+       // countdown = explosionDelay;
         rb = GetComponent<Rigidbody>();
         angle = (float)Random.Range(0, 8) * 45f;
         startPos = transform.position;
@@ -61,22 +61,25 @@ public class Bat : MonoBehaviour, Enemy {
     }
 
     void Update() {
-        if(health <= 0)
-            countdown -= Time.deltaTime;
-        if (countdown <= 0 && !hasExploded) {
+        if (health <= 0 && !hasExploded) {
             Explode();
         }
         if (hasExploded)
             timeSinceDeath += Time.deltaTime;
 
         returnTime -= Time.deltaTime;
+
+        if (distToPlayer > 100 && timeSinceDeath > 15) {
+            Respawn();
+        }
     }
 
     void FixedUpdate() {
 
+        distToPlayer = Vector3.Distance(transform.position, playerTransform.position);
         // switch states?
         if (WorldSwitch.instance.state == AwakeState.Nightmare && !sleeping) {
-            distToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+
             if (distToPlayer < attackRadius && (batMode != BatMode.Returning || returnTime <= 0)) {
                 batMode = BatMode.Attacking;
 
@@ -278,11 +281,9 @@ public class Bat : MonoBehaviour, Enemy {
     public void Respawn() {
         //jotain?
         //että jos kuolemasta on mennyt tarpeeksi kauan tai jotain niin respawn?
-        if (distToPlayer > 100 && timeSinceDeath > 15) {
-            GetComponent<MeshRenderer>().enabled = true;
-            hasExploded = false;
-            sleeping = false;
-            health = healthValue;
-        }
+        GetComponent<MeshRenderer>().enabled = true;
+        hasExploded = false;
+        sleeping = false;
+        health = healthValue;
     }
 }
