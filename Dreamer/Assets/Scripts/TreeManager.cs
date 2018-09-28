@@ -5,7 +5,8 @@ using UnityEngine;
 public class TreeManager : MonoBehaviour, Enemy {
 
     public List<GameObject> trees = new List<GameObject>();
-    
+
+    public GameObject explosionEffect;
     float lastAttack;
     public float attackTriggerHeight;
     public Vector3 attackTriggerSize;
@@ -19,42 +20,39 @@ public class TreeManager : MonoBehaviour, Enemy {
 
     CharacterSkills cs;
     public LayerMask character;
-    public float dmgToPlayer = -5;
-    public float pwrToShield = 20;
+    float dmgToPlayer = -20;
+    float pwrToShield = 50;
 
     public float health;
     public bool playerCanHit;
     public ParticleSystem deathEffect;
     public bool ded;
     public GameObject dedInDream;
+    public bool blockable = true;
 
-    bool transitionOut;
     bool transitionIn;
 
     void Start() {
         cs = FindObjectOfType<CharacterSkills>();
-
     }
 
     void Update() {
         // haluaisin laittaa aktiiviseksi vihollispuun painajaisessa
         // ja ei-vihollispuun unessa
-        transitionOut = WorldSwitch.instance.transitionOut;
         transitionIn = WorldSwitch.instance.transitionIn;
 
         if (ded && WorldSwitch.instance.state == AwakeState.Dream  /* && !dedInDream.activeSelf*/) {
             dedInDream.SetActive(true);
         }
         else if (!ded && WorldSwitch.instance.state == AwakeState.Dream && transitionIn /*&& !transitionOut/*&& (dreamTree || !nightmareTree)*/) {
-            print(WorldSwitch.instance.state + " " + WorldSwitch.instance.transitionOut + " " + trees[0]);
             trees[0].SetActive(true);
             //rb = trees[0].GetComponent<Rigidbody>();
             trees[1].SetActive(false);
         } else if (!ded && WorldSwitch.instance.state == AwakeState.Nightmare && transitionIn /*&& !transitionOut /*&& (!dreamTree || nightmareTree)*/) {
-            print(WorldSwitch.instance.state + " " + WorldSwitch.instance.transitionOut + " " + trees[1]);
             trees[1].SetActive(true);
             trees[0].SetActive(false);
-        }      
+        }
+        
     }
 
     void FixedUpdate() {
@@ -69,19 +67,29 @@ public class TreeManager : MonoBehaviour, Enemy {
             var colliders3 = Physics.OverlapBox(boxLocation3, attackTriggerSize, Quaternion.identity, character);
 
             if(colliders1.Length > 0) {
-                anim.Play("AttackMiddle1");
+                anim.Play("AttackLeft");
+                blockable = true;
                 Attack();
             }
             else if(colliders2.Length > 0) {
 
-                if (Random.value < .5f)
-                    anim.Play("AttackMiddle1");
-                else
+                var juttu = Random.value;
+                if (juttu < .2f) {
+                    anim.Play("Indicator");
+                    blockable = false;
+                }
+                else if (juttu < .6) {
                     anim.Play("AttackMiddle2");
+                    blockable = true;
+                } else {
+                    anim.Play("AttackMiddle1");
+                    blockable = true;
+                }
                 Attack();
             }
             else if(colliders3.Length > 0) {
-                anim.Play("AttackMiddle2");
+                anim.Play("AttackRight");
+                blockable = true;
                 Attack();
             } else {
                 playerCanHit = false;
@@ -102,16 +110,17 @@ public class TreeManager : MonoBehaviour, Enemy {
 
     public void Attack() {
         playerCanHit = true;
-
         if (Time.time > attackInterval + lastAttack) {
+
+            var shieldActive = cs.Shield();
             //TODO: jos oksa osuu
-            if (cs.shieldActive) {
+            if (shieldActive && blockable) {
                 GameManager.instance.ChangeBuddyPower(pwrToShield);
                 lastAttack = Time.time;
-                cs.HitShield();
                 print("not");
                 return;
-            } else {
+            }
+            else {
                 GameManager.instance.ChangeToddlerHealth(dmgToPlayer);
                 print("attacking");
                 lastAttack = Time.time;
@@ -145,7 +154,4 @@ public class TreeManager : MonoBehaviour, Enemy {
         }
     }
 
-    public void Respawn() {
-        //jotain?
-    }
 }

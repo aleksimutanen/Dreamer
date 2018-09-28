@@ -9,15 +9,17 @@ public class CameraControl : MonoBehaviour {
     public float minDist;
     public float maxDist;
     float castSize = .2f;
-    LayerMask layerMask;
+    LayerMask dreamMask;
+    LayerMask nightmareMask;
 
-    float normalCamDist;
+    //float normalCamDist;
 
 
 
     void Start() {
-        normalCamDist = camDist;
-        layerMask = 1 << LayerMask.NameToLayer("Map");
+        //normalCamDist = camDist;
+        dreamMask = 1 << LayerMask.NameToLayer("Map");
+        nightmareMask = (1 << LayerMask.NameToLayer("Map"))|(1 << LayerMask.NameToLayer("NightmareLayer"));
     }
 
     void FixedUpdate() {
@@ -26,15 +28,17 @@ public class CameraControl : MonoBehaviour {
 
         RaycastHit hit;
 
-        if(Physics.SphereCast(vertRot.transform.position, castSize, -vertRot.forward, out hit, Mathf.Infinity, layerMask)) {
-            camDist = Mathf.Clamp(hit.distance - 1, minDist, maxDist);
-
-            //print(hit.collider);
+        if(WorldSwitch.instance.state == AwakeState.Dream) {
+            if(Physics.SphereCast(vertRot.transform.position, castSize, -vertRot.forward, out hit, Mathf.Infinity, dreamMask)) {
+                camDist = Mathf.Clamp(hit.distance - 1, minDist, maxDist);
+            }
+        } else if(WorldSwitch.instance.state == AwakeState.Nightmare) {
+            if(Physics.SphereCast(vertRot.transform.position, castSize, -vertRot.forward, out hit, Mathf.Infinity, nightmareMask)) {
+                camDist = Mathf.Clamp(hit.distance - 1, minDist, maxDist);
+            }
         } else {
             camDist = maxDist;
         }
-
-        Debug.DrawLine(vertRot.transform.position, hit.point, Color.green, 0.1f);
 
 
         if (GameManager.instance.lookEnabled) {

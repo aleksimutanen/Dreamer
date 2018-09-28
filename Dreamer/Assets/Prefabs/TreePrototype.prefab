@@ -1667,8 +1667,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1126689021826362}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: -4.59, z: 35.2}
+  m_LocalRotation: {x: 0, y: -0.73254293, z: 0, w: 0.68072087}
+  m_LocalPosition: {x: -138.47, y: 34.22, z: 175.39}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4409229737303806}
@@ -1676,7 +1676,7 @@ Transform:
   - {fileID: 4452996201745096}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -94.2, z: 0}
 --- !u!23 &23429337762173730
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -1838,6 +1838,7 @@ MonoBehaviour:
   trees:
   - {fileID: 1134654297294840}
   - {fileID: 1109836985621022}
+  explosionEffect: {fileID: 0}
   attackTriggerHeight: 2
   attackTriggerSize: {x: 3, y: 2, z: 3}
   anim: {fileID: 95782579817737932}
@@ -1848,13 +1849,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   dmgToPlayer: -5
-  pwrToShield: 5
+  pwrToShield: 20
   health: 10
   playerCanHit: 0
   deathEffect: {fileID: 198146491868534018, guid: 424a76849a4bf1f4bb261bd29aedd2a6,
     type: 2}
   ded: 0
   dedInDream: {fileID: 1883794155457008}
+  blockable: 1
 --- !u!136 &136624063812362664
 CapsuleCollider:
   m_ObjectHideFlags: 1

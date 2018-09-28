@@ -5,8 +5,6 @@ using UnityEngine;
 public class Teleport : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
-        print("hit " + other);
-        GameManager.instance.TeleportToCheckPoint(true);
-        }
+        GameManager.instance.TeleportToCheckPoint(gameObject.layer != LayerMask.NameToLayer("NightmareLayer"));
     }
-
+}
