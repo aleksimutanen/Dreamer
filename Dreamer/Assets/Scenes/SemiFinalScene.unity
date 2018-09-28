@@ -157,6 +157,21 @@ Prefab:
       propertyPath: dedInDream
       value: 
       objectReference: {fileID: 1236497564}
+    - target: {fileID: 114274490502469256, guid: 49961a351d3c24bb3a0a45490a6db2e8,
+        type: 2}
+      propertyPath: attackTriggerHeight
+      value: 310
+      objectReference: {fileID: 0}
+    - target: {fileID: 114274490502469256, guid: 49961a351d3c24bb3a0a45490a6db2e8,
+        type: 2}
+      propertyPath: attackTriggerSize.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114274490502469256, guid: 49961a351d3c24bb3a0a45490a6db2e8,
+        type: 2}
+      propertyPath: middleShift
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49961a351d3c24bb3a0a45490a6db2e8, type: 2}
   m_IsPrefabAsset: 0
@@ -964,7 +979,7 @@ Prefab:
     - target: {fileID: 114947095394466928, guid: 7f1943aab179c5d46ba3caf77dfb56bf,
         type: 2}
       propertyPath: buddyPower
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 114947095394466928, guid: 7f1943aab179c5d46ba3caf77dfb56bf,
         type: 2}
@@ -1468,6 +1483,21 @@ Prefab:
       propertyPath: horizontalRotator
       value: 
       objectReference: {fileID: 839009493}
+    - target: {fileID: 114594999348714460, guid: ca1b843419f2207428cd9524aee6150f,
+        type: 2}
+      propertyPath: glideTimer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114594999348714460, guid: ca1b843419f2207428cd9524aee6150f,
+        type: 2}
+      propertyPath: maxGlideTimer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114594999348714460, guid: ca1b843419f2207428cd9524aee6150f,
+        type: 2}
+      propertyPath: powerSphereInterval
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 136514174196396440, guid: ca1b843419f2207428cd9524aee6150f, type: 2}
     - {fileID: 65242468801166604, guid: ca1b843419f2207428cd9524aee6150f, type: 2}
