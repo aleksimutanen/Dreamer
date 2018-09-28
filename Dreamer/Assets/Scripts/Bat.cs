@@ -35,13 +35,16 @@ public class Bat : MonoBehaviour, Enemy {
     float countdown;
     public GameObject explosionEffect;
     public float blastRadius = 15f;
-    public float health = 2f;
+    float health;
+    public float healthValue;
     public bool hasExploded;
 
     public float dmgToPlayer = -5;
     public float pwrToShield = 5;
 
     float i;
+    private float timeSinceDeath;
+
     //muuta gamemanagerissa
 
     void Start() {
@@ -54,6 +57,7 @@ public class Bat : MonoBehaviour, Enemy {
         //20 % chance of an unblockable attack
         i = Random.Range(0f, 1f);
         returnTime = returnTimeValue;
+        health = healthValue;
     }
 
     void Update() {
@@ -62,6 +66,10 @@ public class Bat : MonoBehaviour, Enemy {
         if (countdown <= 0 && !hasExploded) {
             Explode();
         }
+        if (hasExploded)
+            timeSinceDeath += Time.deltaTime;
+
+        returnTime -= Time.deltaTime;
     }
 
     void FixedUpdate() {
@@ -81,10 +89,13 @@ public class Bat : MonoBehaviour, Enemy {
                     blockable = true;
                 }
             }
-        } else if (rb.position != startPos) {
-            batMode = BatMode.Returning;
-            returnTime = returnTimeValue;
-        } else { 
+            else if (rb.position != startPos && returnTime > 0) {
+                batMode = BatMode.Returning;
+                //returnTime = returnTimeValue;
+            } else {
+                batMode = BatMode.Flying;
+            }
+        }  else { 
             batMode = BatMode.Hanging;
         }
 
@@ -97,6 +108,8 @@ public class Bat : MonoBehaviour, Enemy {
 
             }
             Fly();
+        } else {
+            rb.velocity = Vector3.zero;
         }
     }
 
@@ -106,7 +119,6 @@ public class Bat : MonoBehaviour, Enemy {
             batMode = BatMode.Returning;
             returnTime = returnTimeValue;
             i = Random.Range(0f, 1f);
-            print(i);
         }
 
         RaycastHit hit;
@@ -146,7 +158,6 @@ public class Bat : MonoBehaviour, Enemy {
             var dir = target - transform.position;
             var targetRot = Quaternion.LookRotation(dir, Vector3.up);
             rb.rotation = Quaternion.RotateTowards(rb.rotation, targetRot, Time.deltaTime * steeringSpeed);
-            returnTime -= Time.deltaTime;
         }
 
         rb.velocity = transform.forward * speed;
@@ -218,7 +229,10 @@ public class Bat : MonoBehaviour, Enemy {
         }
         //jos pelaaja lähellä, damagea pelaajaan / kilven latausta jos kilpi ylhäällä?
 
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        GetComponent<MeshRenderer>().enabled = false;
+        sleeping = true;
+        timeSinceDeath = 0;
     }
 
     private void OnTriggerEnter(Collider collision) {
@@ -234,10 +248,11 @@ public class Bat : MonoBehaviour, Enemy {
             //KickBack(ammo.dir, ammo.pushForce);
             ammo.gameObject.SetActive(false);
             print("ammo hit");
-        } else if (collision.gameObject.layer == 10 || collision.gameObject.layer == 12) {
+        } else if (collision.gameObject.layer == 13) {
             print("bat hit player");
             GameManager.instance.ChangeToddlerHealth(dmgToPlayer);
             batMode = BatMode.Returning;
+            returnTime = returnTimeValue;
         }
     }
 
@@ -262,5 +277,12 @@ public class Bat : MonoBehaviour, Enemy {
 
     public void Respawn() {
         //jotain?
+        //että jos kuolemasta on mennyt tarpeeksi kauan tai jotain niin respawn?
+        if (distToPlayer > 100 && timeSinceDeath > 15) {
+            GetComponent<MeshRenderer>().enabled = true;
+            hasExploded = false;
+            sleeping = false;
+            health = healthValue;
+        }
     }
 }
