@@ -154,7 +154,4 @@ public class TreeManager : MonoBehaviour, Enemy {
         }
     }
 
-    public void Respawn() {
-        //jotain?
-    }
 }
