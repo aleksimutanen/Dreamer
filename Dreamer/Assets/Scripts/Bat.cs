@@ -106,7 +106,6 @@ public class Bat : MonoBehaviour, Enemy {
             batMode = BatMode.Returning;
             returnTime = returnTimeValue;
             i = Random.Range(0f, 1f);
-            print(i);
         }
 
         RaycastHit hit;
@@ -234,10 +233,11 @@ public class Bat : MonoBehaviour, Enemy {
             //KickBack(ammo.dir, ammo.pushForce);
             ammo.gameObject.SetActive(false);
             print("ammo hit");
-        } else if (collision.gameObject.layer == 10 || collision.gameObject.layer == 12) {
+        } else if (collision.gameObject.layer == 13) {
             print("bat hit player");
             GameManager.instance.ChangeToddlerHealth(dmgToPlayer);
             batMode = BatMode.Returning;
+            returnTime = returnTimeValue;
         }
     }
 
