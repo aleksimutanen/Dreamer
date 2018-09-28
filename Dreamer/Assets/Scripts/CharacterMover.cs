@@ -21,6 +21,7 @@ public class CharacterMover : MonoBehaviour {
     public float groundCheckDepth2;
     public float groundCheckSize2;
 
+    public float fallingDeathThreshold;
     public float gravity;
     public float normalGravity;
     public float maxFallSpeed;
@@ -31,7 +32,11 @@ public class CharacterMover : MonoBehaviour {
     public bool onGround;
     public bool canJump;
 
+    Vector3 fallPoint;
+    CharacterSkills cs;
+
     void Start() {
+        cs = FindObjectOfType<CharacterSkills>();
         rb = GetComponent<Rigidbody>();
         normalGravity = gravity;
         nightmareCollider.gameObject.SetActive(false);
@@ -56,25 +61,30 @@ public class CharacterMover : MonoBehaviour {
 
 
             // If there is movement input, start to rotate camera towards players forward direction
-            if (horiz > .2f || vert > .2f || horiz < -.2f || vert < -.2f)
-            {
+            if (horiz > .2f || vert > .2f || horiz < -.2f || vert < -.2f) {
                 GameManager.instance.toddlerMoving = true;
                 rb.rotation = Quaternion.RotateTowards(rb.rotation, horizontalRotator.rotation, turnSpeed * Time.deltaTime);
-            } else{
+            } else {
                 GameManager.instance.toddlerMoving = false;
             }
 
 
             // Ground check and gravity
-            //var furtherSphere = Physics.OverlapSphere(transform.position - Vector3.up * groundCheckDepth2, groundCheckSize2, WorldSwitch.instance.map);
+            var furtherSphere = Physics.OverlapSphere(transform.position - Vector3.up * groundCheckDepth2, groundCheckSize2, WorldSwitch.instance.map);
             var closerSphere = Physics.OverlapSphere(transform.position - Vector3.up * groundCheckDepth, groundCheckSize, WorldSwitch.instance.map);
-            //canJump = furtherSphere.Length > 0;
+            canJump = furtherSphere.Length > 0;
             onGround = closerSphere.Length > 0;
-            if (/*(*/!onGround /*&& canJump) || (!onGround && !canJump)*/) {
+            if ((!onGround && canJump) || (!onGround && !canJump) /*canJump*/) {
                 b += gravity * Vector3.down * Time.deltaTime;
                 b.y = Mathf.Max(b.y, -maxFallSpeed);
+                if ((fallPoint.y - rb.position.y) > fallingDeathThreshold) {
+                    //die or something
+                    print("die");
+                }
             } else if (rb.velocity.y < 0) {
                 b.y = 0f;
+                cs.glideTimer = cs.maxGlideTimer;
+                fallPoint = rb.position;
             }
             rb.velocity = b;
         }
@@ -100,8 +110,8 @@ public class CharacterMover : MonoBehaviour {
 
     void Update() {
         // Input reading for jump
-        if(GameManager.instance.jumpEnabled && WorldSwitch.instance.state == AwakeState.Dream){
-            if (Input.GetButtonDown("Jump") && /*canJump*/ onGround) {
+        if (GameManager.instance.jumpEnabled && WorldSwitch.instance.state == AwakeState.Dream) {
+            if (Input.GetButtonDown("Jump") && canJump /*onGround*/) {
                 hasToJump = true;
             }
         }
@@ -114,10 +124,8 @@ public class CharacterMover : MonoBehaviour {
     }
 
     public void Bash() {
-        //rb.AddForce(transform.forward * bashForce * Time.deltaTime,/*rb.position,*/ ForceMode.Impulse);
-        rb.AddForce(transform.forward * bashForce, ForceMode.Impulse);
-        //rb.position += transform.forward * 5;
-        //Vector3.MoveTowards(rb.position, bash, 50 * Time.deltaTime);
+        //rb.AddForce(transform.forward * bashForce, ForceMode.Impulse);
+        rb.position += transform.forward * bashForce * Time.deltaTime;
     }
 
     public void EnterDream() {
