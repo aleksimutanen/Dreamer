@@ -6,11 +6,15 @@ public class EarCompass : MonoBehaviour {
     public GameObject[] crystals;
     GameObject nearestCrystal = null;
     public float distToCrystal;
+    public static EarCompass instance;
     public Transform buddy;
     float rotSpeed = 100;
 
     private void Awake() {
-        crystals = GameObject.FindGameObjectsWithTag("Crystal");
+        FindCrystals();
+        if(instance)
+            Debug.LogError("2+ EarCompasses found!");
+        instance = this;
         //print(crystals);
     }
 
@@ -47,4 +51,9 @@ public class EarCompass : MonoBehaviour {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationGoal, rotSpeed * Time.deltaTime);
         }
     }
+
+    public void FindCrystals(){
+        crystals = GameObject.FindGameObjectsWithTag("Crystal");
+    }
+
 }
