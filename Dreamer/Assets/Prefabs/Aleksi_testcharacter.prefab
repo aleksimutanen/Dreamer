@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4023634879021190}
   - component: {fileID: 33673531769696278}
   - component: {fileID: 23177596522716970}
-  - component: {fileID: 65242468801166604}
   m_Layer: 10
   m_Name: Nose
   m_TagString: Untagged
@@ -230,7 +229,6 @@ GameObject:
   - component: {fileID: 4922194530925062}
   - component: {fileID: 33704653417173604}
   - component: {fileID: 23948163439920898}
-  - component: {fileID: 65084445975746840}
   m_Layer: 10
   m_Name: Arm
   m_TagString: Untagged
@@ -281,7 +279,6 @@ GameObject:
   - component: {fileID: 4716856688219100}
   - component: {fileID: 33467673466223550}
   - component: {fileID: 23186979670772958}
-  - component: {fileID: 136514174196396440}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -893,30 +890,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!65 &65084445975746840
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1745108229488662}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65242468801166604
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1008215632338846}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65470905938037102
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1063,8 +1036,8 @@ MonoBehaviour:
   bashCollider: {fileID: 1198506919852070}
   ammo: {fileID: 1608223641451052, guid: 7d678f4e70f8f934fbe1fda182fbfa18, type: 2}
   ammoFolder: {fileID: 0}
-  glideTimer: 0
-  maxGlideTimer: 0
+  glideTimer: 2
+  maxGlideTimer: 2
   shieldHit: 0
   activeTime: 0.2
   shieldActive: 0
@@ -1073,7 +1046,8 @@ MonoBehaviour:
   powerSphereRadius: 10
   powerSpherePushForce: 500
   powerSphereDamage: 1
-  powerSphereInterval: 0
+  powerSphereInterval: 5
+  buddyPowerPerAmmo: 0
   firingInterval: 1
   enemy:
     serializedVersion: 2
@@ -1126,19 +1100,6 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: 30394abf414c7074384caa0414d154b3, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &136514174196396440
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1969189938232238}
-  m_Material: {fileID: 13400000, guid: 30394abf414c7074384caa0414d154b3, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
