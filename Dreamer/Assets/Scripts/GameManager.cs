@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour {
     public bool powerBallEnabled = false;
     public bool reflectionEnabled = false;
     
-    public float lives = 3;
+    public float lives = 300;
     public Vector3 prevPlayerPos;
 
     public Bat sleepingBat;

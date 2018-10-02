@@ -78,7 +78,8 @@ public class CharacterMover : MonoBehaviour {
                 b += gravity * Vector3.down * Time.deltaTime;
                 b.y = Mathf.Max(b.y, -maxFallSpeed);
                 if ((fallPoint.y - rb.position.y) > fallingDeathThreshold) {
-                    //die or something
+                    fallPoint = GameManager.instance.checkpoint;
+                    GameManager.instance.ALiveLost();
                     print("die");
                 }
             } else if (rb.velocity.y < 0) {
@@ -120,7 +121,7 @@ public class CharacterMover : MonoBehaviour {
     // Player jump movement of rigidbody
     void Jump() {
         rb.AddForce(jump * jumpForce, ForceMode.Impulse);
-        //Fabric.EventManager.Instance.PostEvent("Jump");
+        Fabric.EventManager.Instance.PostEvent("Jump");
     }
 
     public void Bash() {
