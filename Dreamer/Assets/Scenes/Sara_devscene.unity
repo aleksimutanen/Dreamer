@@ -205,6 +205,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 3622647}
   m_Mesh: {fileID: 4300000, guid: b5420a722003dbc4aadc8e42fbeaa7d2, type: 3}
+--- !u!1 &30613428 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1326489649066644, guid: ca1b843419f2207428cd9524aee6150f,
+    type: 2}
+  m_PrefabInternal: {fileID: 518040946}
 --- !u!1 &49477130
 GameObject:
   m_ObjectHideFlags: 0
@@ -4693,6 +4698,25 @@ Prefab:
       propertyPath: ammoFolder
       value: 
       objectReference: {fileID: 2060182740}
+    - target: {fileID: 1548782326836576, guid: ca1b843419f2207428cd9524aee6150f, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 114594999348714460, guid: ca1b843419f2207428cd9524aee6150f,
+        type: 2}
+      propertyPath: buddyPowerPerAmmo
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114594999348714460, guid: ca1b843419f2207428cd9524aee6150f,
+        type: 2}
+      propertyPath: glider
+      value: 
+      objectReference: {fileID: 30613428}
+    - target: {fileID: 114428663877667172, guid: ca1b843419f2207428cd9524aee6150f,
+        type: 2}
+      propertyPath: fallingDeathThreshold
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca1b843419f2207428cd9524aee6150f, type: 2}
   m_IsPrefabAsset: 0
@@ -5660,25 +5684,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 114961151075631920, guid: 9e6332166da85ff4bbb54641fc9481e0,
-        type: 2}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 518040949}
     - target: {fileID: 1591165419621104, guid: 9e6332166da85ff4bbb54641fc9481e0, type: 2}
       propertyPath: m_Name
       value: Bat (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 114961151075631920, guid: 9e6332166da85ff4bbb54641fc9481e0,
-        type: 2}
-      propertyPath: explosionEffect
-      value: 
-      objectReference: {fileID: 1736788278980720, guid: 424a76849a4bf1f4bb261bd29aedd2a6,
-        type: 2}
-    - target: {fileID: 114961151075631920, guid: 9e6332166da85ff4bbb54641fc9481e0,
-        type: 2}
-      propertyPath: blastRadius
-      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e6332166da85ff4bbb54641fc9481e0, type: 2}
@@ -7451,15 +7459,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4111240643707322, guid: 9e6332166da85ff4bbb54641fc9481e0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -27.49
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4111240643707322, guid: 9e6332166da85ff4bbb54641fc9481e0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4111240643707322, guid: 9e6332166da85ff4bbb54641fc9481e0, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 51.07
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4111240643707322, guid: 9e6332166da85ff4bbb54641fc9481e0, type: 2}
       propertyPath: m_LocalRotation.x
@@ -7484,6 +7492,11 @@ Prefab:
     - target: {fileID: 1591165419621104, guid: 9e6332166da85ff4bbb54641fc9481e0, type: 2}
       propertyPath: m_Name
       value: Bat (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961151075631920, guid: 9e6332166da85ff4bbb54641fc9481e0,
+        type: 2}
+      propertyPath: healthValue
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e6332166da85ff4bbb54641fc9481e0, type: 2}
@@ -8200,6 +8213,11 @@ Prefab:
       propertyPath: m_Name
       value: Bat (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 114961151075631920, guid: 9e6332166da85ff4bbb54641fc9481e0,
+        type: 2}
+      propertyPath: healthValue
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e6332166da85ff4bbb54641fc9481e0, type: 2}
   m_IsPrefabAsset: 0
@@ -8479,6 +8497,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 939732534}
   m_Mesh: {fileID: 4300000, guid: 945d7751fef95f747ad287fb9bf0666b, type: 3}
+--- !u!1001 &949959336
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4112636128276906, guid: 7d678f4e70f8f934fbe1fda182fbfa18, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112636128276906, guid: 7d678f4e70f8f934fbe1fda182fbfa18, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112636128276906, guid: 7d678f4e70f8f934fbe1fda182fbfa18, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.3099976
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112636128276906, guid: 7d678f4e70f8f934fbe1fda182fbfa18, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112636128276906, guid: 7d678f4e70f8f934fbe1fda182fbfa18, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112636128276906, guid: 7d678f4e70f8f934fbe1fda182fbfa18, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112636128276906, guid: 7d678f4e70f8f934fbe1fda182fbfa18, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112636128276906, guid: 7d678f4e70f8f934fbe1fda182fbfa18, type: 2}
+      propertyPath: m_RootOrder
+      value: 32
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7d678f4e70f8f934fbe1fda182fbfa18, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &977231151
 GameObject:
   m_ObjectHideFlags: 0
@@ -9478,6 +9538,11 @@ Prefab:
     - target: {fileID: 1591165419621104, guid: 9e6332166da85ff4bbb54641fc9481e0, type: 2}
       propertyPath: m_Name
       value: Bat (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114961151075631920, guid: 9e6332166da85ff4bbb54641fc9481e0,
+        type: 2}
+      propertyPath: healthValue
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e6332166da85ff4bbb54641fc9481e0, type: 2}
@@ -10497,6 +10562,16 @@ Prefab:
     - target: {fileID: 1591165419621104, guid: 9e6332166da85ff4bbb54641fc9481e0, type: 2}
       propertyPath: m_Name
       value: SleepingBat
+      objectReference: {fileID: 0}
+    - target: {fileID: 23081353514194628, guid: 9e6332166da85ff4bbb54641fc9481e0,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65384438414168040, guid: 9e6332166da85ff4bbb54641fc9481e0,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e6332166da85ff4bbb54641fc9481e0, type: 2}
@@ -14361,7 +14436,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4630117416572446, guid: 01d4f60b5e6134b0d81a45bb25f3f599, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 43.2
+      value: 0.27
       objectReference: {fileID: 0}
     - target: {fileID: 4630117416572446, guid: 01d4f60b5e6134b0d81a45bb25f3f599, type: 2}
       propertyPath: m_LocalPosition.z
