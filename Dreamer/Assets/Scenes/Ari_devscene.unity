@@ -698,6 +698,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 114111786953017870, guid: c9612aeb808964dd7b6f33e24866db59,
+        type: 2}
+      propertyPath: ps
+      value: 
+      objectReference: {fileID: 1466880595}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9612aeb808964dd7b6f33e24866db59, type: 2}
   m_IsPrefabAsset: 0
@@ -1136,6 +1141,11 @@ Transform:
 --- !u!4 &1466880594 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4567894417099526, guid: ca1b843419f2207428cd9524aee6150f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1466880592}
+--- !u!198 &1466880595 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198569322872705492, guid: ca1b843419f2207428cd9524aee6150f,
     type: 2}
   m_PrefabInternal: {fileID: 1466880592}
 --- !u!1001 &1601381072

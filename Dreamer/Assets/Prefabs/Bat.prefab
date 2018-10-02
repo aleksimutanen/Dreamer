@@ -43,7 +43,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -83.732, z: 0}
 --- !u!23 &23081353514194628
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -132,12 +132,11 @@ MonoBehaviour:
   returnTimeValue: 5
   blockable: 1
   attackRadius: 20
-  playerTransform: {fileID: 4567894417099526, guid: ca1b843419f2207428cd9524aee6150f,
-    type: 2}
+  playerTransform: {fileID: 0}
   distToPlayer: 0
   obstacles:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 39424
   maxDist: 3
   vaistaa: 0
   floor:
@@ -145,7 +144,6 @@ MonoBehaviour:
     m_Bits: 1048576
   maxDistToFloor: 1
   steerSpeedFloor: 100
-  explosionDelay: 0
   explosionEffect: {fileID: 1736788278980720, guid: 424a76849a4bf1f4bb261bd29aedd2a6,
     type: 2}
   blastRadius: 18
@@ -154,3 +152,4 @@ MonoBehaviour:
   hasExploded: 0
   dmgToPlayer: -5
   pwrToShield: 5
+  timeSinceDeath: 0
