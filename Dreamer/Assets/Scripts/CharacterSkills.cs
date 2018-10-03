@@ -207,10 +207,10 @@ public class CharacterSkills : MonoBehaviour {
     }
 
     public bool Glide() {
-        if (Input.GetButtonDown("Jump") && !cm.onGround) {
+        if (Input.GetButtonDown("Jump") && /*!cm.onGround*/ !cm.canJump) {
             floater = true;
         }
-        if (Input.GetButton("Jump") && !cm.onGround && floater && glideTimer > 0) {
+        if (Input.GetButton("Jump") && /*!cm.onGround*/ !cm.canJump && floater && glideTimer > 0) {
             glideTimer -= Time.deltaTime;
             cm.gravity = cm.normalGravity / 2;
             glider.SetActive(true);

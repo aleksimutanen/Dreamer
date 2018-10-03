@@ -35,6 +35,10 @@ public class CharacterMover : MonoBehaviour {
     Vector3 fallPoint;
     CharacterSkills cs;
 
+    public Vector3[] directions;
+    public float maxDistance;
+    public bool rcHit;
+
     void Start() {
         cs = FindObjectOfType<CharacterSkills>();
         rb = GetComponent<Rigidbody>();
@@ -43,22 +47,21 @@ public class CharacterMover : MonoBehaviour {
         rb.MovePosition(GameManager.instance.gameStartPoint.position);
     }
 
-    private void FixedUpdate() {
-        if (GameManager.instance.walkEnabled)
-        {
-            // Input reading for movement
-            var vert = Input.GetAxis("Vertical");
-            var horiz = Input.GetAxis("Horizontal");
+    private void LateUpdate() {
+        var b = rb.velocity;
 
-            var input = vert * transform.forward + horiz * transform.right;
-            input = Vector3.ClampMagnitude(input, 1);
+        // Input reading for movement
+        var vert = Input.GetAxis("Vertical");
+        var horiz = Input.GetAxis("Horizontal");
+
+        var input = vert * transform.forward + horiz * transform.right;
+        input = Vector3.ClampMagnitude(input, 1);
+
+        if (GameManager.instance.walkEnabled) {
 
             // Speed
             var flatVelocity = input * movingSpeed;
-            var b = rb.velocity;
             b.x = flatVelocity.x; b.z = flatVelocity.z;
-
-
 
             // If there is movement input, start to rotate camera towards players forward direction
             if (horiz > .2f || vert > .2f || horiz < -.2f || vert < -.2f) {
@@ -67,7 +70,6 @@ public class CharacterMover : MonoBehaviour {
             } else {
                 GameManager.instance.toddlerMoving = false;
             }
-
 
             // Ground check and gravity
             var furtherSphere = Physics.OverlapSphere(transform.position - Vector3.up * groundCheckDepth2, groundCheckSize2, WorldSwitch.instance.map);
@@ -86,23 +88,35 @@ public class CharacterMover : MonoBehaviour {
                 cs.glideTimer = cs.maxGlideTimer;
                 fallPoint = rb.position;
             }
-            rb.velocity = b;
         }
-
-        //RaycastHit hit;
-        //Ray ray;
-        //if (Physics.Raycast(rb.position, Vector3.down, out hit, 1f, map)) {
-        //    Physics.gravity
-        //}
 
         if (hasToJump) {
             Jump();
             hasToJump = false;
         }
+
+        RaycastHit hit;
+        for (int i = 0; i < directions.Length; i++) {
+            Vector3 worldDir = transform.rotation * directions[i].normalized;
+            Debug.DrawLine(rb.position + new Vector3(0, 2, 0), rb.position + new Vector3(0, 2, 0) + worldDir * maxDistance);
+            if (Physics.Raycast(rb.position + new Vector3(0, 2, 0), worldDir, out hit, maxDistance, WorldSwitch.instance.map)) {
+                print(directions[i]);
+                if (Vector3.Angle(b, worldDir) < 90) {
+                    print("something");
+                    Vector3 proj = Vector3.Project(b, worldDir);
+                    b -= proj;
+                    input += -proj;
+                }
+            }
+        }
+        rb.velocity = b;
     }
 
     // Debug sphere
     private void OnDrawGizmosSelected() {
+        //for (int i = 0; i < directions.Length; i++) {
+        //    Gizmos.DrawLine(transform.position, transform.position + directions[i]);
+        //}
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position - Vector3.up * groundCheckDepth, groundCheckSize);
         Gizmos.DrawWireSphere(transform.position - Vector3.up * groundCheckDepth2, groundCheckSize2);
