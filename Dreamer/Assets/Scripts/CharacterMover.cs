@@ -8,6 +8,7 @@ public class CharacterMover : MonoBehaviour {
     public Transform nightmareCollider;
 
     public Transform horizontalRotator;
+    public Animator anim;
     public Vector3 jump;
     public Vector3 bash;
     public float jumpForce;

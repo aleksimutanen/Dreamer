@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour {
     public Vector3 prevPlayerPos;
 
     public Bat sleepingBat;
+    public Transform flyArea;
 
     public List<Transform> doors = new List<Transform>(6);
 
@@ -109,6 +110,7 @@ public class GameManager : MonoBehaviour {
 
     private void Awake() {
         sleepingBat.sleeping = true;
+        sleepingBat.startPos = flyArea.position;
         // Make a singleton instance out of (this) GameManager
         if(instance)
             Debug.LogError("2+ GameManagers found!");

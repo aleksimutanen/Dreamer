@@ -7,13 +7,14 @@ public enum BatMode {Hanging, Flying, Attacking, Returning, Animated};
 public class Bat : MonoBehaviour, Enemy {
 
     Rigidbody rb;
-    Vector3 startPos;
+    public Vector3 startPos;
     public float speed;
     public float steeringSpeed = 80f;
     public BatMode batMode;
-    public bool sleeping;
     public float returnTime;
     public float returnTimeValue;
+
+    public bool sleeping;
 
     public bool blockable = true;
     public float attackRadius = 10;
@@ -45,6 +46,8 @@ public class Bat : MonoBehaviour, Enemy {
     float i;
     public float timeSinceDeath;
 
+    BatMode prevMode;
+
     //muuta gamemanagerissa
 
     void Start() {
@@ -52,7 +55,9 @@ public class Bat : MonoBehaviour, Enemy {
        // countdown = explosionDelay;
         rb = GetComponent<Rigidbody>();
         angle = (float)Random.Range(0, 8) * 45f;
-        startPos = transform.position;
+        if(startPos == Vector3.zero) {
+            startPos = transform.position;
+        }
         target = playerTransform.position;
         //20 % chance of an unblockable attack
         i = Random.Range(0f, 1f);
@@ -67,7 +72,9 @@ public class Bat : MonoBehaviour, Enemy {
         if (hasExploded)
             timeSinceDeath += Time.deltaTime;
 
-        returnTime -= Time.deltaTime;
+        if (batMode == BatMode.Returning) {
+            returnTime -= Time.deltaTime;
+        }
 
         if (distToPlayer > 100 && timeSinceDeath > 15) {
             Respawn();
@@ -94,7 +101,11 @@ public class Bat : MonoBehaviour, Enemy {
             }
             else if (rb.position != startPos && returnTime > 0) {
                 batMode = BatMode.Returning;
-                //returnTime = returnTimeValue;
+                i = Random.Range(0f, 1f);
+                print(i);
+                if (prevMode == BatMode.Attacking) {
+                    returnTime = returnTimeValue;
+                }
             } else {
                 batMode = BatMode.Flying;
             }
@@ -114,15 +125,11 @@ public class Bat : MonoBehaviour, Enemy {
         } else {
             rb.velocity = Vector3.zero;
         }
+
+        prevMode = batMode;
     }
 
     void Fly() {
-
-        if (batMode == BatMode.Attacking && distToPlayer > attackRadius) {
-            batMode = BatMode.Returning;
-            returnTime = returnTimeValue;
-            i = Random.Range(0f, 1f);
-        }
 
         RaycastHit hit;
 
