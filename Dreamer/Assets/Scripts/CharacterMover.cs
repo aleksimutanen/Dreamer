@@ -108,7 +108,7 @@ public class CharacterMover : MonoBehaviour {
                     print("something");
                     Vector3 proj = Vector3.Project(b, worldDir);
                     b -= proj;
-                    input += -proj;
+                    //input += -proj;
                 }
             }
         }
