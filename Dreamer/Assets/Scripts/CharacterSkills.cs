@@ -35,6 +35,7 @@ public class CharacterSkills : MonoBehaviour {
     float lastPowerSphere;
     float powerSphereActiveTimer = 0.5f;
 
+    public float buddyPowerPerAmmo;
     public float firingInterval;
     float lastShot;
 
@@ -90,10 +91,8 @@ public class CharacterSkills : MonoBehaviour {
             Shield();
         }
         ChargePower();
-        if (Time.time > firingInterval + lastShot) {
-            if (Input.GetAxis("Fire") > 0.1f) {
+        if (Time.time > firingInterval + lastShot && (Input.GetAxis("Fire") > 0.5f|| Input.GetButtonDown("Fire4")) && GameManager.instance.buddyPower > 0) {
                 Fire();
-            }
         } else {
             fireEmitter.enabled = false;
         }
@@ -141,6 +140,7 @@ public class CharacterSkills : MonoBehaviour {
             go.transform.parent = ammoFolder.transform;
             lastShot = Time.time;
             fireEmitter.enabled = true;
+            GameManager.instance.ChangeBuddyPower(-buddyPowerPerAmmo);
         }
     }
 

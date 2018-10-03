@@ -7,13 +7,14 @@ public enum BatMode {Hanging, Flying, Attacking, Returning, Animated};
 public class Bat : MonoBehaviour, Enemy {
 
     Rigidbody rb;
-    Vector3 startPos;
+    public Vector3 startPos;
     public float speed;
     public float steeringSpeed = 80f;
     public BatMode batMode;
-    public bool sleeping;
     public float returnTime;
     public float returnTimeValue;
+
+    public bool sleeping;
 
     public bool blockable = true;
     public float attackRadius = 10;
@@ -31,11 +32,11 @@ public class Bat : MonoBehaviour, Enemy {
     public float maxDistToFloor = 2;
     public float steerSpeedFloor = 200f;
 
-    public float explosionDelay = 1f;
-    float countdown;
+    //public float explosionDelay = 1f;
+    //float countdown;
     public GameObject explosionEffect;
     public float blastRadius = 15f;
-    float health;
+    public float health;
     public float healthValue;
     public bool hasExploded;
 
@@ -43,16 +44,20 @@ public class Bat : MonoBehaviour, Enemy {
     public float pwrToShield = 5;
 
     float i;
-    private float timeSinceDeath;
+    public float timeSinceDeath;
+
+    BatMode prevMode;
 
     //muuta gamemanagerissa
 
     void Start() {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        countdown = explosionDelay;
+       // countdown = explosionDelay;
         rb = GetComponent<Rigidbody>();
         angle = (float)Random.Range(0, 8) * 45f;
-        startPos = transform.position;
+        if(startPos == Vector3.zero) {
+            startPos = transform.position;
+        }
         target = playerTransform.position;
         //20 % chance of an unblockable attack
         i = Random.Range(0f, 1f);
@@ -61,22 +66,27 @@ public class Bat : MonoBehaviour, Enemy {
     }
 
     void Update() {
-        if(health <= 0)
-            countdown -= Time.deltaTime;
-        if (countdown <= 0 && !hasExploded) {
+        if (health <= 0 && !hasExploded) {
             Explode();
         }
         if (hasExploded)
             timeSinceDeath += Time.deltaTime;
 
-        returnTime -= Time.deltaTime;
+        if (batMode == BatMode.Returning) {
+            returnTime -= Time.deltaTime;
+        }
+
+        if (distToPlayer > 100 && timeSinceDeath > 15) {
+            Respawn();
+        }
     }
 
     void FixedUpdate() {
 
+        distToPlayer = Vector3.Distance(transform.position, playerTransform.position);
         // switch states?
         if (WorldSwitch.instance.state == AwakeState.Nightmare && !sleeping) {
-            distToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+
             if (distToPlayer < attackRadius && (batMode != BatMode.Returning || returnTime <= 0)) {
                 batMode = BatMode.Attacking;
 
@@ -91,7 +101,11 @@ public class Bat : MonoBehaviour, Enemy {
             }
             else if (rb.position != startPos && returnTime > 0) {
                 batMode = BatMode.Returning;
-                //returnTime = returnTimeValue;
+                i = Random.Range(0f, 1f);
+                print(i);
+                if (prevMode == BatMode.Attacking) {
+                    returnTime = returnTimeValue;
+                }
             } else {
                 batMode = BatMode.Flying;
             }
@@ -111,15 +125,11 @@ public class Bat : MonoBehaviour, Enemy {
         } else {
             rb.velocity = Vector3.zero;
         }
+
+        prevMode = batMode;
     }
 
     void Fly() {
-
-        if (batMode == BatMode.Attacking && distToPlayer > attackRadius) {
-            batMode = BatMode.Returning;
-            returnTime = returnTimeValue;
-            i = Random.Range(0f, 1f);
-        }
 
         RaycastHit hit;
 
@@ -278,11 +288,9 @@ public class Bat : MonoBehaviour, Enemy {
     public void Respawn() {
         //jotain?
         //että jos kuolemasta on mennyt tarpeeksi kauan tai jotain niin respawn?
-        if (distToPlayer > 100 && timeSinceDeath > 15) {
-            GetComponent<MeshRenderer>().enabled = true;
-            hasExploded = false;
-            sleeping = false;
-            health = healthValue;
-        }
+        GetComponent<MeshRenderer>().enabled = true;
+        hasExploded = false;
+        sleeping = false;
+        health = healthValue;
     }
 }

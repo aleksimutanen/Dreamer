@@ -71,26 +71,19 @@ MonoBehaviour:
   statusTextTimer: 0
   tutorialComplete: 0
   tutorialTexts: []
-  maxToddlerHealth: 100
-  maxBuddyPower: 100
-  maxDreamPower: 100
-  toddlerChargeSpeed: 1
-  toddlerHealth: 0
-  buddyChargeSpeed: 1
-  buddyPower: 1
-  dreamPower: 0
-  dreamPowMem: 0
+  toddlerMoving: 1
   lookEnabled: 1
   walkEnabled: 1
   jumpEnabled: 1
-  switchEnabled: 0
-  bashEnabled: 0
-  glideEnabled: 0
-  shieldEnabled: 0
-  firingEnabled: 0
-  powerBallEnabled: 0
-  reflectionEnabled: 0
+  switchEnabled: 1
+  bashEnabled: 1
+  glideEnabled: 1
+  shieldEnabled: 1
+  firingEnabled: 1
+  powerBallEnabled: 1
+  reflectionEnabled: 1
   lives: 3
+  prevPlayerPos: {x: 0, y: 0, z: 0}
   sleepingBat: {fileID: 0}
   doors:
   - {fileID: 0}
@@ -99,3 +92,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  buddyPower: 100
+  crystalAmount: 0

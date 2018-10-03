@@ -42,10 +42,11 @@ public class GameManager : MonoBehaviour {
     public bool powerBallEnabled = false;
     public bool reflectionEnabled = false;
     
-    public float lives = 3;
+    public float lives = 300;
     public Vector3 prevPlayerPos;
 
     public Bat sleepingBat;
+    public Transform flyArea;
 
     public List<Transform> doors = new List<Transform>(6);
 
@@ -56,7 +57,7 @@ public class GameManager : MonoBehaviour {
     //float toddlerChargeSpeed = 1;
     float toddlerHealth = 100;
     float buddyChargeSpeed = 1;
-    float buddyPower = 0;
+    public float buddyPower = 0;
     public float crystalAmount = 0;
     float dreamPowMem;
 
@@ -109,6 +110,7 @@ public class GameManager : MonoBehaviour {
 
     private void Awake() {
         sleepingBat.sleeping = true;
+        sleepingBat.startPos = flyArea.position;
         // Make a singleton instance out of (this) GameManager
         if(instance)
             Debug.LogError("2+ GameManagers found!");
@@ -128,8 +130,9 @@ public class GameManager : MonoBehaviour {
             tutorialTexts.Add("Time to reflect some things!");
             tutorialTexts.Add("Go find some more crystals, Your bunny can help you");
             tutorialTexts.Add("You Ded!");
+            tutorialTexts.Add("Kill tree with BunnyPowers, block hits to charge press (Left Shift) and releaseby pressing (b)");
 
-            ChangeStatusText(tutorialTexts[0], 3);
+        ChangeStatusText(tutorialTexts[0], 3);
         }
 
     public void SetCheckpoint(){    

@@ -8,6 +8,7 @@ public class CharacterMover : MonoBehaviour {
     public Transform nightmareCollider;
 
     public Transform horizontalRotator;
+    public Animator anim;
     public Vector3 jump;
     public Vector3 bash;
     public float jumpForce;
@@ -66,6 +67,7 @@ public class CharacterMover : MonoBehaviour {
             // If there is movement input, start to rotate camera towards players forward direction
             if (horiz > .2f || vert > .2f || horiz < -.2f || vert < -.2f) {
                 GameManager.instance.toddlerMoving = true;
+                anim.Play("Walk");
                 rb.rotation = Quaternion.RotateTowards(rb.rotation, horizontalRotator.rotation, turnSpeed * Time.deltaTime);
             } else {
                 GameManager.instance.toddlerMoving = false;
@@ -80,7 +82,8 @@ public class CharacterMover : MonoBehaviour {
                 b += gravity * Vector3.down * Time.deltaTime;
                 b.y = Mathf.Max(b.y, -maxFallSpeed);
                 if ((fallPoint.y - rb.position.y) > fallingDeathThreshold) {
-                    //die or something
+                    fallPoint = GameManager.instance.checkpoint;
+                    GameManager.instance.ALiveLost();
                     print("die");
                 }
             } else if (rb.velocity.y < 0) {
@@ -134,7 +137,7 @@ public class CharacterMover : MonoBehaviour {
     // Player jump movement of rigidbody
     void Jump() {
         rb.AddForce(jump * jumpForce, ForceMode.Impulse);
-        //Fabric.EventManager.Instance.PostEvent("Jump");
+        Fabric.EventManager.Instance.PostEvent("Jump");
     }
 
     public void Bash() {

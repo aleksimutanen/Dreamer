@@ -33,19 +33,31 @@ public class TutorialTrigger : MonoBehaviour {
             if(gameObject.name == "BashEnabler") {
                 GameManager.instance.ChangeStatusText(GameManager.instance.tutorialTexts[7], 5);
                 GameManager.instance.bashEnabled = true;
+                gameObject.SetActive(false);
             }
             if(gameObject.name == "GlideEnabler") {
                 GameManager.instance.ChangeStatusText(GameManager.instance.tutorialTexts[8], 5);
                 GameManager.instance.glideEnabled = true;
+                gameObject.SetActive(false);
             }
             if(gameObject.name == "ReflectionEnabler") {
                 GameManager.instance.ChangeStatusText(GameManager.instance.tutorialTexts[9], 5);
                 GameManager.instance.reflectionEnabled = true;
+                gameObject.SetActive(false);
             }
             if(gameObject.name == "TutorialDoorCrystalInfo" && GameManager.instance.crystalAmount<10) {
                 GameManager.instance.ChangeStatusText(GameManager.instance.tutorialTexts[10], 5);
                 GameManager.instance.SetCheckpoint();
                 GameManager.instance.sleepingBat.sleeping = false;
+                gameObject.SetActive(false);
+            }
+            if(gameObject.name == "CheckpointFirstTree" && GameManager.instance.crystalAmount < 10) {
+                GameManager.instance.ChangeStatusText(GameManager.instance.tutorialTexts[12], 5);
+                GameManager.instance.SetCheckpoint();
+                GameManager.instance.sleepingBat.sleeping = false;
+                GameManager.instance.shieldEnabled = true;
+                GameManager.instance.firingEnabled = true;
+                gameObject.SetActive(false);
             }
         }
     }
