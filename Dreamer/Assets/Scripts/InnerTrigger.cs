@@ -13,6 +13,9 @@ public class InnerTrigger : MonoBehaviour {
             cave.gameObject.SetActive(true);
             GameManager.instance.switchEnabled = false;
             EarCompass.instance.FindCrystals();
+            if(WorldSwitch.instance.state == AwakeState.Nightmare){
+                WorldSwitch.instance.switchNow = true;
+            }
         }
     }
 }

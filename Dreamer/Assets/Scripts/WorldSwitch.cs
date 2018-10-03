@@ -35,6 +35,8 @@ public class WorldSwitch : MonoBehaviour {
     public bool transitionOut;
     public bool transitionIn;
 
+    public bool switchNow = false;
+
     public Material dreamSbMaterial;
     public Material nightmareSbMaterial;
     public Color dreamAmbientColor;
@@ -68,7 +70,8 @@ public class WorldSwitch : MonoBehaviour {
 
     void Update() {
         //TimedText xd = new TimedText("ykä on paras", 5f);
-        if (Input.GetButtonDown("Switch") && !transitionIn && !transitionOut&&GameManager.instance.switchEnabled == true) {
+        if (Input.GetButtonDown("Switch") && !transitionIn && !transitionOut&&GameManager.instance.switchEnabled == true||switchNow) {
+            switchNow = false;
             transitionOut = true;
             if(state == AwakeState.Dream) {
                 Fabric.EventManager.Instance.PostEvent("DreamMusic", Fabric.EventAction.PauseSound);

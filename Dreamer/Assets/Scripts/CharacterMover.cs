@@ -64,6 +64,7 @@ public class CharacterMover : MonoBehaviour {
             // If there is movement input, start to rotate camera towards players forward direction
             if (horiz > .2f || vert > .2f || horiz < -.2f || vert < -.2f) {
                 GameManager.instance.toddlerMoving = true;
+                anim.Play("Walk");
                 rb.rotation = Quaternion.RotateTowards(rb.rotation, horizontalRotator.rotation, turnSpeed * Time.deltaTime);
             } else {
                 GameManager.instance.toddlerMoving = false;

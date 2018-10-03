@@ -990,6 +990,21 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 224049059854059386, guid: 2ec306df3d73c2144a783e1d33c9da91,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224049059854059386, guid: 2ec306df3d73c2144a783e1d33c9da91,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224049059854059386, guid: 2ec306df3d73c2144a783e1d33c9da91,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ec306df3d73c2144a783e1d33c9da91, type: 2}
   m_IsPrefabAsset: 0
@@ -1023,7 +1038,7 @@ Transform:
   m_LocalScale: {x: 1.0000002, y: 1.0000002, z: 1.0000005}
   m_Children: []
   m_Father: {fileID: 1147169773}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &274662902
 ParticleSystemRenderer:
@@ -6371,15 +6386,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4630117416572446, guid: 01d4f60b5e6134b0d81a45bb25f3f599, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -260.2
       objectReference: {fileID: 0}
     - target: {fileID: 4630117416572446, guid: 01d4f60b5e6134b0d81a45bb25f3f599, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 47.6
       objectReference: {fileID: 0}
     - target: {fileID: 4630117416572446, guid: 01d4f60b5e6134b0d81a45bb25f3f599, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 258.5
       objectReference: {fileID: 0}
     - target: {fileID: 4630117416572446, guid: 01d4f60b5e6134b0d81a45bb25f3f599, type: 2}
       propertyPath: m_LocalRotation.x
@@ -7204,7 +7219,7 @@ Transform:
   m_LocalScale: {x: 0.9999996, y: 1, z: 0.9999996}
   m_Children: []
   m_Father: {fileID: 1147169773}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!199 &614311532
 ParticleSystemRenderer:
@@ -12393,7 +12408,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1147169773}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!199 &759908133
 ParticleSystemRenderer:
@@ -18293,7 +18308,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1147169773}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &1082359894
 ParticleSystemRenderer:
@@ -23341,13 +23356,13 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1579626902}
   - {fileID: 1595605065}
   - {fileID: 1897325567}
   - {fileID: 759908132}
   - {fileID: 274662901}
   - {fileID: 614311531}
   - {fileID: 1082359893}
-  - {fileID: 1579626902}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -23420,7 +23435,7 @@ MonoBehaviour:
   dreamCollider: {fileID: 1629707903}
   nightmareCollider: {fileID: 661405823}
   horizontalRotator: {fileID: 839009493}
-  anim: {fileID: 0}
+  anim: {fileID: 1579626901}
   jump: {x: 0, y: 2, z: 0}
   bash: {x: 0, y: 0, z: 2}
   jumpForce: 8
@@ -25623,7 +25638,7 @@ Transform:
   - {fileID: 935051340}
   - {fileID: 476482117}
   m_Father: {fileID: 1147169773}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1595605064
 GameObject:
@@ -25663,7 +25678,7 @@ Transform:
   - {fileID: 1349084944}
   - {fileID: 955360577}
   m_Father: {fileID: 1147169773}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1595605066
 MeshRenderer:
@@ -26611,7 +26626,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1147169773}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &1897325568
 Light:
