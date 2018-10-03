@@ -130,8 +130,9 @@ public class GameManager : MonoBehaviour {
             tutorialTexts.Add("Time to reflect some things!");
             tutorialTexts.Add("Go find some more crystals, Your bunny can help you");
             tutorialTexts.Add("You Ded!");
+            tutorialTexts.Add("Kill tree with BunnyPowers, block hits to charge press (Left Shift) and releaseby pressing (b)");
 
-            ChangeStatusText(tutorialTexts[0], 3);
+        ChangeStatusText(tutorialTexts[0], 3);
         }
 
     public void SetCheckpoint(){    
