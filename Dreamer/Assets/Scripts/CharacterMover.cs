@@ -138,6 +138,7 @@ public class CharacterMover : MonoBehaviour {
     void Jump() {
         rb.AddForce(jump * jumpForce, ForceMode.Impulse);
         Fabric.EventManager.Instance.PostEvent("Jump");
+        anim.Play("Jump");
     }
 
     public void Bash() {
