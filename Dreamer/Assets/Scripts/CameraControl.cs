@@ -8,7 +8,7 @@ public class CameraControl : MonoBehaviour {
 
     public float minDist;
     public float maxDist;
-    float castSize = .2f;
+    float castSize = .01f;
     LayerMask dreamMask;
     LayerMask nightmareMask;
 
@@ -28,22 +28,28 @@ public class CameraControl : MonoBehaviour {
 
         RaycastHit hit;
 
+
         if(WorldSwitch.instance.state == AwakeState.Dream) {
             if(Physics.SphereCast(vertRot.transform.position, castSize, -vertRot.forward, out hit, Mathf.Infinity, dreamMask)) {
                 camDist = Mathf.Clamp(hit.distance - 1, minDist, maxDist);
+                Debug.DrawLine(vertRot.transform.position, hit.point, Color.red);
+            } else {
+                camDist = maxDist;
             }
         } else if(WorldSwitch.instance.state == AwakeState.Nightmare) {
             if(Physics.SphereCast(vertRot.transform.position, castSize, -vertRot.forward, out hit, Mathf.Infinity, nightmareMask)) {
                 camDist = Mathf.Clamp(hit.distance - 1, minDist, maxDist);
-            }
-        } else {
-            camDist = maxDist;
+                Debug.DrawLine(vertRot.transform.position, hit.point, Color.red);
+            } else {
+                camDist = maxDist;
+            } 
         }
 
 
         if (GameManager.instance.lookEnabled) {
             if (!WorldSwitch.instance.transitionOut && !WorldSwitch.instance.transitionIn) {
                 transform.rotation = vertRot.rotation;
+                //transform.position = Vector3.MoveTowards(transform.position, vertRot.position + transform.forward * -camDist, 1);
                 transform.position = vertRot.position + transform.forward * -camDist;
                 //camDist = normalCamDist;
             } else if (WorldSwitch.instance.transitionOut) {
