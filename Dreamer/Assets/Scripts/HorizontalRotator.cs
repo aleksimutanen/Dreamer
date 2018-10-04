@@ -7,7 +7,7 @@ public class HorizontalRotator : MonoBehaviour {
     // Rotator script for camera control
 
     public Transform player;
-    float cameraHeight = 3.5f;
+    float cameraHeight = 3.25f;
     float yRot;
     public float horSens = 5; // Input sensitivity on the horzontal axis
 
