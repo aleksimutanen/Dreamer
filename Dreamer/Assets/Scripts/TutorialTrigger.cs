@@ -59,6 +59,11 @@ public class TutorialTrigger : MonoBehaviour {
                 GameManager.instance.firingEnabled = true;
                 gameObject.SetActive(false);
             }
+            if(gameObject.name == "CheckpointFirstBat" && GameManager.instance.crystalAmount < 10) {
+                GameManager.instance.ChangeStatusText(GameManager.instance.tutorialTexts[13], 5);
+                GameManager.instance.SetCheckpoint();
+                gameObject.SetActive(false);
+            }
         }
     }
 }
