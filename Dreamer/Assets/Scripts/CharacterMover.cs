@@ -50,6 +50,7 @@ public class CharacterMover : MonoBehaviour {
 
     private void LateUpdate() {
         var b = rb.velocity;
+        //var c = rb.rotation;
 
         // Input reading for movement
         var vert = Input.GetAxis("Vertical");
@@ -103,16 +104,30 @@ public class CharacterMover : MonoBehaviour {
             Vector3 worldDir = transform.rotation * directions[i].normalized;
             Debug.DrawLine(rb.position + new Vector3(0, 2, 0), rb.position + new Vector3(0, 2, 0) + worldDir * maxDistance);
             if (Physics.Raycast(rb.position + new Vector3(0, 2, 0), worldDir, out hit, maxDistance, WorldSwitch.instance.map)) {
-                print(directions[i]);
+                //print(directions[i]);
                 if (Vector3.Angle(b, worldDir) < 90) {
-                    print("something");
+                    //print("less than 90");
                     Vector3 proj = Vector3.Project(b, worldDir);
                     b -= proj;
-                    //input += -proj;
+                    //Quaternion mult = new Quaternion(0, 1f, 0, 0);
+                    ////rb.rotation = Quaternion.RotateTowards(rb.rotation, rb.rotation * mult, turnSpeed * Time.deltaTime);
+                    ////rb.rotation *= mult;
+                    //horizontalRotator.rotation = Quaternion.RotateTowards(horizontalRotator.rotation, rb.rotation * mult, turnSpeed * Time.deltaTime);
                 }
+                //else if (Vector3.Angle(b, worldDir) > 90 || Vector3.Angle(b, worldDir) < 180) {
+                //    print("more than 90");
+                //    Vector3 proj = Vector3.Project(b, worldDir);
+                //    b -= proj;
+                //    Quaternion mult = new Quaternion(0, 1f, 0, 0);
+                //    rb.rotation = Quaternion.RotateTowards(rb.rotation, rb.rotation * mult, turnSpeed * Time.deltaTime);
+                //    //rb.rotation *= mult;
+                //    horizontalRotator.rotation = Quaternion.RotateTowards(horizontalRotator.rotation, rb.rotation, turnSpeed * Time.deltaTime);
+                //}
             }
         }
         rb.velocity = b;
+        //c.x = 0f; c.z = 0f;
+        //rb.rotation = c;
     }
 
     // Debug sphere
@@ -142,6 +157,13 @@ public class CharacterMover : MonoBehaviour {
 
     public void Bash() {
         //rb.AddForce(transform.forward * bashForce, ForceMode.Impulse);
+        bool hit = Physics.Raycast(transform.position, transform.forward, 2f);
+        if (hit) {
+            cs.bashing = false;
+            cs.bashCollider.SetActive(false);
+            cs.activeTime = 0.5f;
+        }
+
         rb.position += transform.forward * bashForce * Time.deltaTime;
     }
 
