@@ -115,9 +115,7 @@ public class GameManager : MonoBehaviour {
         if(instance)
             Debug.LogError("2+ GameManagers found!");
             instance = this;
-
             checkpoint = gameStartPoint.position;
-
             tutorialTexts.Add("Welcome to your dream, I'm Mother and I will guide you through your journey!");
             tutorialTexts.Add("You can look around by moving your mouse or controller tatti. Now look around you");
             tutorialTexts.Add("Well done! You can also move here =) Use your wasd or the other tatti to move");
@@ -131,8 +129,8 @@ public class GameManager : MonoBehaviour {
             tutorialTexts.Add("Go find some more crystals, Your bunny can help you");
             tutorialTexts.Add("You Ded!");
             tutorialTexts.Add("Kill tree with BunnyPowers, block hits to charge press (Left Shift) and releaseby pressing (b)");
-
-        ChangeStatusText(tutorialTexts[0], 3);
+            tutorialTexts.Add("That bat looks explosive! Maybe you can get rid of the roadblocking stones if you make it go boom!");
+            ChangeStatusText(tutorialTexts[0], 3);
         }
 
     public void SetCheckpoint(){    
