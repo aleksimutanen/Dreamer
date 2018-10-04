@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour {
     public bool powerBallEnabled = false;
     public bool reflectionEnabled = false;
     
-    public float lives = 300;
+    float lives = 3;
     public Vector3 prevPlayerPos;
 
     public Bat sleepingBat;
@@ -112,26 +112,28 @@ public class GameManager : MonoBehaviour {
         sleepingBat.sleeping = true;
         sleepingBat.startPos = flyArea.position;
         // Make a singleton instance out of (this) GameManager
-        if(instance)
+        if(instance) {
             Debug.LogError("2+ GameManagers found!");
-            instance = this;
-            checkpoint = gameStartPoint.position;
-            tutorialTexts.Add("Welcome to your dream, I'm Mother and I will guide you through your journey!");
-            tutorialTexts.Add("You can look around by moving your mouse or controller tatti. Now look around you");
-            tutorialTexts.Add("Well done! You can also move here =) Use your wasd or the other tatti to move");
-            tutorialTexts.Add("Press space or joystick button x to jump over obstacles");
-            tutorialTexts.Add("When you see crystals like this you should pick them up!");
-            tutorialTexts.Add("Sometimes when you feel you are in a bad spot, try switching to nightmare by pressing the 'e'" + " button.");
-            tutorialTexts.Add("You are now ready for your adventure, go on little one!");
-            tutorialTexts.Add("Bashing Skillz, try it out by pressing 'b' for a while!");
-            tutorialTexts.Add("Gliiidddeeerrr Skillllz!");
-            tutorialTexts.Add("Time to reflect some things!");
-            tutorialTexts.Add("Go find some more crystals, Your bunny can help you");
-            tutorialTexts.Add("You Ded!");
-            tutorialTexts.Add("Kill tree with BunnyPowers, block hits to charge press (Left Shift) and releaseby pressing (b)");
-            tutorialTexts.Add("That bat looks explosive! Maybe you can get rid of the roadblocking stones if you make it go boom!");
-            ChangeStatusText(tutorialTexts[0], 3);
         }
+        instance = this;
+        checkpoint = gameStartPoint.position;
+        tutorialTexts.Add("Welcome to your dream, I'm Mother and I will guide you through your journey!");
+        tutorialTexts.Add("You can look around by moving your mouse or controller tatti. Now look around you");
+        tutorialTexts.Add("Well done! You can also move here =) Use your wasd or the other tatti to move");
+        tutorialTexts.Add("Press space or joystick button x to jump over obstacles");
+        tutorialTexts.Add("When you see crystals like this you should pick them up!");
+        tutorialTexts.Add("Sometimes when you feel you are in a bad spot, try switching to nightmare by pressing the 'e'" + " button.");
+        tutorialTexts.Add("You are now ready for your adventure, go on little one!");
+        tutorialTexts.Add("Bashing Skillz, try it out by pressing 'b' for a while!");
+        tutorialTexts.Add("Gliiidddeeerrr Skillllz!");
+        tutorialTexts.Add("Time to reflect some things!");
+        tutorialTexts.Add("Go find some more crystals, Your bunny can help you");
+        tutorialTexts.Add("You Ded!");
+        tutorialTexts.Add("Kill tree with BunnyPowers, block hits to charge press (Left Shift) and releaseby pressing (b)");
+        tutorialTexts.Add("That bat looks explosive! Maybe you can get rid of the roadblocking stones if you make it go boom!");
+        tutorialTexts.Add("You Ded, PERMANENTLY LOL!");
+        ChangeStatusText(tutorialTexts[0], 3);
+    }
 
     public void SetCheckpoint(){    
         checkpoint = player.transform.position;
@@ -149,7 +151,9 @@ public class GameManager : MonoBehaviour {
             ChangeStatusText(tutorialTexts[11], 3);
             //ChangeDreamPower(-(dreamPower-dreamPowMem));       
         } else {
+            ChangeStatusText(tutorialTexts[14], 3);
             print("Game Over");
+            SceneManager.LoadScene(0);
         }
     }
 
