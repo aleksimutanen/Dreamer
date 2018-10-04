@@ -17,7 +17,7 @@ public class CharacterSkills : MonoBehaviour {
     public float maxGlideTimer;
 
     bool floater;
-    bool bashing;
+    public bool bashing;
     bool charged;
     public bool shieldHit;
     bool powerSphereActive;
@@ -77,7 +77,7 @@ public class CharacterSkills : MonoBehaviour {
             if (activeTime < 0) {
                 bashing = false;
                 bashCollider.SetActive(false);
-                activeTime = 0.2f;
+                activeTime = 0.5f;
             }
         }
         ReleasePower();

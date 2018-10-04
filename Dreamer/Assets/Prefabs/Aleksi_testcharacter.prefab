@@ -349,7 +349,7 @@ Transform:
   m_GameObject: {fileID: 1259686885497578}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1.31}
-  m_LocalScale: {x: 2.1927, y: 2.0261, z: 0.26704}
+  m_LocalScale: {x: 2.6406686, y: 2.5887477, z: 0.66603374}
   m_Children: []
   m_Father: {fileID: 4716856688219100}
   m_RootOrder: 3
@@ -426,7 +426,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1566790346152754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -160.25, y: 40.6, z: 198.71}
+  m_LocalPosition: {x: 0, y: 22.2, z: 99.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4716856688219100}
@@ -910,7 +910,7 @@ BoxCollider:
   m_GameObject: {fileID: 1259686885497578}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1002,10 +1002,11 @@ MonoBehaviour:
   dreamCollider: {fileID: 4307428631812180}
   nightmareCollider: {fileID: 4404619118019666}
   horizontalRotator: {fileID: 0}
+  anim: {fileID: 0}
   jump: {x: 0, y: 2, z: 0}
   bash: {x: 0, y: 0, z: 2}
   jumpForce: 8
-  bashForce: 150
+  bashForce: 50
   movingSpeed: 15
   turnSpeed: 200
   inputAcceleration: 0
@@ -1013,12 +1014,31 @@ MonoBehaviour:
   groundCheckSize: 0.5
   groundCheckDepth2: 0.06
   groundCheckSize2: 0.24
-  fallingDeathThreshold: 40
+  fallingDeathThreshold: 30
   gravity: 30
   normalGravity: 10
   maxFallSpeed: 20
   onGround: 0
   canJump: 0
+  directions:
+  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: -1}
+  - {x: 1, y: 0, z: 0}
+  - {x: -1, y: 0, z: 0}
+  - {x: 1, y: 0, z: 1}
+  - {x: 1, y: 0, z: -1}
+  - {x: -1, y: 0, z: -1}
+  - {x: -1, y: 0, z: 1}
+  - {x: 0.5, y: 0, z: 1}
+  - {x: 1, y: 0, z: 0.5}
+  - {x: 1, y: 0, z: -0.5}
+  - {x: 0.5, y: 0, z: -1}
+  - {x: -0.5, y: 0, z: -1}
+  - {x: -1, y: 0, z: -0.5}
+  - {x: -1, y: 0, z: 0.5}
+  - {x: -0.5, y: 0, z: 1}
+  maxDistance: 1.5
+  rcHit: 0
 --- !u!114 &114594999348714460
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1038,8 +1058,9 @@ MonoBehaviour:
   ammoFolder: {fileID: 0}
   glideTimer: 2
   maxGlideTimer: 2
+  bashing: 0
   shieldHit: 0
-  activeTime: 0.2
+  activeTime: 0.5
   shieldActive: 0
   shieldDuration: 5
   maxShieldDuration: 5
@@ -1097,7 +1118,7 @@ CapsuleCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1874277129028892}
-  m_Material: {fileID: 13400000, guid: 30394abf414c7074384caa0414d154b3, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
@@ -1110,7 +1131,7 @@ CapsuleCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1548782326836576}
-  m_Material: {fileID: 13400000, guid: 30394abf414c7074384caa0414d154b3, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
