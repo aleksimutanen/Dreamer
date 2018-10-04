@@ -22,7 +22,7 @@ public class CameraControl : MonoBehaviour {
         nightmareMask = (1 << LayerMask.NameToLayer("Map"))|(1 << LayerMask.NameToLayer("NightmareLayer"));
     }
 
-    void FixedUpdate() {
+    void LateUpdate() {
 
         //Vector3 desiredCameraPos = vertRot.transform.position -vertRot.forward * maxDist;
 
