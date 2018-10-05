@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour {
     public Transform gameStartPoint;
     public Vector3 checkpoint;
     public Quaternion checkRotation;
+    public Vector3 previousCheckpoint;
+    public Quaternion previousCheckRotation;
     public GameObject player;
     public GameObject vertRot;
     public GameObject horRot;
@@ -135,9 +137,11 @@ public class GameManager : MonoBehaviour {
         ChangeStatusText(tutorialTexts[0], 3);
     }
 
-    public void SetCheckpoint(){    
+    public void SetCheckpoint(){
+
+        previousCheckpoint = checkpoint;
+        previousCheckRotation = checkRotation;
         checkpoint = player.transform.position;
-        //dreamPowMem = dreamPower;
         checkRotation = player.transform.rotation;
     }
 
@@ -147,7 +151,7 @@ public class GameManager : MonoBehaviour {
             print("Life lost");
             buddyPower = 0;
             toddlerHealth = 100;
-            TeleportToCheckPoint(false,Vector3.zero);
+            TeleportToCheckPoint(false, false);
             ChangeStatusText(tutorialTexts[11], 3);
             //ChangeDreamPower(-(dreamPower-dreamPowMem));       
         } else {
@@ -157,17 +161,23 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void TeleportToCheckPoint(bool flipDir, Vector3 alternate) {
+    public void TeleportToCheckPoint(bool flipDir, bool previous) {
 
         player.SetActive(false);
-        if(alternate != Vector3.zero)
-            checkpoint = alternate;
-        player.transform.position = checkpoint;
-
-        if(flipDir) {
-            player.transform.rotation = Quaternion.Euler(checkRotation.eulerAngles.x, checkRotation.eulerAngles.y + 180, checkRotation.eulerAngles.z);
+        if(previous){
+            player.transform.position = previousCheckpoint;
+            if(flipDir) {
+                player.transform.rotation = Quaternion.Euler(checkRotation.eulerAngles.x, checkRotation.eulerAngles.y + 180, checkRotation.eulerAngles.z);
+            } else {
+                player.transform.rotation = checkRotation;
+            }
         } else {
-            player.transform.rotation = checkRotation;
+            player.transform.position = checkpoint;
+            if(flipDir) {
+                player.transform.rotation = Quaternion.Euler(checkRotation.eulerAngles.x, checkRotation.eulerAngles.y + 180, checkRotation.eulerAngles.z);
+            } else {
+                player.transform.rotation = checkRotation;
+            }
         }
         player.SetActive(true);
         vertRot.GetComponent<VerticalRotator>().ResetRotation();
