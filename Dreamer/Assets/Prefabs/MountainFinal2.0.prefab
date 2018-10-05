@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 33102373489880076}
   - component: {fileID: 23752286669086350}
   - component: {fileID: 64613123778936334}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea4_dead_tree_piece2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -575,7 +575,7 @@ GameObject:
   - component: {fileID: 33385153217726282}
   - component: {fileID: 23479380655241702}
   - component: {fileID: 64704063855400126}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tree_cave3_block_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -849,7 +849,7 @@ GameObject:
   - component: {fileID: 33489121799922692}
   - component: {fileID: 23078400301342902}
   - component: {fileID: 64640949336594696}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tree_cave3_block_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1193,7 +1193,7 @@ GameObject:
   - component: {fileID: 33237068576957556}
   - component: {fileID: 23204935189312316}
   - component: {fileID: 64286646838613858}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: puzzle1_nightmare1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1228,7 +1228,7 @@ GameObject:
   - component: {fileID: 33504278551746984}
   - component: {fileID: 23982317516892774}
   - component: {fileID: 64486860687515616}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea_platform_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1487,7 +1487,7 @@ GameObject:
   - component: {fileID: 33145774122963048}
   - component: {fileID: 23668389698507542}
   - component: {fileID: 64923787245075106}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle4_platform_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2191,7 +2191,7 @@ GameObject:
   - component: {fileID: 33050645383477226}
   - component: {fileID: 23852329126065724}
   - component: {fileID: 64648549560492664}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle8_platform_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2325,7 +2325,7 @@ GameObject:
   - component: {fileID: 33214703979755706}
   - component: {fileID: 23550878042341432}
   - component: {fileID: 64686766735055122}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle4_platform_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2481,7 +2481,7 @@ GameObject:
   - component: {fileID: 33506419647802970}
   - component: {fileID: 23605107566280276}
   - component: {fileID: 64800843810870496}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea2_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3179,7 +3179,7 @@ GameObject:
   - component: {fileID: 33576117172908248}
   - component: {fileID: 23093225657825878}
   - component: {fileID: 64800829010256586}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle3_crystalplatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3216,7 +3216,7 @@ GameObject:
   - component: {fileID: 33625123209151976}
   - component: {fileID: 23063322545267696}
   - component: {fileID: 64756789755802054}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea1_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3423,7 +3423,7 @@ GameObject:
   - component: {fileID: 33000260991406832}
   - component: {fileID: 23735626781089198}
   - component: {fileID: 64683117795211462}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea2_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3441,7 +3441,7 @@ GameObject:
   - component: {fileID: 33623393962370638}
   - component: {fileID: 23655885121445648}
   - component: {fileID: 64181957800899846}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea4_platform_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3789,7 +3789,7 @@ GameObject:
   - component: {fileID: 33940129912688294}
   - component: {fileID: 23214610366468540}
   - component: {fileID: 64576669480776188}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle4_destroyable_wall_piece_08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4054,6 +4054,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1228898644937166
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4541869368642182}
+  - component: {fileID: 33859781856846482}
+  - component: {fileID: 23924188503752236}
+  - component: {fileID: 65054235443627022}
+  - component: {fileID: 114768871203207692}
+  m_Layer: 0
+  m_Name: CheckpointCave1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1229794927138794
 GameObject:
   m_ObjectHideFlags: 1
@@ -4221,7 +4240,7 @@ GameObject:
   - component: {fileID: 33818890152370686}
   - component: {fileID: 23748487642048606}
   - component: {fileID: 64665611821811144}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea4_platform_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4581,7 +4600,7 @@ GameObject:
   - component: {fileID: 33815714589552710}
   - component: {fileID: 23787643414813348}
   - component: {fileID: 64285131934363784}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea2_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4787,7 +4806,7 @@ GameObject:
   - component: {fileID: 33108597538372830}
   - component: {fileID: 23852374289518022}
   - component: {fileID: 64057711129902460}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: destroyable_door_piece_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4908,7 +4927,7 @@ GameObject:
   - component: {fileID: 33469019954556892}
   - component: {fileID: 23688939931166170}
   - component: {fileID: 64506909685838250}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle8_platform_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5150,7 +5169,7 @@ GameObject:
   - component: {fileID: 33878444554511638}
   - component: {fileID: 23932256944910298}
   - component: {fileID: 64677595633909480}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea3_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5615,7 +5634,7 @@ GameObject:
   - component: {fileID: 33710018373768334}
   - component: {fileID: 23905153894691052}
   - component: {fileID: 64080062839118384}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: gate1_wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5822,7 +5841,7 @@ GameObject:
   - component: {fileID: 33527308617485554}
   - component: {fileID: 23248590198816246}
   - component: {fileID: 64251170138406414}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle4_platform_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6131,7 +6150,7 @@ GameObject:
   - component: {fileID: 33904050987199474}
   - component: {fileID: 23373316108236028}
   - component: {fileID: 64270271326811886}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: gate1_door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6356,7 +6375,7 @@ GameObject:
   - component: {fileID: 33992345221697998}
   - component: {fileID: 23349980231319138}
   - component: {fileID: 64691058486996802}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea2_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6940,7 +6959,7 @@ GameObject:
   - component: {fileID: 33354516959544560}
   - component: {fileID: 23913062559918720}
   - component: {fileID: 64048444623969632}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle4_crystalplatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7027,7 +7046,7 @@ GameObject:
   - component: {fileID: 33894929764486402}
   - component: {fileID: 23532455328505544}
   - component: {fileID: 64080645513323434}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle8_platform_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7353,7 +7372,7 @@ GameObject:
   - component: {fileID: 33208480624624182}
   - component: {fileID: 23660145134289286}
   - component: {fileID: 64934152404381958}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle8_platform_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7423,7 +7442,7 @@ GameObject:
   - component: {fileID: 33421400891064154}
   - component: {fileID: 23504615591258480}
   - component: {fileID: 64588907419836056}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle2_dead_tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7630,7 +7649,7 @@ GameObject:
   - component: {fileID: 33670005562013986}
   - component: {fileID: 23505785973742112}
   - component: {fileID: 64088063786159942}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle4_platform_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7787,7 +7806,7 @@ GameObject:
   - component: {fileID: 33385138825207600}
   - component: {fileID: 23780161547868770}
   - component: {fileID: 64802017871165378}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: gate2_wall001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7943,7 +7962,7 @@ GameObject:
   - component: {fileID: 33966202080299554}
   - component: {fileID: 23728255020690956}
   - component: {fileID: 64308996696782700}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea_platform_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7978,7 +7997,7 @@ GameObject:
   - component: {fileID: 33486750886653310}
   - component: {fileID: 23846618328868218}
   - component: {fileID: 64395848712015476}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle4_platform_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8064,7 +8083,7 @@ GameObject:
   - component: {fileID: 33725814951546660}
   - component: {fileID: 23842528404945376}
   - component: {fileID: 64172398007151016}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle4_destroyable_wall_piece_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8100,7 +8119,7 @@ GameObject:
   - component: {fileID: 33907918334543552}
   - component: {fileID: 23888986422805886}
   - component: {fileID: 64270337174055230}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: destroyable_door_piece_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8341,7 +8360,7 @@ GameObject:
   - component: {fileID: 33402265546231202}
   - component: {fileID: 23051681126268972}
   - component: {fileID: 64849399615325450}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle4_destroyable_wall_piece_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8464,7 +8483,7 @@ GameObject:
   - component: {fileID: 33276230406871208}
   - component: {fileID: 23543237794431544}
   - component: {fileID: 64366383017768542}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle3_dreamplatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8482,7 +8501,7 @@ GameObject:
   - component: {fileID: 33346520352071984}
   - component: {fileID: 23053641504394900}
   - component: {fileID: 64456499168012518}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: destroyable_door_piece_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9029,7 +9048,7 @@ GameObject:
   - component: {fileID: 33912104145362588}
   - component: {fileID: 23962198694828722}
   - component: {fileID: 64340416164873410}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle3_dead_tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9877,7 +9896,7 @@ GameObject:
   - component: {fileID: 33620724038567984}
   - component: {fileID: 23000313326866806}
   - component: {fileID: 64744000980599890}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle1_dream1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10155,7 +10174,7 @@ GameObject:
   - component: {fileID: 33438455678112238}
   - component: {fileID: 23286452271513054}
   - component: {fileID: 64997151644031684}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea4_platform_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10190,7 +10209,7 @@ GameObject:
   - component: {fileID: 33084131127616916}
   - component: {fileID: 23770801421041462}
   - component: {fileID: 64581181979377740}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle7_stone_with_crystal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10261,7 +10280,7 @@ GameObject:
   - component: {fileID: 33852331241022116}
   - component: {fileID: 23713895730708876}
   - component: {fileID: 64741986497639008}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea4_platform_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10416,7 +10435,7 @@ GameObject:
   - component: {fileID: 33809373118249756}
   - component: {fileID: 23053346158430902}
   - component: {fileID: 64355902642670922}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: destroyable_door_piece_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10468,7 +10487,7 @@ GameObject:
   - component: {fileID: 33490409022373682}
   - component: {fileID: 23227967583702880}
   - component: {fileID: 64801288399836940}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: tree_cave3_block_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10503,7 +10522,7 @@ GameObject:
   - component: {fileID: 33261663946014830}
   - component: {fileID: 23357099891368900}
   - component: {fileID: 64161168742729622}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle7_platform_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10605,7 +10624,7 @@ GameObject:
   - component: {fileID: 4075394859939376}
   - component: {fileID: 33706261434486564}
   - component: {fileID: 23259769635166664}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Object001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10742,7 +10761,7 @@ GameObject:
   - component: {fileID: 33777596445426788}
   - component: {fileID: 23979527179806490}
   - component: {fileID: 64139248912904870}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle5_dead_tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10760,7 +10779,7 @@ GameObject:
   - component: {fileID: 33104957377339464}
   - component: {fileID: 23104972212059946}
   - component: {fileID: 64437961892757898}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: gate2_wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10917,7 +10936,7 @@ GameObject:
   - component: {fileID: 33116428910604658}
   - component: {fileID: 23440230186366860}
   - component: {fileID: 64053578772702710}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea3_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11381,7 +11400,7 @@ GameObject:
   - component: {fileID: 33575279576496598}
   - component: {fileID: 23302681192831042}
   - component: {fileID: 64186325604626926}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea1_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11743,7 +11762,7 @@ GameObject:
   - component: {fileID: 33996594114064542}
   - component: {fileID: 23056248905284740}
   - component: {fileID: 64589174430749096}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle8_dead_tree_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12050,7 +12069,7 @@ GameObject:
   - component: {fileID: 33366559216915972}
   - component: {fileID: 23880650376803520}
   - component: {fileID: 64128875052908514}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: destroyable_door_piece_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12273,7 +12292,7 @@ GameObject:
   - component: {fileID: 33864605191523898}
   - component: {fileID: 23368330670239244}
   - component: {fileID: 64963533728397582}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea4_platform_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12960,7 +12979,7 @@ GameObject:
   - component: {fileID: 33713112635688102}
   - component: {fileID: 23661003116901022}
   - component: {fileID: 64650851389467640}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle4_platform_08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13014,7 +13033,7 @@ GameObject:
   - component: {fileID: 33175818636177708}
   - component: {fileID: 23620190132259858}
   - component: {fileID: 64496765819402428}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: destroyable_platform_for_crystal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13100,7 +13119,7 @@ GameObject:
   - component: {fileID: 33379777112632634}
   - component: {fileID: 23921792002462826}
   - component: {fileID: 64562059579730082}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea4_dead_tree_piece1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13118,7 +13137,7 @@ GameObject:
   - component: {fileID: 33237648313215806}
   - component: {fileID: 23415651277563584}
   - component: {fileID: 64119499995271468}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea2_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13426,7 +13445,7 @@ GameObject:
   - component: {fileID: 33919869892612948}
   - component: {fileID: 23398189417898824}
   - component: {fileID: 64705261845230322}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: destroyable_door_piece_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13547,7 +13566,7 @@ GameObject:
   - component: {fileID: 33501437926694962}
   - component: {fileID: 23672624605021666}
   - component: {fileID: 64692707861435882}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea4_platform_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13582,7 +13601,7 @@ GameObject:
   - component: {fileID: 33178830239274140}
   - component: {fileID: 23224596561308508}
   - component: {fileID: 64768760080008328}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle4_platform_09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14234,7 +14253,7 @@ GameObject:
   - component: {fileID: 33541949027765080}
   - component: {fileID: 23476879340146044}
   - component: {fileID: 64717922372609906}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea4_platform_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14320,7 +14339,7 @@ GameObject:
   - component: {fileID: 33548728872692276}
   - component: {fileID: 23135810301242918}
   - component: {fileID: 64913169498691470}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: destroyable_door_piece_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14355,13 +14374,31 @@ GameObject:
   - component: {fileID: 33549665536183418}
   - component: {fileID: 23894592216602746}
   - component: {fileID: 64919296869260194}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: gate2_door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1806169787275558
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4917227494496470}
+  - component: {fileID: 33569111376073378}
+  - component: {fileID: 64240613374298246}
+  - component: {fileID: 114301008690112262}
+  m_Layer: 9
+  m_Name: puzzle1_nightmareTeleport
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1809274539863448
 GameObject:
   m_ObjectHideFlags: 1
@@ -14766,7 +14803,7 @@ GameObject:
   - component: {fileID: 33407588606686456}
   - component: {fileID: 23418384984740718}
   - component: {fileID: 64223533764974842}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea1_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15043,7 +15080,7 @@ GameObject:
   - component: {fileID: 33235975807449594}
   - component: {fileID: 23866390930825272}
   - component: {fileID: 64262442409906220}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle4_destroyable_wall_piece_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15215,7 +15252,7 @@ GameObject:
   - component: {fileID: 33517991447493956}
   - component: {fileID: 23170695817636572}
   - component: {fileID: 64730260102949982}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle4_platform_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15337,7 +15374,7 @@ GameObject:
   - component: {fileID: 33766875741829658}
   - component: {fileID: 23645893229529726}
   - component: {fileID: 64057478856276822}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: gate2_door001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15696,7 +15733,7 @@ GameObject:
   - component: {fileID: 33801494887400710}
   - component: {fileID: 23009740941173644}
   - component: {fileID: 64685532595322878}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea_platform_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15886,7 +15923,7 @@ GameObject:
   - component: {fileID: 33666516534273726}
   - component: {fileID: 23094838002077816}
   - component: {fileID: 64872788174494926}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea3_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15938,7 +15975,7 @@ GameObject:
   - component: {fileID: 33236233592471604}
   - component: {fileID: 23133424531381060}
   - component: {fileID: 64961568905262728}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle4_destroyable_wall_piece_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16042,7 +16079,7 @@ GameObject:
   - component: {fileID: 33890194671647312}
   - component: {fileID: 23574452013333830}
   - component: {fileID: 64487832397995458}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle1_dream2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16060,7 +16097,7 @@ GameObject:
   - component: {fileID: 33971282761843464}
   - component: {fileID: 23586529735745824}
   - component: {fileID: 64638946484921498}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle4_platform_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16266,7 +16303,7 @@ GameObject:
   - component: {fileID: 33997400177453982}
   - component: {fileID: 23534209301797402}
   - component: {fileID: 64657077578521532}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle5_platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16609,7 +16646,7 @@ GameObject:
   - component: {fileID: 33859916046351294}
   - component: {fileID: 23786556416277046}
   - component: {fileID: 64377328204404416}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: puzzle3_nightmareplatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16678,7 +16715,7 @@ GameObject:
   - component: {fileID: 33878578102341764}
   - component: {fileID: 23452771617361794}
   - component: {fileID: 64942721538872628}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle4_destroyable_wall_piece_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16748,7 +16785,7 @@ GameObject:
   - component: {fileID: 33664907892719192}
   - component: {fileID: 23950501673217354}
   - component: {fileID: 64205811216775694}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea3_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16802,7 +16839,7 @@ GameObject:
   - component: {fileID: 33134636414221912}
   - component: {fileID: 23568769177000828}
   - component: {fileID: 64588660763690674}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea_platform_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16958,7 +16995,7 @@ GameObject:
   - component: {fileID: 33514547168940296}
   - component: {fileID: 23629742322740476}
   - component: {fileID: 64870476698466160}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle7_platform_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17200,7 +17237,7 @@ GameObject:
   - component: {fileID: 33993156796137508}
   - component: {fileID: 23776080698917466}
   - component: {fileID: 64802190677030460}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea1_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17235,7 +17272,7 @@ GameObject:
   - component: {fileID: 33428151779236056}
   - component: {fileID: 23328339136506026}
   - component: {fileID: 64885302832450216}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea4_dead_tree_piece3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17253,7 +17290,7 @@ GameObject:
   - component: {fileID: 33560987571212284}
   - component: {fileID: 23199571834322864}
   - component: {fileID: 64317255008845136}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crystalarea3_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17341,7 +17378,7 @@ GameObject:
   - component: {fileID: 33313567510478550}
   - component: {fileID: 23194205499039942}
   - component: {fileID: 64567680051985456}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle8_dead_tree_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17512,7 +17549,7 @@ GameObject:
   - component: {fileID: 33162583314656850}
   - component: {fileID: 23633512848084838}
   - component: {fileID: 64929844927774026}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle4_destroyable_wall_piece_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17856,7 +17893,7 @@ GameObject:
   - component: {fileID: 33767166724228448}
   - component: {fileID: 23343902143966280}
   - component: {fileID: 64476746785852964}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: puzzle4_destroyable_wall_piece_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17938,7 +17975,7 @@ Transform:
   m_LocalScale: {x: 453.26834, y: 453.26813, z: 90.65362}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 45
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4000713204636062
 Transform:
@@ -18081,7 +18118,7 @@ Transform:
   m_LocalScale: {x: 183.9827, y: 183.98267, z: 36.796535}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 9
+  m_RootOrder: 81
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4012803798759852
 Transform:
@@ -18250,7 +18287,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 65
+  m_RootOrder: 50
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4021573017537146
 Transform:
@@ -18640,7 +18677,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 35
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4046140986331036
 Transform:
@@ -18666,7 +18703,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 84
+  m_RootOrder: 73
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4048263758857118
 Transform:
@@ -18770,7 +18807,7 @@ Transform:
   m_LocalScale: {x: 506.19925, y: 405.7827, z: 101.34841}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 91
+  m_RootOrder: 88
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4057251686899682
 Transform:
@@ -18887,7 +18924,7 @@ Transform:
   m_LocalScale: {x: 393.70114, y: 393.70108, z: 78.740204}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 17
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4067751672418076
 Transform:
@@ -19355,7 +19392,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 54
+  m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4106503388577334
 Transform:
@@ -19576,7 +19613,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 26
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4126639972112474
 Transform:
@@ -19758,7 +19795,7 @@ Transform:
   m_LocalScale: {x: 608.9113, y: 547.9237, z: 97.753685}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 31
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4142438374951158
 Transform:
@@ -19966,7 +20003,7 @@ Transform:
   m_LocalScale: {x: 478.83838, y: 478.8382, z: 95.76763}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 50
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4160800498708738
 Transform:
@@ -20070,7 +20107,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 37
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4165641128552216
 Transform:
@@ -20096,7 +20133,7 @@ Transform:
   m_LocalScale: {x: 149.31229, y: 149.31229, z: 29.86246}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 7
+  m_RootOrder: 77
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4166013107592004
 Transform:
@@ -20180,7 +20217,7 @@ Transform:
   - {fileID: 4796675652251036}
   - {fileID: 4832531439062682}
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 2
+  m_RootOrder: 71
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4171567691301622
 Transform:
@@ -20336,7 +20373,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 66
+  m_RootOrder: 53
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4183406043058862
 Transform:
@@ -20440,7 +20477,7 @@ Transform:
   m_LocalScale: {x: 483.3832, y: 483.38303, z: 96.67663}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 49
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4187174101332588
 Transform:
@@ -20453,7 +20490,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 76
+  m_RootOrder: 68
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4188582795484344
 Transform:
@@ -20636,7 +20673,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 87
+  m_RootOrder: 76
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4195527744192524
 Transform:
@@ -21013,7 +21050,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 82
+  m_RootOrder: 69
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4225434385294392
 Transform:
@@ -21247,7 +21284,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 68
+  m_RootOrder: 55
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4246348634951568
 Transform:
@@ -21260,7 +21297,7 @@ Transform:
   m_LocalScale: {x: 608.91095, y: 547.92365, z: 97.75362}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 32
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4247511722811044
 Transform:
@@ -21403,7 +21440,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 92
+  m_RootOrder: 89
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4260810225909750
 Transform:
@@ -21680,104 +21717,105 @@ Transform:
   m_Children:
   - {fileID: 4389138660624502}
   - {fileID: 4681955039080162}
-  - {fileID: 4170247997792208}
-  - {fileID: 4841365929956062}
-  - {fileID: 4986568146205102}
-  - {fileID: 4771794956365180}
-  - {fileID: 4849975312548456}
-  - {fileID: 4165852131822810}
-  - {fileID: 4345351877240440}
-  - {fileID: 4010815069398724}
-  - {fileID: 4438854109974744}
-  - {fileID: 4733866275157950}
-  - {fileID: 4487164148743072}
-  - {fileID: 4861935109137468}
-  - {fileID: 4712013123493354}
-  - {fileID: 4940905742594022}
-  - {fileID: 4939216759633832}
   - {fileID: 4067261236423636}
   - {fileID: 4586899270873306}
   - {fileID: 4650315020182716}
-  - {fileID: 4416348445169654}
   - {fileID: 4829660738599872}
-  - {fileID: 4478707309440244}
+  - {fileID: 4416348445169654}
   - {fileID: 4901538860609574}
+  - {fileID: 4478707309440244}
   - {fileID: 4568855369982734}
-  - {fileID: 4343477538973174}
   - {fileID: 4126338586909406}
+  - {fileID: 4343477538973174}
+  - {fileID: 4671992415888440}
   - {fileID: 4476019104358718}
   - {fileID: 4437660252117892}
-  - {fileID: 4671992415888440}
   - {fileID: 4522186930360236}
   - {fileID: 4140720884005226}
-  - {fileID: 4246348634951568}
-  - {fileID: 4444054386268570}
-  - {fileID: 4348214585195590}
-  - {fileID: 4045908789962174}
   - {fileID: 4830749332290842}
-  - {fileID: 4165531729424754}
-  - {fileID: 4295900053448316}
+  - {fileID: 4444054386268570}
+  - {fileID: 4246348634951568}
+  - {fileID: 4348214585195590}
   - {fileID: 4907822823093390}
   - {fileID: 4596112722612190}
   - {fileID: 4759422976386804}
-  - {fileID: 4479294697480642}
   - {fileID: 4673958033759642}
+  - {fileID: 4165531729424754}
+  - {fileID: 4045908789962174}
   - {fileID: 4643940409940952}
-  - {fileID: 4000617862676510}
+  - {fileID: 4479294697480642}
   - {fileID: 4772131570234534}
+  - {fileID: 4295900053448316}
   - {fileID: 4420750159358882}
   - {fileID: 4516269670248186}
-  - {fileID: 4186439032293038}
-  - {fileID: 4160706310213084}
-  - {fileID: 4433264850606882}
+  - {fileID: 4000617862676510}
   - {fileID: 4631343492257122}
+  - {fileID: 4433264850606882}
+  - {fileID: 4186439032293038}
   - {fileID: 4982095620512806}
-  - {fileID: 4104298434819012}
+  - {fileID: 4684548070609280}
+  - {fileID: 4160706310213084}
   - {fileID: 4980297466791838}
   - {fileID: 4906770077077618}
-  - {fileID: 4684548070609280}
-  - {fileID: 4393446877697526}
   - {fileID: 4775867530488776}
+  - {fileID: 4104298434819012}
   - {fileID: 4850765076026150}
   - {fileID: 4752916929026024}
+  - {fileID: 4393446877697526}
   - {fileID: 4552408495585004}
   - {fileID: 4598910403369686}
   - {fileID: 4315473282246948}
   - {fileID: 4021519368217408}
-  - {fileID: 4180593318747910}
   - {fileID: 4408520262628408}
-  - {fileID: 4245635363070942}
   - {fileID: 4650944937487396}
-  - {fileID: 4559586243170738}
+  - {fileID: 4180593318747910}
   - {fileID: 4796213269892694}
+  - {fileID: 4245635363070942}
+  - {fileID: 4559586243170738}
+  - {fileID: 4644625000123458}
+  - {fileID: 4837117351639926}
+  - {fileID: 4737156942434788}
   - {fileID: 4325465079440726}
   - {fileID: 4457241384377984}
-  - {fileID: 4644625000123458}
-  - {fileID: 4737156942434788}
-  - {fileID: 4187174101332588}
-  - {fileID: 4837117351639926}
-  - {fileID: 4336321390478426}
-  - {fileID: 4484126462236766}
   - {fileID: 4907768629434848}
   - {fileID: 4695542660481238}
-  - {fileID: 4224609770084594}
+  - {fileID: 4336321390478426}
+  - {fileID: 4484126462236766}
+  - {fileID: 4917227494496470}
   - {fileID: 4833685397406068}
-  - {fileID: 4047542236070188}
+  - {fileID: 4187174101332588}
+  - {fileID: 4224609770084594}
   - {fileID: 4797520995818520}
+  - {fileID: 4170247997792208}
   - {fileID: 4428284072849892}
+  - {fileID: 4047542236070188}
+  - {fileID: 4841365929956062}
+  - {fileID: 4345351877240440}
   - {fileID: 4195463836936718}
+  - {fileID: 4165852131822810}
   - {fileID: 4460045284423346}
-  - {fileID: 4404698167289348}
+  - {fileID: 4849975312548456}
+  - {fileID: 4771794956365180}
+  - {fileID: 4010815069398724}
+  - {fileID: 4438854109974744}
   - {fileID: 4885042197505856}
+  - {fileID: 4986568146205102}
+  - {fileID: 4404698167289348}
+  - {fileID: 4487164148743072}
+  - {fileID: 4733866275157950}
   - {fileID: 4054237175109952}
   - {fileID: 4260341898800806}
+  - {fileID: 4861935109137468}
+  - {fileID: 4712013123493354}
   - {fileID: 4336842512676728}
   - {fileID: 4399875619717730}
+  - {fileID: 4940905742594022}
+  - {fileID: 4939216759633832}
+  - {fileID: 4562002993038610}
   - {fileID: 4459922673758892}
   - {fileID: 4550293079984942}
-  - {fileID: 4946476711489432}
   - {fileID: 4751075660439892}
-  - {fileID: 4562002993038610}
+  - {fileID: 4946476711489432}
   m_Father: {fileID: 4804633116024808}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21923,7 +21961,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 38
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4296323039199324
 Transform:
@@ -22738,7 +22776,7 @@ Transform:
   m_LocalScale: {x: 417.23206, y: 427.7215, z: 83.1643}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 64
+  m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4316204448288550
 Transform:
@@ -22803,7 +22841,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 72
+  m_RootOrder: 60
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4326258920597980
 Transform:
@@ -23024,7 +23062,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 78
+  m_RootOrder: 64
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4336842512676728
 Transform:
@@ -23037,7 +23075,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 93
+  m_RootOrder: 92
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4339376711315096
 Transform:
@@ -23128,7 +23166,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 25
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4344125515303458
 Transform:
@@ -23193,7 +23231,7 @@ Transform:
   m_LocalScale: {x: 183.98264, y: 183.98265, z: 36.796528}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 8
+  m_RootOrder: 75
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4346144259710952
 Transform:
@@ -23271,7 +23309,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 34
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4350535463161550
 Transform:
@@ -23922,7 +23960,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70117, z: 78.74019}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 58
+  m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4397812630762876
 Transform:
@@ -24000,7 +24038,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 94
+  m_RootOrder: 93
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4400423393700952
 Transform:
@@ -24052,7 +24090,7 @@ Transform:
   m_LocalScale: {x: 121.09099, y: 121.09096, z: 24.218199}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 89
+  m_RootOrder: 85
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4405954388397128
 Transform:
@@ -24104,7 +24142,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 67
+  m_RootOrder: 51
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4408587076278086
 Transform:
@@ -24208,7 +24246,7 @@ Transform:
   m_LocalScale: {x: 393.70114, y: 393.70108, z: 78.740204}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 20
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4416418500000772
 Transform:
@@ -24273,7 +24311,7 @@ Transform:
   m_LocalScale: {x: 474.37823, y: 474.37805, z: 94.8756}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 47
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4420796404407614
 Transform:
@@ -24364,7 +24402,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 86
+  m_RootOrder: 72
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4430674958926390
 Transform:
@@ -24442,7 +24480,7 @@ Transform:
   m_LocalScale: {x: 457.33868, y: 457.3385, z: 91.4677}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 51
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4435368655467704
 Transform:
@@ -24507,7 +24545,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 28
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4438569830944234
 Transform:
@@ -24533,7 +24571,7 @@ Transform:
   m_LocalScale: {x: 289.0046, y: 289.00464, z: 57.80093}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 10
+  m_RootOrder: 82
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4440770009297402
 Transform:
@@ -24559,7 +24597,7 @@ Transform:
   m_LocalScale: {x: 608.91125, y: 547.9236, z: 97.75362}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 33
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4445692613942690
 Transform:
@@ -24663,7 +24701,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 73
+  m_RootOrder: 61
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4457720563923528
 Transform:
@@ -24702,7 +24740,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 95
+  m_RootOrder: 97
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4460045284423346
 Transform:
@@ -24715,7 +24753,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 88
+  m_RootOrder: 78
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4460584647431288
 Transform:
@@ -25014,7 +25052,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 27
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4476986811636000
 Transform:
@@ -25079,7 +25117,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 22
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4479294697480642
 Transform:
@@ -25092,7 +25130,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 42
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4479849198276744
 Transform:
@@ -25183,7 +25221,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 79
+  m_RootOrder: 65
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4486305044892578
 Transform:
@@ -25209,7 +25247,7 @@ Transform:
   m_LocalScale: {x: 143.35051, y: 143.35051, z: 28.670103}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 12
+  m_RootOrder: 86
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4488173700985910
 Transform:
@@ -25599,7 +25637,7 @@ Transform:
   m_LocalScale: {x: 474.37823, y: 474.37805, z: 94.8756}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 48
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4516624378202134
 Transform:
@@ -25677,7 +25715,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 30
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4522596823813332
 Transform:
@@ -25978,6 +26016,19 @@ Transform:
   m_Father: {fileID: 4299993107865932}
   m_RootOrder: 412
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4541869368642182
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1228898644937166}
+  m_LocalRotation: {x: -0.10878711, y: -0.6986883, z: -0.6986883, w: -0.10878711}
+  m_LocalPosition: {x: -0.011665413, y: 0.0019721307, z: 0.0026125277}
+  m_LocalScale: {x: 0.00007277238, y: 0.000072772345, z: 0.000072772345}
+  m_Children: []
+  m_Father: {fileID: 4682955245237150}
+  m_RootOrder: 38
+  m_LocalEulerAnglesHint: {x: 0, y: -17.7, z: 0}
 --- !u!4 &4541923571959632
 Transform:
   m_ObjectHideFlags: 1
@@ -26067,7 +26118,7 @@ Transform:
   m_LocalScale: {x: 608.9113, y: 547.9237, z: 97.753685}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 96
+  m_RootOrder: 98
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4552408495585004
 Transform:
@@ -26080,7 +26131,7 @@ Transform:
   m_LocalScale: {x: 405.1283, y: 405.12827, z: 81.02563}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 62
+  m_RootOrder: 47
   m_LocalEulerAnglesHint: {x: -84.09801, y: -90.00001, z: -90.00001}
 --- !u!4 &4553184732186504
 Transform:
@@ -26184,7 +26235,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 70
+  m_RootOrder: 56
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4560826480837428
 Transform:
@@ -26240,7 +26291,7 @@ Transform:
   - {fileID: 4492540672263460}
   - {fileID: 4231507140250506}
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 99
+  m_RootOrder: 96
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4562823176758284
 Transform:
@@ -26318,7 +26369,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 24
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4569474115614966
 Transform:
@@ -26604,7 +26655,7 @@ Transform:
   m_LocalScale: {x: 393.70114, y: 393.70108, z: 78.740204}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 18
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4589553145415678
 Transform:
@@ -26773,7 +26824,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 40
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4597815028990920
 Transform:
@@ -26799,7 +26850,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 63
+  m_RootOrder: 48
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4599306844360912
 Transform:
@@ -27293,7 +27344,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 52
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4633498710299704
 Transform:
@@ -27489,7 +27540,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 44
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4644625000123458
 Transform:
@@ -27502,7 +27553,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 74
+  m_RootOrder: 57
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4645969155293362
 Transform:
@@ -27567,7 +27618,7 @@ Transform:
   m_LocalScale: {x: 393.70114, y: 393.70108, z: 78.740204}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 19
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4650913027796578
 Transform:
@@ -27593,7 +27644,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 69
+  m_RootOrder: 52
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4651782630348796
 Transform:
@@ -27827,7 +27878,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 29
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4673958033759642
 Transform:
@@ -27840,7 +27891,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 43
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4674787322285276
 Transform:
@@ -28066,6 +28117,7 @@ Transform:
   - {fileID: 4524579891649224}
   - {fileID: 4574082811197220}
   - {fileID: 4465578657336210}
+  - {fileID: 4541869368642182}
   m_Father: {fileID: 4682489987138434}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
@@ -28119,7 +28171,7 @@ Transform:
   m_LocalScale: {x: 393.70074, y: 393.70078, z: 78.740135}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 57
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4688829159983752
 Transform:
@@ -28223,7 +28275,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 81
+  m_RootOrder: 63
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4696257758314944
 Transform:
@@ -28495,7 +28547,7 @@ Transform:
   m_LocalScale: {x: 210.63194, y: 210.63194, z: 42.126385}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 14
+  m_RootOrder: 91
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4712049370529358
 Transform:
@@ -28810,7 +28862,7 @@ Transform:
   m_LocalScale: {x: 277.88144, y: 277.88144, z: 55.576294}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 11
+  m_RootOrder: 87
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4734175315906228
 Transform:
@@ -28901,7 +28953,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 75
+  m_RootOrder: 59
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4738109444354746
 Transform:
@@ -28992,7 +29044,7 @@ Transform:
   m_LocalScale: {x: 608.91125, y: 547.9236, z: 97.75362}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 98
+  m_RootOrder: 99
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4751137396672918
 Transform:
@@ -29031,7 +29083,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 61
+  m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4752939439390740
 Transform:
@@ -29122,7 +29174,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 41
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4759467718936394
 Transform:
@@ -29356,7 +29408,7 @@ Transform:
   m_LocalScale: {x: 149.3123, y: 149.31233, z: 29.862463}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 5
+  m_RootOrder: 80
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4772131570234534
 Transform:
@@ -29369,7 +29421,7 @@ Transform:
   m_LocalScale: {x: 470.0004, y: 470.0002, z: 94.00002}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 46
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4773276674937428
 Transform:
@@ -29552,7 +29604,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 59
+  m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4777517404144738
 Transform:
@@ -29864,7 +29916,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 71
+  m_RootOrder: 54
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4796664598968346
 Transform:
@@ -29916,7 +29968,7 @@ Transform:
   m_LocalScale: {x: 480.3275, y: 482.36032, z: 81.489716}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 85
+  m_RootOrder: 70
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4798116856169140
 Transform:
@@ -30327,7 +30379,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 21
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4830749332290842
 Transform:
@@ -30340,7 +30392,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 36
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4832531439062682
 Transform:
@@ -30379,7 +30431,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 83
+  m_RootOrder: 67
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4834306333293120
 Transform:
@@ -30431,7 +30483,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 77
+  m_RootOrder: 58
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4837647357857370
 Transform:
@@ -30483,7 +30535,7 @@ Transform:
   m_LocalScale: {x: 277.88135, y: 277.88135, z: 55.57627}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 3
+  m_RootOrder: 74
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4843304785999092
 Transform:
@@ -30574,7 +30626,7 @@ Transform:
   m_LocalScale: {x: 149.31229, y: 149.31229, z: 29.86246}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 6
+  m_RootOrder: 79
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4850394053274274
 Transform:
@@ -30600,7 +30652,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 60
+  m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4851295619850618
 Transform:
@@ -30704,7 +30756,7 @@ Transform:
   m_LocalScale: {x: 143.35051, y: 143.35051, z: 28.670103}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 13
+  m_RootOrder: 90
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4862795031368384
 Transform:
@@ -30925,7 +30977,7 @@ Transform:
   m_LocalScale: {x: 423.84842, y: 414.52112, z: 86.592865}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 90
+  m_RootOrder: 83
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4887938022791032
 Transform:
@@ -31146,7 +31198,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 23
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4904661545770278
 Transform:
@@ -31250,7 +31302,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 56
+  m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4907526120575722
 Transform:
@@ -31289,7 +31341,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 80
+  m_RootOrder: 62
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4907822823093390
 Transform:
@@ -31302,7 +31354,7 @@ Transform:
   m_LocalScale: {x: 393.7011, y: 393.70108, z: 78.74021}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 39
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4908264121533970
 Transform:
@@ -31381,6 +31433,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4299993107865932}
   m_RootOrder: 257
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4917227494496470
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1806169787275558}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.70710677, w: 0}
+  m_LocalPosition: {x: -155.00008, y: -6.6, z: 279}
+  m_LocalScale: {x: 393.7011, y: 393.7009, z: 78.74019}
+  m_Children: []
+  m_Father: {fileID: 4288979623957204}
+  m_RootOrder: 66
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4918245601596230
 Transform:
@@ -31666,7 +31731,7 @@ Transform:
   m_LocalScale: {x: 109.364075, y: 109.364075, z: 21.872812}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 16
+  m_RootOrder: 95
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4940074375408212
 Transform:
@@ -31692,7 +31757,7 @@ Transform:
   m_LocalScale: {x: 257.50275, y: 257.50278, z: 51.500553}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 15
+  m_RootOrder: 94
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4944745086273204
 Transform:
@@ -31757,7 +31822,7 @@ Transform:
   m_LocalScale: {x: 608.91095, y: 547.92365, z: 97.75362}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 97
+  m_RootOrder: 100
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4948634321985958
 Transform:
@@ -32237,7 +32302,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 55
+  m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4981348600205546
 Transform:
@@ -32289,7 +32354,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 53
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4982172918770790
 Transform:
@@ -32367,7 +32432,7 @@ Transform:
   m_LocalScale: {x: 277.88135, y: 277.88138, z: 55.57628}
   m_Children: []
   m_Father: {fileID: 4288979623957204}
-  m_RootOrder: 4
+  m_RootOrder: 84
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4988624277545170
 Transform:
@@ -65745,6 +65810,41 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!23 &23924188503752236
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1228898644937166}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!23 &23925435214108788
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -72220,6 +72320,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1934551767874196}
   m_Mesh: {fileID: 4301542, guid: 77667cb0c2c5e1448849174e3ed7a694, type: 3}
+--- !u!33 &33569111376073378
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1806169787275558}
+  m_Mesh: {fileID: 4300000, guid: 77667cb0c2c5e1448849174e3ed7a694, type: 3}
 --- !u!33 &33569185266172154
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -74187,6 +74294,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1882010895996454}
   m_Mesh: {fileID: 4300776, guid: 77667cb0c2c5e1448849174e3ed7a694, type: 3}
+--- !u!33 &33859781856846482
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1228898644937166}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &33859916046351294
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -75882,6 +75996,20 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300094, guid: 77667cb0c2c5e1448849174e3ed7a694, type: 3}
+--- !u!64 &64240613374298246
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1806169787275558}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 77667cb0c2c5e1448849174e3ed7a694, type: 3}
 --- !u!64 &64244009688694802
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -77980,6 +78108,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65054235443627022
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1228898644937166}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 42.24, y: 19.27, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65063641743038076
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -78693,6 +78833,17 @@ MonoBehaviour:
   explodable: 0
   explosionEffect: {fileID: 0}
   countdown: -15.264745
+--- !u!114 &114301008690112262
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1806169787275558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 529ec290c80be1842ae2927e40460c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114315188891448236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -78928,6 +79079,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d18f947b8098e6b4c99f0469008a296b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114768871203207692
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1228898644937166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ee4887758704639afaf38a160b031a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114822324409910306

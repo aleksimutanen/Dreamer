@@ -6,5 +6,6 @@ public class Teleport : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         GameManager.instance.TeleportToCheckPoint(gameObject.layer != LayerMask.NameToLayer("NightmareLayer"));
+        print("Osui");
     }
 }
