@@ -147,7 +147,7 @@ public class GameManager : MonoBehaviour {
             print("Life lost");
             buddyPower = 0;
             toddlerHealth = 100;
-            TeleportToCheckPoint(false);
+            TeleportToCheckPoint(false,Vector3.zero);
             ChangeStatusText(tutorialTexts[11], 3);
             //ChangeDreamPower(-(dreamPower-dreamPowMem));       
         } else {
@@ -157,9 +157,13 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void TeleportToCheckPoint(bool flipDir) {
+    public void TeleportToCheckPoint(bool flipDir, Vector3 alternate) {
+
         player.SetActive(false);
+        if(alternate != Vector3.zero)
+            checkpoint = alternate;
         player.transform.position = checkpoint;
+
         if(flipDir) {
             player.transform.rotation = Quaternion.Euler(checkRotation.eulerAngles.x, checkRotation.eulerAngles.y + 180, checkRotation.eulerAngles.z);
         } else {
