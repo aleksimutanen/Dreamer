@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour {
     public Bat sleepingBat;
     public Transform flyArea;
 
-    public List<Transform> doors = new List<Transform>(6);
+    public List<GameObject> doors = new List<GameObject>(3);
 
     float maxToddlerHealth = 100;
     float maxBuddyPower = 100;
@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour {
 
         if (openDoor) { 
             print("door open");
-            MoveDoor(doors[nextDoor], doors[nextDoor+1]);
+            MoveDoor(doors[nextDoor]);
         }
 
     }
@@ -205,16 +205,13 @@ public class GameManager : MonoBehaviour {
         statusTextTimer = timer;
     }
 
-    void MoveDoor (Transform door, Transform doorEndPos) {
-        print(door.GetComponent<Renderer>().bounds.center.z);
-        print(doorEndPos.position.z + " endpos");
-        if (door.GetComponent<Renderer>().bounds.center.z <= doorEndPos.position.z) {
+    void MoveDoor (GameObject door) {
+        if (door.activeSelf) {
+            door.SetActive(false);
             openDoor = false;
-            print("door stopped");
-            nextDoor += 2;
+            nextDoor++;
             doorOpen += 10;
             return;
         }
-        door.Translate(-door.forward * Time.deltaTime *2);
     }
 }
