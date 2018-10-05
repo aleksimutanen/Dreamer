@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Teleport : MonoBehaviour {
-    public Transform alternate;
+    public bool previous;
     private void OnTriggerEnter(Collider other) {
-        GameManager.instance.TeleportToCheckPoint(gameObject.layer != LayerMask.NameToLayer("NightmareLayer"),alternate.position);
+        GameManager.instance.TeleportToCheckPoint(gameObject.layer != LayerMask.NameToLayer("NightmareLayer")||previous, previous);
     }
 }
