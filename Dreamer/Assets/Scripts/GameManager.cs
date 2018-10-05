@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour {
     public Transform gameStartPoint;
     public Vector3 checkpoint;
     public Quaternion checkRotation;
+    public Vector3 previousCheckpoint;
+    public Quaternion previousCheckRotation;
     public GameObject player;
     public GameObject vertRot;
     public GameObject horRot;
@@ -48,21 +50,21 @@ public class GameManager : MonoBehaviour {
     public Bat sleepingBat;
     public Transform flyArea;
 
-    public List<Transform> doors = new List<Transform>(6);
+    public List<GameObject> doors = new List<GameObject>(3);
 
     float maxToddlerHealth = 100;
     float maxBuddyPower = 100;
-    float maxDreamPower = 100;
+    int maxCrystalAmount = 10;
 
     //float toddlerChargeSpeed = 1;
     float toddlerHealth = 100;
     float buddyChargeSpeed = 1;
     public float buddyPower = 0;
-    public float crystalAmount = 0;
+    public int crystalAmount = 0;
     float dreamPowMem;
 
     int nextDoor = 0;
-    float doorOpen = 10;
+    int doorOpen = 10;
     bool openDoor;
 
     //public int crystalAmount = 0;
@@ -103,7 +105,7 @@ public class GameManager : MonoBehaviour {
 
         if (openDoor) { 
             print("door open");
-            MoveDoor(doors[nextDoor], doors[nextDoor+1]);
+            MoveDoor(doors[nextDoor]);
         }
 
     }
@@ -135,9 +137,10 @@ public class GameManager : MonoBehaviour {
         ChangeStatusText(tutorialTexts[0], 3);
     }
 
-    public void SetCheckpoint(){    
+    public void SetCheckpoint(){
+        previousCheckpoint = checkpoint;
+        previousCheckRotation = checkRotation;
         checkpoint = player.transform.position;
-        //dreamPowMem = dreamPower;
         checkRotation = player.transform.rotation;
     }
 
@@ -147,7 +150,7 @@ public class GameManager : MonoBehaviour {
             print("Life lost");
             buddyPower = 0;
             toddlerHealth = 100;
-            TeleportToCheckPoint(false);
+            TeleportToCheckPoint(false, false);
             ChangeStatusText(tutorialTexts[11], 3);
             //ChangeDreamPower(-(dreamPower-dreamPowMem));       
         } else {
@@ -157,13 +160,23 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void TeleportToCheckPoint(bool flipDir) {
+    public void TeleportToCheckPoint(bool flipDir, bool previous) {
+
         player.SetActive(false);
-        player.transform.position = checkpoint;
-        if(flipDir) {
-            player.transform.rotation = Quaternion.Euler(checkRotation.eulerAngles.x, checkRotation.eulerAngles.y + 180, checkRotation.eulerAngles.z);
+        if(previous){
+            player.transform.position = previousCheckpoint;
+            if(flipDir) {
+                player.transform.rotation = Quaternion.Euler(checkRotation.eulerAngles.x, checkRotation.eulerAngles.y + 180, checkRotation.eulerAngles.z);
+            } else {
+                player.transform.rotation = checkRotation;
+            }
         } else {
-            player.transform.rotation = checkRotation;
+            player.transform.position = checkpoint;
+            if(flipDir) {
+                player.transform.rotation = Quaternion.Euler(checkRotation.eulerAngles.x, checkRotation.eulerAngles.y + 180, checkRotation.eulerAngles.z);
+            } else {
+                player.transform.rotation = checkRotation;
+            }
         }
         player.SetActive(true);
         vertRot.GetComponent<VerticalRotator>().ResetRotation();
@@ -171,11 +184,11 @@ public class GameManager : MonoBehaviour {
     }
 
     // When crystal is collected
-    public void ChangeDreamPower(float amount) {
+    public void ChangeDreamPower(int amount) {
 
         crystalAmount += amount;
-        crystalAmount = Mathf.Clamp(crystalAmount, 0, maxDreamPower);
-        dreamPowerFill.value = crystalAmount / maxDreamPower;
+        crystalAmount = Mathf.Clamp(crystalAmount, 0, maxCrystalAmount);
+        dreamPowerFill.value = crystalAmount / maxCrystalAmount;
     }
 
 
@@ -205,16 +218,13 @@ public class GameManager : MonoBehaviour {
         statusTextTimer = timer;
     }
 
-    void MoveDoor (Transform door, Transform doorEndPos) {
-        print(door.GetComponent<Renderer>().bounds.center.z);
-        print(doorEndPos.position.z + " endpos");
-        if (door.GetComponent<Renderer>().bounds.center.z <= doorEndPos.position.z) {
+    void MoveDoor (GameObject door) {
+        if (door.activeSelf) {
+            door.SetActive(false);
             openDoor = false;
-            print("door stopped");
-            nextDoor += 2;
+            nextDoor++;
             doorOpen += 10;
             return;
         }
-        door.Translate(-door.forward * Time.deltaTime *2);
     }
 }
