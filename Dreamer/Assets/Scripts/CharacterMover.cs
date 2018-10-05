@@ -106,7 +106,7 @@ public class CharacterMover : MonoBehaviour {
         RaycastHit hit;
         for (int i = 0; i < directions.Length; i++) {
             Vector3 worldDir = transform.rotation * directions[i].normalized;
-            Debug.DrawLine(rb.position + untanglerHeight, rb.position + new Vector3(0, 2, 0) + worldDir * maxDistance);
+            Debug.DrawLine(rb.position + untanglerHeight, rb.position + untanglerHeight + worldDir * maxDistance);
             if (Physics.Raycast(rb.position + untanglerHeight, worldDir, out hit, maxDistance, WorldSwitch.instance.map)) {
                 //print(directions[i]);
                 if (Vector3.Angle(b, worldDir) < 90) {

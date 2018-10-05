@@ -6797,7 +6797,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!65 &65122249913036978
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -6933,6 +6933,7 @@ MonoBehaviour:
   ammoFolder: {fileID: 0}
   glideTimer: 2
   maxGlideTimer: 2
+  bashing: 0
   shieldHit: 0
   activeTime: 0.2
   shieldActive: 0
@@ -6979,8 +6980,9 @@ MonoBehaviour:
   anim: {fileID: 95416911476467534}
   jump: {x: 0, y: 2, z: 0}
   bash: {x: 0, y: 0, z: 2}
+  untanglerHeight: {x: 0, y: 0.35, z: 0}
   jumpForce: 8
-  bashForce: 150
+  bashForce: 50
   movingSpeed: 15
   turnSpeed: 200
   inputAcceleration: 0
@@ -6988,14 +6990,30 @@ MonoBehaviour:
   groundCheckSize: 0.5
   groundCheckDepth2: 0.06
   groundCheckSize2: 0.24
-  fallingDeathThreshold: 40
+  fallingDeathThreshold: 30
   gravity: 30
   normalGravity: 10
   maxFallSpeed: 20
   onGround: 0
   canJump: 0
-  directions: []
-  maxDistance: 0
+  directions:
+  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: -1}
+  - {x: 1, y: 0, z: 0}
+  - {x: -1, y: 0, z: 0}
+  - {x: 1, y: 0, z: 1}
+  - {x: 1, y: 0, z: -1}
+  - {x: -1, y: 0, z: -1}
+  - {x: -1, y: 0, z: 1}
+  - {x: 0.5, y: 0, z: 1}
+  - {x: 1, y: 0, z: 0.5}
+  - {x: 1, y: 0, z: -0.5}
+  - {x: 0.5, y: 0, z: -1}
+  - {x: -0.5, y: 0, z: -1}
+  - {x: -1, y: 0, z: -0.5}
+  - {x: -1, y: 0, z: 0.5}
+  - {x: -0.5, y: 0, z: 1}
+  maxDistance: 1
   rcHit: 0
 --- !u!135 &135400738465344276
 SphereCollider:
