@@ -54,9 +54,15 @@ public class TutorialTrigger : MonoBehaviour {
             if(gameObject.name == "CheckpointFirstTree" && GameManager.instance.crystalAmount < 10) {
                 GameManager.instance.ChangeStatusText(GameManager.instance.tutorialTexts[12], 5);
                 GameManager.instance.SetCheckpoint();
-                GameManager.instance.sleepingBat.sleeping = false;
+
                 GameManager.instance.shieldEnabled = true;
                 GameManager.instance.firingEnabled = true;
+                gameObject.SetActive(false);
+            }
+            if(gameObject.name == "CheckpointFirstBat" && GameManager.instance.crystalAmount < 10) {
+                GameManager.instance.ChangeStatusText(GameManager.instance.tutorialTexts[13], 5);
+                GameManager.instance.SetCheckpoint();
+                GameManager.instance.sleepingBat.sleeping = false;
                 gameObject.SetActive(false);
             }
         }

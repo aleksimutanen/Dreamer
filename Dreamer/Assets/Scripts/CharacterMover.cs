@@ -11,6 +11,7 @@ public class CharacterMover : MonoBehaviour {
     public Animator anim;
     public Vector3 jump;
     public Vector3 bash;
+    public Vector3 untanglerHeight;
     public float jumpForce;
     public float bashForce;
     public float movingSpeed;
@@ -65,14 +66,7 @@ public class CharacterMover : MonoBehaviour {
             var flatVelocity = input * movingSpeed;
             b.x = flatVelocity.x; b.z = flatVelocity.z;
 
-            // If there is movement input, start to rotate camera towards players forward direction
-            if (horiz > .2f || vert > .2f || horiz < -.2f || vert < -.2f) {
-                GameManager.instance.toddlerMoving = true;
-                //anim.Play("Walk");
-                rb.rotation = Quaternion.RotateTowards(rb.rotation, horizontalRotator.rotation, turnSpeed * Time.deltaTime);
-            } else {
-                GameManager.instance.toddlerMoving = false;
-            }
+ 
 
             // Ground check and gravity
             var furtherSphere = Physics.OverlapSphere(transform.position - Vector3.up * groundCheckDepth2, groundCheckSize2, WorldSwitch.instance.map);
@@ -92,6 +86,16 @@ public class CharacterMover : MonoBehaviour {
                 cs.glideTimer = cs.maxGlideTimer;
                 fallPoint = rb.position;
             }
+            // If there is movement input, start to rotate camera towards players forward direction
+            if(horiz > .2f || vert > .2f || horiz < -.2f || vert < -.2f) {
+                GameManager.instance.toddlerMoving = true;
+                if(onGround)
+                    anim.Play("Walk");
+                rb.rotation = Quaternion.RotateTowards(rb.rotation, horizontalRotator.rotation, turnSpeed * Time.deltaTime);
+            } else {
+                GameManager.instance.toddlerMoving = false;
+            }
+
         }
 
         if (hasToJump) {
@@ -102,14 +106,13 @@ public class CharacterMover : MonoBehaviour {
         RaycastHit hit;
         for (int i = 0; i < directions.Length; i++) {
             Vector3 worldDir = transform.rotation * directions[i].normalized;
-            Debug.DrawLine(rb.position + new Vector3(0, 2, 0), rb.position + new Vector3(0, 2, 0) + worldDir * maxDistance);
-            if (Physics.Raycast(rb.position + new Vector3(0, 2, 0), worldDir, out hit, maxDistance, WorldSwitch.instance.map)) {
+            Debug.DrawLine(rb.position + untanglerHeight, rb.position + untanglerHeight + worldDir * maxDistance);
+            if (Physics.Raycast(rb.position + untanglerHeight, worldDir, out hit, maxDistance, WorldSwitch.instance.map)) {
                 //print(directions[i]);
                 if (Vector3.Angle(b, worldDir) < 90) {
                     //print("less than 90");
                     Vector3 proj = Vector3.Project(b, worldDir);
                     b -= proj;
-                    rb.AddForce(-worldDir * 500f * Time.deltaTime);
                     //Quaternion mult = new Quaternion(0, 1f, 0, 0);
                     ////rb.rotation = Quaternion.RotateTowards(rb.rotation, rb.rotation * mult, turnSpeed * Time.deltaTime);
                     ////rb.rotation *= mult;
@@ -154,7 +157,7 @@ public class CharacterMover : MonoBehaviour {
     void Jump() {
         rb.AddForce(jump * jumpForce, ForceMode.Impulse);
         Fabric.EventManager.Instance.PostEvent("Jump");
-        //anim.Play("Jump");
+        anim.Play("Jump");
     }
 
     public void Bash() {

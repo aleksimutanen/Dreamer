@@ -31,9 +31,12 @@ public class TreeManager : MonoBehaviour, Enemy {
     public bool blockable = true;
 
     bool transitionIn;
+    public float animationTimer = 0;
+    bool attacked = true;
 
     void Start() {
         cs = FindObjectOfType<CharacterSkills>();
+        //AddEvent(0, 0.6f, "Attack", 0);
     }
 
     void Update() {
@@ -52,7 +55,13 @@ public class TreeManager : MonoBehaviour, Enemy {
             trees[1].SetActive(true);
             trees[0].SetActive(false);
         }
-        
+
+        animationTimer -= Time.deltaTime;
+        if (animationTimer <= 0 && !attacked) {
+            Attack();
+            attacked = true;
+        }
+
     }
 
     void FixedUpdate() {
@@ -69,7 +78,9 @@ public class TreeManager : MonoBehaviour, Enemy {
             if(colliders1.Length > 0) {
                 anim.Play("AttackLeft");
                 blockable = true;
-                Attack();
+                attacked = false;
+                animationTimer = 0.6f;
+                lastAttack = Time.time;
             }
             else if(colliders2.Length > 0) {
 
@@ -77,20 +88,28 @@ public class TreeManager : MonoBehaviour, Enemy {
                 if (juttu < .2f) {
                     anim.Play("Indicator");
                     blockable = false;
+                    animationTimer = 0.6f;
+                    lastAttack = Time.time;
                 }
                 else if (juttu < .6) {
                     anim.Play("AttackMiddle2");
                     blockable = true;
+                    animationTimer = 0.6f;
+                    lastAttack = Time.time;
                 } else {
                     anim.Play("AttackMiddle1");
                     blockable = true;
+                    animationTimer = 0.6f;
+                    lastAttack = Time.time;
                 }
-                Attack();
+                attacked = false;
             }
             else if(colliders3.Length > 0) {
                 anim.Play("AttackRight");
                 blockable = true;
-                Attack();
+                attacked = false;
+                animationTimer = 0.6f;
+                lastAttack = Time.time;
             } else {
                 playerCanHit = false;
             }
@@ -110,21 +129,16 @@ public class TreeManager : MonoBehaviour, Enemy {
 
     public void Attack() {
         playerCanHit = true;
-        if (Time.time > attackInterval + lastAttack) {
-
-            var shieldActive = cs.Shield();
-            //TODO: jos oksa osuu
-            if (shieldActive && blockable) {
-                GameManager.instance.ChangeBuddyPower(pwrToShield);
-                lastAttack = Time.time;
-                print("not");
-                return;
-            }
-            else {
-                GameManager.instance.ChangeToddlerHealth(dmgToPlayer);
-                print("attacking");
-                lastAttack = Time.time;
-            }
+        var shieldActive = cs.Shield();
+        //TODO: jos oksa osuu
+        if (shieldActive && blockable) {
+            GameManager.instance.ChangeBuddyPower(pwrToShield);
+            print("not");
+            return;
+        }
+        else {
+            GameManager.instance.ChangeToddlerHealth(dmgToPlayer);
+            print("attacking");
         }
     }
 
@@ -153,5 +167,16 @@ public class TreeManager : MonoBehaviour, Enemy {
             trees[0].SetActive(false);
         }
     }
+
+    //void AddEvent(int Clip, float time, string functionName, float floatParameter) {
+    //    AnimationEvent animationEvent = new AnimationEvent
+    //    {
+    //        functionName = functionName,
+    //        floatParameter = floatParameter,
+    //        time = time
+    //    };
+    //    AnimationClip clip = anim.runtimeAnimatorController.animationClips[Clip];
+    //    clip.AddEvent(animationEvent);
+    //}
 
 }

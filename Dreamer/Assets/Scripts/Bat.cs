@@ -102,7 +102,6 @@ public class Bat : MonoBehaviour, Enemy {
             else if (rb.position != startPos && returnTime > 0) {
                 batMode = BatMode.Returning;
                 i = Random.Range(0f, 1f);
-                print(i);
                 if (prevMode == BatMode.Attacking) {
                     returnTime = returnTimeValue;
                 }
@@ -255,7 +254,7 @@ public class Bat : MonoBehaviour, Enemy {
         } else if (collision.gameObject.name == "Ammo(Clone)") {
             var ammo = collision.GetComponent<EnergyAmmo>();
             TakeDamage(ammo.ammoDamage);
-            //KickBack(ammo.dir, ammo.pushForce);
+            KickBack(ammo.dir, 500);
             ammo.gameObject.SetActive(false);
             print("ammo hit");
         } else if (collision.gameObject.layer == 13) {
