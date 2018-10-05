@@ -54,17 +54,17 @@ public class GameManager : MonoBehaviour {
 
     float maxToddlerHealth = 100;
     float maxBuddyPower = 100;
-    float maxDreamPower = 100;
+    int maxCrystalAmount = 10;
 
     //float toddlerChargeSpeed = 1;
     float toddlerHealth = 100;
     float buddyChargeSpeed = 1;
     public float buddyPower = 0;
-    public float crystalAmount = 0;
+    public int crystalAmount = 0;
     float dreamPowMem;
 
     int nextDoor = 0;
-    float doorOpen = 10;
+    int doorOpen = 10;
     bool openDoor;
 
     //public int crystalAmount = 0;
@@ -138,7 +138,6 @@ public class GameManager : MonoBehaviour {
     }
 
     public void SetCheckpoint(){
-
         previousCheckpoint = checkpoint;
         previousCheckRotation = checkRotation;
         checkpoint = player.transform.position;
@@ -185,11 +184,11 @@ public class GameManager : MonoBehaviour {
     }
 
     // When crystal is collected
-    public void ChangeDreamPower(float amount) {
+    public void ChangeDreamPower(int amount) {
 
         crystalAmount += amount;
-        crystalAmount = Mathf.Clamp(crystalAmount, 0, maxDreamPower);
-        dreamPowerFill.value = crystalAmount / maxDreamPower;
+        crystalAmount = Mathf.Clamp(crystalAmount, 0, maxCrystalAmount);
+        dreamPowerFill.value = crystalAmount / maxCrystalAmount;
     }
 
 
