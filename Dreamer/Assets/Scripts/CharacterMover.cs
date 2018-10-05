@@ -68,7 +68,7 @@ public class CharacterMover : MonoBehaviour {
             // If there is movement input, start to rotate camera towards players forward direction
             if (horiz > .2f || vert > .2f || horiz < -.2f || vert < -.2f) {
                 GameManager.instance.toddlerMoving = true;
-                anim.Play("Walk");
+                //anim.Play("Walk");
                 rb.rotation = Quaternion.RotateTowards(rb.rotation, horizontalRotator.rotation, turnSpeed * Time.deltaTime);
             } else {
                 GameManager.instance.toddlerMoving = false;
@@ -109,6 +109,7 @@ public class CharacterMover : MonoBehaviour {
                     //print("less than 90");
                     Vector3 proj = Vector3.Project(b, worldDir);
                     b -= proj;
+                    rb.AddForce(-worldDir * 500f * Time.deltaTime);
                     //Quaternion mult = new Quaternion(0, 1f, 0, 0);
                     ////rb.rotation = Quaternion.RotateTowards(rb.rotation, rb.rotation * mult, turnSpeed * Time.deltaTime);
                     ////rb.rotation *= mult;
@@ -153,7 +154,7 @@ public class CharacterMover : MonoBehaviour {
     void Jump() {
         rb.AddForce(jump * jumpForce, ForceMode.Impulse);
         Fabric.EventManager.Instance.PostEvent("Jump");
-        anim.Play("Jump");
+        //anim.Play("Jump");
     }
 
     public void Bash() {
