@@ -113,6 +113,8 @@ public class CharacterMover : MonoBehaviour {
                     //print("less than 90");
                     Vector3 proj = Vector3.Project(b, worldDir);
                     b -= proj;
+                    b += -worldDir * 50f  * Time.deltaTime;
+                    //rb.position += -worldDir * Time.deltaTime;
                     //Quaternion mult = new Quaternion(0, 1f, 0, 0);
                     ////rb.rotation = Quaternion.RotateTowards(rb.rotation, rb.rotation * mult, turnSpeed * Time.deltaTime);
                     ////rb.rotation *= mult;
@@ -168,7 +170,6 @@ public class CharacterMover : MonoBehaviour {
             cs.bashCollider.SetActive(false);
             cs.activeTime = 0.5f;
         }
-
         rb.position += transform.forward * bashForce * Time.deltaTime;
     }
 
