@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028611, g: 0.2257162, b: 0.3069237, a: 1}
+  m_IndirectSpecularColor: {r: 0.1802859, g: 0.22571573, b: 0.30692336, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -20829,6 +20829,14 @@ Prefab:
     - target: {fileID: 1036428939483760, guid: e88fe61fff61f4bd9b5d972f163da51c, type: 2}
       propertyPath: m_Name
       value: MountainFinal2.0 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256953106839950, guid: e88fe61fff61f4bd9b5d972f163da51c, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1968734646901232, guid: e88fe61fff61f4bd9b5d972f163da51c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e88fe61fff61f4bd9b5d972f163da51c, type: 2}
