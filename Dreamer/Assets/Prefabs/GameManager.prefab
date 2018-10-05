@@ -74,22 +74,18 @@ MonoBehaviour:
   toddlerMoving: 0
   lookEnabled: 1
   walkEnabled: 1
-  jumpEnabled: 1
-  switchEnabled: 1
+  jumpEnabled: 0
+  switchEnabled: 0
   bashEnabled: 0
   glideEnabled: 0
   shieldEnabled: 0
   firingEnabled: 0
   powerBallEnabled: 0
   reflectionEnabled: 0
-  lives: 3
   prevPlayerPos: {x: 0, y: 0, z: 0}
   sleepingBat: {fileID: 0}
   flyArea: {fileID: 0}
   doors:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
