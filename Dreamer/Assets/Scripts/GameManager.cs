@@ -44,7 +44,10 @@ public class GameManager : MonoBehaviour {
     public bool powerBallEnabled = false;
     public bool reflectionEnabled = false;
     
-    float lives = 3;
+    float lives = 1;
+    public bool gameOver = false;
+    public float waitTimer = 1;
+    public float waitTime = 1;
     public Vector3 prevPlayerPos;
 
     public Bat sleepingBat;
@@ -78,9 +81,15 @@ public class GameManager : MonoBehaviour {
     
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
+            Time.timeScale = 1;
             SceneManager.LoadScene(0);
         }
-        
+
+        if (Input.anyKeyDown && gameOver && waitTimer < 0){
+            Time.timeScale = 1;
+            SceneManager.LoadScene(0);
+        }
+
         // Buddypower charging while idling
         /*if (prevPlayerPos == player.transform.position){
             ChangeBuddyPower(buddyChargeSpeed * Time.deltaTime);
@@ -107,7 +116,7 @@ public class GameManager : MonoBehaviour {
             print("door open");
             MoveDoor(doors[nextDoor]);
         }
-
+        waitTimer -= Time.unscaledDeltaTime;
     }
 
     private void Awake() {
@@ -145,7 +154,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void ALiveLost(){
-        if(lives > 0){
+        if(lives > 1){
             lives --;
             print("Life lost");
             buddyPower = 0;
@@ -153,10 +162,12 @@ public class GameManager : MonoBehaviour {
             TeleportToCheckPoint(false, false);
             ChangeStatusText(tutorialTexts[11], 3);
             //ChangeDreamPower(-(dreamPower-dreamPowMem));       
-        } else {
+        } else if(!gameOver){
             ChangeStatusText(tutorialTexts[14], 3);
             print("Game Over");
-            SceneManager.LoadScene(0);
+            gameOver = true;
+            Time.timeScale = 0;
+            waitTimer = waitTime;
         }
     }
 
@@ -208,6 +219,7 @@ public class GameManager : MonoBehaviour {
         toddlerHealth = Mathf.Clamp(toddlerHealth, 0, maxToddlerHealth);
         toddlerHealthFill.value = toddlerHealth / maxToddlerHealth;
         if (toddlerHealth <= 0) {
+            if(!gameOver)
             ALiveLost();
         }
     }
