@@ -939,7 +939,22 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 20293035270695866, guid: 6505da2c745f4b646b6ff8d438e68863,
     type: 2}
   m_PrefabInternal: {fileID: 801179191}
---- !u!1001 &805601244
+--- !u!4 &805601245 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4228851141310346, guid: f2cf53bc3e1534f60b40386f3ae3f600,
+    type: 2}
+  m_PrefabInternal: {fileID: 907818715}
+--- !u!4 &805601249 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4999527655869482, guid: f2cf53bc3e1534f60b40386f3ae3f600,
+    type: 2}
+  m_PrefabInternal: {fileID: 907818715}
+--- !u!1 &805601250 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1189541906143060, guid: f2cf53bc3e1534f60b40386f3ae3f600,
+    type: 2}
+  m_PrefabInternal: {fileID: 907818715}
+--- !u!1001 &907818715
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -978,46 +993,31 @@ Prefab:
       propertyPath: m_RootOrder
       value: 15
       objectReference: {fileID: 0}
-    - target: {fileID: 136916260589889620, guid: f2cf53bc3e1534f60b40386f3ae3f600,
+    - target: {fileID: 114040145923386644, guid: f2cf53bc3e1534f60b40386f3ae3f600,
         type: 2}
-      propertyPath: m_Material
+      propertyPath: ammoFolder
       value: 
-      objectReference: {fileID: 13400000, guid: 30394abf414c7074384caa0414d154b3,
+      objectReference: {fileID: 1931288519}
+    - target: {fileID: 114727476533899212, guid: f2cf53bc3e1534f60b40386f3ae3f600,
         type: 2}
+      propertyPath: horizontalRotator
+      value: 
+      objectReference: {fileID: 178171347}
     - target: {fileID: 136549395679420864, guid: f2cf53bc3e1534f60b40386f3ae3f600,
         type: 2}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: 30394abf414c7074384caa0414d154b3,
         type: 2}
-    - target: {fileID: 114727476533899212, guid: f2cf53bc3e1534f60b40386f3ae3f600,
+    - target: {fileID: 136916260589889620, guid: f2cf53bc3e1534f60b40386f3ae3f600,
         type: 2}
-      propertyPath: horizontalRotator
+      propertyPath: m_Material
       value: 
-      objectReference: {fileID: 178171347}
-    - target: {fileID: 114040145923386644, guid: f2cf53bc3e1534f60b40386f3ae3f600,
+      objectReference: {fileID: 13400000, guid: 30394abf414c7074384caa0414d154b3,
         type: 2}
-      propertyPath: ammoFolder
-      value: 
-      objectReference: {fileID: 1931288519}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2cf53bc3e1534f60b40386f3ae3f600, type: 2}
   m_IsPrefabAsset: 0
---- !u!4 &805601245 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4228851141310346, guid: f2cf53bc3e1534f60b40386f3ae3f600,
-    type: 2}
-  m_PrefabInternal: {fileID: 805601244}
---- !u!4 &805601249 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4999527655869482, guid: f2cf53bc3e1534f60b40386f3ae3f600,
-    type: 2}
-  m_PrefabInternal: {fileID: 805601244}
---- !u!1 &805601250 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1189541906143060, guid: f2cf53bc3e1534f60b40386f3ae3f600,
-    type: 2}
-  m_PrefabInternal: {fileID: 805601244}
 --- !u!1001 &950858880
 Prefab:
   m_ObjectHideFlags: 0
