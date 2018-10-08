@@ -75,13 +75,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4288112046583524}
   - component: {fileID: 114365527900105006}
-  m_Layer: 15
+  m_Layer: 24
   m_Name: NightmarePP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1292744111378068
 GameObject:
   m_ObjectHideFlags: 1
@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4423126077319682}
   - component: {fileID: 114172138819373982}
-  m_Layer: 16
+  m_Layer: 23
   m_Name: DreamPP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,7 +399,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 112439
+    m_Bits: 16824119
   m_RenderingPath: 1
   m_TargetTexture: {fileID: 8400000, guid: f9e21a8294db14e46a360847c4b1b147, type: 2}
   m_TargetDisplay: 0
@@ -439,7 +439,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 12087
+    m_Bits: 8400695
   m_RenderingPath: 1
   m_TargetTexture: {fileID: 8400000, guid: c6f00c87549e7da4da89f0574779ae95, type: 2}
   m_TargetDisplay: 0
@@ -583,7 +583,7 @@ MonoBehaviour:
   volumeTrigger: {fileID: 4824119347574382}
   volumeLayer:
     serializedVersion: 2
-    m_Bits: 65792
+    m_Bits: 8388864
   stopNaNPropagation: 1
   antialiasingMode: 0
   temporalAntialiasing:
@@ -657,7 +657,7 @@ MonoBehaviour:
   volumeTrigger: {fileID: 4507106452174626}
   volumeLayer:
     serializedVersion: 2
-    m_Bits: 33024
+    m_Bits: 16777472
   stopNaNPropagation: 1
   antialiasingMode: 0
   temporalAntialiasing:
@@ -768,7 +768,7 @@ MonoBehaviour:
   volumeTrigger: {fileID: 4492870587623218}
   volumeLayer:
     serializedVersion: 2
-    m_Bits: 65792
+    m_Bits: 256
   stopNaNPropagation: 1
   antialiasingMode: 0
   temporalAntialiasing:

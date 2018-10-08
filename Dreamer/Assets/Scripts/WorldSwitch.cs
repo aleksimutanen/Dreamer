@@ -83,23 +83,24 @@ public class WorldSwitch : MonoBehaviour {
         }
         if (state == AwakeState.Dream) {
             if (transitionOut || transitionIn) {
-                Switch(fadeSpeed, -transitionSpeed, drFaderImage, nmFaderImage, drCam, nmCam, 
+                Switch(fadeSpeed, -transitionSpeed, drFaderImage, nmFaderImage, drCam, nmCam, dreamLight, nightmareLight, 1f, 2f,
                 cm.EnterNightmare, nightmareSolid, AwakeState.Nightmare, dreamSbMaterial, nightmareSbMaterial, dreamAmbientColor, nightmareAmbientColor);
             }
             //Fabric.EventManager.Instance.PostEvent("Jump");
         }
         if (state == AwakeState.Nightmare) {
             if (transitionOut || transitionIn) {
-                Switch(fadeSpeed, transitionSpeed, nmFaderImage, drFaderImage, nmCam, drCam, 
+                Switch(fadeSpeed, transitionSpeed, nmFaderImage, drFaderImage, nmCam, drCam, nightmareLight, dreamLight, 2f, 1f,
                 cm.EnterDream, dreamSolid, AwakeState.Dream, nightmareSbMaterial, dreamSbMaterial, nightmareAmbientColor, dreamAmbientColor);
             }
         }
     }
 
-    public void Switch(float fadeSpeed, float fadingSpeed, RawImage currentImage, RawImage newImage, Camera currentCam, Camera newCam,
-    UnityAction afterTransition, LayerMask newSolid, AwakeState newState, Material currentSbMaterial, Material newSbMaterial, Color currentAmbientColor, Color newAmbientColor) {
+    public void Switch(float fadeSpeed, float fadingSpeed, RawImage currentImage, RawImage newImage, Camera currentCam, Camera newCam, Light currentLight, Light newLight, float currentLightFade,
+    float newLightFade, UnityAction afterTransition, LayerMask newSolid, AwakeState newState, Material currentSbMaterial, Material newSbMaterial, Color currentAmbientColor, Color newAmbientColor) {
 
         if (b != newImage.color || c != currentImage.color) {
+            newLight.gameObject.SetActive(true);
             newCam.gameObject.SetActive(true);
             b = newImage.color;
             d = b.a;
@@ -116,6 +117,8 @@ public class WorldSwitch : MonoBehaviour {
             b.a = Mathf.Clamp01(d);
             currentImage.color = c;
             newImage.color = b;
+            currentLight.intensity -= currentLightFade * Time.deltaTime;
+            newLight.intensity += newLightFade * Time.deltaTime;
             foreach (Camera cam in cameras) {
                 cam.fieldOfView += fadingSpeed * Time.deltaTime;
             }
@@ -123,6 +126,7 @@ public class WorldSwitch : MonoBehaviour {
         if (a < 0 || a > 1) {
             DynamicGI.UpdateEnvironment();
             blendTime = 0f;
+            currentLight.gameObject.SetActive(false);
             transitionOut = false;
             transitionIn = true;
             map = newSolid;
