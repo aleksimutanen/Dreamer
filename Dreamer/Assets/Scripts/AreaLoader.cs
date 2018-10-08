@@ -3,22 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AreaLoader : MonoBehaviour {
-    public GameObject enableThese;
-    public GameObject disableThese;
+    public List<GameObject> enableThese = new List<GameObject>();
+    public List<GameObject> disableThese = new List<GameObject>();
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player") {
-            print("moi");
-            enableThese.gameObject.SetActive(true);
-            //SetChildrenActive(true);
-            //tag? layer won't work
-        }
-    }
+            if (enableThese.Count > 0) {
+                foreach (GameObject obj in enableThese) {
+                    obj.SetActive(true);
+                }
 
-    private void OnTriggerExit(Collider other) {
-        if (other.gameObject.tag == "Player") {
-            print("heihei");
-            disableThese.gameObject.SetActive(false);
+            }
+            if (disableThese.Count > 0) {
+                foreach (GameObject obj in disableThese) {
+                    obj.SetActive(false);
+                }
+                //SetChildrenActive(true);
+                //tag? layer won't work
+            }
         }
     }
 }
