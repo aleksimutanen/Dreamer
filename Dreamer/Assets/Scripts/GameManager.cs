@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour {
     public bool powerBallEnabled = false;
     public bool reflectionEnabled = false;
     
-    float lives = 1;
+    float lives = 100;
     public bool gameOver = false;
     public float waitTimer = 1;
     public float waitTime = 1;
