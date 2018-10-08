@@ -78,8 +78,10 @@ public class CharacterMover : MonoBehaviour {
                 b.y = Mathf.Max(b.y, -maxFallSpeed);
                 if ((fallPoint.y - rb.position.y) > fallingDeathThreshold) {
                     fallPoint = GameManager.instance.checkpoint;
-                    GameManager.instance.ALiveLost();
-                    print("die");
+                    if(!GameManager.instance.gameOver){
+                        GameManager.instance.ALiveLost();
+                        print("die");
+                    }
                 }
             } else if (rb.velocity.y < 0) {
                 b.y = 0f;
