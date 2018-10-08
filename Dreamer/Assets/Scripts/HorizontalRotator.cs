@@ -11,11 +11,14 @@ public class HorizontalRotator : MonoBehaviour {
     float yRot;
     public float horSens = 5; // Input sensitivity on the horzontal axis
 
-	void Update () {
-        transform.position = new Vector3 (player.position.x, player.position.y + cameraHeight, player.position.z); // Move this rotator object to player position
-        yRot = Input.GetAxis("CameraX") * horSens;
-        transform.rotation = Quaternion.AngleAxis(yRot, Vector3.up) * transform.rotation; // Change this objects rotation same as players
-	}
+    void Update() {
+        if (!WorldSwitch.instance.transitionIn && !WorldSwitch.instance.transitionOut) {
+            transform.position = new Vector3(player.position.x, player.position.y + cameraHeight, player.position.z); // Move this rotator object to player position
+            yRot = Input.GetAxis("CameraX") * horSens;
+            transform.rotation = Quaternion.AngleAxis(yRot, Vector3.up) * transform.rotation; // Change this objects rotation same as players
+        }
+    }
+
     public void ResetRotation(){
         transform.rotation = player.transform.rotation;
     }
