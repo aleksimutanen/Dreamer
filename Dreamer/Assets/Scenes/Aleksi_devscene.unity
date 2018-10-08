@@ -7532,6 +7532,8 @@ MonoBehaviour:
   gameStartPoint: {fileID: 1207575677}
   checkpoint: {x: 0, y: 0, z: 0}
   checkRotation: {x: 0, y: 0, z: 0, w: 0}
+  previousCheckpoint: {x: 0, y: 0, z: 0}
+  previousCheckRotation: {x: 0, y: 0, z: 0, w: 0}
   player: {fileID: 1886426694}
   vertRot: {fileID: 1806644146}
   horRot: {fileID: 2102721358}
@@ -7550,6 +7552,9 @@ MonoBehaviour:
   firingEnabled: 1
   powerBallEnabled: 1
   reflectionEnabled: 1
+  gameOver: 0
+  waitTimer: 1
+  waitTime: 1
   prevPlayerPos: {x: 0, y: 0, z: 0}
   sleepingBat: {fileID: 427527619}
   flyArea: {fileID: 1256104552}
@@ -7950,6 +7955,11 @@ Prefab:
       propertyPath: drFaderImage
       value: 
       objectReference: {fileID: 422193690}
+    - target: {fileID: 114346156464728672, guid: 532f122a5a60ad94abb6213287c64682,
+        type: 2}
+      propertyPath: transitionSpeed
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 532f122a5a60ad94abb6213287c64682, type: 2}
   m_IsPrefabAsset: 0
