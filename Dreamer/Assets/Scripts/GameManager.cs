@@ -143,6 +143,7 @@ public class GameManager : MonoBehaviour {
         tutorialTexts.Add("Kill tree with BunnyPowers, block hits to charge press (Left Shift) and releaseby pressing (b)");
         tutorialTexts.Add("That bat looks explosive! Maybe you can get rid of the roadblocking stones if you make it go boom!");
         tutorialTexts.Add("You Ded, PERMANENTLY LOL!");
+        tutorialTexts.Add("You REALLY should pick up the crystal!");
         ChangeStatusText(tutorialTexts[0], 3);
     }
 
