@@ -98,16 +98,16 @@ public class CharacterMover : MonoBehaviour {
                 GameManager.instance.toddlerMoving = false;
             }
 
+            if (hasToJump) {
+                Jump();
+                hasToJump = false;
+            }
+
         } else {
             b.x = 0f;
             b.z = 0f;
             if (!onGround)
                 b += gravity * Vector3.down * Time.deltaTime;
-        }
-
-        if (hasToJump) {
-            Jump();
-            hasToJump = false;
         }
 
         RaycastHit hit;
