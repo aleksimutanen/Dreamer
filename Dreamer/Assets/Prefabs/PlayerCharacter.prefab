@@ -233,7 +233,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1101462304279752
 GameObject:
   m_ObjectHideFlags: 1
@@ -1814,7 +1814,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1731040198903938
 GameObject:
   m_ObjectHideFlags: 1
@@ -3348,7 +3348,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4642798020668500}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4250430188561178
 Transform:
@@ -3458,7 +3458,7 @@ Transform:
   m_LocalScale: {x: 2.1927, y: 2.0261, z: 0.26703998}
   m_Children: []
   m_Father: {fileID: 4642798020668500}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4284972941043570
 Transform:
@@ -3486,7 +3486,7 @@ Transform:
   m_LocalScale: {x: 2.1927, y: 2.0261, z: 0.26704}
   m_Children: []
   m_Father: {fileID: 4642798020668500}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4291508816103064
 Transform:
@@ -3907,7 +3907,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4642798020668500}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4520646587602256
 Transform:
@@ -4182,7 +4182,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4999527655869482}
   - {fileID: 4289038859987544}
   - {fileID: 4859575266863330}
   - {fileID: 4649445156719436}
@@ -4231,7 +4230,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4642798020668500}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4658270826261266
 Transform:
@@ -4491,7 +4490,8 @@ Transform:
     w: 1}
   m_LocalPosition: {x: -0.16287877, y: -0.00000019378662, z: -0.00000009689331}
   m_LocalScale: {x: 1.0000002, y: 0.99999994, z: 1.0000002}
-  m_Children: []
+  m_Children:
+  - {fileID: 4999527655869482}
   m_Father: {fileID: 4383159372401382}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4769,7 +4769,7 @@ Transform:
   m_LocalScale: {x: 1.7294, y: 0.11512, z: 1.6752}
   m_Children: []
   m_Father: {fileID: 4642798020668500}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4859832377139286
 Transform:
@@ -5011,12 +5011,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1076348624468788}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.71, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalRotation: {x: -0.08044599, y: 0.058681484, z: 0.7441306, w: -0.66057134}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.4000002, y: 0.40000027, z: 0.40000018}
   m_Children:
   - {fileID: 4252606454327834}
-  m_Father: {fileID: 4642798020668500}
+  m_Father: {fileID: 4758078588581404}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23022584743367274
@@ -6014,7 +6014,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 346bf0a10815ed3489ee80f8e0a86357, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6849,10 +6849,10 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 0
-  m_Color: {r: 0.5856288, g: 0.40690637, b: 0.6792453, a: 1}
-  m_Intensity: 1.83
-  m_Range: 30.68
-  m_SpotAngle: 50
+  m_Color: {r: 0.6867925, g: 0.6264151, b: 0.9433962, a: 1}
+  m_Intensity: 2
+  m_Range: 45.14
+  m_SpotAngle: 87
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -6869,7 +6869,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -6886,9 +6886,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.9056604, g: 0.764685, b: 0.764685, a: 1}
+  m_Color: {r: 0.8584906, g: 0.6114721, b: 0.6114721, a: 1}
   m_Intensity: 0.86
-  m_Range: 24.8
+  m_Range: 17.6
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -6906,7 +6906,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -6980,7 +6980,7 @@ MonoBehaviour:
   anim: {fileID: 95416911476467534}
   jump: {x: 0, y: 2, z: 0}
   bash: {x: 0, y: 0, z: 2}
-  untanglerHeight: {x: 0, y: 0.35, z: 0}
+  untanglerHeight: {x: 0, y: 1, z: 0}
   jumpForce: 8
   bashForce: 50
   movingSpeed: 15
@@ -7013,7 +7013,7 @@ MonoBehaviour:
   - {x: -1, y: 0, z: -0.5}
   - {x: -1, y: 0, z: 0.5}
   - {x: -0.5, y: 0, z: 1}
-  maxDistance: 1
+  maxDistance: 1.5
   rcHit: 0
 --- !u!135 &135400738465344276
 SphereCollider:

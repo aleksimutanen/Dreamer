@@ -10,9 +10,11 @@ public class VerticalRotator : MonoBehaviour {
     float xRot = 0;
 
     void Update() {
-        xRot += Input.GetAxis("CameraY") * vertSens;
-        xRot = Mathf.Clamp(xRot, lowerAxisClamp, upperAxisClamp);
-        transform.localRotation = Quaternion.AngleAxis(xRot, Vector3.right); // 
+        if (!WorldSwitch.instance.transitionIn && !WorldSwitch.instance.transitionOut) {
+            xRot += Input.GetAxis("CameraY") * vertSens;
+            xRot = Mathf.Clamp(xRot, lowerAxisClamp, upperAxisClamp);
+            transform.localRotation = Quaternion.AngleAxis(xRot, Vector3.right); // 
+        }
     }
 
     public void ResetRotation(){
