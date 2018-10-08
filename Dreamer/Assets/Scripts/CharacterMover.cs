@@ -60,7 +60,7 @@ public class CharacterMover : MonoBehaviour {
         var input = vert * transform.forward + horiz * transform.right;
         input = Vector3.ClampMagnitude(input, 1);
 
-        if (GameManager.instance.walkEnabled) {
+        if (GameManager.instance.walkEnabled && !WorldSwitch.instance.transitionIn && !WorldSwitch.instance.transitionOut) {
 
             // Speed
             var flatVelocity = input * movingSpeed;
@@ -98,6 +98,11 @@ public class CharacterMover : MonoBehaviour {
                 GameManager.instance.toddlerMoving = false;
             }
 
+        } else {
+            b.x = 0f;
+            b.z = 0f;
+            if (!onGround)
+                b += gravity * Vector3.down * Time.deltaTime;
         }
 
         if (hasToJump) {

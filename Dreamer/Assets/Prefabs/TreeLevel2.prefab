@@ -1829,7 +1829,7 @@ Animator:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1858304614794620}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 62062252c7635c748be8af9f9186c730, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 2ca4aba40c445184181de13ce24a5184, type: 3}
   m_Controller: {fileID: 9100000, guid: 50549b430b2ea274db34617858e93f97, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -1868,7 +1868,7 @@ MonoBehaviour:
   deathEffect: {fileID: 198146491868534018, guid: 424a76849a4bf1f4bb261bd29aedd2a6,
     type: 2}
   ded: 0
-  dedInDream: {fileID: 1942811822596552}
+  dedInDream: {fileID: 0}
   blockable: 1
   animationTimer: 0
 --- !u!136 &136007542544892410

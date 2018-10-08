@@ -83,7 +83,7 @@ public class WorldSwitch : MonoBehaviour {
         }
         if (state == AwakeState.Dream) {
             if (transitionOut || transitionIn) {
-                Switch(fadeSpeed, transitionSpeed, drFaderImage, nmFaderImage, drCam, nmCam, 
+                Switch(fadeSpeed, -transitionSpeed, drFaderImage, nmFaderImage, drCam, nmCam, 
                 cm.EnterNightmare, nightmareSolid, AwakeState.Nightmare, dreamSbMaterial, nightmareSbMaterial, dreamAmbientColor, nightmareAmbientColor);
             }
             //Fabric.EventManager.Instance.PostEvent("Jump");
@@ -129,10 +129,10 @@ public class WorldSwitch : MonoBehaviour {
             afterTransition();
         }
         if (transitionIn) {
-            foreach (Camera cam in cameras) {
-                cam.fieldOfView -= Time.deltaTime * transitionSpeed * 2;
-            }
-            if ((state == AwakeState.Nightmare && newCam.fieldOfView < 60) || (state == AwakeState.Dream && newCam.fieldOfView < 45)) {
+            //foreach (Camera cam in cameras) {
+            //    cam.fieldOfView -= Time.deltaTime * transitionSpeed * 2;
+            //}
+            if ((state == AwakeState.Nightmare/* && newCam.fieldOfView < 60*/) || (state == AwakeState.Dream/* && newCam.fieldOfView < 45*/)) {
                 transitionIn = false;
                 currentCam.gameObject.SetActive(false);
                 state = newState;
