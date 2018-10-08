@@ -224,7 +224,7 @@ public class CharacterSkills : MonoBehaviour {
     }
 
     public void Bash() {
-        if (Input.GetButton("Bash")) {
+        if (Input.GetButton("Bash") && cm.canJump) {
             bashCollider.SetActive(true);
             GameManager.instance.ChangeBuddyPower(-100f);
             print("bashed");
