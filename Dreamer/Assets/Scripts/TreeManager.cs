@@ -30,7 +30,7 @@ public class TreeManager : MonoBehaviour, Enemy {
     public GameObject dedInDream;
     public bool blockable = true;
 
-    bool transitionIn;
+    bool transition;
     public float animationTimer = 0;
     bool attacked = true;
 
@@ -42,16 +42,16 @@ public class TreeManager : MonoBehaviour, Enemy {
     void Update() {
         // haluaisin laittaa aktiiviseksi vihollispuun painajaisessa
         // ja ei-vihollispuun unessa
-        transitionIn = WorldSwitch.instance.transitionIn;
+        transition = WorldSwitch.instance.transitionOut;
 
         if (ded && WorldSwitch.instance.state == AwakeState.Dream  /* && !dedInDream.activeSelf*/) {
             dedInDream.SetActive(true);
         }
-        else if (!ded && WorldSwitch.instance.state == AwakeState.Dream && transitionIn /*&& !transitionOut/*&& (dreamTree || !nightmareTree)*/) {
+        else if (!ded && WorldSwitch.instance.state == AwakeState.Dream && transition /*&& !transitionOut/*&& (dreamTree || !nightmareTree)*/) {
             trees[0].SetActive(true);
             //rb = trees[0].GetComponent<Rigidbody>();
             trees[1].SetActive(false);
-        } else if (!ded && WorldSwitch.instance.state == AwakeState.Nightmare && transitionIn /*&& !transitionOut /*&& (!dreamTree || nightmareTree)*/) {
+        } else if (!ded && WorldSwitch.instance.state == AwakeState.Nightmare && transition /*&& !transitionOut /*&& (!dreamTree || nightmareTree)*/) {
             trees[1].SetActive(true);
             trees[0].SetActive(false);
         }
