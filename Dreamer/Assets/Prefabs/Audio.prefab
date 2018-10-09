@@ -1762,8 +1762,9 @@ MonoBehaviour:
   _bypassEffects: 0
   _bypassListenerEffects: 0
   _bypassReverbZones: 0
-  _overrideAudioMixerGroup: 0
-  _audioMixerGroup: {fileID: 0}
+  _overrideAudioMixerGroup: 1
+  _audioMixerGroup: {fileID: 243561936959322272, guid: 331efc8ea611bf54ba800408fb3833df,
+    type: 2}
   _notifyParentComponent: 0
   _audioBusName: None
   _overrideAudioBus: 0
@@ -1798,7 +1799,7 @@ MonoBehaviour:
   Guid: 
   _componentHolder: {fileID: 0}
   _onEventNotifyEventName: 
-  _audioClip: {fileID: 8300000, guid: d097d6d40756d4cbbb231ddfe65358be, type: 3}
+  _audioClip: {fileID: 8300000, guid: 83d984d6ca7e044fb98ccee91f69e617, type: 3}
   _audioClipHandle:
     _audioClipPath: 
     _useAudioClipPath: 1
@@ -1994,8 +1995,9 @@ MonoBehaviour:
   _bypassEffects: 0
   _bypassListenerEffects: 0
   _bypassReverbZones: 0
-  _overrideAudioMixerGroup: 0
-  _audioMixerGroup: {fileID: 0}
+  _overrideAudioMixerGroup: 1
+  _audioMixerGroup: {fileID: 243174985348033374, guid: 331efc8ea611bf54ba800408fb3833df,
+    type: 2}
   _notifyParentComponent: 0
   _audioBusName: None
   _overrideAudioBus: 0
@@ -2030,7 +2032,7 @@ MonoBehaviour:
   Guid: 
   _componentHolder: {fileID: 0}
   _onEventNotifyEventName: 
-  _audioClip: {fileID: 8300000, guid: f1ec07934044041babb02fabf381f740, type: 3}
+  _audioClip: {fileID: 8300000, guid: 34a49c6efa3894fd9835e26e261fb330, type: 3}
   _audioClipHandle:
     _audioClipPath: 
     _useAudioClipPath: 1

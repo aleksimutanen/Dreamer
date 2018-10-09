@@ -84,32 +84,34 @@ public class CharacterSkills : MonoBehaviour {
     }
 
     void Update() {
-        if (GameManager.instance.glideEnabled) {
-            Glide();
-        }
-        if (GameManager.instance.shieldEnabled) {
-            Shield();
-        }
-        ChargePower();
-        if (Time.time > firingInterval + lastShot && (Input.GetAxis("Fire") > 0.5f|| Input.GetButtonDown("Fire4")) && GameManager.instance.buddyPower > 0) {
+        if(GameManager.instance.gamePaused) {
+            if(GameManager.instance.glideEnabled) {
+                Glide();
+            }
+            if(GameManager.instance.shieldEnabled) {
+                Shield();
+            }
+            ChargePower();
+            if(Time.time > firingInterval + lastShot && (Input.GetAxis("Fire") > 0.5f || Input.GetButtonDown("Fire4")) && GameManager.instance.buddyPower > 0) {
                 Fire();
-        } else {
-            fireEmitter.enabled = false;
-        }
-        if (powerSphereActive && powerSphereActiveTimer > 0) {
-            powerSphereActiveTimer -= Time.deltaTime;
-            powerSphereBall.transform.localScale += new Vector3(100,100,100) * Time.deltaTime;
-            powerSphereBall.SetActive(true);
-        } else {
-            powerSphereActiveTimer = 0.2f;
-            powerSphereActive = false;
-            powerSphereBall.transform.localScale = new Vector3(1, 1, 1);
-            powerSphereBall.SetActive(false);
-        }
+            } else {
+                fireEmitter.enabled = false;
+            }
+            if(powerSphereActive && powerSphereActiveTimer > 0) {
+                powerSphereActiveTimer -= Time.deltaTime;
+                powerSphereBall.transform.localScale += new Vector3(100, 100, 100) * Time.deltaTime;
+                powerSphereBall.SetActive(true);
+            } else {
+                powerSphereActiveTimer = 0.2f;
+                powerSphereActive = false;
+                powerSphereBall.transform.localScale = new Vector3(1, 1, 1);
+                powerSphereBall.SetActive(false);
+            }
 
-        if(Input.GetButtonDown("Shield")){
-            shieldHit = false;
-            shieldDuration = 2;
+            if(Input.GetButtonDown("Shield")) {
+                shieldHit = false;
+                shieldDuration = 2;
+            }
         }
     }
 

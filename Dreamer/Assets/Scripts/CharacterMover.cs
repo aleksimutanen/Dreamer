@@ -50,97 +50,105 @@ public class CharacterMover : MonoBehaviour {
     }
 
     private void LateUpdate() {
-        var b = rb.velocity;
-        //var c = rb.rotation;
+        if(!GameManager.instance.gamePaused) {
+            var b = rb.velocity;
+            //var c = rb.rotation;
 
-        // Input reading for movement
-        var vert = Input.GetAxis("Vertical");
-        var horiz = Input.GetAxis("Horizontal");
+            // Input reading for movement
+            var vert = Input.GetAxis("Vertical");
+            var horiz = Input.GetAxis("Horizontal");
 
-        var input = vert * transform.forward + horiz * transform.right;
-        input = Vector3.ClampMagnitude(input, 1);
+            var input = vert * transform.forward + horiz * transform.right;
+            input = Vector3.ClampMagnitude(input, 1);
 
-        if (GameManager.instance.walkEnabled && !WorldSwitch.instance.transitionIn && !WorldSwitch.instance.transitionOut) {
+            if(GameManager.instance.walkEnabled && !WorldSwitch.instance.transitionIn && !WorldSwitch.instance.transitionOut) {
 
-            // Speed
-            var flatVelocity = input * movingSpeed;
-            b.x = flatVelocity.x; b.z = flatVelocity.z;
+                // Speed
+                var flatVelocity = input * movingSpeed;
+                b.x = flatVelocity.x; b.z = flatVelocity.z;
 
- 
 
-            // Ground check and gravity
-            var furtherSphere = Physics.OverlapSphere(transform.position - Vector3.up * groundCheckDepth2, groundCheckSize2, WorldSwitch.instance.map);
-            var closerSphere = Physics.OverlapSphere(transform.position - Vector3.up * groundCheckDepth, groundCheckSize, WorldSwitch.instance.map);
-            canJump = furtherSphere.Length > 0;
-            onGround = closerSphere.Length > 0;
-            if ((!onGround && canJump) || (!onGround && !canJump) /*canJump*/) {
-                b += gravity * Vector3.down * Time.deltaTime;
-                b.y = Mathf.Max(b.y, -maxFallSpeed);
-                if ((fallPoint.y - rb.position.y) > fallingDeathThreshold) {
-                    fallPoint = GameManager.instance.checkpoint;
-                    if(!GameManager.instance.gameOver){
-                        GameManager.instance.ALiveLost();
-                        print("die");
+
+                // Ground check and gravity
+                var furtherSphere = Physics.OverlapSphere(transform.position - Vector3.up * groundCheckDepth2, groundCheckSize2, WorldSwitch.instance.map);
+                var closerSphere = Physics.OverlapSphere(transform.position - Vector3.up * groundCheckDepth, groundCheckSize, WorldSwitch.instance.map);
+                canJump = furtherSphere.Length > 0;
+                onGround = closerSphere.Length > 0;
+                if((!onGround && canJump) || (!onGround && !canJump) /*canJump*/) {
+                    b += gravity * Vector3.down * Time.deltaTime;
+                    b.y = Mathf.Max(b.y, -maxFallSpeed);
+                    if((fallPoint.y - rb.position.y) > fallingDeathThreshold) {
+                        fallPoint = GameManager.instance.checkpoint;
+                        if(!GameManager.instance.gameOver) {
+                            GameManager.instance.ALiveLost();
+                            print("die");
+                        }
                     }
+                } else if(rb.velocity.y < 0) {
+                    b.y = 0f;
+                    cs.glideTimer = cs.maxGlideTimer;
+                    fallPoint = rb.position;
                 }
-            } else if (rb.velocity.y < 0) {
-                b.y = 0f;
-                cs.glideTimer = cs.maxGlideTimer;
-                fallPoint = rb.position;
-            }
-            // If there is movement input, start to rotate camera towards players forward direction
-            if(horiz > .2f || vert > .2f || horiz < -.2f || vert < -.2f) {
-                GameManager.instance.toddlerMoving = true;
-                if(onGround)
-                    anim.Play("Walk");
-                rb.rotation = Quaternion.RotateTowards(rb.rotation, horizontalRotator.rotation, turnSpeed * Time.deltaTime);
+                // If there is movement input, start to rotate camera towards players forward direction
+                if(horiz > .2f || vert > .2f || horiz < -.2f || vert < -.2f) {
+                    GameManager.instance.toddlerMoving = true;
+                    if(onGround)
+                        anim.Play("Walk");
+                    rb.rotation = Quaternion.RotateTowards(rb.rotation, horizontalRotator.rotation, turnSpeed * Time.deltaTime);
+                } else {
+                    GameManager.instance.toddlerMoving = false;
+                }
+
+                if(hasToJump) {
+                    Jump();
+                    hasToJump = false;
+                }
+
             } else {
-                GameManager.instance.toddlerMoving = false;
+                b.x = 0f;
+                b.z = 0f;
+                if(!onGround)
+                    b += gravity * Vector3.down * Time.deltaTime;
             }
 
-            if (hasToJump) {
-                Jump();
-                hasToJump = false;
-            }
-
-        } else {
-            b.x = 0f;
-            b.z = 0f;
-            if (!onGround)
-                b += gravity * Vector3.down * Time.deltaTime;
-        }
-
-        RaycastHit hit;
-        for (int i = 0; i < directions.Length; i++) {
-            Vector3 worldDir = transform.rotation * directions[i].normalized;
-            Debug.DrawLine(rb.position + untanglerHeight, rb.position + untanglerHeight + worldDir * maxDistance);
-            if (Physics.Raycast(rb.position + untanglerHeight, worldDir, out hit, maxDistance, WorldSwitch.instance.map)) {
-                //print(directions[i]);
-                if (Vector3.Angle(b, worldDir) < 90) {
-                    //print("less than 90");
-                    Vector3 proj = Vector3.Project(b, worldDir);
-                    b -= proj;
-                    b += -worldDir * 50f  * Time.deltaTime;
-                    //rb.position += -worldDir * Time.deltaTime;
-                    //Quaternion mult = new Quaternion(0, 1f, 0, 0);
-                    ////rb.rotation = Quaternion.RotateTowards(rb.rotation, rb.rotation * mult, turnSpeed * Time.deltaTime);
-                    ////rb.rotation *= mult;
-                    //horizontalRotator.rotation = Quaternion.RotateTowards(horizontalRotator.rotation, rb.rotation * mult, turnSpeed * Time.deltaTime);
+            RaycastHit hit;
+            for(int i = 0 ; i < directions.Length ; i++) {
+                Vector3 worldDir = transform.rotation * directions[i].normalized;
+                Debug.DrawLine(rb.position + untanglerHeight, rb.position + untanglerHeight + worldDir * maxDistance);
+                if(Physics.Raycast(rb.position + untanglerHeight, worldDir, out hit, maxDistance, WorldSwitch.instance.map)) {
+                    //print(directions[i]);
+                    if(Vector3.Angle(b, worldDir) < 90) {
+                        //print("less than 90");
+                        Vector3 proj = Vector3.Project(b, worldDir);
+                        b -= proj;
+                        b += -worldDir * 50f * Time.deltaTime;
+                        //rb.position += -worldDir * Time.deltaTime;
+                        //Quaternion mult = new Quaternion(0, 1f, 0, 0);
+                        ////rb.rotation = Quaternion.RotateTowards(rb.rotation, rb.rotation * mult, turnSpeed * Time.deltaTime);
+                        ////rb.rotation *= mult;
+                        //horizontalRotator.rotation = Quaternion.RotateTowards(horizontalRotator.rotation, rb.rotation * mult, turnSpeed * Time.deltaTime);
+                    }
+                    //else if (Vector3.Angle(b, worldDir) > 90 || Vector3.Angle(b, worldDir) < 180) {
+                    //    print("more than 90");
+                    //    Vector3 proj = Vector3.Project(b, worldDir);
+                    //    b -= proj;
+                    //    Quaternion mult = new Quaternion(0, 1f, 0, 0);
+                    //    rb.rotation = Quaternion.RotateTowards(rb.rotation, rb.rotation * mult, turnSpeed * Time.deltaTime);
+                    //    //rb.rotation *= mult;
+                    //    horizontalRotator.rotation = Quaternion.RotateTowards(horizontalRotator.rotation, rb.rotation, turnSpeed * Time.deltaTime);
+                    //}
                 }
-                //else if (Vector3.Angle(b, worldDir) > 90 || Vector3.Angle(b, worldDir) < 180) {
-                //    print("more than 90");
-                //    Vector3 proj = Vector3.Project(b, worldDir);
-                //    b -= proj;
-                //    Quaternion mult = new Quaternion(0, 1f, 0, 0);
-                //    rb.rotation = Quaternion.RotateTowards(rb.rotation, rb.rotation * mult, turnSpeed * Time.deltaTime);
-                //    //rb.rotation *= mult;
-                //    horizontalRotator.rotation = Quaternion.RotateTowards(horizontalRotator.rotation, rb.rotation, turnSpeed * Time.deltaTime);
-                //}
+            }
+            rb.velocity = b;
+            //c.x = 0f; c.z = 0f;
+            //rb.rotation = c;
+            // Input reading for jump
+            if(GameManager.instance.jumpEnabled && WorldSwitch.instance.state == AwakeState.Dream) {
+                if(Input.GetButtonDown("Jump") && canJump /*onGround*/) {
+                    hasToJump = true;
+                }
             }
         }
-        rb.velocity = b;
-        //c.x = 0f; c.z = 0f;
-        //rb.rotation = c;
     }
 
     // Debug sphere
@@ -154,12 +162,7 @@ public class CharacterMover : MonoBehaviour {
     }
 
     void Update() {
-        // Input reading for jump
-        if (GameManager.instance.jumpEnabled && WorldSwitch.instance.state == AwakeState.Dream) {
-            if (Input.GetButtonDown("Jump") && canJump /*onGround*/) {
-                hasToJump = true;
-            }
-        }
+
     }
 
     // Player jump movement of rigidbody
