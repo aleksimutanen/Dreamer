@@ -107,8 +107,11 @@ public class CharacterMover : MonoBehaviour {
             } else {
                 b.x = 0f;
                 b.z = 0f;
-                if(!onGround)
+                if(!onGround && !GameManager.instance.gamePaused)
                     b += gravity * Vector3.down * Time.deltaTime;
+                else
+                    b.y = 0f;
+
             }
 
             RaycastHit hit;
