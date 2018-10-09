@@ -59,8 +59,8 @@ public class GameManager : MonoBehaviour {
     float maxBuddyPower = 100;
     int maxCrystalAmount = 10;
 
-    //float toddlerChargeSpeed = 1;
-    float toddlerHealth = 100;
+    float toddlerChargeSpeed = 1;
+    float toddlerHealth = 1;
     float buddyChargeSpeed = 1;
     public float buddyPower = 0;
     public int crystalAmount = 0;
@@ -69,9 +69,6 @@ public class GameManager : MonoBehaviour {
     int nextDoor = 0;
     int doorOpen = 10;
     bool openDoor;
-
-    //public int crystalAmount = 0;
-    //public TextMeshProUGUI statusText;
 
     List<ScriptableText> textDialogQueue;
     
@@ -99,7 +96,7 @@ public class GameManager : MonoBehaviour {
         if (prevPlayerPos == player.transform.position){
             ChangeToddlerHealth(buddyChargeSpeed * Time.deltaTime);
         }
-        
+
         prevPlayerPos = player.transform.position;
         
         statusTextTimer -= Time.deltaTime;
@@ -196,11 +193,12 @@ public class GameManager : MonoBehaviour {
     }
 
     // When crystal is collected
-    public void ChangeDreamPower(int amount) {
+    public void ChangeCrystalAmount(int amount) {
 
         crystalAmount += amount;
         crystalAmount = Mathf.Clamp(crystalAmount, 0, maxCrystalAmount);
-        dreamPowerFill.value = crystalAmount / maxCrystalAmount;
+        dreamPowerFill.value = crystalAmount / (float)maxCrystalAmount;
+        print("Kristalli poimittu");
     }
 
 
