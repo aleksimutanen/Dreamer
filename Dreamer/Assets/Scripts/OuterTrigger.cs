@@ -7,9 +7,17 @@ public class OuterTrigger : MonoBehaviour {
     public GameObject mountain;
     public GameObject cave;
 
-    private void OnTriggerEnter(Collider other){
+    public ParticleSystem caveParticles;
+    ParticleSystem.EmissionModule caveEmitter;
 
-        if (other.gameObject.tag == "Player"){
+    private void Start() {
+        caveEmitter = caveParticles.emission;
+        caveEmitter.enabled = false;
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.tag == "Player") {
+            caveEmitter.enabled = false;
             GameManager.instance.SetCheckpoint();
             mountain.gameObject.SetActive(true);
             cave.gameObject.SetActive(false);

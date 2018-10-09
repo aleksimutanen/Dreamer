@@ -70,6 +70,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb76d070b16f7f46a3f3e9ab8aee514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dreamSnapshot: {fileID: 245610408035957854, guid: 331efc8ea611bf54ba800408fb3833df,
+    type: 2}
+  nigthmareSnapshot: {fileID: 245103820959863786, guid: 331efc8ea611bf54ba800408fb3833df,
+    type: 2}
   fadeSpeed: 1
   transitionSpeed: 15
   state: 1
@@ -97,4 +101,4 @@ MonoBehaviour:
   dreamSbMaterial: {fileID: 2100000, guid: 7329c3b9bb4df1c4e9bdc562cd74abf4, type: 2}
   nightmareSbMaterial: {fileID: 2100000, guid: e16ae399b71ae2e43a374671b246ef25, type: 2}
   dreamAmbientColor: {r: 0.8113208, g: 0.37121755, b: 0.47054228, a: 0}
-  nightmareAmbientColor: {r: 0.22272165, g: 0.16665184, b: 0.3301887, a: 0}
+  nightmareAmbientColor: {r: 0.34695557, g: 0.24096651, b: 0.5377358, a: 0}
