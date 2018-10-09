@@ -695,7 +695,7 @@ MonoBehaviour:
   m_Script: {fileID: 1137554331, guid: 4b4e8768ed04d6a4f98af6f4f83be984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventName: NightMareMusic
+  _eventName: NightmareMusic
   _eventID: 0
   _overrideEventTriggerAction: 0
   _overrideParameters:
@@ -858,7 +858,7 @@ MonoBehaviour:
   - Fall
   - Hit
   - Jump
-  - NightMareMusic
+  - NightmareMusic
   - ShieldHit
   - Shoot
   - Skill
@@ -1798,7 +1798,7 @@ MonoBehaviour:
   Guid: 
   _componentHolder: {fileID: 0}
   _onEventNotifyEventName: 
-  _audioClip: {fileID: 8300000, guid: 4070bc1e6f9fd464693bc2e2f18f2c9b, type: 3}
+  _audioClip: {fileID: 8300000, guid: d097d6d40756d4cbbb231ddfe65358be, type: 3}
   _audioClipHandle:
     _audioClipPath: 
     _useAudioClipPath: 1
@@ -2030,7 +2030,7 @@ MonoBehaviour:
   Guid: 
   _componentHolder: {fileID: 0}
   _onEventNotifyEventName: 
-  _audioClip: {fileID: 8300000, guid: c71f5bfe8b1e54b8ba0b17206115c742, type: 3}
+  _audioClip: {fileID: 8300000, guid: f1ec07934044041babb02fabf381f740, type: 3}
   _audioClipHandle:
     _audioClipPath: 
     _useAudioClipPath: 1
