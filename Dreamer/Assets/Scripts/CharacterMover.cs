@@ -171,13 +171,17 @@ public class CharacterMover : MonoBehaviour {
 
     public void Bash() {
         //rb.AddForce(transform.forward * bashForce, ForceMode.Impulse);
-        bool hit = Physics.Raycast(transform.position, transform.forward, 2f);
-        if (hit) {
+        RaycastHit rayHit;
+        bool hit = Physics.Raycast(transform.position, transform.forward, out rayHit, 1f);
+        if (hit && rayHit.transform.gameObject.tag != "Bashable") {
             cs.bashing = false;
             cs.bashCollider.SetActive(false);
             cs.activeTime = 0.5f;
         }
-        rb.position += transform.forward * bashForce * Time.deltaTime;
+        if(cs.bashing == true) {
+            rb.position += transform.forward * bashForce * Time.deltaTime;
+        }
+
     }
 
     public void EnterDream() {
