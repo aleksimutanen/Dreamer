@@ -40,12 +40,12 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.336
+    value: 0.182
   smoothness:
     overrideState: 1
-    value: 0.273
+    value: 0.546
   roundness:
-    overrideState: 1
+    overrideState: 0
     value: 1
   rounded:
     overrideState: 1
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1cb7e9e120078f43bce4f0b1be547a7, type: 3}
   m_Name: AmbientOcclusion
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
@@ -76,8 +76,8 @@ MonoBehaviour:
     overrideState: 0
     value: 1
   intensity:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 0.18
   color:
     overrideState: 0
     value: {r: 0, g: 0, b: 0, a: 1}
@@ -94,8 +94,8 @@ MonoBehaviour:
     overrideState: 0
     value: -12
   thicknessModifier:
-    overrideState: 0
-    value: 1
+    overrideState: 1
+    value: 2.53
   directLightingStrength:
     overrideState: 0
     value: 0
