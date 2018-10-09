@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour {
     public GameObject player;
     public GameObject vertRot;
     public GameObject horRot;
+    public GameObject pauseMenu;
     public TextMeshProUGUI statusText;
     public float statusTextTimer = 0;
     public bool tutorialComplete = false;
@@ -45,6 +46,7 @@ public class GameManager : MonoBehaviour {
     public bool reflectionEnabled = false;
     
     float lives = 100;
+    public bool gamePaused = false;
     public bool gameOver = false;
     public float waitTimer = 1;
     public float waitTime = 1;
@@ -60,7 +62,7 @@ public class GameManager : MonoBehaviour {
     int maxCrystalAmount = 10;
 
     float toddlerChargeSpeed = 1;
-    float toddlerHealth = 1;
+    float toddlerHealth = 100;
     float buddyChargeSpeed = 1;
     public float buddyPower = 0;
     public int crystalAmount = 0;
@@ -75,16 +77,14 @@ public class GameManager : MonoBehaviour {
     public void PlayTextDialog(ScriptableText st) {
         textDialogQueue.Add(st);   
     }
-    
+
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            Time.timeScale = 1;
-            SceneManager.LoadScene(0);
+            Pause();
         }
 
         if (Input.anyKeyDown && gameOver && waitTimer < 0){
-            Time.timeScale = 1;
-            SceneManager.LoadScene(0);
+            LoadMenu();
         }
 
         // Buddypower charging while idling
@@ -240,5 +240,15 @@ public class GameManager : MonoBehaviour {
             doorOpen += 10;
             return;
         }
+    }
+    public void Pause() {
+        pauseMenu.SetActive(!pauseMenu.activeSelf);
+        gamePaused = !gamePaused;
+        Time.timeScale = Time.timeScale == 0 ? 1 : 0;
+    }
+
+    public void LoadMenu(){
+        Time.timeScale = 1;
+        SceneManager.LoadScene(0);
     }
 }

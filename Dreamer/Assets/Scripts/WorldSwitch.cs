@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 using UnityEngine.Rendering;
 
 public enum AwakeState { Dream, Nightmare }
 
 public class WorldSwitch : MonoBehaviour {
+    public AudioMixerSnapshot dreamSnapshot;
+    public AudioMixerSnapshot nigthmareSnapshot;
+
 
     public float fadeSpeed;
     public float transitionSpeed;
@@ -62,10 +66,11 @@ public class WorldSwitch : MonoBehaviour {
         state = AwakeState.Dream;
         cm = FindObjectOfType<CharacterMover>();
         nmCam.gameObject.SetActive(false);
-
+        dreamSnapshot.TransitionTo(0);
         Fabric.EventManager.Instance.PostEvent("DreamMusic", Fabric.EventAction.PlaySound);
         Fabric.EventManager.Instance.PostEvent("NightmareMusic", Fabric.EventAction.PlaySound);
-        Fabric.EventManager.Instance.PostEvent("NightmareMusic", Fabric.EventAction.PauseSound);
+
+        //Fabric.EventManager.Instance.PostEvent("NightmareMusic", Fabric.EventAction.PauseSound);
     }
 
     void Update() {
@@ -75,11 +80,13 @@ public class WorldSwitch : MonoBehaviour {
             transitionOut = true;
             Fabric.EventManager.Instance.PostEvent("Switch");
             if(state == AwakeState.Dream) {
-                Fabric.EventManager.Instance.PostEvent("DreamMusic", Fabric.EventAction.PauseSound);
-                Fabric.EventManager.Instance.PostEvent("NightmareMusic", Fabric.EventAction.UnpauseSound);
+                nigthmareSnapshot.TransitionTo(1);
+                //Fabric.EventManager.Instance.PostEvent("DreamMusic", Fabric.EventAction.PauseSound);
+                //Fabric.EventManager.Instance.PostEvent("NightmareMusic", Fabric.EventAction.UnpauseSound);
             } else {
-                Fabric.EventManager.Instance.PostEvent("DreamMusic", Fabric.EventAction.UnpauseSound);
-                Fabric.EventManager.Instance.PostEvent("NightmareMusic", Fabric.EventAction.PauseSound);
+                dreamSnapshot.TransitionTo(1);
+                //Fabric.EventManager.Instance.PostEvent("DreamMusic", Fabric.EventAction.UnpauseSound);
+                //Fabric.EventManager.Instance.PostEvent("NightmareMusic", Fabric.EventAction.PauseSound);
             }
         }
         if (state == AwakeState.Dream) {
