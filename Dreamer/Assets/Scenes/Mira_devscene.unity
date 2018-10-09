@@ -1847,21 +1847,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 114276430866529782, guid: e88fe61fff61f4bd9b5d972f163da51c,
-        type: 2}
-      propertyPath: explosionEffect
-      value: 
-      objectReference: {fileID: 30494571}
-    - target: {fileID: 114299872558777170, guid: e88fe61fff61f4bd9b5d972f163da51c,
-        type: 2}
-      propertyPath: explosionEffect
-      value: 
-      objectReference: {fileID: 30494571}
     - target: {fileID: 114988473296288598, guid: e88fe61fff61f4bd9b5d972f163da51c,
         type: 2}
       propertyPath: crystalNagger
       value: 
       objectReference: {fileID: 1665639748}
+    - target: {fileID: 114299872558777170, guid: e88fe61fff61f4bd9b5d972f163da51c,
+        type: 2}
+      propertyPath: explosionEffect
+      value: 
+      objectReference: {fileID: 30494571}
+    - target: {fileID: 114276430866529782, guid: e88fe61fff61f4bd9b5d972f163da51c,
+        type: 2}
+      propertyPath: explosionEffect
+      value: 
+      objectReference: {fileID: 30494571}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e88fe61fff61f4bd9b5d972f163da51c, type: 2}
   m_IsPrefabAsset: 0
