@@ -76,7 +76,7 @@ public class Bat : MonoBehaviour, Enemy {
             returnTime -= Time.deltaTime;
         }
 
-        if (distToPlayer > 100 && timeSinceDeath > 15) {
+        if (distToPlayer > 20 && timeSinceDeath > 15) {
             Respawn();
         }
     }
