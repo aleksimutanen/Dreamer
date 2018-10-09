@@ -2161,6 +2161,14 @@ Prefab:
       propertyPath: crystalNagger
       value: 
       objectReference: {fileID: 1274522488}
+    - target: {fileID: 1968734646901232, guid: e88fe61fff61f4bd9b5d972f163da51c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256953106839950, guid: e88fe61fff61f4bd9b5d972f163da51c, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e88fe61fff61f4bd9b5d972f163da51c, type: 2}
   m_IsPrefabAsset: 0
