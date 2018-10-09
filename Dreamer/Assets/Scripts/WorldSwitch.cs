@@ -74,32 +74,33 @@ public class WorldSwitch : MonoBehaviour {
     }
 
     void Update() {
-        //TimedText xd = new TimedText("ykä on paras", 5f);
-        if (Input.GetButtonDown("Switch") && !transitionIn && !transitionOut&&GameManager.instance.switchEnabled == true||switchNow) {
-            switchNow = false;
-            transitionOut = true;
-            Fabric.EventManager.Instance.PostEvent("Switch");
+        if(!GameManager.instance.gamePaused) {
+            if(Input.GetButtonDown("Switch") && !transitionIn && !transitionOut && GameManager.instance.switchEnabled == true || switchNow) {
+                switchNow = false;
+                transitionOut = true;
+                Fabric.EventManager.Instance.PostEvent("Switch");
+                if(state == AwakeState.Dream) {
+                    nigthmareSnapshot.TransitionTo(0.25f);
+                    //Fabric.EventManager.Instance.PostEvent("DreamMusic", Fabric.EventAction.PauseSound);
+                    //Fabric.EventManager.Instance.PostEvent("NightmareMusic", Fabric.EventAction.UnpauseSound);
+                } else {
+                    dreamSnapshot.TransitionTo(0.25f);
+                    //Fabric.EventManager.Instance.PostEvent("DreamMusic", Fabric.EventAction.UnpauseSound);
+                    //Fabric.EventManager.Instance.PostEvent("NightmareMusic", Fabric.EventAction.PauseSound);
+                }
+            }
             if(state == AwakeState.Dream) {
-                nigthmareSnapshot.TransitionTo(1);
-                //Fabric.EventManager.Instance.PostEvent("DreamMusic", Fabric.EventAction.PauseSound);
-                //Fabric.EventManager.Instance.PostEvent("NightmareMusic", Fabric.EventAction.UnpauseSound);
-            } else {
-                dreamSnapshot.TransitionTo(1);
-                //Fabric.EventManager.Instance.PostEvent("DreamMusic", Fabric.EventAction.UnpauseSound);
-                //Fabric.EventManager.Instance.PostEvent("NightmareMusic", Fabric.EventAction.PauseSound);
+                if(transitionOut || transitionIn) {
+                    Switch(fadeSpeed, -transitionSpeed, drFaderImage, nmFaderImage, drCam, nmCam, dreamLight, nightmareLight, 1f, 2f,
+                    cm.EnterNightmare, nightmareSolid, AwakeState.Nightmare, dreamSbMaterial, nightmareSbMaterial, dreamAmbientColor, nightmareAmbientColor);
+                }
+                //Fabric.EventManager.Instance.PostEvent("Jump");
             }
-        }
-        if (state == AwakeState.Dream) {
-            if (transitionOut || transitionIn) {
-                Switch(fadeSpeed, -transitionSpeed, drFaderImage, nmFaderImage, drCam, nmCam, dreamLight, nightmareLight, 1f, 2f,
-                cm.EnterNightmare, nightmareSolid, AwakeState.Nightmare, dreamSbMaterial, nightmareSbMaterial, dreamAmbientColor, nightmareAmbientColor);
-            }
-            //Fabric.EventManager.Instance.PostEvent("Jump");
-        }
-        if (state == AwakeState.Nightmare) {
-            if (transitionOut || transitionIn) {
-                Switch(fadeSpeed, transitionSpeed, nmFaderImage, drFaderImage, nmCam, drCam, nightmareLight, dreamLight, 2f, 1f,
-                cm.EnterDream, dreamSolid, AwakeState.Dream, nightmareSbMaterial, dreamSbMaterial, nightmareAmbientColor, dreamAmbientColor);
+            if(state == AwakeState.Nightmare) {
+                if(transitionOut || transitionIn) {
+                    Switch(fadeSpeed, transitionSpeed, nmFaderImage, drFaderImage, nmCam, drCam, nightmareLight, dreamLight, 2f, 1f,
+                    cm.EnterDream, dreamSolid, AwakeState.Dream, nightmareSbMaterial, dreamSbMaterial, nightmareAmbientColor, dreamAmbientColor);
+                }
             }
         }
     }
