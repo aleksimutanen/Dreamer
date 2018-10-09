@@ -134,10 +134,12 @@ public class TreeManager : MonoBehaviour, Enemy {
         if (shieldActive && blockable) {
             GameManager.instance.ChangeBuddyPower(pwrToShield);
             print("not");
+            Fabric.EventManager.Instance.PostEvent("ShieldHit");
             return;
         }
         else {
             GameManager.instance.ChangeToddlerHealth(dmgToPlayer);
+            Fabric.EventManager.Instance.PostEvent("Hit");
             print("attacking");
         }
     }
