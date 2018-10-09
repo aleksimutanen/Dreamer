@@ -34,6 +34,8 @@ public class TreeManager : MonoBehaviour, Enemy {
     public float animationTimer = 0;
     bool attacked = true;
 
+    public GameObject crystal;
+
     void Start() {
         cs = FindObjectOfType<CharacterSkills>();
         //AddEvent(0, 0.6f, "Attack", 0);
@@ -134,10 +136,12 @@ public class TreeManager : MonoBehaviour, Enemy {
         if (shieldActive && blockable) {
             GameManager.instance.ChangeBuddyPower(pwrToShield);
             print("not");
+            Fabric.EventManager.Instance.PostEvent("ShieldHit");
             return;
         }
         else {
             GameManager.instance.ChangeToddlerHealth(dmgToPlayer);
+            Fabric.EventManager.Instance.PostEvent("Hit");
             print("attacking");
         }
     }
@@ -162,6 +166,9 @@ public class TreeManager : MonoBehaviour, Enemy {
             health -= damage;
         if (health <= 0) {
             print("tree ded");
+            if (crystal != null) {
+                crystal.transform.position = transform.position;
+            }
             Instantiate(deathEffect, transform.position, transform.rotation);
             ded = true;
             trees[0].SetActive(false);

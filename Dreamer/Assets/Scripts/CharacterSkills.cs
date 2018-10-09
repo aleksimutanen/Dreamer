@@ -141,6 +141,7 @@ public class CharacterSkills : MonoBehaviour {
             lastShot = Time.time;
             fireEmitter.enabled = true;
             GameManager.instance.ChangeBuddyPower(-buddyPowerPerAmmo);
+            Fabric.EventManager.Instance.PostEvent("Shoot");
         }
     }
 

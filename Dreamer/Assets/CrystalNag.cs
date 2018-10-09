@@ -5,6 +5,7 @@ using UnityEngine;
 public class CrystalNag : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision) {
-        GameManager.instance.ChangeStatusText(GameManager.instance.tutorialTexts[15], 5);
+        if(collision.gameObject.tag == "Player")
+            GameManager.instance.ChangeStatusText(GameManager.instance.tutorialTexts[15], 5);
     }
 }
