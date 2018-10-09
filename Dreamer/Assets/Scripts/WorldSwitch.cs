@@ -73,6 +73,7 @@ public class WorldSwitch : MonoBehaviour {
         if (Input.GetButtonDown("Switch") && !transitionIn && !transitionOut&&GameManager.instance.switchEnabled == true||switchNow) {
             switchNow = false;
             transitionOut = true;
+            Fabric.EventManager.Instance.PostEvent("Switch");
             if(state == AwakeState.Dream) {
                 Fabric.EventManager.Instance.PostEvent("DreamMusic", Fabric.EventAction.PauseSound);
                 Fabric.EventManager.Instance.PostEvent("NightmareMusic", Fabric.EventAction.UnpauseSound);

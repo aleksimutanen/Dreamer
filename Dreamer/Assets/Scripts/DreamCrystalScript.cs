@@ -6,13 +6,17 @@ public class DreamCrystalScript : MonoBehaviour {
     public GameObject crystalNagger;
     // Crystal collection
     private void OnTriggerEnter(Collider other) {
+
         if (other.tag == "Player") {
             GameManager.instance.ChangeCrystalAmount(1);
             gameObject.SetActive(false);
+
+            Fabric.EventManager.Instance.PostEvent("Crystal");
             if (crystalNagger != null) {
                 crystalNagger.gameObject.SetActive(false);
-            }
-        }
 
+            }
+
+        }
     }
 }

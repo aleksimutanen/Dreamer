@@ -159,13 +159,16 @@ public class GameManager : MonoBehaviour {
             toddlerHealth = 100;
             TeleportToCheckPoint(false, false);
             ChangeStatusText(tutorialTexts[11], 3);
+            Fabric.EventManager.Instance.PostEvent("Death");
             //ChangeDreamPower(-(dreamPower-dreamPowMem));       
         } else if(!gameOver){
             ChangeStatusText(tutorialTexts[14], 3);
             print("Game Over");
+            Fabric.EventManager.Instance.PostEvent("Death");
             gameOver = true;
             Time.timeScale = 0;
             waitTimer = waitTime;
+
         }
     }
 
