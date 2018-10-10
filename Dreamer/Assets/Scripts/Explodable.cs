@@ -9,8 +9,13 @@ public class Explodable : MonoBehaviour {
     public float countdown = 0.5f;
     Transform[] stones;
 
+    public ParticleSystem stoneExplosion;
+    ParticleSystem.EmissionModule stoneEmitter;
+
     private void Start() {
         stones = GetComponentsInChildren<Transform>();
+        stoneEmitter = stoneExplosion.emission;
+        stoneEmitter.enabled = false;
     }
 
     void Update () {
@@ -37,12 +42,12 @@ public class Explodable : MonoBehaviour {
         foreach (Transform stone in stones) {
             if (stone.tag == "Cavestone") {
                 if (stone.GetComponent<Renderer>() != null) {
-                    Instantiate(explosionEffect, stone.GetComponent<Renderer>().bounds.center, stone.rotation);
+                    //Instantiate(explosionEffect, stone.GetComponent<Renderer>().bounds.center, stone.rotation);
+                    stoneEmitter.enabled = true;
                 }
             }
             stone.gameObject.SetActive(false);
         }
-
     }
 
     //foreach (Collider nearbyObj in nearbyObjects) {

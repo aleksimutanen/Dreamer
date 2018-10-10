@@ -52,23 +52,22 @@ public class CameraControl : MonoBehaviour {
                 //transform.position = Vector3.MoveTowards(transform.position, vertRot.position + transform.forward * -camDist, 1);
                 transform.position = vertRot.position + transform.forward * -camDist;
                 //camDist = normalCamDist;
-            } else if (WorldSwitch.instance.transitionOut) {
-                if (WorldSwitch.instance.state == AwakeState.Dream) {
-                    transform.rotation = vertRot.rotation;
-                    transform.position = vertRot.position + transform.forward * -camDist;
-                    camDist -= Time.deltaTime * 1.715f * 2.5f/*1.55f * 2.5f*/;
-                } else if (WorldSwitch.instance.state == AwakeState.Nightmare) {
-                    transform.rotation = vertRot.rotation;
-                    transform.position = vertRot.position + transform.forward * -camDist;
-                    camDist -= Time.deltaTime * 1.595f * 2.5f/*1.45f * 2.5f*/;
-                }
-            } else if (WorldSwitch.instance.transitionIn) {
-                transform.rotation = vertRot.rotation;
-                transform.position = vertRot.position + transform.forward * -camDist;
-                camDist += Time.deltaTime * /*1.55f*/1.705f * 2.5f * 2;
             }
+            //else if (WorldSwitch.instance.transitionOut) {
+            //    if (WorldSwitch.instance.state == AwakeState.Dream) {
+            //        transform.rotation = vertRot.rotation;
+            //        transform.position = vertRot.position + transform.forward * -camDist;
+            //        camDist -= Time.deltaTime * 1.715f * 2.5f/*1.55f * 2.5f*/;
+            //    } else if (WorldSwitch.instance.state == AwakeState.Nightmare) {
+            //        transform.rotation = vertRot.rotation;
+            //        transform.position = vertRot.position + transform.forward * -camDist;
+            //        camDist -= Time.deltaTime * 1.595f * 2.5f/*1.45f * 2.5f*/;
+            //    }
+            //} else if (WorldSwitch.instance.transitionIn) {
+            //    transform.rotation = vertRot.rotation;
+            //    transform.position = vertRot.position + transform.forward * -camDist;
+            //    camDist += Time.deltaTime * /*1.55f*/1.705f * 2.5f * 2;
+            //}
         }
-
-
 	}
 }
