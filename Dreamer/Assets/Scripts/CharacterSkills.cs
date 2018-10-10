@@ -94,7 +94,7 @@ public class CharacterSkills : MonoBehaviour {
                 Shield();
             }
             //ChargePower();
-            if(Time.time > firingInterval + lastShot && (Input.GetAxis("Fire") > 0.5f || Input.GetButtonDown("Fire4")) && GameManager.instance.buddyPower > 0) {
+            if(Time.time > firingInterval + lastShot && (Input.GetAxis("Fire") > 0.3f || Input.GetButtonDown("Fire4")) && GameManager.instance.buddyPower > 0) {
                 Fire();
             } else {
                 fireEmitter.enabled = false;
