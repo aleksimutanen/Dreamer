@@ -6,14 +6,14 @@ public class Teleport : MonoBehaviour {
     public bool previous;
 
     private void Start() {
-        if (gameObject.name == "placeforportal") {
+        if (gameObject.name == "Portal") {
             GetComponent<MeshRenderer>().enabled = false;
             GetComponent<BoxCollider>().enabled = false;
         }
     }
 
     private void Update() {
-        if (gameObject.name == "placeforportal" && GameManager.instance.bashEnabled) {
+        if (gameObject.name == "Portal" && GameManager.instance.bashEnabled) {
             GetComponent<MeshRenderer>().enabled = true;
             GetComponent<BoxCollider>().enabled = true;
         }
