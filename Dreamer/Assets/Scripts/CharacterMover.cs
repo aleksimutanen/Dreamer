@@ -33,6 +33,7 @@ public class CharacterMover : MonoBehaviour {
 
     public bool onGround;
     public bool canJump;
+    public bool cantBash;
 
     Vector3 fallPoint;
     CharacterSkills cs;
@@ -159,6 +160,7 @@ public class CharacterMover : MonoBehaviour {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position - Vector3.up * groundCheckDepth, groundCheckSize);
         Gizmos.DrawWireSphere(transform.position - Vector3.up * groundCheckDepth2, groundCheckSize2);
+        Gizmos.DrawWireSphere(transform.position + new Vector3(0,3,0), 2f);
     }
 
     void Update() {
@@ -174,13 +176,16 @@ public class CharacterMover : MonoBehaviour {
 
     public void Bash() {
         //rb.AddForce(transform.forward * bashForce, ForceMode.Impulse);
-        bool hit = Physics.Raycast(transform.position, transform.forward, 2f);
-        if (hit) {
+        var g = Physics.OverlapSphere(transform.position + new Vector3(0, 3, 0), 2f, WorldSwitch.instance.map);
+        cantBash = g.Length > 0;
+        //bool hit = Physics.Raycast(transform.position, transform.forward, 2f);
+        if (cantBash) {
+            print("cant bash");
             cs.bashing = false;
             cs.bashCollider.SetActive(false);
             cs.activeTime = 0.5f;
-        }
-        rb.position += transform.forward * bashForce * Time.deltaTime;
+        } else
+            rb.position += transform.forward * bashForce * Time.deltaTime;
     }
 
     public void EnterDream() {
