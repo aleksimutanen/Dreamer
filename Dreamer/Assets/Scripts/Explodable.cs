@@ -5,7 +5,7 @@ using UnityEngine;
 public class Explodable : MonoBehaviour {
 
     public bool explodable;
-    public GameObject explosionEffect;
+    //public GameObject explosionEffect;
     public float countdown = 0.5f;
     Transform[] stones;
 
