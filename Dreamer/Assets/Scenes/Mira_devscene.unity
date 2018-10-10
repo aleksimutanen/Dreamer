@@ -2651,6 +2651,21 @@ Prefab:
       value: 
       objectReference: {fileID: 245103820959863786, guid: 634f2c6e9896456459638b7b6ce2d97d,
         type: 2}
+    - target: {fileID: 114346156464728672, guid: 532f122a5a60ad94abb6213287c64682,
+        type: 2}
+      propertyPath: dreamAmbientColor.r
+      value: 0.8584906
+      objectReference: {fileID: 0}
+    - target: {fileID: 114346156464728672, guid: 532f122a5a60ad94abb6213287c64682,
+        type: 2}
+      propertyPath: dreamAmbientColor.g
+      value: 0.5061855
+      objectReference: {fileID: 0}
+    - target: {fileID: 114346156464728672, guid: 532f122a5a60ad94abb6213287c64682,
+        type: 2}
+      propertyPath: dreamAmbientColor.b
+      value: 0.584825
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 532f122a5a60ad94abb6213287c64682, type: 2}
   m_IsPrefabAsset: 0
