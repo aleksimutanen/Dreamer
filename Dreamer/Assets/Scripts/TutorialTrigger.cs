@@ -22,6 +22,7 @@ public class TutorialTrigger : MonoBehaviour {
             }
             if(gameObject.name == "TutorialSwitchTrigger") {
                 GameManager.instance.ChangeStatusText(GameManager.instance.tutorialTexts[5], 5);
+                //GameManager.instance.ChangeStatusText(GameManager.instance.tutorialTexts[18], 5);
                 GameManager.instance.SetCheckpoint();
                 gameObject.SetActive(false);
             }
