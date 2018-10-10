@@ -143,6 +143,7 @@ public class GameManager : MonoBehaviour {
         tutorialTexts.Add("You Ded, PERMANENTLY LOL!");
         tutorialTexts.Add("You REALLY should pick up the crystal!");
         tutorialTexts.Add("Pathway to next level has been opened!");
+        tutorialTexts.Add("Yay! Demo has ended. Thanks for playing!");
         ChangeStatusText(tutorialTexts[0], 5);
         ChangeStatusText(tutorialTexts[1], 5);
     }

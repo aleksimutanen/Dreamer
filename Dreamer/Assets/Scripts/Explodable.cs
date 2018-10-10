@@ -19,10 +19,18 @@ public class Explodable : MonoBehaviour {
     }
 
     void Update () {
-        countdown -= Time.deltaTime;
-        if (countdown <= 0 && explodable) {
-            Explode();
+        if (explodable) {
+            countdown -= Time.deltaTime;
+            stoneEmitter.enabled = true;
+            if (countdown <= 0) {
+                Explode();
+            }
         }
+        //countdown -= Time.deltaTime;
+        //if (countdown <= 0 && explodable) {
+        //    stoneEmitter.enabled = true;
+        //    Explode();
+        //}
     }
 
     public void SetExplosion () {
@@ -43,7 +51,7 @@ public class Explodable : MonoBehaviour {
             if (stone.tag == "Cavestone") {
                 if (stone.GetComponent<Renderer>() != null) {
                     //Instantiate(explosionEffect, stone.GetComponent<Renderer>().bounds.center, stone.rotation);
-                    stoneEmitter.enabled = true;
+                    stoneEmitter.enabled = false;
                 }
             }
             stone.gameObject.SetActive(false);

@@ -65,6 +65,10 @@ public class TutorialTrigger : MonoBehaviour {
                 GameManager.instance.sleepingBat.sleeping = false;
                 gameObject.SetActive(false);
             }
+            if (gameObject.name == "GameEnd") {
+                GameManager.instance.ChangeStatusText(GameManager.instance.tutorialTexts[17], 10);
+                GameManager.instance.SetCheckpoint();
+            }
         }
     }
 }
