@@ -3430,11 +3430,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224621816085492066, guid: 2ec306df3d73c2144a783e1d33c9da91,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 224763456912814536, guid: 2ec306df3d73c2144a783e1d33c9da91,
         type: 2}
       propertyPath: m_AnchorMax.y
@@ -3450,12 +3445,17 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114270655531292746, guid: 2ec306df3d73c2144a783e1d33c9da91,
+    - target: {fileID: 224621816085492066, guid: 2ec306df3d73c2144a783e1d33c9da91,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114539769828315514, guid: 2ec306df3d73c2144a783e1d33c9da91,
         type: 2}
       propertyPath: m_havePropertiesChanged
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114270655531292746, guid: 2ec306df3d73c2144a783e1d33c9da91,
+    - target: {fileID: 114539769828315514, guid: 2ec306df3d73c2144a783e1d33c9da91,
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
@@ -3470,12 +3470,12 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114539769828315514, guid: 2ec306df3d73c2144a783e1d33c9da91,
+    - target: {fileID: 114270655531292746, guid: 2ec306df3d73c2144a783e1d33c9da91,
         type: 2}
       propertyPath: m_havePropertiesChanged
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114539769828315514, guid: 2ec306df3d73c2144a783e1d33c9da91,
+    - target: {fileID: 114270655531292746, guid: 2ec306df3d73c2144a783e1d33c9da91,
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
