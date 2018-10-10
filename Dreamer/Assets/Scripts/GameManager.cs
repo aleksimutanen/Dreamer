@@ -115,6 +115,12 @@ public class GameManager : MonoBehaviour {
             MoveDoor(doors[nextDoor]);
         }
         waitTimer -= Time.unscaledDeltaTime;
+
+        if (!gamePaused) {
+            Cursor.visible = false;
+        } else {
+            Cursor.visible = true;
+        }
     }
 
     private void Awake() {
@@ -131,14 +137,14 @@ public class GameManager : MonoBehaviour {
         tutorialTexts.Add("Well done! You can also move here =) Use your WASD or the left stick to move");
         tutorialTexts.Add("You can jump over obstacles by pressing the space button or the A button of your controller");
         tutorialTexts.Add("When you see crystals like this you should pick them up by walking close to them.");
-        tutorialTexts.Add("If you are stuck, you can try switching between the Dream mode and the Nightmare mode by pressing the Left Shift button or the B button.");
+        tutorialTexts.Add("If you are stuck, you can try switching between the Dream and the Nightmare by pressing the Left Shift button or the B button.");
         tutorialTexts.Add("You are now ready for your adventure, go on little one!");
         tutorialTexts.Add("You have obtained a new skill called Bash. You can use it by pressing the 'e button of your keyboard.");
         tutorialTexts.Add("You have obtained a new skill called Glide. You can use it by double pressing the space bar. You can have the Space bar pressed down for a longer Glide.");
         tutorialTexts.Add("Time to reflect some things!");
         tutorialTexts.Add("In order to pass through this door, you will need to find all the crystals in the area. Look at the ears of your toy, they will show you where the nearest crystals are.");
         tutorialTexts.Add("Try again!");
-        tutorialTexts.Add("If you see a scary tree, block its hits with your shield by pressing the right mouse button. Once your energy is full, you can release it by attacking with the left mouse button.");
+        tutorialTexts.Add("Block a scary tree's attacks with your shield by pressing the right mouse button or L1. Once your energy is full, you can release it by attacking with the left mouse button or R2.");
         tutorialTexts.Add("That bat looks explosive! Maybe you can get rid of the roadblocking stones if you make it go boom! You can attack the bat by pressing the Left mouse button.");
         tutorialTexts.Add("You Ded, PERMANENTLY LOL!");
         tutorialTexts.Add("You REALLY should pick up the crystal!");

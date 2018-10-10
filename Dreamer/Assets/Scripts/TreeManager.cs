@@ -46,7 +46,7 @@ public class TreeManager : MonoBehaviour, Enemy {
         // ja ei-vihollispuun unessa
         transition = WorldSwitch.instance.transitionOut;
 
-        if (ded && WorldSwitch.instance.state == AwakeState.Dream  /* && !dedInDream.activeSelf*/) {
+        if (ded  /* && !dedInDream.activeSelf*/) {
             dedInDream.SetActive(true);
         }
         else if (!ded && WorldSwitch.instance.state == AwakeState.Dream && transition /*&& !transitionOut/*&& (dreamTree || !nightmareTree)*/) {
