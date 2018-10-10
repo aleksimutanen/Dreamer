@@ -1002,6 +1002,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e6332166da85ff4bbb54641fc9481e0, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1026216021 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1051423032264184, guid: 2ec306df3d73c2144a783e1d33c9da91,
+    type: 2}
+  m_PrefabInternal: {fileID: 1208040845}
 --- !u!20 &1035532454 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 20293035270695866, guid: 6505da2c745f4b646b6ff8d438e68863,
@@ -1718,6 +1723,11 @@ Prefab:
       propertyPath: glideEnabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114947095394466928, guid: 7f1943aab179c5d46ba3caf77dfb56bf,
+        type: 2}
+      propertyPath: statusTextPanel
+      value: 
+      objectReference: {fileID: 1026216021}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f1943aab179c5d46ba3caf77dfb56bf, type: 2}
   m_IsPrefabAsset: 0
