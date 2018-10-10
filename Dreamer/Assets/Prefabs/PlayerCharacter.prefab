@@ -1138,7 +1138,7 @@ GameObject:
   - component: {fileID: 23022584743367274}
   - component: {fileID: 65122249913036978}
   - component: {fileID: 114060231638720910}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: BashCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6881,7 +6881,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.6512091, y: 1.2134881, z: 12.678711}
+  m_Size: {x: 1.59, y: 1.2134881, z: 16.4}
   m_Center: {x: 0.050598085, y: 0.16417062, z: -4.633405}
 --- !u!65 &65710585873971364
 BoxCollider:
@@ -7055,7 +7055,7 @@ MonoBehaviour:
   bash: {x: 0, y: 0, z: 2}
   untanglerHeight: {x: 0, y: 1, z: 0}
   jumpForce: 8
-  bashForce: 50
+  bashForce: 40
   movingSpeed: 15
   turnSpeed: 200
   inputAcceleration: 0

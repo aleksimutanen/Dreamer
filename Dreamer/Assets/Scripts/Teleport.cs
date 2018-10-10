@@ -4,6 +4,21 @@ using UnityEngine;
 
 public class Teleport : MonoBehaviour {
     public bool previous;
+
+    private void Start() {
+        if (gameObject.name == "placeforportal") {
+            GetComponent<MeshRenderer>().enabled = false;
+            GetComponent<BoxCollider>().enabled = false;
+        }
+    }
+
+    private void Update() {
+        if (gameObject.name == "placeforportal" && GameManager.instance.bashEnabled) {
+            GetComponent<MeshRenderer>().enabled = true;
+            GetComponent<BoxCollider>().enabled = true;
+        }
+    }
+
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player") {
             if (gameObject.name == "puzzle1_nightmareTeleport") {
