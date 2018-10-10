@@ -129,9 +129,9 @@ public class GameManager : MonoBehaviour {
         tutorialTexts.Add("Welcome to your dream.");
         tutorialTexts.Add("You can look around by moving your mouse or your controller's right stick. Now look around you.");
         tutorialTexts.Add("Well done! You can also move here =) Use your WASD or the left stick to move");
-        tutorialTexts.Add("You can jump over obstacles by pressing the space button or the x button of your controller");
+        tutorialTexts.Add("You can jump over obstacles by pressing the space button or the A button of your controller");
         tutorialTexts.Add("When you see crystals like this you should pick them up by walking close to them.");
-        tutorialTexts.Add("If you are stuck, you can try switching between the Dream mode and the Nightmare mode by pressing the Left Shift button.");
+        tutorialTexts.Add("If you are stuck, you can try switching between the Dream mode and the Nightmare mode by pressing the Left Shift button or the B button.");
         tutorialTexts.Add("You are now ready for your adventure, go on little one!");
         tutorialTexts.Add("You have obtained a new skill called Bash. You can use it by pressing the 'e button of your keyboard.");
         tutorialTexts.Add("You have obtained a new skill called Glide. You can use it by double pressing the space bar. You can have the Space bar pressed down for a longer Glide.");
