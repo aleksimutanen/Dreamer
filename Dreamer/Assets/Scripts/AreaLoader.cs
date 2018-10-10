@@ -21,6 +21,7 @@ public class AreaLoader : MonoBehaviour {
                 //SetChildrenActive(true);
                 //tag? layer won't work
             }
+            FindObjectOfType<EarCompass>().FindCrystals();
         }
     }
 }

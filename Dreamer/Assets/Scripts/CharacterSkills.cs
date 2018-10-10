@@ -86,7 +86,7 @@ public class CharacterSkills : MonoBehaviour {
     }
 
     void Update() {
-        if(GameManager.instance.gamePaused) {
+        if(!GameManager.instance.gamePaused) {
             if(GameManager.instance.glideEnabled) {
                 Glide();
             }

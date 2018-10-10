@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour {
     public GameObject vertRot;
     public GameObject horRot;
     public GameObject pauseMenu;
+    public GameObject statusTextPanel;
     public TextMeshProUGUI statusText;
     public float statusTextTimer = 0;
     public bool tutorialComplete = false;
@@ -141,7 +142,8 @@ public class GameManager : MonoBehaviour {
         tutorialTexts.Add("That bat looks explosive! Maybe you can get rid of the roadblocking stones if you make it go boom!");
         tutorialTexts.Add("You Ded, PERMANENTLY LOL!");
         tutorialTexts.Add("You REALLY should pick up the crystal!");
-        ChangeStatusText(tutorialTexts[0], 3);
+        tutorialTexts.Add("Pathway to next level has been opened!");
+        ChangeStatusText(tutorialTexts[0], 5);
     }
 
     public void SetCheckpoint(){
@@ -228,6 +230,12 @@ public class GameManager : MonoBehaviour {
     
     // Status text
     public void ChangeStatusText(string text, float timer){
+        if(text == ""){
+            statusTextPanel.gameObject.SetActive(false);
+        } else {
+            statusTextPanel.gameObject.SetActive(true);
+        }
+
         statusText.text = text;
         statusTextTimer = timer;
     }
@@ -237,7 +245,8 @@ public class GameManager : MonoBehaviour {
             door.SetActive(false);
             openDoor = false;
             nextDoor++;
-            doorOpen += 10;
+            ChangeStatusText(tutorialTexts[16], 3);
+            ChangeCrystalAmount(-10);
             return;
         }
     }
