@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour {
     float maxBuddyPower = 100;
     int maxCrystalAmount = 10;
 
-    float toddlerChargeSpeed = 1;
+    //float toddlerChargeSpeed = 1;
     float toddlerHealth = 100;
     float buddyChargeSpeed = 1;
     public float buddyPower = 0;
@@ -166,7 +166,7 @@ public class GameManager : MonoBehaviour {
         if(lives > 1){
             lives --;
             print("Life lost");
-            buddyPower = 0;
+            ChangeBuddyPower(-buddyPower);
             toddlerHealth = 100;
             TeleportToCheckPoint(false, false);
             ChangeStatusText(tutorialTexts[11], 3);
