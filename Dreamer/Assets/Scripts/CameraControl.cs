@@ -47,12 +47,12 @@ public class CameraControl : MonoBehaviour {
 
 
         if (GameManager.instance.lookEnabled) {
-            if (!WorldSwitch.instance.transitionOut && !WorldSwitch.instance.transitionIn) {
+            //if (!WorldSwitch.instance.transitionOut && !WorldSwitch.instance.transitionIn) {
                 transform.rotation = vertRot.rotation;
                 //transform.position = Vector3.MoveTowards(transform.position, vertRot.position + transform.forward * -camDist, 1);
                 transform.position = vertRot.position + transform.forward * -camDist;
                 //camDist = normalCamDist;
-            }
+            //}
             //else if (WorldSwitch.instance.transitionOut) {
             //    if (WorldSwitch.instance.state == AwakeState.Dream) {
             //        transform.rotation = vertRot.rotation;

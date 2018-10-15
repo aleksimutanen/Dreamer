@@ -246,22 +246,26 @@ public class Bat : MonoBehaviour, Enemy {
 
     private void OnTriggerEnter(Collider collision) {
 
-        if (collision.gameObject.name == "Shield" && blockable) {
-            print("blocked");
-            GameManager.instance.ChangeBuddyPower(pwrToShield);
-            //blocked --> return
-            batMode = BatMode.Returning;
-        } else if (collision.gameObject.name == "Ammo(Clone)") {
-            var ammo = collision.GetComponent<EnergyAmmo>();
-            TakeDamage(ammo.ammoDamage);
-            KickBack(ammo.dir, 500);
-            ammo.gameObject.SetActive(false);
-            print("ammo hit");
-        } else if (collision.gameObject.layer == 13) {
-            print("bat hit player");
-            GameManager.instance.ChangeToddlerHealth(dmgToPlayer);
-            batMode = BatMode.Returning;
-            returnTime = returnTimeValue;
+        if (WorldSwitch.instance.state == AwakeState.Nightmare) {
+            if (collision.gameObject.name == "Shield" && blockable) {
+                print("blocked");
+                GameManager.instance.ChangeBuddyPower(pwrToShield);
+                //blocked --> return
+                batMode = BatMode.Returning;
+            }
+            else if (collision.gameObject.name == "Ammo(Clone)") {
+                var ammo = collision.GetComponent<EnergyAmmo>();
+                TakeDamage(ammo.ammoDamage);
+                KickBack(ammo.dir, 500);
+                ammo.gameObject.SetActive(false);
+                print("ammo hit");
+            }
+            else if (collision.gameObject.layer == 13) {
+                print("bat hit player");
+                GameManager.instance.ChangeToddlerHealth(dmgToPlayer);
+                batMode = BatMode.Returning;
+                returnTime = returnTimeValue;
+            }
         }
     }
 

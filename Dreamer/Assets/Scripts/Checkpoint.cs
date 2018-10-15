@@ -9,6 +9,6 @@ public class Checkpoint : MonoBehaviour {
         print("Checkpoint");
         if (other.gameObject.tag == "Player")
             GameManager.instance.SetCheckpoint();
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
         }
     }
