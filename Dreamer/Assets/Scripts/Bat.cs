@@ -13,6 +13,7 @@ public class Bat : MonoBehaviour, Enemy {
     public BatMode batMode;
     public float returnTime;
     public float returnTimeValue;
+    public float attackReturnTime;
 
     public bool sleeping;
 
@@ -52,7 +53,7 @@ public class Bat : MonoBehaviour, Enemy {
     public GameObject batInNightmare;
     public GameObject batSleeping;
 
-    //muuta gamemanagerissa
+    //sillai että lepakon täytyy päästä puuhun takas unessa
 
     void Start() {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
@@ -65,7 +66,7 @@ public class Bat : MonoBehaviour, Enemy {
         target = playerTransform.position;
         //20 % chance of an unblockable attack
         i = Random.Range(0f, 1f);
-        returnTime = returnTimeValue;
+        returnTime = 0;
         health = healthValue;
     }
 
@@ -97,7 +98,7 @@ public class Bat : MonoBehaviour, Enemy {
         // switch states?
         if (WorldSwitch.instance.state == AwakeState.Nightmare && !sleeping) {
 
-            if (distToPlayer < attackRadius && (batMode != BatMode.Returning || returnTime <= 0)) {
+            if (distToPlayer < attackRadius && (batMode != BatMode.Returning || returnTime <= returnTimeValue - attackReturnTime)) {
                 batMode = BatMode.Attacking;
 
                 if (i < 0.2f) {
@@ -112,9 +113,6 @@ public class Bat : MonoBehaviour, Enemy {
             else if (rb.position != startPos && returnTime > 0) {
                 batMode = BatMode.Returning;
                 i = Random.Range(0f, 1f);
-                if (prevMode == BatMode.Attacking) {
-                    returnTime = returnTimeValue;
-                }
             } else {
                 batMode = BatMode.Flying;
             }
@@ -125,6 +123,7 @@ public class Bat : MonoBehaviour, Enemy {
         if (batMode != BatMode.Hanging && batMode != BatMode.Animated) {
             if (batMode == BatMode.Attacking) {
                 target = playerTransform.position;
+                returnTime = returnTimeValue;
             }
             else if (batMode == BatMode.Returning) {
                 target = startPos;
