@@ -238,11 +238,12 @@ public class Bat : MonoBehaviour, Enemy {
         foreach (Collider nearbyObj in nearbyObjects) {
             print(nearbyObj.tag);
             if (nearbyObj.tag == "Cavestone") {
-                Instantiate(explosionEffect, nearbyObj.transform.position, nearbyObj.transform.rotation);
+                var e = Instantiate(explosionEffect, nearbyObj.transform.position, nearbyObj.transform.rotation);
                 var expl = nearbyObj.GetComponent<Explodable>();
                 if (expl != null) {
                     expl.SetExplosion();
                 }
+                GameObject.Destroy(e, 2);
             }
         }
         //jos pelaaja lähellä, damagea pelaajaan / kilven latausta jos kilpi ylhäällä?
