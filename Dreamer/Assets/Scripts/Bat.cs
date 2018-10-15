@@ -48,6 +48,10 @@ public class Bat : MonoBehaviour, Enemy {
 
     BatMode prevMode;
 
+    public GameObject batInDream;
+    public GameObject batInNightmare;
+    public GameObject batSleeping;
+
     //muuta gamemanagerissa
 
     void Start() {
@@ -78,6 +82,12 @@ public class Bat : MonoBehaviour, Enemy {
 
         if (distToPlayer > 20 && timeSinceDeath > 15) {
             Respawn();
+        }
+
+        if(!sleeping && !batInDream.activeSelf) {
+            batInDream.SetActive(true);
+            batInNightmare.SetActive(true);
+            batSleeping.SetActive(false);
         }
     }
 
