@@ -166,7 +166,7 @@ public class GameManager : MonoBehaviour {
         if(lives > 1){
             lives --;
             print("Life lost");
-            buddyPower = 0;
+            ChangeBuddyPower(-buddyPower);
             toddlerHealth = 100;
             TeleportToCheckPoint(false, false);
             ChangeStatusText(tutorialTexts[11], 3);
