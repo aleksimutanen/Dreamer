@@ -6,6 +6,6 @@ public class CrystalNag : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision) {
         if(collision.gameObject.tag == "Player")
-            GameManager.instance.ChangeStatusText(GameManager.instance.tutorialTexts[15], 5);
+            GameManager.instance.ChangeStatusText(15, 5);
     }
 }

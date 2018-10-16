@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour {
     public GameObject statusTextPanel;
     public TextMeshProUGUI statusText;
     public float statusTextTimer = 0;
+    int statusTextIndex;
     public bool tutorialComplete = false;
 
     public List<string> tutorialTexts = new List<string>();
@@ -62,7 +63,7 @@ public class GameManager : MonoBehaviour {
     float maxBuddyPower = 100;
     int maxCrystalAmount = 10;
 
-    float toddlerChargeSpeed = 1;
+    //float toddlerChargeSpeed = 1;
     float toddlerHealth = 100;
     float buddyChargeSpeed = 1;
     public float buddyPower = 0;
@@ -74,7 +75,8 @@ public class GameManager : MonoBehaviour {
     bool openDoor;
 
     List<ScriptableText> textDialogQueue;
-    
+    public float secondsShowText;
+
     public void PlayTextDialog(ScriptableText st) {
         textDialogQueue.Add(st);   
     }
@@ -101,9 +103,22 @@ public class GameManager : MonoBehaviour {
         prevPlayerPos = player.transform.position;
         
         statusTextTimer -= Time.deltaTime;
-        
+
+        if (statusTextIndex == 0 && statusTextTimer <= 0) {
+            ChangeStatusText(1, secondsShowText);
+        }
+        if (statusTextIndex == 1 && statusTextTimer <= 0) {
+            ChangeStatusText(2, secondsShowText);
+        }
+        if (statusTextIndex == 5 && statusTextTimer <= 0) {
+            ChangeStatusText(18, secondsShowText);
+        }
+        if (statusTextIndex == 12 && statusTextTimer <= 0) {
+            ChangeStatusText(19, secondsShowText);
+        }
+
         if (statusTextTimer < 0){
-            ChangeStatusText("",1);
+            ChangeStatusText(tutorialTexts.Count-1,1);
         }
 
         if (crystalAmount == doorOpen) {
@@ -121,6 +136,7 @@ public class GameManager : MonoBehaviour {
         } else {
             Cursor.visible = true;
         }
+
     }
 
     private void Awake() {
@@ -134,7 +150,7 @@ public class GameManager : MonoBehaviour {
         checkpoint = gameStartPoint.position;
         tutorialTexts.Add("Welcome to your dream.");
         tutorialTexts.Add("You can look around by moving your mouse or your controller's right stick. Now look around you.");
-        tutorialTexts.Add("Well done! You can also move here =) Use your WASD or the left stick to move");
+        tutorialTexts.Add("You can also move by using WASD or the left stick on your controller.");
         tutorialTexts.Add("You can jump over obstacles by pressing the space button or the A button of your controller");
         tutorialTexts.Add("When you see crystals like this you should pick them up by walking close to them.");
         tutorialTexts.Add("If you are stuck, you can try switching between the Dream and the Nightmare by pressing the Left Shift button or the B button.");
@@ -144,15 +160,17 @@ public class GameManager : MonoBehaviour {
         tutorialTexts.Add("Time to reflect some things!");
         tutorialTexts.Add("In order to pass through this door, you will need to find all the crystals in the area. Look at the ears of your toy, they will show you where the nearest crystals are.");
         tutorialTexts.Add("Try again!");
-        tutorialTexts.Add("Block a scary tree's attacks with your shield by pressing the right mouse button or L1. Once your energy is full, you can release it by attacking with the left mouse button or R2.");
+        tutorialTexts.Add("Block a scary tree's attacks with your shield by pressing the right mouse button or L1.");
         tutorialTexts.Add("That bat looks explosive! Maybe you can get rid of the roadblocking stones if you make it go boom! You can attack the bat by pressing the Left mouse button.");
         tutorialTexts.Add("You Ded, PERMANENTLY LOL!");
         tutorialTexts.Add("You REALLY should pick up the crystal!");
         tutorialTexts.Add("Pathway to next level has been opened!");
         tutorialTexts.Add("Yay! Demo has ended. Thanks for playing!");
         tutorialTexts.Add("In nightmare mode, you can find enemies and paths that you wouldn't otherwise see. You cannot jump in the nightmare mode.");
-        ChangeStatusText(tutorialTexts[0], 5);
-        ChangeStatusText(tutorialTexts[1], 5);
+        tutorialTexts.Add("Once you have some energy you can release it with the left mouse button or R2. This attack can help you get rid of scary enemies.");
+        tutorialTexts.Add("");
+        ChangeStatusText(0, 3);
+
     }
 
     public void SetCheckpoint(){
@@ -166,14 +184,14 @@ public class GameManager : MonoBehaviour {
         if(lives > 1){
             lives --;
             print("Life lost");
-            buddyPower = 0;
+            ChangeBuddyPower(-buddyPower);
             toddlerHealth = 100;
             TeleportToCheckPoint(false, false);
-            ChangeStatusText(tutorialTexts[11], 3);
+            ChangeStatusText(11, 3);
             Fabric.EventManager.Instance.PostEvent("Death");
             //ChangeDreamPower(-(dreamPower-dreamPowMem));       
         } else if(!gameOver){
-            ChangeStatusText(tutorialTexts[14], 3);
+            ChangeStatusText(14, 3);
             print("Game Over");
             Fabric.EventManager.Instance.PostEvent("Death");
             gameOver = true;
@@ -238,8 +256,9 @@ public class GameManager : MonoBehaviour {
     }
     
     // Status text
-    public void ChangeStatusText(string text, float timer){
-        if(text == ""){
+    public void ChangeStatusText(int index, float timer){
+        string text = tutorialTexts[index];
+        if (text == ""){
             statusTextPanel.gameObject.SetActive(false);
         } else {
             statusTextPanel.gameObject.SetActive(true);
@@ -247,6 +266,7 @@ public class GameManager : MonoBehaviour {
 
         statusText.text = text;
         statusTextTimer = timer;
+        statusTextIndex = index;
     }
 
     void MoveDoor (GameObject door) {
@@ -254,7 +274,7 @@ public class GameManager : MonoBehaviour {
             door.SetActive(false);
             openDoor = false;
             nextDoor++;
-            ChangeStatusText(tutorialTexts[16], 3);
+            ChangeStatusText(16, 3);
             ChangeCrystalAmount(-10);
             return;
         }

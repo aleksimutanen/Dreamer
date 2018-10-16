@@ -21,7 +21,6 @@ public class Portal : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player") {
-            GameManager.instance.ChangeStatusText("Did you get the crystal in the next room?", 5);
             player = other.GetComponentInParent<CharacterMover>().gameObject;
             player.SetActive(false);
             player.transform.position = caveStart.position;
